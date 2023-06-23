@@ -494,6 +494,7 @@ This endpoint is only available to users with Doordeck issued auth tokens.
 </aside>
 
 This endpoint allows the retrieval of a user's public key along with their ID.
+If user is not found, one is created for the specified USER_EMAIL.
 
 ```shell
 curl 'https://api.doordeck.com/share/invite/USER_EMAIL' \
