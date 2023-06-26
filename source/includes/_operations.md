@@ -696,6 +696,7 @@ This endpoint allows operations to be performed on a lock, such as lock, unlock,
 Replace `LOCK_ID` with the appropriate lock ID.
 
 <aside class="success">
+On success, 204 status code is returned.
 If a request expires within the next 60 seconds, a 200 is returned upon success, if a request expires in more than 60 seconds, a 202 is returned to indicate the request has been queued for the device.
 </aside>
 
