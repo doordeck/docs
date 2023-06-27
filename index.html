@@ -2334,17 +2334,17 @@ curl <span class="s1">'https://api.doordeck.com/device/00000000-0000-0000-0000-0
 </ul>
 </blockquote>
 
-<p>This endpoint allows operations to be performed on a lock, such as lock, unlock, add/remove user. Requests to this endpoint must be signed and formed as a JSON web token.</p>
+<p>This endpoint allows operations to be performed on a lock, such as lock, unlock, add/remove user. Requests to this endpoint must be signed and formed as a JSON Web Token (JWT).</p>
 <h3 id='http-request-13'>HTTP Request</h3>
 <p><code>POST https://api.doordeck.com/device/LOCK_ID/execute</code></p>
 
 <p>Replace <code>LOCK_ID</code> with the appropriate lock ID.</p>
 
 <aside class="success">
-If a request expires within the next 60 seconds, a 200 is returned upon success, if a request expires in more than 60 seconds, a 202 is returned to indicate the request has been queued for the device.
+If a request expires within the next 60 seconds, a 204 is returned upon success, if a request expires in more than 60 seconds, a 202 is returned to indicate the request has been queued for the device.
 </aside>
-<h3 id='request-parameters-5'>Request Parameters</h3>
-<p>The header is formed of the following fields.</p>
+<h3 id='jwt-structure'>JWT Structure</h3>
+<p>The JWT header is formed of the following fields:</p>
 
 <table><thead>
 <tr>
@@ -2370,7 +2370,7 @@ If a request expires within the next 60 seconds, a 200 is returned upon success,
 </tr>
 </tbody></table>
 
-<p>The body is formed of the following fields.</p>
+<p>The JWT body is formed of the following fields:</p>
 
 <table><thead>
 <tr>
@@ -2456,6 +2456,8 @@ If a request expires within the next 60 seconds, a 200 is returned upon success,
 <td>Unix timestamp of when the user should expire, null or unset for never expires</td>
 </tr>
 </tbody></table>
+
+<p>After the request has been signed with user&#39;s private key, it should be sent to the execute endpoint.</p>
 <h2 id='revoke-access-to-a-lock'>Revoke Access To A Lock</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.doordeck.com/auth/token/'</span> <span class="se">\</span>
   <span class="nt">-X</span> POST <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
@@ -2496,7 +2498,7 @@ This section explains how to revoke access to a lock, this can also be used to d
 <aside class="success">
 If a request expires within the next 60 seconds, a 200 is returned upon success, if a request expires in more than 60 seconds, a 202 is returned to indicate the request has been queued for the device.
 </aside>
-<h3 id='request-parameters-6'>Request Parameters</h3>
+<h3 id='request-parameters-5'>Request Parameters</h3>
 <p>The header is formed of the following fields.</p>
 
 <table><thead>
@@ -2629,7 +2631,7 @@ This section explains how to change on-lock settings, such as unlock time and op
 <aside class="success">
 If a request expires within the next 60 seconds, a 200 is returned upon success, if a request expires in more than 60 seconds, a 202 is returned to indicate the request has been queued for the device.
 </aside>
-<h3 id='request-parameters-7'>Request Parameters</h3>
+<h3 id='request-parameters-6'>Request Parameters</h3>
 <p>The header is formed of the following fields.</p>
 
 <table><thead>
