@@ -687,7 +687,7 @@ curl 'https://api.doordeck.com/device/00000000-0000-0000-0000-000000000000/execu
 > - Replace `USERNAME` and `PASSWORD` with the appropriate credentials
 > - Replace `START_TIME` and `END_TIME` with Unix timestamps of when the user should be activate from and until, use null for indefinite 
 
-This endpoint allows operations to be performed on a lock, such as lock, unlock, add/remove user. Requests to this endpoint must be signed and formed as a JSON web token.
+This endpoint allows operations to be performed on a lock, such as lock, unlock, add/remove user. Requests to this endpoint must be signed and formed as a JSON Web Token (JWT).
 
 ### HTTP Request
 
@@ -696,12 +696,12 @@ This endpoint allows operations to be performed on a lock, such as lock, unlock,
 Replace `LOCK_ID` with the appropriate lock ID.
 
 <aside class="success">
-If a request expires within the next 60 seconds, a 200 is returned upon success, if a request expires in more than 60 seconds, a 202 is returned to indicate the request has been queued for the device.
+If a request expires within the next 60 seconds, a 204 is returned upon success, if a request expires in more than 60 seconds, a 202 is returned to indicate the request has been queued for the device.
 </aside>
 
-### Request Parameters
+### JWT Structure
 
-The header is formed of the following fields.
+The JWT header is formed of the following fields:
 
 Parameter | Required | Description
 --------- | ------- | -----------
@@ -709,7 +709,7 @@ alg | true | `RS256` (legacy) RSA signed with a 256 bit SHA hash, or EdDSA for e
 x5c | false | User's certificate chain, mandatory for EdDSA signatures
 typ | true | `JWT`, JSON web token
 
-The body is formed of the following fields.
+The JWT body is formed of the following fields:
 
 Parameter | Required | Description
 --------- | ------- | -----------
@@ -731,6 +731,8 @@ publicKey | true | Public key of user to add
 role | false | Should be either ADMIN or USER
 start | false | Unix timestamp of when the user should be active from, null or unset to start immediately
 end | false | Unix timestamp of when the user should expire, null or unset for never expires
+
+After the request has been signed with user's private key, it should be sent to the execute endpoint.
 
 ## Revoke Access To A Lock
 
