@@ -120,7 +120,7 @@ Adds a new auth key to the permitted auth keys for user's of this application, c
 
 ### HTTP Request
 
-`POST https://api.doordeck.com/platform/application/APPLICATION_ID/key`
+`POST https://api.doordeck.com/platform/application/APPLICATION_ID/auth/key`
 
 ### Request Parameters
 
