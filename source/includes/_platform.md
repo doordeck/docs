@@ -134,7 +134,7 @@ application.
 
 ### HTTP Request
 
-`POST https://api.doordeck.com/platform/application/APPLICATION_ID/issuer`
+`POST https://api.doordeck.com/platform/application/APPLICATION_ID/auth/issuer`
 
 ### Request Parameters
 
@@ -148,7 +148,7 @@ Deletes an auth issuer.
 
 ### HTTP Request
 
-`DELETE https://api.doordeck.com/platform/application/APPLICATION_ID/issuer`
+`DELETE https://api.doordeck.com/platform/application/APPLICATION_ID/auth/issuer`
 
 ### Request Parameters
 
