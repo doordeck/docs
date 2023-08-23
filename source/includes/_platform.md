@@ -183,3 +183,68 @@ Remove CORS domain.
 Parameter | Required | Description
 --------- | -------- | -----------
 url | true | CORS Domain
+
+
+## Add Application Owner
+
+Adds a new owner to an existing application.
+<br>
+This is a simple HTTP request which requires a path parameter, a body consisting of a json with a single field and a bearer token for authentication purposes.
+
+```shell
+curl --location --request POST 'https://api.doordeck.com/platform/application/{APPLICATION_ID}/owner' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer TOKEN \
+--data-raw '{"userId": "00000000-0000-0000-0000-000000000000"}'
+```
+```
+> - Replace `00000000-0000-0000-0000-000000000000` with the new owner's ID
+> - Replace `APPLICATION_ID` with the application ID.
+```
+### HTTP Request
+
+`POST https://api.doordeck.com/platform/application/{APPLICATION_ID}/owner`
+
+### Request Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+applicationId | true | Application ID to add owner to
+
+### Request Body
+
+Parameter | Required | Description
+--------- | -------- | -----------
+userId | true | User ID to add as owner
+
+## Remove Application Owner
+
+Removes an owner from an existing application. It's the reverse operation of the previous endpoint.
+<br>
+This is a simple HTTP request which requires a path parameter, a body consisting of a json with a single field and a bearer token for authentication purposes.
+
+```shell
+curl --location --request DELETE 'https://api.doordeck.com/platform/application/{APPLICATION_ID}/owner' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer TOKEN \
+--data-raw '{"userId": "00000000-0000-0000-0000-000000000000"}'
+```
+```
+> - Replace `00000000-0000-0000-0000-000000000000` with the ID of owner to be removed
+> - Replace `APPLICATION_ID` with the application ID.
+```
+### HTTP Request
+
+`DELETE https://api.doordeck.com/platform/application/{APPLICATION_ID}/owner`
+
+### Request Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+applicationId | true | Application ID to remove owner from
+
+### Request Body
+
+Parameter | Required | Description
+--------- | -------- | -----------
+userId | true | User ID to be removed as owner
