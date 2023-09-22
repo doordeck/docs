@@ -351,7 +351,7 @@ Replace `LOCK_ID` with the appropriate lock ID.
 
 ## Get Locks For A User
 ```shell
- curl 'https://api.doordeck.com/device/00000000-0000-0000-0000-000000000000'
+ curl 'https://api.doordeck.com/user/00000000-0000-0000-0000-000000000000'
 ```
 
 > Replace `00000000-0000-0000-0000-000000000000` with the user's ID.
