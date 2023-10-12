@@ -364,6 +364,9 @@
                   <li>
                     <a href="#update-user-details" class="toc-h2 toc-link" data-title="Update User Details">Update User Details</a>
                   </li>
+                  <li>
+                    <a href="#delete-account" class="toc-h2 toc-link" data-title="Delete Account">Delete Account</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1255,6 +1258,16 @@ This endpoint is only available to users with Doordeck issued auth tokens.
 <td>User&#39;s desired display name</td>
 </tr>
 </tbody></table>
+<h2 id='delete-account'>Delete Account</h2>
+<p>Deletes the currently logged in user&#39;s account, associated with the application the user is logged in.
+<aside class="warning">
+This operation is irreversible!
+</aside></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.doordeck.com/account'</span> <span class="se">\</span>
+   <span class="nt">-X</span> DELETE <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'Authorization: Bearer TOKEN'</span> <span class="se">\</span>
+</code></pre></div><h3 id='http-request-16'>HTTP Request</h3>
+<p><code>DELETE https://api.doordeck.com/account</code></p>
 <h1 id='sites'>Sites</h1><h2 id='list-sites'>List Sites</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.doordeck.com/site/'</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer TOKEN"</span>
 </code></pre></div>
