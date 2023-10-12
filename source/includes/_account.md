@@ -499,3 +499,24 @@ This endpoint updates a user's details, currently this is limited to display nam
 Parameter | Required | Description
 --------- | ------- | -----------
 displayName | true | User's desired display name
+
+## Delete Account
+
+Deletes the currently logged in user's account, associated with the application the user is logged in.
+<br>
+<b>Warning! </b>This operation is irreversible!
+
+```shell
+curl 'https://api.doordeck.com/account' \
+   -X DELETE \
+  --header 'Content-Type: application/json' \
+  --header 'Authorization: Bearer TOKEN' \
+```
+
+### HTTP Request
+
+`DELETE https://api.doordeck.com/account`
+
+### Request Parameters
+
+This request has no body/ parameters. The applicationId and userId are taken from the authentication token.
