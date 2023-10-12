@@ -503,20 +503,16 @@ displayName | true | User's desired display name
 ## Delete Account
 
 Deletes the currently logged in user's account, associated with the application the user is logged in.
-<br>
-<b>Warning! </b>This operation is irreversible!
+<aside class="warning">
+This operation is irreversible!
+</aside>
 
 ```shell
 curl 'https://api.doordeck.com/account' \
    -X DELETE \
-  --header 'Content-Type: application/json' \
   --header 'Authorization: Bearer TOKEN' \
 ```
 
 ### HTTP Request
 
 `DELETE https://api.doordeck.com/account`
-
-### Request Parameters
-
-This request has no body/ parameters. The applicationId and userId are taken from the authentication token.
