@@ -246,3 +246,44 @@ applicationId | true | Application ID to remove owner from
 Parameter | Required | Description
 --------- | -------- | -----------
 userId | true | User ID to be removed as owner
+
+## Get Application Owners Details
+
+This endpoint will return the details of all owners of an application (see json below), given the requesting user is an owner.
+
+```shell
+curl 'https://api.doordeck.com/platform/application/APPLICATION_ID/owner' \
+  -X GET \
+  --header 'Content-Type: application/json' \
+  --header 'Authorization: Bearer TOKEN'
+```
+
+> - Replace `APPLICATION_ID` with the application ID.
+
+### HTTP Request
+
+`GET https://api.doordeck.com/platform/application/APPLICATION_ID/owner`
+
+### Request Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+applicationId | true | Application ID to get owner details for
+
+### Response Structure
+
+Upon success, this API will return a JSON structured like this:
+
+```json
+[
+  {
+    "userId": "00000000-0000-0000-0000-000000000000",
+    "email": "bear@doordeck.com",
+    "displayName": "Bear",
+    "orphaned": false,
+    "foreign": false
+  }
+]
+```
+- `displayName` is optional and will be null if not set
+- `orphaned` is optional and will be null if not set 
