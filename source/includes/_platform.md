@@ -254,7 +254,6 @@ This endpoint will return the details of all owners of an application (see json 
 ```shell
 curl 'https://api.doordeck.com/platform/application/APPLICATION_ID/owner' \
   -X GET \
-  --header 'Content-Type: application/json' \
   --header 'Authorization: Bearer TOKEN'
 ```
 
@@ -266,9 +265,9 @@ curl 'https://api.doordeck.com/platform/application/APPLICATION_ID/owner' \
 
 ### Request Parameters
 
-Parameter | Required | Description
---------- | -------- | -----------
-applicationId | true | Application ID to get owner details for
+| Parameter     | Required | Description                             |
+| ------------- | -------- | --------------------------------------- |
+| applicationId | true     | Application ID to get owner details for |
 
 ### Response Structure
 
@@ -286,4 +285,4 @@ Upon success, this API will return a JSON structured like this:
 ]
 ```
 - `displayName` is optional and will be null if not set
-- `orphaned` is optional and will be null if not set 
+- `orphaned` is false is not orphaned 
