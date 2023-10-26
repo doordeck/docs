@@ -288,4 +288,4 @@ curl 'https://api.doordeck.com/platform/application/APPLICATION_ID/owner' \
 - `email` is the user's email address
 - `displayName` is optional and will be null if not set
 - `orphaned` is false is not orphaned
-- `foreign` is false if the application is a Doordeck application
+- `foreign` is true if the user belongs to the Doordeck user pool, false if they belong to a third-party application user pool 
