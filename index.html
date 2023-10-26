@@ -3258,7 +3258,9 @@ application.</p>
 </tr>
 </tbody></table>
 <h3 id='response-structure'>Response Structure</h3>
+<blockquote>
 <p>Upon success, this API will return a JSON structured like this:</p>
+</blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
@@ -3270,8 +3272,11 @@ application.</p>
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <ul>
+<li><code>userId</code> is the user&#39;s ID</li>
+<li><code>email</code> is the user&#39;s email address</li>
 <li><code>displayName</code> is optional and will be null if not set</li>
-<li><code>orphaned</code> is false is not orphaned </li>
+<li><code>orphaned</code> is false is not orphaned</li>
+<li><code>foreign</code> is true if the user belongs to the Doordeck user pool, false if they belong to a third-party application user pool </li>
 </ul>
 <h1 id='encoding'>Encoding</h1><h2 id='versioning'>Versioning</h2>
 <p>All Doordeck endpoints use JSON as their primary encoding scheme and respond to clients sending an 
