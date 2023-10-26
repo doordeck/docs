@@ -271,7 +271,7 @@ curl 'https://api.doordeck.com/platform/application/APPLICATION_ID/owner' \
 
 ### Response Structure
 
-Upon success, this API will return a JSON structured like this:
+> Upon success, this API will return a JSON structured like this:
 
 ```json
 [
@@ -284,5 +284,8 @@ Upon success, this API will return a JSON structured like this:
   }
 ]
 ```
+- `userId` is the user's ID
+- `email` is the user's email address
 - `displayName` is optional and will be null if not set
-- `orphaned` is false is not orphaned 
+- `orphaned` is false is not orphaned
+- `foreign` is true if the user belongs to the Doordeck user pool, false if they belong to a third-party application user pool 
