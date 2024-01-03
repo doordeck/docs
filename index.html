@@ -395,6 +395,9 @@
                   <li>
                     <a href="#disassociate-tile-from-lock" class="toc-h2 toc-link" data-title="Disassociate Tile From Lock">Disassociate Tile From Lock</a>
                   </li>
+                  <li>
+                    <a href="#associate-multiple-locks-devices-to-a-single-tile" class="toc-h2 toc-link" data-title="Associate multiple locks (devices) to a single tile">Associate multiple locks (devices) to a single tile</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1439,6 +1442,75 @@ associated to any other locks.</p>
 <p><code>DELETE https://api.doordeck.com/device/DEVICE_ID/tile/TILE_ID/</code></p>
 
 <p>Replace <code>TILE_ID</code> with the appropriate tile ID and <code>DEVICE_ID</code> with the appropriate device ID.</p>
+<h2 id='associate-multiple-locks-devices-to-a-single-tile'>Associate multiple locks (devices) to a single tile</h2>
+<p>The endpoints links multiple locks to a single tile. The current user must be an administrator of the locks and also a site administrator.
+This endpoint is only available from API version 2 onwards.
+<br>
+The behavior of this endpoint is as follows:
+- given set of devices is not empty, the tile will be associated to these given devices, disassociating from any other devices not in the set
+- given set of devices is empty, the tile will be disassociated from all devices</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000'</span> <span class="se">\</span>
+  <span class="nt">-X</span> PUT <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'Authorization: Bearer TOKEN'</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'Accept: application/vnd.doordeck.api-v2+json'</span> <span class="se">\</span>
+  <span class="nt">--data-binary</span> <span class="s1">'{ \
+  "siteId": "SITE_ID", \
+  "devices": ["DEVICE_ID_1", "DEVICE_ID_2", "DEVICE_ID_3"] \
+  }'</span>
+</code></pre></div>
+<blockquote>
+<ul>
+<li>Replace <code>00000000-0000-0000-0000-000000000000</code> with the tile ID to which you want to associate multiple locks</li>
+<li>Replace <code>SITE_ID</code> with the site ID to which the tile belongs</li>
+<li>Replace <code>DEVICE_ID_1</code>, <code>DEVICE_ID_2</code>, <code>DEVICE_ID_3</code> with the device IDs to be associated to the tile</li>
+</ul>
+</blockquote>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT https://api.doordeck.com/tile/{tileId}</code></p>
+<h3 id='request-parameters'>Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tileId</td>
+<td>true</td>
+<td>Id the tile to which the devices will be mapped</td>
+</tr>
+</tbody></table>
+<h3 id='request-headers'>Request Headers</h3>
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>true</td>
+<td>application/vnd.doordeck.api-v2+json</td>
+</tr>
+</tbody></table>
+<h3 id='request-body'>Request Body</h3>
+<p>This request needs a JSON body with the following structure:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>{
+  "siteId": "00000000-0000-0000-0000-000000000000",
+  "devices": [
+    "00000000-0000-0000-0000-000000000000",
+    "00000000-0000-0000-0000-000000000000",
+    "00000000-0000-0000-0000-000000000000"
+  ]
+}
+</code></pre></div>
+<p>The values for the <code>siteId</code> and <code>devices</code> parameters are as follows:
+- <code>siteId</code> is the site ID to which the tile belongs
+- <code>devices</code> is an array of device IDs to be associated to the tile  </p>
+<h3 id='response-structure'>Response Structure</h3>
+<p>Upon success, this API will return a 200 OK response.</p>
 <h1 id='lock-operations'>Lock Operations</h1><h2 id='get-all-locks'>Get All Locks</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.doordeck.com/device'</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer TOKEN"</span>
 </code></pre></div>
