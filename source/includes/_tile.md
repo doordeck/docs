@@ -20,6 +20,50 @@ This endpoint identifies which lock belongs to the specific tile.
 
 Replace `TILE_ID` with the appropriate tile ID.
 
+## Get Lock Belonging To Tile (v2)
+
+```shell
+curl 'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/'
+  -H "Authorization: Bearer TOKEN"
+```
+
+> Replace `00000000-0000-0000-0000-000000000000` with the tile ID.
+
+> The above command returns 404 if no tile is known, or a see other 303 with the `Location` header set to the value of
+the lock
+
+This endpoint identifies which lock belongs to the specific tile.
+
+This call must be made with the `Accept` header set to `application/vnd.doordeck.api-v2+json`.
+
+### HTTP Request
+
+`GET https://api.doordeck.com/tile/TILE_ID/`
+
+Replace `TILE_ID` with the appropriate tile ID.
+
+## Get Lock Belonging To Tile (v3)
+
+```shell
+curl 'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/'
+  -H "Authorization: Bearer TOKEN"
+```
+
+> Replace `00000000-0000-0000-0000-000000000000` with the tile ID.
+
+> The above command returns 404 if no tile is known, or a see other 303 with the `Location` header set to the value of
+the lock
+
+This endpoint identifies which lock belongs to the specific tile.
+
+This call must be made with the `Accept` header set to `application/vnd.doordeck.api-v3+json`.
+
+### HTTP Request
+
+`GET https://api.doordeck.com/tile/TILE_ID/`
+
+Replace `TILE_ID` with the appropriate tile ID.
+
 ## Associate Tile With Lock
 
 ```shell
