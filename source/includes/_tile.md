@@ -1,6 +1,10 @@
 # Tiles
 
-## Get Lock Belonging To Tile
+## Get Lock Belonging To Tile (v1)
+
+<aside class="warning">
+This endpoint is marked for deprecation. Please refer to v3 for the latest version.
+</aside>
 
 ```shell
 curl 'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/'
@@ -22,17 +26,19 @@ Replace `TILE_ID` with the appropriate tile ID.
 
 ## Get Lock Belonging To Tile (v2)
 
+<aside class="warning">
+This endpoint is marked for deprecation. Please refer to v3 for the latest version.
+</aside>
+
 ```shell
 curl 'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/'
+  -H "Accept: application/vnd.doordeck.api-v2+json"
   -H "Authorization: Bearer TOKEN"
 ```
 
 > Replace `00000000-0000-0000-0000-000000000000` with the tile ID.
 
-> The above command returns 404 if no tile is known, or a see other 303 with the `Location` header set to the value of
-the lock
-
-> On success, it returns a json structured like this:
+> The above command returns a JSON structured as follows:
 ```json
 {
   "deviceId": "device-uuid"
@@ -53,15 +59,13 @@ Replace `TILE_ID` with the appropriate tile ID.
 
 ```shell
 curl 'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/'
+  -H "Accept: application/vnd.doordeck.api-v3+json"
   -H "Authorization: Bearer TOKEN"
 ```
 
 > Replace `00000000-0000-0000-0000-000000000000` with the tile ID.
 
-> The above command returns 404 if no tile is known, or a see other 303 with the `Location` header set to the value of
-the lock
-
-> On success, it returns a json structured like this:
+> The above command returns a JSON structured as follows:
 ```json
 {
     "siteId": "site-uuid",
