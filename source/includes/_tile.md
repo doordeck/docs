@@ -32,6 +32,13 @@ curl 'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/'
 > The above command returns 404 if no tile is known, or a see other 303 with the `Location` header set to the value of
 the lock
 
+> On success, it returns a json structured like this:
+```json
+{
+  "deviceId": "device-uuid"
+}
+```
+
 This endpoint identifies which lock belongs to the specific tile.
 
 This call must be made with the `Accept` header set to `application/vnd.doordeck.api-v2+json`.
@@ -53,6 +60,18 @@ curl 'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/'
 
 > The above command returns 404 if no tile is known, or a see other 303 with the `Location` header set to the value of
 the lock
+
+> On success, it returns a json structured like this:
+```json
+{
+    "siteId": "site-uuid",
+    "tileId": "tile-uuid",
+    "deviceIds": [
+      "device-uuid-1",
+      "device-uuid-2"
+    ]
+}
+```
 
 This endpoint identifies which lock belongs to the specific tile.
 
