@@ -387,7 +387,13 @@
             <a href="#tiles" class="toc-h1 toc-link" data-title="Tiles">Tiles</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-lock-belonging-to-tile" class="toc-h2 toc-link" data-title="Get Lock Belonging To Tile">Get Lock Belonging To Tile</a>
+                    <a href="#get-lock-belonging-to-tile-v1" class="toc-h2 toc-link" data-title="Get Lock Belonging To Tile (v1)">Get Lock Belonging To Tile (v1)</a>
+                  </li>
+                  <li>
+                    <a href="#get-lock-belonging-to-tile-v2" class="toc-h2 toc-link" data-title="Get Lock Belonging To Tile (v2)">Get Lock Belonging To Tile (v2)</a>
+                  </li>
+                  <li>
+                    <a href="#get-locks-belonging-to-tile-v3" class="toc-h2 toc-link" data-title="Get Locks Belonging To Tile (v3)">Get Locks Belonging To Tile (v3)</a>
                   </li>
                   <li>
                     <a href="#associate-tile-with-lock" class="toc-h2 toc-link" data-title="Associate Tile With Lock">Associate Tile With Lock</a>
@@ -447,9 +453,6 @@
                   </li>
                   <li>
                     <a href="#update-secure-settings" class="toc-h2 toc-link" data-title="Update Secure Settings">Update Secure Settings</a>
-                  </li>
-                  <li>
-                    <a href="#monitor-real-time-lock-state" class="toc-h2 toc-link" data-title="Monitor Real-time Lock State">Monitor Real-time Lock State</a>
                   </li>
                   <li>
                     <a href="#get-pinned-locks" class="toc-h2 toc-link" data-title="Get Pinned Locks">Get Pinned Locks</a>
@@ -1396,7 +1399,11 @@ administrator of will return user information.</p>
 <p><code>GET https://api.doordeck.com/site/SITE_ID/user/</code></p>
 
 <p>Replace <code>SITE_ID</code> with the appropriate site ID.</p>
-<h1 id='tiles'>Tiles</h1><h2 id='get-lock-belonging-to-tile'>Get Lock Belonging To Tile</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/'</span>
+<h1 id='tiles'>Tiles</h1><h2 id='get-lock-belonging-to-tile-v1'>Get Lock Belonging To Tile (v1)</h2>
+<aside class="warning">
+This endpoint is marked for deprecation. Please refer to v3 for the latest version.
+</aside>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/'</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer TOKEN"</span>
 </code></pre></div>
 <blockquote>
@@ -1408,6 +1415,55 @@ the lock</p>
 
 <p>This endpoint identifies which lock belongs to the specific tile.</p>
 <h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.doordeck.com/tile/TILE_ID/</code></p>
+
+<p>Replace <code>TILE_ID</code> with the appropriate tile ID.</p>
+<h2 id='get-lock-belonging-to-tile-v2'>Get Lock Belonging To Tile (v2)</h2>
+<aside class="warning">
+This endpoint is marked for deprecation. Please refer to v3 for the latest version.
+</aside>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/'</span>
+  <span class="nt">-H</span> <span class="s2">"Accept: application/vnd.doordeck.api-v2+json"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer TOKEN"</span>
+</code></pre></div>
+<blockquote>
+<p>Replace <code>00000000-0000-0000-0000-000000000000</code> with the tile ID.</p>
+
+<p>The above command returns a JSON structured as follows:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"deviceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"device-uuid"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint identifies which lock belongs to the specific tile.</p>
+
+<p>This call must be made with the <code>Accept</code> header set to <code>application/vnd.doordeck.api-v2+json</code>.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.doordeck.com/tile/TILE_ID/</code></p>
+
+<p>Replace <code>TILE_ID</code> with the appropriate tile ID.</p>
+<h2 id='get-locks-belonging-to-tile-v3'>Get Locks Belonging To Tile (v3)</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/'</span>
+  <span class="nt">-H</span> <span class="s2">"Accept: application/vnd.doordeck.api-v3+json"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer TOKEN"</span>
+</code></pre></div>
+<blockquote>
+<p>Replace <code>00000000-0000-0000-0000-000000000000</code> with the tile ID.</p>
+
+<p>The above command returns a JSON structured as follows:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"siteId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"site-uuid"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tile-uuid"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"deviceIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"device-uuid-1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"device-uuid-2"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint identifies which lock belongs to the specific tile.</p>
+
+<p>This call must be made with the <code>Accept</code> header set to <code>application/vnd.doordeck.api-v3+json</code>.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://api.doordeck.com/tile/TILE_ID/</code></p>
 
 <p>Replace <code>TILE_ID</code> with the appropriate tile ID.</p>
@@ -1423,7 +1479,7 @@ the lock</p>
 
 <p>The endpoints links a tile to a lock; the current user must be an administrator of the lock and the tile must not be 
 associated to any other locks.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>PUT https://api.doordeck.com/device/DEVICE_ID/tile/TILE_ID/</code></p>
 
 <p>Replace <code>TILE_ID</code> with the appropriate tile ID and <code>DEVICE_ID</code> with the appropriate device ID.</p>
@@ -1438,7 +1494,7 @@ associated to any other locks.</p>
 </blockquote>
 
 <p>The endpoint removes the relationship between a tile and a lock, the tile can then be reassigned to another lock.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>DELETE https://api.doordeck.com/device/DEVICE_ID/tile/TILE_ID/</code></p>
 
 <p>Replace <code>TILE_ID</code> with the appropriate tile ID and <code>DEVICE_ID</code> with the appropriate device ID.</p>
@@ -1465,7 +1521,7 @@ The behavior of this endpoint is as follows:
 <li>Replace <code>DEVICE_ID_1</code>, <code>DEVICE_ID_2</code>, <code>DEVICE_ID_3</code> with the device IDs to be associated to the tile</li>
 </ul>
 </blockquote>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>PUT https://api.doordeck.com/tile/{tileId}</code></p>
 <h3 id='request-parameters'>Request Parameters</h3>
 <table><thead>
@@ -2859,34 +2915,6 @@ If a request expires within the next 60 seconds, a 200 is returned upon success,
 <td>List of dates (YYYY-MM-DD) to ignore above settings, useful for holidays</td>
 </tr>
 </tbody></table>
-<h2 id='monitor-real-time-lock-state'>Monitor Real-time Lock State</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.doordeck.com/device/events?device=00000000-0000-0000-0000-000000000000"</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer TOKEN"</span>
-</code></pre></div>
-<blockquote>
-<p>Replace <code>00000000-0000-0000-0000-000000000000</code> with the lock&#39;s ID</p>
-</blockquote>
-
-<p>This is a <a href="https://en.wikipedia.org/wiki/Server-sent_events">Server-Sent Events</a> endpoint that takes multiple devices and returns a stream of events.</p>
-
-<aside class="notice">
-This endpoint is experimental and may change without notice.
-</aside>
-<h3 id='http-request-16'>HTTP Request</h3>
-<p><code>GET https://api.doordeck.com/device/events?device=00000000-0000-0000-0000-000000000000</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>device</td>
-<td>true</td>
-<td>Device ID to monitor, multiple can specified as separate query parameters</td>
-</tr>
-</tbody></table>
 <h2 id='get-pinned-locks'>Get Pinned Locks</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.doordeck.com/device/favourite"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer TOKEN"</span>
 </code></pre></div>
@@ -2941,7 +2969,7 @@ This endpoint is experimental and may change without notice.
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <p>The endpoint returns a list of the current user&#39;s pinned locks.</p>
-<h3 id='http-request-17'>HTTP Request</h3>
+<h3 id='http-request-16'>HTTP Request</h3>
 <p><code>GET https://api.doordeck.com/device/favourite</code></p>
 <h2 id='get-shareable-locks'>Get Shareable Locks</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.doordeck.com/device/shareable"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer TOKEN"</span>
@@ -2961,7 +2989,7 @@ This endpoint is experimental and may change without notice.
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint returns the names and IDs of locks where the current user is an administrator.</p>
-<h3 id='http-request-18'>HTTP Request</h3>
+<h3 id='http-request-17'>HTTP Request</h3>
 <p><code>GET https://api.doordeck.com/device/shareable</code></p>
 <h1 id='platform'>Platform</h1>
 <aside class="warning">
