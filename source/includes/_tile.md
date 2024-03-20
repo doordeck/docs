@@ -39,6 +39,7 @@ curl 'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/'
 > Replace `00000000-0000-0000-0000-000000000000` with the tile ID.
 
 > The above command returns a JSON structured as follows:
+
 ```json
 {
   "deviceId": "device-uuid"
@@ -55,7 +56,7 @@ This call must be made with the `Accept` header set to `application/vnd.doordeck
 
 Replace `TILE_ID` with the appropriate tile ID.
 
-## Get Lock Belonging To Tile (v3)
+## Get Locks Belonging To Tile (v3)
 
 ```shell
 curl 'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/'
@@ -66,6 +67,7 @@ curl 'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/'
 > Replace `00000000-0000-0000-0000-000000000000` with the tile ID.
 
 > The above command returns a JSON structured as follows:
+
 ```json
 {
     "siteId": "site-uuid",
