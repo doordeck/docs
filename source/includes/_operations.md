@@ -889,30 +889,6 @@ timezone | true | Timezone, e.g. Europe/London, describing what hours the start 
 days | true | List of days the time window applies, e.g. MONDAY, TUESDAY
 exceptions | false | List of dates (YYYY-MM-DD) to ignore above settings, useful for holidays
 
-## Monitor Real-time Lock State
-
-```shell
-curl "https://api.doordeck.com/device/events?device=00000000-0000-0000-0000-000000000000"
-  -H "Authorization: Bearer TOKEN"
-```
-
-> Replace `00000000-0000-0000-0000-000000000000` with the lock's ID
-
-This is a [Server-Sent Events](https://en.wikipedia.org/wiki/Server-sent_events) endpoint that takes multiple devices and returns a stream of events.
-
-<aside class="notice">
-This endpoint is experimental and may change without notice.
-</aside>
-
-### HTTP Request
-`GET https://api.doordeck.com/device/events?device=00000000-0000-0000-0000-000000000000`
-
-### Query Parameters
-
-Parameter | Required | Description
---------- | ------- | -----------
-device | true | Device ID to monitor, multiple can specified as separate query parameters
-
 ## Get Pinned Locks
 
 ```shell

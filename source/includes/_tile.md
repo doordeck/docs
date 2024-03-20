@@ -1,6 +1,10 @@
 # Tiles
 
-## Get Lock Belonging To Tile
+## Get Lock Belonging To Tile (v1)
+
+<aside class="warning">
+This endpoint is marked for deprecation. Please refer to v3 for the latest version.
+</aside>
 
 ```shell
 curl 'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/'
@@ -13,6 +17,71 @@ curl 'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/'
 the lock
 
 This endpoint identifies which lock belongs to the specific tile.
+
+### HTTP Request
+
+`GET https://api.doordeck.com/tile/TILE_ID/`
+
+Replace `TILE_ID` with the appropriate tile ID.
+
+## Get Lock Belonging To Tile (v2)
+
+<aside class="warning">
+This endpoint is marked for deprecation. Please refer to v3 for the latest version.
+</aside>
+
+```shell
+curl 'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/'
+  -H "Accept: application/vnd.doordeck.api-v2+json"
+  -H "Authorization: Bearer TOKEN"
+```
+
+> Replace `00000000-0000-0000-0000-000000000000` with the tile ID.
+
+> The above command returns a JSON structured as follows:
+
+```json
+{
+  "deviceId": "device-uuid"
+}
+```
+
+This endpoint identifies which lock belongs to the specific tile.
+
+This call must be made with the `Accept` header set to `application/vnd.doordeck.api-v2+json`.
+
+### HTTP Request
+
+`GET https://api.doordeck.com/tile/TILE_ID/`
+
+Replace `TILE_ID` with the appropriate tile ID.
+
+## Get Locks Belonging To Tile (v3)
+
+```shell
+curl 'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/'
+  -H "Accept: application/vnd.doordeck.api-v3+json"
+  -H "Authorization: Bearer TOKEN"
+```
+
+> Replace `00000000-0000-0000-0000-000000000000` with the tile ID.
+
+> The above command returns a JSON structured as follows:
+
+```json
+{
+    "siteId": "site-uuid",
+    "tileId": "tile-uuid",
+    "deviceIds": [
+      "device-uuid-1",
+      "device-uuid-2"
+    ]
+}
+```
+
+This endpoint identifies which lock belongs to the specific tile.
+
+This call must be made with the `Accept` header set to `application/vnd.doordeck.api-v3+json`.
 
 ### HTTP Request
 
