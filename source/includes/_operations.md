@@ -91,6 +91,7 @@ This endpoint retrieves all locks a user has access to.
 
 ```shell
 curl 'https://api.doordeck.com/device/00000000-0000-0000-0000-000000000000'
+  -H "Accept: application/vnd.doordeck.api-v3+json"
   -H "Authorization: Bearer TOKEN"
 ```
 
