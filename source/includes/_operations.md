@@ -458,35 +458,6 @@ enabled | false | Flag indicating if the location requirement is enabled
 radius | false | Indicates what size the bubble should be where the location is considered matched, defaults to 100m
 accuracy | false | Indicates how accurate the phone's GPS must be to be considered matched, defaults to 200m
 
-## Pair With New Lock
-
-```shell
-curl 'https://api.doordeck.com/device'
-  -X POST
-  -H 'Authorization: Bearer TOKEN'
-  -H 'content-type: application/json'
-  --data-binary '{"key":"KEY","name":"My lock"}'
-```
-
-> Replace `KEY` with the lock's registration key
-
-This endpoint pairs a new, previously unowned lock with a user.
-
-### HTTP Request
-
-`POST https://api.doordeck.com/device`
-
-<aside class="success">
-Upon successful registration of a lock, a HTTP 202 is returned along with the location further details can be found about the lock. The lock ID can be extracted from this URL
-</aside>
-
-### Request Parameters
-
-Parameter | Required | Description
---------- | ------- | -----------
-key  | true | Lock's registration key
-name | true | Alias of the lock (default for all users)
-
 ## Get A Doordeck User’s Public Key
 
 <aside class="warning">
