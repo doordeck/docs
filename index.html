@@ -434,9 +434,6 @@
                     <a href="#update-lock-properties" class="toc-h2 toc-link" data-title="Update Lock Properties">Update Lock Properties</a>
                   </li>
                   <li>
-                    <a href="#pair-with-new-lock" class="toc-h2 toc-link" data-title="Pair With New Lock">Pair With New Lock</a>
-                  </li>
-                  <li>
                     <a href="#get-a-doordeck-user-s-public-key" class="toc-h2 toc-link" data-title="Get A Doordeck User’s Public Key">Get A Doordeck User’s Public Key</a>
                   </li>
                   <li>
@@ -2147,42 +2144,6 @@ enrolled on, the list will only show locks where the current user is an administ
 <td>Indicates how accurate the phone&#39;s GPS must be to be considered matched, defaults to 200m</td>
 </tr>
 </tbody></table>
-<h2 id='pair-with-new-lock'>Pair With New Lock</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.doordeck.com/device'</span>
-  <span class="nt">-X</span> POST
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer TOKEN'</span>
-  <span class="nt">-H</span> <span class="s1">'content-type: application/json'</span>
-  <span class="nt">--data-binary</span> <span class="s1">'{"key":"KEY","name":"My lock"}'</span>
-</code></pre></div>
-<blockquote>
-<p>Replace <code>KEY</code> with the lock&#39;s registration key</p>
-</blockquote>
-
-<p>This endpoint pairs a new, previously unowned lock with a user.</p>
-<h3 id='http-request-9'>HTTP Request</h3>
-<p><code>POST https://api.doordeck.com/device</code></p>
-
-<aside class="success">
-Upon successful registration of a lock, a HTTP 202 is returned along with the location further details can be found about the lock. The lock ID can be extracted from this URL
-</aside>
-<h3 id='request-parameters-2'>Request Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>key</td>
-<td>true</td>
-<td>Lock&#39;s registration key</td>
-</tr>
-<tr>
-<td>name</td>
-<td>true</td>
-<td>Alias of the lock (default for all users)</td>
-</tr>
-</tbody></table>
 <h2 id='get-a-doordeck-user-s-public-key'>Get A Doordeck User’s Public Key</h2>
 <aside class="warning">
 This endpoint is only available to users with Doordeck issued auth tokens.
@@ -2206,7 +2167,7 @@ If user is not found, one is created for the specified USER_EMAIL.</p>
   </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"publicKey"</span><span class="p">:</span><span class="s2">"base 64 encoded public key"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-10'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-9'>HTTP Request</h3>
 <p><code>POST https://api.doordeck.com/share/invite/USER_EMAIL</code></p>
 
 <p>Replace <code>USER_EMAIL</code> with the user&#39;s email</p>
@@ -2287,9 +2248,9 @@ application.</p>
   </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"publicKey"</span><span class="p">:</span><span class="s2">"base 64 encoded public key"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-11'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-10'>HTTP Request</h3>
 <p><code>POST https://api.doordeck.com/directory/query</code></p>
-<h3 id='request-parameters-3'>Request Parameters</h3>
+<h3 id='request-parameters-2'>Request Parameters</h3>
 <p>The request body must have one and only one of the following fields.</p>
 
 <table><thead>
@@ -2351,7 +2312,7 @@ curl <span class="s1">'https://api.doordeck.com/device/00000000-0000-0000-0000-0
 </blockquote>
 
 <p>This endpoint allows a device to be unlocked. Requests to this endpoint must be signed and formed as a JSON web token.</p>
-<h3 id='http-request-12'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>POST https://api.doordeck.com/device/LOCK_ID/execute</code></p>
 
 <p>Replace <code>LOCK_ID</code> with the appropriate lock ID.</p>
@@ -2359,7 +2320,7 @@ curl <span class="s1">'https://api.doordeck.com/device/00000000-0000-0000-0000-0
 <aside class="success">
 If a request expires within the next 60 seconds, a 200 is returned upon success, if a request expires in more than 60 seconds, a 202 is returned to indicate the request has been queued for the device.
 </aside>
-<h3 id='request-parameters-4'>Request Parameters</h3>
+<h3 id='request-parameters-3'>Request Parameters</h3>
 <p>The header is formed of the following fields.</p>
 
 <table><thead>
@@ -2485,7 +2446,7 @@ curl <span class="s1">'https://api.doordeck.com/device/00000000-0000-0000-0000-0
 </blockquote>
 
 <p>This endpoint allows operations to be performed on a lock, such as lock, unlock, add/remove user. Requests to this endpoint must be signed and formed as a JSON Web Token (JWT).</p>
-<h3 id='http-request-13'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>POST https://api.doordeck.com/device/LOCK_ID/execute</code></p>
 
 <p>Replace <code>LOCK_ID</code> with the appropriate lock ID.</p>
@@ -2640,7 +2601,7 @@ curl <span class="s1">'https://api.doordeck.com/device/00000000-0000-0000-0000-0
 
 <p>This endpoint allows multiple operations to be performed on locks. Requests to this endpoint must be signed and formed as a JSON web token. 
 This section explains how to revoke access to a lock, this can also be used to delete a lock from the current users account.</p>
-<h3 id='http-request-14'>HTTP Request</h3>
+<h3 id='http-request-13'>HTTP Request</h3>
 <p><code>POST https://api.doordeck.com/device/LOCK_ID/execute</code></p>
 
 <p>Replace <code>LOCK_ID</code> with the appropriate lock ID.</p>
@@ -2648,7 +2609,7 @@ This section explains how to revoke access to a lock, this can also be used to d
 <aside class="success">
 If a request expires within the next 60 seconds, a 200 is returned upon success, if a request expires in more than 60 seconds, a 202 is returned to indicate the request has been queued for the device.
 </aside>
-<h3 id='request-parameters-5'>Request Parameters</h3>
+<h3 id='request-parameters-4'>Request Parameters</h3>
 <p>The header is formed of the following fields.</p>
 
 <table><thead>
@@ -2773,7 +2734,7 @@ curl <span class="s1">'https://api.doordeck.com/device/00000000-0000-0000-0000-0
 
 <p>This endpoint allows multiple operations to be performed on locks. Requests to this endpoint must be signed and formed as a JSON web token. 
 This section explains how to change on-lock settings, such as unlock time and open hours.</p>
-<h3 id='http-request-15'>HTTP Request</h3>
+<h3 id='http-request-14'>HTTP Request</h3>
 <p><code>POST https://api.doordeck.com/device/LOCK_ID/execute</code></p>
 
 <p>Replace <code>LOCK_ID</code> with the appropriate lock ID.</p>
@@ -2781,7 +2742,7 @@ This section explains how to change on-lock settings, such as unlock time and op
 <aside class="success">
 If a request expires within the next 60 seconds, a 200 is returned upon success, if a request expires in more than 60 seconds, a 202 is returned to indicate the request has been queued for the device.
 </aside>
-<h3 id='request-parameters-6'>Request Parameters</h3>
+<h3 id='request-parameters-5'>Request Parameters</h3>
 <p>The header is formed of the following fields.</p>
 
 <table><thead>
@@ -2969,7 +2930,7 @@ If a request expires within the next 60 seconds, a 200 is returned upon success,
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <p>The endpoint returns a list of the current user&#39;s pinned locks.</p>
-<h3 id='http-request-16'>HTTP Request</h3>
+<h3 id='http-request-15'>HTTP Request</h3>
 <p><code>GET https://api.doordeck.com/device/favourite</code></p>
 <h2 id='get-shareable-locks'>Get Shareable Locks</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.doordeck.com/device/shareable"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer TOKEN"</span>
@@ -2989,7 +2950,7 @@ If a request expires within the next 60 seconds, a 200 is returned upon success,
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint returns the names and IDs of locks where the current user is an administrator.</p>
-<h3 id='http-request-17'>HTTP Request</h3>
+<h3 id='http-request-16'>HTTP Request</h3>
 <p><code>GET https://api.doordeck.com/device/shareable</code></p>
 <h1 id='platform'>Platform</h1>
 <aside class="warning">
