@@ -233,10 +233,6 @@ A validation email will be disptahced to the user's email address upon successfu
 
 ## Refresh Token
 
-<aside class="warning">
-This endpoint is only available to users with Doordeck issued auth tokens.
-</aside>
-
 ```shell
 curl -X POST "https://api.doordeck.com/auth/token/refresh"
   -H "Authorization: Bearer REFRESH_TOKEN"
