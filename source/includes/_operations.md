@@ -431,6 +431,7 @@ proximityUnlock | false | Control if the lock can be unlocked via a touch action
 defaultName | false | Set the default name for all users who have not set a custom alias
 permittedAddress | false | A complete list of permitted IP addresses for performing actions on the door (public IP addresses)
 delay | false | A time in milliseconds to delay the UI countdown action, for slow locks (Deprecated) 
+hidden | false | Hides a device from the favourite list
 usageRequirements | false | An object containing usage requirements of the lock, see below.
 
 The usage requirements is formed of the following fields
