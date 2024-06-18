@@ -102,6 +102,25 @@ Delete's the application, this is irreversible!
 
 ## Get Logo Upload URL
 
+```shell
+curl 'https://api.doordeck.com/platform/application/APPLICATION_ID/logo' \
+   -X POST \
+  --header 'Content-Type: application/json' \
+  --header 'Authorization: Bearer TOKEN' \
+  --data-binary '{"contentType": "IMAGE_CONTENT_TYPE"}'
+```
+
+> - Replace `IMAGE_CONTENT_TYPE` with the image's content type.
+> - Replace `APPLICATION_ID` with the application ID.
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "uploadUrl": "PRESIGNED_URL"
+}
+```
+
 Gets a pre-signed URL ready for uploading the application logo to.
 
 ### HTTP Request
