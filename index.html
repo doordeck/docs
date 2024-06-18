@@ -3111,7 +3111,24 @@ within Doordeck and define certain branding, UI and authentication elements. </p
 <p>Delete&#39;s the application, this is irreversible! </p>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>DELETE https://api.doordeck.com/platform/application/APPLICATION_ID</code></p>
-<h2 id='get-logo-upload-url'>Get Logo Upload URL</h2>
+<h2 id='get-logo-upload-url'>Get Logo Upload URL</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.doordeck.com/platform/application/APPLICATION_ID/logo'</span> <span class="se">\</span>
+   <span class="nt">-X</span> POST <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'Authorization: Bearer TOKEN'</span> <span class="se">\</span>
+  <span class="nt">--data-binary</span> <span class="s1">'{"contentType": "IMAGE_CONTENT_TYPE"}'</span>
+</code></pre></div>
+<blockquote>
+<ul>
+<li>Replace <code>IMAGE_CONTENT_TYPE</code> with the image&#39;s content type.</li>
+<li>Replace <code>APPLICATION_ID</code> with the application ID.</li>
+</ul>
+
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"uploadUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PRESIGNED_URL"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p>Gets a pre-signed URL ready for uploading the application logo to.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
 <p><code>POST https://api.doordeck.com/platform/application/APPLICATION_ID/logo</code></p>
