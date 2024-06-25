@@ -44,6 +44,7 @@ senderEmail | false (defaults to info@doordeck.com) | Email address to use when 
 senderName | false (defaults to Doordeck) | Email name to use when emailing users'
 primaryColour | false (defaults to #00283C) | Primary colouring for email
 secondaryColour | false (defaults to #45BDD1) | Secondary colouring for email
+onlySendEssentialEmails | false (defaults to false) | Restrict the emails to be sent to only the essential ones
 callToAction | false | See call to action definition
 
 The call to action is formed of the following fields
