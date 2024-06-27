@@ -262,6 +262,11 @@ LOCK_SHARED | The lock's access has been shared to a new user
 LOCK_REVOKED | Access to the lock has been revoked for the specified user
 USER_PROMOTED | A user was promoted to an administrator
 USER_DEMOTED | An administrator was demoted to a user
+SETTING_CHANGED | A lock setting has been changed
+TILE_ASSOCIATED | A tile has been associated with a device
+TILE_DISASSOCIATED | A tile has been dissociated from a device
+DEVICE_DECOMMISSIONED | A device has been decommissioned
+
 
 ## Get Audit For A User 
 
