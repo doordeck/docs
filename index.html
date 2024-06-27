@@ -1858,6 +1858,22 @@ The behavior of this endpoint is as follows:
 <td>USER_DEMOTED</td>
 <td>An administrator was demoted to a user</td>
 </tr>
+<tr>
+<td>SETTING_CHANGED</td>
+<td>A lock setting has been changed</td>
+</tr>
+<tr>
+<td>TILE_ASSOCIATED</td>
+<td>A tile has been associated with a device</td>
+</tr>
+<tr>
+<td>TILE_DISASSOCIATED</td>
+<td>A tile has been dissociated from a device</td>
+</tr>
+<tr>
+<td>DEVICE_DECOMMISSIONED</td>
+<td>A device has been decommissioned</td>
+</tr>
 </tbody></table>
 <h2 id='get-audit-for-a-user'>Get Audit For A User</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.doordeck.com/user/00000000-0000-0000-0000-000000000000/log?start=0000&amp;end=0000'</span>
   <span class="nt">-H</span> <span class="s2">"Accept: application/vnd.doordeck.api-v2+json"</span>
