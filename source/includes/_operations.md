@@ -312,9 +312,9 @@ This endpoint retrieves all log events associated with a particular user, it use
 
 ### HTTP Request
 
-`GET https://api.doordeck.com/user/LOCK_ID/log?start=0000&end=0000`
+`GET https://api.doordeck.com/user/USER_ID/log?start=0000&end=0000`
 
-Replace `LOCK_ID` with the appropriate lock ID.
+Replace `USER_ID` with the appropriate user ID.
 
 ## Get Users For A Lock
 
