@@ -1913,9 +1913,9 @@ The behavior of this endpoint is as follows:
 </span></code></pre></div>
 <p>This endpoint retrieves all log events associated with a particular user, it uses the same events as listed in the v2 audit trail endpoint.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET https://api.doordeck.com/user/LOCK_ID/log?start=0000&amp;end=0000</code></p>
+<p><code>GET https://api.doordeck.com/user/USER_ID/log?start=0000&amp;end=0000</code></p>
 
-<p>Replace <code>LOCK_ID</code> with the appropriate lock ID.</p>
+<p>Replace <code>USER_ID</code> with the appropriate user ID.</p>
 <h2 id='get-users-for-a-lock'>Get Users For A Lock</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.doordeck.com/device/00000000-0000-0000-0000-000000000000/users'</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer TOKEN"</span>
 </code></pre></div>
