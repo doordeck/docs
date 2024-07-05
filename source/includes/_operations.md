@@ -35,8 +35,7 @@ curl 'https://api.doordeck.com/device'
         "duration":10
       },
     "favourite": true,
-    "unlockTime":10,
-    "unlockForever":false
+    "unlockTime":10
   },
   {
     "id":"00000000-0000-0000-0000-000000000001",
@@ -74,7 +73,6 @@ curl 'https://api.doordeck.com/device'
       },
     "favourite": true,
     "unlockTime":5,
-    "unlockForever":false,
     "start":null,
     "end":null
   }
@@ -132,7 +130,6 @@ curl 'https://api.doordeck.com/device/00000000-0000-0000-0000-000000000000'
   },
   "favourite": true,
   "unlockTime": 10,
-  "unlockForever": false,
   "start":null,
   "end":null
 }
