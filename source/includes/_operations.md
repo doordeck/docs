@@ -26,7 +26,16 @@ curl 'https://api.doordeck.com/device'
         "permittedAddresses": [],
         "defaultName": "Home",
         "usageRequirements": {},
-        "delay": 0
+        "delay": 0,
+        "hidden": false,
+        "directAccessEndpoints": [
+          "https://1-2-3-4.08aa7b70-30cf-11e8-ba42-6986d3c6ca8e.doordeck.direct:27707/device/execute"
+        ],
+        "capabilities": {
+          "OPEN_HOURS": "SUPPORTED",
+          "BATCH_SHARING_25": "SUPPORTED",
+          "CONFIGURABLE_UNLOCK_DURATION": "SUPPORTED"
+        }
       },
     "state":
       {
@@ -113,6 +122,15 @@ curl 'https://api.doordeck.com/device/00000000-0000-0000-0000-000000000000'
     "defaultName": "Home",
     "usageRequirements": {},
     "delay": 0,
+    "hidden": false,
+    "directAccessEndpoints": [
+      "https://1-2-3-4.08aa7b70-30cf-11e8-ba42-6986d3c6ca8e.doordeck.direct:27707/device/execute"
+    ],
+    "capabilities": {
+      "OPEN_HOURS": "SUPPORTED",
+      "BATCH_SHARING_25": "SUPPORTED",
+      "CONFIGURABLE_UNLOCK_DURATION": "SUPPORTED"
+    }
     "unlockBetweenWindow": {
       "start": "08:00",
       "end": "14:35",
@@ -500,7 +518,7 @@ Parameter | Required | Description
 --------- | -------- | -----------
 visitor   | false    | Defaults to false, set to true to direct the visitor to a purely web based experience.
 
-## Get A User’s Public Key
+## Lookup User Public Key (v1)
 
 This endpoint allows retrieval of a user's public key, it provides additional flexibility to third-party application 
 developers by allowing querying via email, telephone, user identifier (both internal and external) and by complete 
@@ -562,17 +580,77 @@ localKey | false | Doordeck identifier for a user (UUID)
 foreignKey | false | Third-party application's identifier for a user
 identity | false | Encrypted OpenID token of user
 
+## Lookup User Public Key (v2)
+
+This endpoint expands upon the v1 endpoint by allowing multiple query keys to be used in a single request, this allows
+for batches of up to 25 users to be queried in a single request.
+
+| Field      | Description                                     |
+|------------|-------------------------------------------------|
+| email      | Email addresses                                 |
+| telephone  | E.164 formatted telephone numbers               |
+| localKey   | Doordeck identifier for a user (UUID)           |
+| foreignKey | Third-party application's identifier for a user |
+
+```shell
+curl 'https://api.doordeck.com/directory/query' \
+    --header 'Accept: application/vnd.doordeck.api-v2+json' \
+    --header 'Content-Type: application/json' \
+    --header 'Authorization: Bearer TOKEN' \
+    --data-raw '{
+        "email": ["example1@doordeck.com", "example2@doordeck.com"],
+        "localKey": ["ee03c470-c080-11e6-9b35-cb2329105e85"],
+        "foreignKey": ["5a5f6e80-3c51-11e6-9e57-cf40be3013fb"]
+    }'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "email": "example1@doordeck.com",
+    "id": "5a5f6e80-3c51-11e6-9e57-cf40be3013fb",
+    "publicKey": "MIIBIjANBgk...IDAQAB"
+  },
+  {
+    "email": "example2@doordeck.com",
+    "id": "ee03c470-c080-11e6-9b35-cb2329105e85",
+    "publicKey": "MIIBIjANBgk...IDAQAB"
+  },
+  {
+    "foreignKey": "5a5f6e80-3c51-11e6-9e57-cf40be3013fb",
+    "id": "5a5f6e80-3c51-11e6-9e57-cf40be3013fb",
+    "publicKey": "MIIBIjANBgk...IDAQAB"
+  },
+  {
+    "id": "ee03c470-c080-11e6-9b35-cb2329105e85",
+    "publicKey": "MIIBIjANBgk...IDAQAB"
+  }
+]
+```
+
+### HTTP Request
+
+`POST https://api.doordeck.com/directory/query`
+
+This call must be made with the ```Accept``` header set to ```application/vnd.doordeck.api-v2+json```
+
+### Request Parameters
+
+The request body must have one and only one of the following fields.
+
+| Parameter  | Required | Description                                      |
+|------------|----------|--------------------------------------------------|
+| email      | false    | Email addresses                                  |
+| telephone  | false    | E.164 formatted telephone numbers                |
+| localKey   | false    | Doordeck identifier for users (UUID)             |
+| foreignKey | false    | Third-party application's identifier for a users |
+
 ## Unlock
 
 ```shell
-curl 'https://api.doordeck.com/auth/token/' \
-  -X POST \
-  -H 'content-type: application/json' \
-  --data-binary '{"email":"USERNAME","password":"PASSWORD"}' \
-  | jq -r .privateKey \
-  | base64 --decode \
-  | openssl pkcs8 -nocrypt -inform DER -outform PEM -out privatekey.pem
-
+# Assuming private.key contains a pre-registered ephemeral key
 HEADER='{"alg":"RS256","typ":"JWT"}'
 BODY='{"iss":"USER_ID","sub":"00000000-0000-0000-0000-000000000000","nbf":1473083829,"iat":1473083829,"exp":1473083889,"operation":{"type":"MUTATE_LOCK","locked":false,"duration":5}}'
 HEADER_B64=`echo -n $HEADER | base64 | sed 's/+/-/g;s/\//_/g;s/=//g'`
@@ -630,7 +708,7 @@ Parameter | Required | Description
 type | true | Must be `MUTATE_LOCK`
 locked | true | Boolean indicating if the lock should be locked or unlocked
 
-## Share A Lock 
+## Share A Lock (v1)
 
 ```shell
 curl 'https://api.doordeck.com/auth/token/' \
@@ -706,6 +784,143 @@ publicKey | true | Public key of user to add
 role | false | Should be either ADMIN or USER
 start | false | Unix timestamp of when the user should be active from, null or unset to start immediately
 end | false | Unix timestamp of when the user should expire, null or unset for never expires
+
+After the request has been signed with user's private key, it should be sent to the execute endpoint.
+
+## Batch Share A Lock (v2)
+
+Share a single lock with up to 25 users in a single request. Note, not all devices support this operation, check for
+the presence of the `BATCH_SHARE_25` capability.
+
+```shell
+# Generate (or preferably reuse an existing) a Ed25519 keypair
+openssl genpkey -algorithm ed25519 -out private.der
+
+# Format the public key for use with the ephemeral key registration endpoint
+PUBLIC_KEY=`openssl pkey -in private.key -pubout -outform DER -out - | base64`
+
+# Register the keypair with Doordeck (may require verification, see "Register Ephemeral Key With Secondary Authentication")
+API_RESPONSE=$(curl -s -X POST https://api.doordeck.com/auth/certificate \
+  -H 'authorization: Bearer TOKEN' \
+  -H 'content-type: application/json' \
+  -d '{"ephemeralKey":"'$PUBLIC_KEY'"}')
+
+# Setup variables needed for the batch share operation
+CERTIFICATE_CHAIN=$(echo $API_RESPONSE | jq -r .certificateChain)
+USER_ID=$(echo $API_RESPONSE | jq -r .userId)
+DEVICE_ID="00000000-0000-0000-0000-000000000000" # Replace with the lock's ID
+
+# Setup the batch share JWT
+HEADER=$(jq -n \
+  --arg alg "EdDSA" \
+  --arg typ "JWT" \
+  --argjson x5c "$CERTIFICATE_CHAIN" \
+  '{
+    alg: $alg,
+    typ: $typ,
+    x5c: $x5c
+  }')
+
+BODY=$(
+  jq -n \
+    --arg iss "$USER_ID" \
+    --arg sub "$DEVICE_ID" \
+    --arg publicKey "INVITEE_PUBLIC_KEY" \
+    --arg user "11111111-1111-1111-1111-111111111111" \
+    --arg role "USER" \
+    --argjson nbf "$(date +%s)" \
+    --argjson iat "$(date +%s)" \
+    --argjson exp "$(($(date +%s) + 60))" \
+    --argjson start "$USER_START_TIME" \
+    --argjson end "$USER_END_TIME" \
+    '{
+      iss: $iss,
+      sub: $sub,
+      nbf: $nbf,
+      iat: $iat,
+      exp: $exp,
+      operation: {
+        type: "BATCH_ADD_USER",
+        users: [
+          {
+            publicKey: $publicKey,
+            user: $user,
+            role: $role,
+            start: $start,
+            end: $end
+          }
+        ]
+      }
+    }'
+)
+
+# Prepare and sign the JWT
+HEADER_B64=`echo -n $HEADER | base64 | sed 's/+/-/g;s/\//_/g;s/=//g'`
+BODY_B64=`echo -n $BODY | base64  | sed 's/+/-/g;s/\//_/g;s/=//g'`
+echo -n $HEADER_B64.$BODY_B64 > tbs.bin
+SIGNATURE_B64=$(openssl pkeyutl -sign -inkey private.key -rawin -in tbs.bin | base64 | sed 's/+/-/g;s/\//_/g;s/=//g')
+JWT=$HEADER_B64.$BODY_B64.$SIGNATURE_B64
+
+curl 'https://api.doordeck.com/device/$DEVICE_ID/execute'
+  -X POST
+  -H 'authorization: Bearer TOKEN'
+  -H 'content-type: application/jwt'
+  --data-binary "$JWT"
+```
+
+> - Replace `00000000-0000-0000-0000-000000000000` with the lock's ID
+> - Replace `11111111-1111-1111-1111-111111111111` with the invitee's user ID,
+> - Replace `INVITEE_PUBLIC_KEY` with the invitee's public key (retrieve from the lookup user public key endpoint)
+> - Replace `START_TIME` and `END_TIME` with Unix timestamps of when the user should be activated from and until, use null for indefinite
+
+### HTTP Request
+
+`POST https://api.doordeck.com/device/LOCK_ID/execute`
+
+Replace `LOCK_ID` with the appropriate lock ID.
+
+<aside class="success">
+If a request expires within the next 60 seconds, a 204 is returned upon success, if a request expires in more than 60 seconds, a 202 is returned to indicate the request has been queued for the device.
+</aside>
+
+### JWT Structure
+
+The JWT header is formed of the following fields:
+
+| Parameter | Required | Description                                |
+|-----------|----------|--------------------------------------------|
+| alg       | true     | `EdDSA` EdDSA for ephemeral key signatures |
+| x5c       | true     | User's certificate chain                   |
+| typ       | true     | `JWT`, JSON web token                      |
+
+The JWT body is formed of the following fields:
+
+| Parameter | Required                   | Description                                                                                                                                                                                     |
+|-----------|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| iss       | true                       | Issuer, this should be the user's ID                                                                                                                                                            |
+| sub       | true                       | Subject, this should be the lock's ID                                                                                                                                                           |
+| nbf       | true                       | Not before, a Unix timestamp indicating the earliest date the request is valid from                                                                                                             |
+| iat       | true                       | Issued at, the current Unix timestamp                                                                                                                                                           |
+| exp       | true                       | Expires, a Unix timestamp indicating when the request should expire, requests to change the lock status should be valid for up to one minute, other requests can have a much longer expiry time |
+| jti       | false (highly recommended) | User generated, unique ID used for tracking the request status and preventing replay attacks. UUIDs are recommended here.                                                                       |
+| operation | true                       | A JSON object containing the instructions of the lock                                                                                                                                           |
+
+The operation object definition is as follows
+
+| Parameter | Required | Description              |
+|-----------|----------|--------------------------|
+| type      | true     | Must be `BATCH_ADD_USER` |
+| users     | true     | List of user objects     |
+
+The user object definition is as follows
+
+| Parameter | Required | Description                                                                               |
+|-----------|----------|-------------------------------------------------------------------------------------------|
+| userId    | true     | ID of user to add                                                                         |
+| publicKey | true     | Public key of user to add                                                                 |
+| role      | false    | Should be either ADMIN or USER                                                            |
+| start     | false    | Unix timestamp of when the user should be active from, null or unset to start immediately |
+| end       | false    | Unix timestamp of when the user should expire, null or unset for never expires            |
 
 After the request has been signed with user's private key, it should be sent to the execute endpoint.
 
