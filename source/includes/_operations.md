@@ -130,7 +130,7 @@ curl 'https://api.doordeck.com/device/00000000-0000-0000-0000-000000000000'
       "OPEN_HOURS": "SUPPORTED",
       "BATCH_SHARING_25": "SUPPORTED",
       "CONFIGURABLE_UNLOCK_DURATION": "SUPPORTED"
-    }
+    },
     "unlockBetweenWindow": {
       "start": "08:00",
       "end": "14:35",
@@ -434,51 +434,53 @@ Replace `LOCK_ID` with the appropriate lock ID.
 
 ### Request Parameters
 
-Parameter | Required | Description
---------- | -------- | -----------
-name | false | Update the user's alias for the lock
-favourite | false | Flag the lock as a favourite
-colour | false | Update the colour of the lock
-settings | false | Update global settings for the lock
+| Parameter | Required | Description                          |
+|-----------|----------|--------------------------------------|
+| name      | false    | Update the user's alias for the lock |
+| favourite | false    | Flag the lock as a favourite         |
+| colour    | false    | Update the colour of the lock        |
+| settings  | false    | Update global settings for the lock  |
 
 The settings object is formed of the following fields
 
-Parameter | Required | Description
---------- | -------- | -----------
-txBeaconRssi | false | Update the iBeacon sensitivity (Deprecated) 
-rxBeaconRssi | false | Update the iBeacon sensitivity (Deprecated) 
-proximityUnlock | false | Control if the lock can be unlocked via a touch action (Deprecated) 
-defaultName | false | Set the default name for all users who have not set a custom alias
-permittedAddress | false | A complete list of permitted IP addresses for performing actions on the door (public IP addresses)
-delay | false | A time in milliseconds to delay the UI countdown action, for slow locks (Deprecated) 
-hidden | false | Hides a device from the favourite list
-usageRequirements | false | An object containing usage requirements of the lock, see below.
+| Parameter             | Required | Description                                                                                                    |
+|-----------------------|----------|----------------------------------------------------------------------------------------------------------------|
+| txBeaconRssi          | false    | Update the iBeacon sensitivity (Deprecated)                                                                    |
+| rxBeaconRssi          | false    | Update the iBeacon sensitivity (Deprecated)                                                                    |
+| proximityUnlock       | false    | Control if the lock can be unlocked via a touch action (Deprecated)                                            |
+| defaultName           | false    | Set the default name for all users who have not set a custom alias                                             |
+| permittedAddress      | false    | A complete list of permitted IP addresses for performing actions on the door (public IP addresses)             |
+| delay                 | false    | A time in milliseconds to delay the UI countdown action, for slow locks (Deprecated)                           |
+| hidden                | false    | Hides a device from the favourite list                                                                         |
+| usageRequirements     | false    | An object containing usage requirements of the lock, see below.                                                |
+| directAccessEndpoints | false    | A list of endpoints that can be used to communicate directly with Doordeck Fusion for faster unlock operations |
+| capabilities          | false    | A map of supported and unsupported capabilities                                                                |
 
 The usage requirements is formed of the following fields
 
-Parameter | Required | Description
---------- | -------- | -----------
-time | False | List of time requirements, see time requirement definition below.
-location | False | GPS restriction, see location requirement definition below.
+| Parameter | Required | Description                                                       |
+|-----------|----------|-------------------------------------------------------------------|
+| time      | False    | List of time requirements, see time requirement definition below. |
+| location  | False    | GPS restriction, see location requirement definition below.       |
 
 The time requirements is formed of a list, each containing the following fields
 
-Parameter | Required | Description
---------- | -------- | -----------
-start | true | Local time, (HH:mm) describing the start of a permitted time window
-end | true | Local time, (HH:mm) describing the end of a permitted time window
-timezone | true | Timezone, e.g. Europe/London, describing what hours the start and end are valid in
-days | true | List of days the time window applies, e.g. MONDAY, TUESDAY
+| Parameter | Required | Description                                                                        |
+|-----------|----------|------------------------------------------------------------------------------------|
+| start     | true     | Local time, (HH:mm) describing the start of a permitted time window                |
+| end       | true     | Local time, (HH:mm) describing the end of a permitted time window                  |
+| timezone  | true     | Timezone, e.g. Europe/London, describing what hours the start and end are valid in |
+| days      | true     | List of days the time window applies, e.g. MONDAY, TUESDAY                         |
 
 The location requirements is formed of the following fields
 
-Parameter | Required | Description
---------- | -------- | -----------
-latitude | true | Latitude of the center point
-longitude | true | Longitude of the center point
-enabled | false | Flag indicating if the location requirement is enabled
-radius | false | Indicates what size the bubble should be where the location is considered matched, defaults to 100m
-accuracy | false | Indicates how accurate the phone's GPS must be to be considered matched, defaults to 200m
+| Parameter | Required | Description                                                                                         |
+|-----------|----------|-----------------------------------------------------------------------------------------------------|
+| latitude  | true     | Latitude of the center point                                                                        |
+| longitude | true     | Longitude of the center point                                                                       |
+| enabled   | false    | Flag indicating if the location requirement is enabled                                              |
+| radius    | false    | Indicates what size the bubble should be where the location is considered matched, defaults to 100m |
+| accuracy  | false    | Indicates how accurate the phone's GPS must be to be considered matched, defaults to 200m           |
 
 ## Get A Doordeck User’s Public Key
 
@@ -529,13 +531,13 @@ users belonging to the same application as specified in the auth token.
 
 This endpoint accepts a single JSON key (multiple keys cannot be used) which can be one of the following:
 
-| Field | Description |
-| ----- | ----------- | 
-| email | Email address |
-| telephone | E.164 formatted telephone |
-| localKey | Doordeck identifier for a user (UUID) |
+| Field      | Description                                     |
+|------------|-------------------------------------------------| 
+| email      | Email address                                   |
+| telephone  | E.164 formatted telephone                       |
+| localKey   | Doordeck identifier for a user (UUID)           |
 | foreignKey | Third-party application's identifier for a user |
-| identity | Encrypted OpenID token of user |
+| identity   | Encrypted OpenID token of user                  |
 
 The first four query keys, ```email```, ```telephone```, ```localKey``` and ```foreignKey``` are read only - these will 
 return a 404 error if the user is not known to Doordeck. 
@@ -572,13 +574,13 @@ curl 'https://api.doordeck.com/directory/query' \
 
 The request body must have one and only one of the following fields.
 
-Parameter | Required | Description
---------- | ------- | -----------
-email | false | Email address 
-telephone	| false | E.164 formatted telephone
-localKey | false | Doordeck identifier for a user (UUID)
-foreignKey | false | Third-party application's identifier for a user
-identity | false | Encrypted OpenID token of user
+| Parameter  | Required | Description                                     |
+|------------|----------|-------------------------------------------------|
+| email      | false    | Email address                                   |
+| telephone	 | false    | E.164 formatted telephone                       |
+| localKey   | false    | Doordeck identifier for a user (UUID)           |
+| foreignKey | false    | Third-party application's identifier for a user |
+| identity   | false    | Encrypted OpenID token of user                  |
 
 ## Lookup User Public Key (v2)
 
@@ -650,24 +652,72 @@ The request body must have one and only one of the following fields.
 ## Unlock
 
 ```shell
-# Assuming private.key contains a pre-registered ephemeral key
-HEADER='{"alg":"RS256","typ":"JWT"}'
-BODY='{"iss":"USER_ID","sub":"00000000-0000-0000-0000-000000000000","nbf":1473083829,"iat":1473083829,"exp":1473083889,"operation":{"type":"MUTATE_LOCK","locked":false,"duration":5}}'
+# Generate (or preferably reuse an existing) a Ed25519 keypair
+openssl genpkey -algorithm ed25519 -out private.der
+
+# Format the public key for use with the ephemeral key registration endpoint
+PUBLIC_KEY=`openssl pkey -in private.key -pubout -outform DER -out - | base64`
+
+# Register the keypair with Doordeck (may require verification, see "Register Ephemeral Key With Secondary Authentication")
+API_RESPONSE=$(curl -s -X POST https://api.doordeck.com/auth/certificate \
+  -H 'authorization: Bearer TOKEN' \
+  -H 'content-type: application/json' \
+  -d '{"ephemeralKey":"'$PUBLIC_KEY'"}')
+
+# Setup variables needed for the unlock operation
+CERTIFICATE_CHAIN=$(echo $API_RESPONSE | jq -r .certificateChain)
+USER_ID=$(echo $API_RESPONSE | jq -r .userId)
+DEVICE_ID="00000000-0000-0000-0000-000000000000" # Replace with the lock's ID
+
+HEADER=$(jq -n \
+  --arg alg "EdDSA" \
+  --arg typ "JWT" \
+  --argjson x5c "$CERTIFICATE_CHAIN" \
+  '{
+    alg: $alg,
+    typ: $typ,
+    x5c: $x5c
+  }')
+  
+BODY=$(
+  jq -n \
+    --arg iss "$USER_ID" \
+    --arg sub "$DEVICE_ID" \
+    --arg jti "$(uuidgen)" \
+    --argjson nbf "$(date +%s)" \
+    --argjson iat "$(date +%s)" \
+    --argjson exp "$(($(date +%s) + 60))" \
+    '{
+      iss: $iss,
+      sub: $sub,
+      jti: $jti,
+      nbf: $nbf,
+      iat: $iat,
+      exp: $exp,
+      operation: {
+        type: "MUTATE_LOCK",
+        "locked":false
+      }
+    }'
+)
+ 
+# Prepare and sign the JWT
 HEADER_B64=`echo -n $HEADER | base64 | sed 's/+/-/g;s/\//_/g;s/=//g'`
 BODY_B64=`echo -n $BODY | base64  | sed 's/+/-/g;s/\//_/g;s/=//g'`
-SIGNATURE_B64=`echo -n $HEADER_B64.$BODY_B64 | openssl sha -sha256 -sign privatekey.pem | base64 | sed 's/+/-/g;s/\//_/g;s/=//g'`
-JWT=`echo -n $HEADER_B64.$BODY_B64.$SIGNATURE_B64`
+echo -n $HEADER_B64.$BODY_B64 > tbs.bin
+SIGNATURE_B64=$(openssl pkeyutl -sign -inkey private.key -rawin -in tbs.bin | base64 | sed 's/+/-/g;s/\//_/g;s/=//g')
+JWT=$HEADER_B64.$BODY_B64.$SIGNATURE_B64
 
 curl 'https://api.doordeck.com/device/00000000-0000-0000-0000-000000000000/execute'
   -X POST
   -H 'authorization: Bearer TOKEN'
-  -H 'content-type: application/json;charset=UTF-8'
+  -H 'content-type: application/jwt'
   --data-binary "$JWT"
 ```
 
-> Replace `00000000-0000-0000-0000-000000000000` with the lock's ID, `USER_ID` with the user's ID (obtained from decoding their auth token), `USERNAME` and `PASSWORD` with the appropriate credentials.
+> Replace `00000000-0000-0000-0000-000000000000` with the lock's ID.
 
-This endpoint allows a device to be unlocked. Requests to this endpoint must be signed and formed as a JSON web token.
+This endpoint allows a device to be unlocked. Requests to this endpoint must be signed and formed as a JSON web token (JWT).
 
 ### HTTP Request
 
@@ -683,62 +733,111 @@ If a request expires within the next 60 seconds, a 200 is returned upon success,
 
 The header is formed of the following fields.
 
-Parameter | Required | Description
---------- | ------- | -----------
-alg | true | `RS256` (legacy) RSA signed with a 256 bit SHA hash, or EdDSA for ephemeral key signatures
-x5c | false | User's certificate chain, mandatory for EdDSA signatures
-typ | true | `JWT`, JSON web token
+| Parameter | Required | Description                                |
+|-----------|----------|--------------------------------------------|
+| alg       | true     | `EdDSA` EdDSA for ephemeral key signatures |
+| x5c       | true     | User's certificate chain                   |
+| typ       | true     | `JWT`, JSON web token                      |
 
 The body is formed of the following fields.
 
-Parameter | Required | Description
---------- | ------- | -----------
-iss | true | Issuer, this should be the user's ID
-sub | true | Subject, this should be the lock's ID
-nbf | true | Not before, a Unix timestamp indicating the earliest date the request is valid from
-iat | true | Issued at, the current Unix timestamp
-exp | true | Expires, a Unix timestamp indicating when the request should expire, requests to change the lock status should be valid for up to one minute, other requests can have a much longer expiry time
-jti | false (but highly recommended) | User generated, unique ID used for tracking the request status and preventing replay attacks. UUIDs are recommended here.
-operation | true | A JSON object containing the instructions of the lock
+| Parameter | Required                   | Description                                                                                                                                                                                     |
+|-----------|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| iss       | true                       | Issuer, this should be the user's ID                                                                                                                                                            |
+| sub       | true                       | Subject, this should be the lock's ID                                                                                                                                                           |
+| nbf       | true                       | Not before, a Unix timestamp indicating the earliest date the request is valid from                                                                                                             |
+| iat       | true                       | Issued at, the current Unix timestamp                                                                                                                                                           |
+| exp       | true                       | Expires, a Unix timestamp indicating when the request should expire, requests to change the lock status should be valid for up to one minute, other requests can have a much longer expiry time |
+| jti       | false (highly recommended) | User generated, unique ID used for tracking the request status and preventing replay attacks. UUIDs are recommended here.                                                                       |
+| operation | true                       | A JSON object containing the instructions of the lock                                                                                                                                           |
 
 The operation object definition is as follows
 
-Parameter | Required | Description
---------- | ------- | -----------
-type | true | Must be `MUTATE_LOCK`
-locked | true | Boolean indicating if the lock should be locked or unlocked
+| Parameter | Required | Description           |
+|-----------|----------|-----------------------|
+| type      | true     | Must be `MUTATE_LOCK` |
+| locked    | true     | Set to `true`         |
 
 ## Share A Lock (v1)
 
 ```shell
-curl 'https://api.doordeck.com/auth/token/' \
-  -X POST \
-  -H 'content-type: application/json' \
-  --data-binary '{"email":"USERNAME","password":"PASSWORD"}' \
-  | jq -r .privateKey \
-  | base64 --decode \
-  | openssl pkcs8 -nocrypt -inform DER -outform PEM -out privatekey.pem
+# Generate (or preferably reuse an existing) a Ed25519 keypair
+openssl genpkey -algorithm ed25519 -out private.der
 
-HEADER='{"alg":"RS256","typ":"JWT"}'
-BODY='{"iss":"USER_ID","sub":"00000000-0000-0000-0000-000000000000","nbf":1473083829,"iat":1473083829,"exp":1473083889,"operation":{"type":"ADD_USER","publicKey":PUBLIC_KEY,"user":"11111111-1111-1111-1111-111111111111","role":"USER","start":START_TIME,"end":END_TIME}}'
+# Format the public key for use with the ephemeral key registration endpoint
+PUBLIC_KEY=`openssl pkey -in private.key -pubout -outform DER -out - | base64`
+
+# Register the keypair with Doordeck (may require verification, see "Register Ephemeral Key With Secondary Authentication")
+API_RESPONSE=$(curl -s -X POST https://api.doordeck.com/auth/certificate \
+  -H 'authorization: Bearer TOKEN' \
+  -H 'content-type: application/json' \
+  -d '{"ephemeralKey":"'$PUBLIC_KEY'"}')
+
+# Setup variables needed for the share operation
+CERTIFICATE_CHAIN=$(echo $API_RESPONSE | jq -r .certificateChain)
+USER_ID=$(echo $API_RESPONSE | jq -r .userId)
+DEVICE_ID="00000000-0000-0000-0000-000000000000" # Replace with the lock's ID
+
+# Setup the share JWT
+HEADER=$(jq -n \
+  --arg alg "EdDSA" \
+  --arg typ "JWT" \
+  --argjson x5c "$CERTIFICATE_CHAIN" \
+  '{
+    alg: $alg,
+    typ: $typ,
+    x5c: $x5c
+  }')
+
+BODY=$(
+  jq -n \
+    --arg iss "$USER_ID" \
+    --arg sub "$DEVICE_ID" \
+    --arg jti "$(uuidgen)" \
+    --arg publicKey "INVITEE_PUBLIC_KEY" \
+    --arg user "11111111-1111-1111-1111-111111111111" \
+    --arg role "USER" \
+    --argjson nbf "$(date +%s)" \
+    --argjson iat "$(date +%s)" \
+    --argjson exp "$(($(date +%s) + 60))" \
+    --argjson start "$USER_START_TIME" \
+    --argjson end "$USER_END_TIME" \
+    '{
+      iss: $iss,
+      sub: $sub,
+      jti: $jti,
+      nbf: $nbf,
+      iat: $iat,
+      exp: $exp,
+      operation: {
+        type: "ADD_USER",
+        publicKey: $publicKey,
+        user: $user,
+        role: $role,
+        start: $start,
+        end: $end
+      }
+    }'
+)
+
+# Prepare and sign the JWT
 HEADER_B64=`echo -n $HEADER | base64 | sed 's/+/-/g;s/\//_/g;s/=//g'`
 BODY_B64=`echo -n $BODY | base64  | sed 's/+/-/g;s/\//_/g;s/=//g'`
-SIGNATURE_B64=`echo -n $HEADER_B64.$BODY_B64 | openssl sha -sha256 -sign privatekey.pem | base64 | sed 's/+/-/g;s/\//_/g;s/=//g'`
-JWT=`echo -n $HEADER_B64.$BODY_B64.$SIGNATURE_B64`
+echo -n $HEADER_B64.$BODY_B64 > tbs.bin
+SIGNATURE_B64=$(openssl pkeyutl -sign -inkey private.key -rawin -in tbs.bin | base64 | sed 's/+/-/g;s/\//_/g;s/=//g')
+JWT=$HEADER_B64.$BODY_B64.$SIGNATURE_B64
 
-curl 'https://api.doordeck.com/device/00000000-0000-0000-0000-000000000000/execute'
+curl 'https://api.doordeck.com/device/$DEVICE_ID/execute'
   -X POST
   -H 'authorization: Bearer TOKEN'
-  -H 'content-type: application/json;charset=UTF-8'
+  -H 'content-type: application/jwt'
   --data-binary "$JWT"
 ```
 
 > - Replace `00000000-0000-0000-0000-000000000000` with the lock's ID
-> - Replace `USER_ID` with the user's ID (obtained from decoding their auth token)
-> - Replace `PUBLIC_KEY` with the invitee's public key 
+> - Replace `INVITEE_PUBLIC_KEY` with the invitee's public key 
 > - Replace `11111111-1111-1111-1111-111111111111` with the invitee's user ID,
-> - Replace `USERNAME` and `PASSWORD` with the appropriate credentials
-> - Replace `START_TIME` and `END_TIME` with Unix timestamps of when the user should be activate from and until, use null for indefinite 
+> - Replace `USER_START_TIME` and `USER_END_TIME` with Unix timestamps of when the user should be activated from and until, use null for indefinite 
 
 This endpoint allows operations to be performed on a lock, such as lock, unlock, add/remove user. Requests to this endpoint must be signed and formed as a JSON Web Token (JWT).
 
@@ -756,36 +855,38 @@ If a request expires within the next 60 seconds, a 204 is returned upon success,
 
 The JWT header is formed of the following fields:
 
-Parameter | Required | Description
---------- | ------- | -----------
-alg | true | `RS256` (legacy) RSA signed with a 256 bit SHA hash, or EdDSA for ephemeral key signatures
-x5c | false | User's certificate chain, mandatory for EdDSA signatures
-typ | true | `JWT`, JSON web token
+The JWT header is formed of the following fields:
+
+| Parameter | Required | Description                                |
+|-----------|----------|--------------------------------------------|
+| alg       | true     | `EdDSA` EdDSA for ephemeral key signatures |
+| x5c       | true     | User's certificate chain                   |
+| typ       | true     | `JWT`, JSON web token                      |
 
 The JWT body is formed of the following fields:
 
-Parameter | Required | Description
---------- | ------- | -----------
-iss | true | Issuer, this should be the user's ID
-sub | true | Subject, this should be the lock's ID
-nbf | true | Not before, a Unix timestamp indicating the earliest date the request is valid from
-iat | true | Issued at, the current Unix timestamp
-exp | true | Expires, a Unix timestamp indicating when the request should expire, requests to change the lock status should be valid for up to one minute, other requests can have a much longer expiry time
-jti | false (but highly recommended) | User generated, unique ID used for tracking the request status and preventing replay attacks. UUIDs are recommended here.
-operation | true | A JSON object containing the instructions of the lock
+| Parameter | Required                   | Description                                                                                                                                                                                     |
+|-----------|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| iss       | true                       | Issuer, this should be the user's ID                                                                                                                                                            |
+| sub       | true                       | Subject, this should be the lock's ID                                                                                                                                                           |
+| nbf       | true                       | Not before, a Unix timestamp indicating the earliest date the request is valid from                                                                                                             |
+| iat       | true                       | Issued at, the current Unix timestamp                                                                                                                                                           |
+| exp       | true                       | Expires, a Unix timestamp indicating when the request should expire, requests to change the lock status should be valid for up to one minute, other requests can have a much longer expiry time |
+| jti       | false (highly recommended) | User generated, unique ID used for tracking the request status and preventing replay attacks. UUIDs are recommended here.                                                                       |
+| operation | true                       | A JSON object containing the instructions of the lock                                                                                                                                           |
 
 The operation object definition is as follows
 
-Parameter | Required | Description
---------- | ------- | -----------
-type | true | Must be `ADD_USER`
-user | true | ID of user to add
-publicKey | true | Public key of user to add
-role | false | Should be either ADMIN or USER
-start | false | Unix timestamp of when the user should be active from, null or unset to start immediately
-end | false | Unix timestamp of when the user should expire, null or unset for never expires
+| Parameter | Required | Description                                                                               |
+|-----------|----------|-------------------------------------------------------------------------------------------|
+| type      | true     | Must be `ADD_USER`                                                                        |
+| user      | true     | ID of user to add                                                                         |
+| publicKey | true     | Public key of user to add                                                                 |
+| role      | false    | Should be either ADMIN or USER                                                            |
+| start     | false    | Unix timestamp of when the user should be active from, null or unset to start immediately |
+| end       | false    | Unix timestamp of when the user should expire, null or unset for never expires            |
 
-After the request has been signed with user's private key, it should be sent to the execute endpoint.
+After the request has been signed with user's ephemeral key, it should be sent to the execute endpoint.
 
 ## Batch Share A Lock (v2)
 
@@ -825,6 +926,7 @@ BODY=$(
   jq -n \
     --arg iss "$USER_ID" \
     --arg sub "$DEVICE_ID" \
+    --arg jti "$(uuidgen)" \
     --arg publicKey "INVITEE_PUBLIC_KEY" \
     --arg user "11111111-1111-1111-1111-111111111111" \
     --arg role "USER" \
@@ -836,6 +938,7 @@ BODY=$(
     '{
       iss: $iss,
       sub: $sub,
+      jti: $jti,
       nbf: $nbf,
       iat: $iat,
       exp: $exp,
@@ -871,7 +974,7 @@ curl 'https://api.doordeck.com/device/$DEVICE_ID/execute'
 > - Replace `00000000-0000-0000-0000-000000000000` with the lock's ID
 > - Replace `11111111-1111-1111-1111-111111111111` with the invitee's user ID,
 > - Replace `INVITEE_PUBLIC_KEY` with the invitee's public key (retrieve from the lookup user public key endpoint)
-> - Replace `START_TIME` and `END_TIME` with Unix timestamps of when the user should be activated from and until, use null for indefinite
+> - Replace `USER_START_TIME` and `USER_END_TIME` with Unix timestamps of when the user should be activated from and until, use null for indefinite
 
 ### HTTP Request
 
@@ -916,7 +1019,7 @@ The user object definition is as follows
 
 | Parameter | Required | Description                                                                               |
 |-----------|----------|-------------------------------------------------------------------------------------------|
-| userId    | true     | ID of user to add                                                                         |
+| user      | true     | ID of user to add                                                                         |
 | publicKey | true     | Public key of user to add                                                                 |
 | role      | false    | Should be either ADMIN or USER                                                            |
 | start     | false    | Unix timestamp of when the user should be active from, null or unset to start immediately |
@@ -927,32 +1030,73 @@ After the request has been signed with user's private key, it should be sent to 
 ## Revoke Access To A Lock
 
 ```shell
-curl 'https://api.doordeck.com/auth/token/' \
-  -X POST \
-  -H 'content-type: application/json' \
-  --data-binary '{"email":"USERNAME","password":"PASSWORD"}' \
-  | jq -r .privateKey \
-  | base64 --decode \
-  | openssl pkcs8 -nocrypt -inform DER -outform PEM -out privatekey.pem
+# Generate (or preferably reuse an existing) a Ed25519 keypair
+openssl genpkey -algorithm ed25519 -out private.der
 
-HEADER='{"alg":"RS256","typ":"JWT"}'
-BODY='{"iss":"USER_ID","sub":"00000000-0000-0000-0000-000000000000","nbf":1473083829,"iat":1473083829,"exp":1473083889,"operation":{"type":"REMOVE_USER","users":["11111111-1111-1111-1111-111111111111"]}}'
+# Format the public key for use with the ephemeral key registration endpoint
+PUBLIC_KEY=`openssl pkey -in private.key -pubout -outform DER -out - | base64`
+
+# Register the keypair with Doordeck (may require verification, see "Register Ephemeral Key With Secondary Authentication")
+API_RESPONSE=$(curl -s -X POST https://api.doordeck.com/auth/certificate \
+  -H 'authorization: Bearer TOKEN' \
+  -H 'content-type: application/json' \
+  -d '{"ephemeralKey":"'$PUBLIC_KEY'"}')
+
+# Setup variables needed for the batch share operation
+CERTIFICATE_CHAIN=$(echo $API_RESPONSE | jq -r .certificateChain)
+USER_ID=$(echo $API_RESPONSE | jq -r .userId)
+DEVICE_ID="00000000-0000-0000-0000-000000000000" # Replace with the lock's ID
+
+# Setup the batch share JWT
+HEADER=$(jq -n \
+  --arg alg "EdDSA" \
+  --arg typ "JWT" \
+  --argjson x5c "$CERTIFICATE_CHAIN" \
+  '{
+    alg: $alg,
+    typ: $typ,
+    x5c: $x5c
+  }')
+  
+BODY=$(
+  jq -n \
+    --arg iss "$USER_ID" \
+    --arg sub "$DEVICE_ID" \
+    --arg jti "$(uuidgen)" \
+    --arg user "11111111-1111-1111-1111-111111111111" \
+    --argjson nbf "$(date +%s)" \
+    --argjson iat "$(date +%s)" \
+    --argjson exp "$(($(date +%s) + 60))" \
+    '{
+      iss: $iss,
+      sub: $sub,
+      jti: $jti,
+      nbf: $nbf,
+      iat: $iat,
+      exp: $exp,
+      operation: {
+        type: "REMOVE_USER",
+        users: [$user]
+      }
+    }'
+)
+
+# Prepare and sign the JWT
 HEADER_B64=`echo -n $HEADER | base64 | sed 's/+/-/g;s/\//_/g;s/=//g'`
 BODY_B64=`echo -n $BODY | base64  | sed 's/+/-/g;s/\//_/g;s/=//g'`
-SIGNATURE_B64=`echo -n $HEADER_B64.$BODY_B64 | openssl sha -sha256 -sign privatekey.pem | base64 | sed 's/+/-/g;s/\//_/g;s/=//g'`
-JWT=`echo -n $HEADER_B64.$BODY_B64.$SIGNATURE_B64`
+echo -n $HEADER_B64.$BODY_B64 > tbs.bin
+SIGNATURE_B64=$(openssl pkeyutl -sign -inkey private.key -rawin -in tbs.bin | base64 | sed 's/+/-/g;s/\//_/g;s/=//g')
+JWT=$HEADER_B64.$BODY_B64.$SIGNATURE_B64
 
-curl 'https://api.doordeck.com/device/00000000-0000-0000-0000-000000000000/execute'
+curl 'https://api.doordeck.com/device/$DEVICE_ID/execute'
   -X POST
   -H 'authorization: Bearer TOKEN'
-  -H 'content-type: application/json;charset=UTF-8'
+  -H 'content-type: application/jwt'
   --data-binary "$JWT"
 ```
 
 > - Replace `00000000-0000-0000-0000-000000000000` with the lock's ID
-> - Replace `USER_ID` with the user's ID (obtained from decoding their auth token)
 > - Replace `11111111-1111-1111-1111-111111111111` with the revoked user's ID,
-> - Replace `USERNAME` and `PASSWORD` with the appropriate credentials
 
 This endpoint allows multiple operations to be performed on locks. Requests to this endpoint must be signed and formed as a JSON web token. 
 This section explains how to revoke access to a lock, this can also be used to delete a lock from the current users account.
@@ -969,62 +1113,101 @@ If a request expires within the next 60 seconds, a 200 is returned upon success,
 
 ### Request Parameters
 
-The header is formed of the following fields.
+The JWT header is formed of the following fields:
 
-Parameter | Required | Description
---------- | ------- | -----------
-alg | true | `RS256` (legacy) RSA signed with a 256 bit SHA hash, or EdDSA for ephemeral key signatures
-x5c | false | User's certificate chain, mandatory for EdDSA signatures
-typ | true | `JWT`, JSON web token
+| Parameter | Required | Description                                |
+|-----------|----------|--------------------------------------------|
+| alg       | true     | `EdDSA` EdDSA for ephemeral key signatures |
+| x5c       | true     | User's certificate chain                   |
+| typ       | true     | `JWT`, JSON web token                      |
 
-The body is formed of the following fields.
+The JWT body is formed of the following fields:
 
-Parameter | Required | Description
---------- | ------- | -----------
-iss | true | Issuer, this should be the user's ID
-sub | true | Subject, this should be the lock's ID
-nbf | true | Not before, a Unix timestamp indicating the earliest date the request is valid from
-iat | true | Issued at, the current Unix timestamp
-exp | true | Expires, a Unix timestamp indicating when the request should expire, requests to change the lock status should be valid for up to one minute, other requests can have a much longer expiry time
-jti | false (but highly recommended) | User generated, unique ID used for tracking the request status and preventing replay attacks. UUIDs are recommended here.
-operation | true | A JSON object containing the instructions of the lock
+| Parameter | Required                   | Description                                                                                                                                                                                     |
+|-----------|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| iss       | true                       | Issuer, this should be the user's ID                                                                                                                                                            |
+| sub       | true                       | Subject, this should be the lock's ID                                                                                                                                                           |
+| nbf       | true                       | Not before, a Unix timestamp indicating the earliest date the request is valid from                                                                                                             |
+| iat       | true                       | Issued at, the current Unix timestamp                                                                                                                                                           |
+| exp       | true                       | Expires, a Unix timestamp indicating when the request should expire, requests to change the lock status should be valid for up to one minute, other requests can have a much longer expiry time |
+| jti       | false (highly recommended) | User generated, unique ID used for tracking the request status and preventing replay attacks. UUIDs are recommended here.                                                                       |
+| operation | true                       | A JSON object containing the instructions of the lock                                                                                                                                           |
 
 The operation object definition is as follows
 
-Parameter | Required | Description
---------- | ------- | -----------
-type | true | Must be `REMOVE_USER`
-users | true | List of user IDs to remove
+| Parameter | Required | Description                |
+|-----------|----------|----------------------------|
+| type      | true     | Must be `REMOVE_USER`      |
+| users     | true     | List of user IDs to remove |
 
 ## Update Secure Settings
 
 ```shell
-curl 'https://api.doordeck.com/auth/token/' \
-  -X POST \
-  -H 'content-type: application/json' \
-  --data-binary '{"email":"USERNAME","password":"PASSWORD"}' \
-  | jq -r .privateKey \
-  | base64 --decode \
-  | openssl pkcs8 -nocrypt -inform DER -outform PEM -out privatekey.pem
+# Generate (or preferably reuse an existing) a Ed25519 keypair
+openssl genpkey -algorithm ed25519 -out private.der
 
-HEADER='{"alg":"RS256","typ":"JWT"}'
-BODY='{"iss":"USER_ID","sub":"00000000-0000-0000-0000-000000000000","nbf":1473083829,"iat":1473083829,"exp":1473083889,"operation":{"type":"MUTATE_SETTING","unlockDuration":10}}'
+# Format the public key for use with the ephemeral key registration endpoint
+PUBLIC_KEY=`openssl pkey -in private.key -pubout -outform DER -out - | base64`
+
+# Register the keypair with Doordeck (may require verification, see "Register Ephemeral Key With Secondary Authentication")
+API_RESPONSE=$(curl -s -X POST https://api.doordeck.com/auth/certificate \
+  -H 'authorization: Bearer TOKEN' \
+  -H 'content-type: application/json' \
+  -d '{"ephemeralKey":"'$PUBLIC_KEY'"}')
+
+# Setup variables needed for the batch share operation
+CERTIFICATE_CHAIN=$(echo $API_RESPONSE | jq -r .certificateChain)
+USER_ID=$(echo $API_RESPONSE | jq -r .userId)
+DEVICE_ID="00000000-0000-0000-0000-000000000000" # Replace with the lock's ID
+
+# Setup the batch share JWT
+HEADER=$(jq -n \
+  --arg alg "EdDSA" \
+  --arg typ "JWT" \
+  --argjson x5c "$CERTIFICATE_CHAIN" \
+  '{
+    alg: $alg,
+    typ: $typ,
+    x5c: $x5c
+  }')
+
+BODY=$(
+  jq -n \
+    --arg iss "$USER_ID" \
+    --arg sub "$DEVICE_ID" \
+    --arg jti "$(uuidgen)" \
+    --argjson nbf "$(date +%s)" \
+    --argjson iat "$(date +%s)" \
+    --argjson exp "$(($(date +%s) + 60))" \
+    '{
+      iss: $iss,
+      sub: $sub,
+      jti: $jti,
+      nbf: $nbf,
+      iat: $iat,
+      exp: $exp,
+      operation: {
+        type: "MUTATE_SETTING",
+        unlockDuration: 10
+      }
+    }'
+)
+
+# Prepare and sign the JWT
 HEADER_B64=`echo -n $HEADER | base64 | sed 's/+/-/g;s/\//_/g;s/=//g'`
 BODY_B64=`echo -n $BODY | base64  | sed 's/+/-/g;s/\//_/g;s/=//g'`
-SIGNATURE_B64=`echo -n $HEADER_B64.$BODY_B64 | openssl sha -sha256 -sign privatekey.pem | base64 | sed 's/+/-/g;s/\//_/g;s/=//g'`
-JWT=`echo -n $HEADER_B64.$BODY_B64.$SIGNATURE_B64`
+echo -n $HEADER_B64.$BODY_B64 > tbs.bin
+SIGNATURE_B64=$(openssl pkeyutl -sign -inkey private.key -rawin -in tbs.bin | base64 | sed 's/+/-/g;s/\//_/g;s/=//g')
+JWT=$HEADER_B64.$BODY_B64.$SIGNATURE_B64
 
-curl 'https://api.doordeck.com/device/00000000-0000-0000-0000-000000000000/execute'
+curl 'https://api.doordeck.com/device/$DEVICE_ID/execute'
   -X POST
   -H 'authorization: Bearer TOKEN'
-  -H 'content-type: application/json;charset=UTF-8'
+  -H 'content-type: application/jwt'
   --data-binary "$JWT"
 ```
 
 > - Replace `00000000-0000-0000-0000-000000000000` with the lock's ID
-> - Replace `USER_ID` with the user's ID (obtained from decoding their auth token)
-> - Replace `11111111-1111-1111-1111-111111111111` with the revoked user's ID,
-> - Replace `USERNAME` and `PASSWORD` with the appropriate credentials
 
 This endpoint allows multiple operations to be performed on locks. Requests to this endpoint must be signed and formed as a JSON web token. 
 This section explains how to change on-lock settings, such as unlock time and open hours.
@@ -1041,43 +1224,43 @@ If a request expires within the next 60 seconds, a 200 is returned upon success,
 
 ### Request Parameters
 
-The header is formed of the following fields.
+The JWT header is formed of the following fields:
 
-Parameter | Required | Description
---------- | ------- | -----------
-alg | true | `RS256` (legacy) RSA signed with a 256 bit SHA hash, or EdDSA for ephemeral key signatures
-x5c | false | User's certificate chain, mandatory for EdDSA signatures
-typ | true | `JWT`, JSON web token
+| Parameter | Required | Description                                |
+|-----------|----------|--------------------------------------------|
+| alg       | true     | `EdDSA` EdDSA for ephemeral key signatures |
+| x5c       | true     | User's certificate chain                   |
+| typ       | true     | `JWT`, JSON web token                      |
 
-The body is formed of the following fields.
+The JWT body is formed of the following fields:
 
-Parameter | Required | Description
---------- | ------- | -----------
-iss | true | Issuer, this should be the user's ID
-sub | true | Subject, this should be the lock's ID
-nbf | true | Not before, a Unix timestamp indicating the earliest date the request is valid from
-iat | true | Issued at, the current Unix timestamp
-exp | true | Expires, a Unix timestamp indicating when the request should expire, requests to change the lock status should be valid for up to one minute, other requests can have a much longer expiry time
-jti | false (but highly recommended) | User generated, unique ID used for tracking the request status and preventing replay attacks. UUIDs are recommended here.
-operation | true | A JSON object containing the instructions of the lock
+| Parameter | Required                   | Description                                                                                                                                                                                     |
+|-----------|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| iss       | true                       | Issuer, this should be the user's ID                                                                                                                                                            |
+| sub       | true                       | Subject, this should be the lock's ID                                                                                                                                                           |
+| nbf       | true                       | Not before, a Unix timestamp indicating the earliest date the request is valid from                                                                                                             |
+| iat       | true                       | Issued at, the current Unix timestamp                                                                                                                                                           |
+| exp       | true                       | Expires, a Unix timestamp indicating when the request should expire, requests to change the lock status should be valid for up to one minute, other requests can have a much longer expiry time |
+| jti       | false (highly recommended) | User generated, unique ID used for tracking the request status and preventing replay attacks. UUIDs are recommended here.                                                                       |
+| operation | true                       | A JSON object containing the instructions of the lock                                                                                                                                           |
 
 The operation object definition is as follows
 
-Parameter | Required | Description
---------- | ------- | -----------
-type | true | Must be `MUTATE_SETTING`
-unlockDuration | false | Set to an integer number of seconds for the lock to remain unlocked
-unlockBetween | false | Set to unlock between definition below, or null to remove settings
+| Parameter      | Required | Description                                                         |
+|----------------|----------|---------------------------------------------------------------------|
+| type           | true     | Must be `MUTATE_SETTING`                                            |
+| unlockDuration | false    | Set to an integer number of seconds for the lock to remain unlocked |
+| unlockBetween  | false    | Set to unlock between definition below, or null to remove settings  |
 
 The unlock between object definition is as follows
 
-Parameter | Required | Description
---------- | -------- | -----------
-start | true | Local time, (HH:mm) describing the start of an unlock between time window
-end | true | Local time, (HH:mm) describing the end of an unlock between time window
-timezone | true | Timezone, e.g. Europe/London, describing what hours the start and end are valid in
-days | true | List of days the time window applies, e.g. MONDAY, TUESDAY
-exceptions | false | List of dates (YYYY-MM-DD) to ignore above settings, useful for holidays
+| Parameter  | Required | Description                                                                        |
+|------------|----------|------------------------------------------------------------------------------------|
+| start      | true     | Local time, (HH:mm) describing the start of an unlock between time window          |
+| end        | true     | Local time, (HH:mm) describing the end of an unlock between time window            |
+| timezone   | true     | Timezone, e.g. Europe/London, describing what hours the start and end are valid in |
+| days       | true     | List of days the time window applies, e.g. MONDAY, TUESDAY                         |
+| exceptions | false    | List of dates (YYYY-MM-DD) to ignore above settings, useful for holidays           |
 
 ## Get Pinned Locks
 
