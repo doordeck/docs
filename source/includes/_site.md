@@ -36,7 +36,7 @@ curl 'https://api.doordeck.com/site/'
 ]
 ```
 
-This endpoint lists all of the sites a user has access to.
+This endpoint lists all the sites a user has access to.
 
 ### HTTP Request
 
@@ -70,7 +70,17 @@ curl 'https://api.doordeck.com/site/00000000-0000-0000-0000-000000000000/device/
             "unlockBetweenWindow": null,
             "tiles": [
                 "403031a2-7869-4408-9f38-c71ae51b652b"
-            ]
+            ],
+            "hidden": false,
+            "delay": 0.0,
+            "directAccessEndpoints": [
+              "https://1-2-3-4.08aa7b70-30cf-11e8-ba42-6986d3c6ca8e.doordeck.direct:27707/device/execute"
+            ],
+            "capabilities": {
+                "OPEN_HOURS": "SUPPORTED",
+                "BATCH_SHARING_25": "SUPPORTED",
+                "CONFIGURABLE_UNLOCK_DURATION": "SUPPORTED"
+            }
         },
         "state": {
             "connected": true
@@ -90,7 +100,12 @@ curl 'https://api.doordeck.com/site/00000000-0000-0000-0000-000000000000/device/
             "defaultName": "Demo #2",
             "usageRequirements": {},
             "unlockBetweenWindow": null,
-            "tiles": []
+            "tiles": [],
+            "capabilities": {
+                "OPEN_HOURS": "UNSUPPORTED",
+                "BATCH_SHARING_25": "UNSUPPORTED",
+                "CONFIGURABLE_UNLOCK_DURATION": "UNSUPPORTED"
+            }
         },
         "state": {
             "locked": true,
@@ -101,7 +116,7 @@ curl 'https://api.doordeck.com/site/00000000-0000-0000-0000-000000000000/device/
 ]
 ```
 
-This endpoint lists all of the locks in a particular site that the user has access to.
+This endpoint lists all the locks in a particular site that the user has access to.
 
 ### HTTP Request
 

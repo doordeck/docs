@@ -3,7 +3,7 @@
 ## Login (v1)
 
 <aside class="warning">
-This endpoint is only available to Doordeck registered users.
+This endpoint has been deprecated and is due for removal, do not use.
 </aside>
 
 ```shell
@@ -97,6 +97,10 @@ refreshToken | JSON web token to be used for getting new authentication tokens
 
 ## Registration (v1)
 
+<aside class="warning">
+This endpoint has been deprecated and is due for removal, do not use.
+</aside>
+
 ```shell
 curl "https://api.doordeck.com/auth/register"
   -X POST
@@ -130,10 +134,14 @@ password | true | Password for access to account.
 displayName | false | User's display name (e.g. their fullname)
 
 <aside class="success">
-A validation email will be disptahced to the user's email address upon successful registration.
+A validation email will be dispatched to the user's email address upon successful registration.
 </aside>
 
 ## Registration (v2)
+
+<aside class="warning">
+This endpoint has been deprecated and is due for removal, do not use.
+</aside>
 
 ```shell
 curl "https://api.doordeck.com/auth/register"
@@ -308,7 +316,7 @@ with the user's key as the subject of the leaf certificate.
 Only Ed25519 public keys are accepted by this endpoint, they can either be the native 32 byte public key Base 64 
 encoded or specified as a Base 64 DER encoded key as defined in [RFC8410](https://tools.ietf.org/html/rfc8410). 
 
-This endpoint may required a secondary authentication check before producing a certificate chain for the user, it will 
+This endpoint may require a secondary authentication check before producing a certificate chain for the user, it will 
 indicate this by returning a 423 error.
 
 The certificate chain returned should be used in the ```x5c``` field when performing signed requests such as unlocking.
@@ -325,16 +333,20 @@ ephemeralKey | true | Base64 encoded ephemeral Ed25519 key
 ## Register Ephemeral Key With Secondary Authentication
 
 ```shell
+# Generate a new ephemeral key
+openssl genpkey -algorithm ED25519 -out private.key
+
+# Format the public key for use with the JSON request
+PUBLIC_KEY=`openssl pkey -in private.key -pubout -outform DER -out - | base64`
+
 curl "https://api.doordeck.com/auth/certificate/verify" \
   -X POST \
   -H "Authorization: Bearer TOKEN" \
   -H 'content-type: application/json' \
-  --data-binary '{"ephemeralKey":"Base64 encoded Ed25519 public key"}' 
+  --data-binary '{"ephemeralKey":"'${PUBLIC_KEY}'"}' 
 ```
 
-> Replace `Base64 encoded Ed25519 public key` with the user's ephemeral key.
-
-> The above command returns a HTTP 204
+> The above command returns HTTP 204
 
 This endpoint is used to register ephemeral keys for users, it will start a secondary authentication flow using email, 
 SMS, telephone or WhatsApp - the service will pick the most appropriate method based on the contents of the provided
@@ -358,15 +370,16 @@ method | false | One of EMAIL, TELEPHONE, SMS, WHATSAPP
 ## Verify Ephemeral Key Registration
 
 ```shell
+# Calculate the signature of the authentication code using the previously generated private key
+echo -n "AUTHENTICATION_CODE" > code.txt
+SIGNATURE=$(openssl pkeyutl -sign -inkey private.key -rawin -in code.txt | base64)
+
 curl "https://api.doordeck.com/auth/certificate/check" \
   -X POST \
   -H "Authorization: Bearer TOKEN" \
   -H 'content-type: application/json' \
-  --data-binary '{"verificationSignature":"Base64 encoded Ed25519 signature of the authentication code"}' 
+  --data-binary '{"verificationSignature":"'${SIGNATURE}'"}' 
 ```
-
-> Replace `Base64 encoded Ed25519 signature of the authentication code` with a signature computed on the authentication
-code using the ephemeral key.
 
 > The above command returns JSON structured like this:
 

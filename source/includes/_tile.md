@@ -186,6 +186,7 @@ This request needs a JSON body with the following structure:
 ```
 
 The values for the `siteId` and `devices` parameters are as follows:
+
 - `siteId` is the site ID to which the tile belongs
 - `devices` is an array of device IDs to be associated to the tile  
 
