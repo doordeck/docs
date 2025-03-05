@@ -326,13 +326,7 @@
                     <a href="#login-v2" class="toc-h2 toc-link" data-title="Login (v2)">Login (v2)</a>
                   </li>
                   <li>
-                    <a href="#registration-v1" class="toc-h2 toc-link" data-title="Registration (v1)">Registration (v1)</a>
-                  </li>
-                  <li>
-                    <a href="#registration-v2" class="toc-h2 toc-link" data-title="Registration (v2)">Registration (v2)</a>
-                  </li>
-                  <li>
-                    <a href="#registration-v3" class="toc-h2 toc-link" data-title="Registration (v3)">Registration (v3)</a>
+                    <a href="#registration" class="toc-h2 toc-link" data-title="Registration">Registration</a>
                   </li>
                   <li>
                     <a href="#refresh-token" class="toc-h2 toc-link" data-title="Refresh Token">Refresh Token</a>
@@ -700,7 +694,15 @@ application developers using pre-registered asymmetric authentication keys.</p>
 
 <h1 id='account'>Account</h1><h2 id='login-v1'>Login (v1)</h2>
 <aside class="warning">
+This endpoint is only available to Doordeck registered users.
+</aside>
+
+<aside class="warning">
 This endpoint has been deprecated and is due for removal, do not use.
+</aside>
+
+<aside class="warning">
+This endpoint will return the v2 response for any users registered after 1st March 2025
 </aside>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.doordeck.com/auth/token/'</span>
   <span class="nt">-X</span> POST
@@ -750,11 +752,11 @@ This endpoint has been deprecated and is due for removal, do not use.
 </thead><tbody>
 <tr>
 <td>privateKey</td>
-<td>PKCS8 encoded private key wrapped in base 64 encoding to be JSON friendly</td>
+<td>Base 64 + PKCS8 encoded private key, only visible to legacy users</td>
 </tr>
 <tr>
 <td>publicKey</td>
-<td>Base 64 encoded public key</td>
+<td>Base 64 encoded public key, only visible to legacy users</td>
 </tr>
 <tr>
 <td>authToken</td>
@@ -825,12 +827,13 @@ This endpoint is only available to Doordeck registered users.
 <td>JSON web token to be used for getting new authentication tokens</td>
 </tr>
 </tbody></table>
-<h2 id='registration-v1'>Registration (v1)</h2>
-<aside class="warning">
-This endpoint has been deprecated and is due for removal, do not use.
+<h2 id='registration'>Registration</h2>
+<aside class="notice">
+To preserve compatibility, this endpoint responds to requests for v1 through v3.
 </aside>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.doordeck.com/auth/register"</span>
   <span class="nt">-X</span> POST
+  <span class="nt">-H</span> <span class="s2">"Accept: application/vnd.doordeck.api-v3+json"</span>
   <span class="nt">-H</span> <span class="s1">'content-type: application/json'</span>
   <span class="nt">--data-binary</span> <span class="s1">'{"email":"EMAIL","password":"PASSWORD"}'</span>
 </code></pre></div>
@@ -838,71 +841,17 @@ This endpoint has been deprecated and is due for removal, do not use.
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"privateKey"</span><span class="p">:</span><span class="s2">"base 64 encoded private key"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"publicKey"</span><span class="p">:</span><span class="s2">"base 64 encoded public key"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"authToken"</span><span class="p">:</span><span class="s2">"JSON Web Token for authentication"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"refreshToken"</span><span class="p">:</span><span class="s2">"JSON Web Token for refreshing authentication credentials"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint allows users to register for a Doordeck account.</p>
+<p>This endpoint allows users to register for a Doordeck account; the call will fail with a 409 conflict error if there is 
+a pending invite (unless force is set to true).</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://api.doordeck.com/auth/register</code></p>
+
+<p>This call should be made with the <code>Accept</code> header set to <code>application/vnd.doordeck.api-v3+json</code></p>
 <h3 id='request-parameters-3'>Request Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>email</td>
-<td>true</td>
-<td>Email address to register.</td>
-</tr>
-<tr>
-<td>password</td>
-<td>true</td>
-<td>Password for access to account.</td>
-</tr>
-<tr>
-<td>displayName</td>
-<td>false</td>
-<td>User&#39;s display name (e.g. their fullname)</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-A validation email will be dispatched to the user's email address upon successful registration.
-</aside>
-<h2 id='registration-v2'>Registration (v2)</h2>
-<aside class="warning">
-This endpoint has been deprecated and is due for removal, do not use.
-</aside>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.doordeck.com/auth/register"</span>
-  <span class="nt">-X</span> POST
-  <span class="nt">-H</span> <span class="s2">"Accept: application/vnd.doordeck.api-v2+json"</span>
-  <span class="nt">-H</span> <span class="s1">'content-type: application/json'</span>
-  <span class="nt">--data-binary</span> <span class="s1">'{"email":"EMAIL","password":"PASSWORD"}'</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"privateKey"</span><span class="p">:</span><span class="s2">"base 64 encoded private key"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"publicKey"</span><span class="p">:</span><span class="s2">"base 64 encoded public key"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"authToken"</span><span class="p">:</span><span class="s2">"JSON Web Token for authentication"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"refreshToken"</span><span class="p">:</span><span class="s2">"JSON Web Token for refreshing authentication credentials"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint allows users to register for a Doordeck account; it&#39;s handling of accounts with a pending invite is 
-different from v1 in that the call will fail with a 409 conflict error if there is a pending invite (unless force is set
- to true).</p>
-<h3 id='http-request-4'>HTTP Request</h3>
-<p><code>POST https://api.doordeck.com/auth/register</code></p>
-
-<p>This call must be made with the <code>Accept</code> header set to <code>application/vnd.doordeck.api-v2+json</code></p>
-<h3 id='request-parameters-4'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -942,72 +891,7 @@ different from v1 in that the call will fail with a 409 conflict error if there 
 </tbody></table>
 
 <aside class="success">
-A validation email will be disptahced to the user's email address upon successful registration.
-</aside>
-<h2 id='registration-v3'>Registration (v3)</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.doordeck.com/auth/register"</span>
-  <span class="nt">-X</span> POST
-  <span class="nt">-H</span> <span class="s2">"Accept: application/vnd.doordeck.api-v3+json"</span>
-  <span class="nt">-H</span> <span class="s1">'content-type: application/json'</span>
-  <span class="nt">--data-binary</span> <span class="s1">'{"email":"EMAIL","password":"PASSWORD"}'</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"authToken"</span><span class="p">:</span><span class="s2">"JSON Web Token for authentication"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"refreshToken"</span><span class="p">:</span><span class="s2">"JSON Web Token for refreshing authentication credentials"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint allows users to register for a Doordeck account; the call will fail with a 409 conflict error if there is 
-a pending invite (unless force is set to true).</p>
-
-<p>This call differs from v2 by removing the privateKey and publicKey fields in favour of the ephemeral key registration
-endpoints.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
-<p><code>POST https://api.doordeck.com/auth/register</code></p>
-
-<p>This call must be made with the <code>Accept</code> header set to <code>application/vnd.doordeck.api-v3+json</code></p>
-<h3 id='request-parameters-5'>Request Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>email</td>
-<td>true</td>
-<td>Email address to register.</td>
-</tr>
-<tr>
-<td>password</td>
-<td>true</td>
-<td>Password for access to account.</td>
-</tr>
-<tr>
-<td>displayName</td>
-<td>false</td>
-<td>User&#39;s display name (e.g. their fullname)</td>
-</tr>
-</tbody></table>
-<h3 id='query-parameters-2'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>force</td>
-<td>false</td>
-<td>Boolean flag to indicate if a pending invite should be discarded and a new account created</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-A validation email will be disptahced to the user's email address upon successful registration.
+A validation email will be dispatched to the user's email address upon successful registration.
 </aside>
 <h2 id='refresh-token'>Refresh Token</h2>
 <aside class="warning">
@@ -1025,7 +909,7 @@ This endpoint is only available to users with Doordeck issued auth tokens.
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint refreshes a users&#39; authentication token using their refresh token. Refresh tokens cannot be used for standard requests and have a very long life compared with an authentication token.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST https://api.doordeck.com/auth/token/refresh</code></p>
 
 <aside class="notice">
@@ -1043,7 +927,7 @@ This endpoint is only available when the authentication token used specifies a s
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer TOKEN"</span>
 </code></pre></div>
 <p>This endpoint destroys a session associated with an authentication token and any associated refresh token.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>POST https://api.doordeck.com/auth/token/destroy</code></p>
 <h2 id='register-ephemeral-key'>Register Ephemeral Key</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.doordeck.com/auth/certificate"</span> <span class="se">\</span>
   <span class="nt">-X</span> POST <span class="se">\</span>
@@ -1071,9 +955,9 @@ encoded or specified as a Base 64 DER encoded key as defined in <a href="https:/
 indicate this by returning a 423 error.</p>
 
 <p>The certificate chain returned should be used in the <code>x5c</code> field when performing signed requests such as unlocking.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>POST https://api.doordeck.com/auth/certificate</code></p>
-<h3 id='request-parameters-6'>Request Parameters</h3>
+<h3 id='request-parameters-4'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1106,9 +990,9 @@ curl <span class="s2">"https://api.doordeck.com/auth/certificate/verify"</span> 
 <p>This endpoint is used to register ephemeral keys for users, it will start a secondary authentication flow using email, 
 SMS, telephone or WhatsApp - the service will pick the most appropriate method based on the contents of the provided
 auth token or it can be specified as a query parameter.</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>POST https://api.doordeck.com/auth/certificate/verify</code></p>
-<h3 id='request-parameters-7'>Request Parameters</h3>
+<h3 id='request-parameters-5'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1122,7 +1006,7 @@ auth token or it can be specified as a query parameter.</p>
 <td>Base64 encoded ephemeral Ed25519 key</td>
 </tr>
 </tbody></table>
-<h3 id='query-parameters-3'>Query Parameters</h3>
+<h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1156,9 +1040,9 @@ curl <span class="s2">"https://api.doordeck.com/auth/certificate/check"</span> <
 </span></code></pre></div>
 <p>This endpoint is used to check the verification code sent to a use, it requires the ephemeral key sign the verification
 code so that Doordeck is sure the same ephemeral key is used.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>POST https://api.doordeck.com/auth/certificate/check</code></p>
-<h3 id='request-parameters-8'>Request Parameters</h3>
+<h3 id='request-parameters-6'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1180,9 +1064,9 @@ code so that Doordeck is sure the same ephemeral key is used.</p>
 </blockquote>
 
 <p>This endpoint is used to verify a user&#39;s email address.</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>PUT https://api.doordeck.com/account/email/verify</code></p>
-<h3 id='query-parameters-4'>Query Parameters</h3>
+<h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1205,7 +1089,7 @@ This endpoint is only available to users with Doordeck issued auth tokens.
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer TOKEN"</span>
 </code></pre></div>
 <p>This endpoint will generate a new email to the logged user with a new verification code to validate their email address.</p>
-<h3 id='http-request-12'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>POST https://api.doordeck.com/account/email/reverify</code></p>
 <h2 id='change-password'>Change Password</h2>
 <aside class="warning">
@@ -1222,9 +1106,9 @@ This endpoint is only available to users with Doordeck issued auth tokens.
 </blockquote>
 
 <p>This endpoint is used to allow a user to change their password.</p>
-<h3 id='http-request-13'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>POST https://api.doordeck.com/account/password</code></p>
-<h3 id='request-parameters-9'>Request Parameters</h3>
+<h3 id='request-parameters-7'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1257,7 +1141,7 @@ This endpoint is only available to users with Doordeck issued auth tokens.
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint returns information about the currently logged in user</p>
-<h3 id='http-request-14'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>GET https://api.doordeck.com/account</code></p>
 <h2 id='update-user-details'>Update User Details</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.doordeck.com/account"</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer TOKEN"</span>
@@ -1270,9 +1154,9 @@ This endpoint is only available to users with Doordeck issued auth tokens.
 </blockquote>
 
 <p>This endpoint updates a user&#39;s details, currently this is limited to display name.</p>
-<h3 id='http-request-15'>HTTP Request</h3>
+<h3 id='http-request-13'>HTTP Request</h3>
 <p><code>POST https://api.doordeck.com/account</code></p>
-<h3 id='request-parameters-10'>Request Parameters</h3>
+<h3 id='request-parameters-8'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1293,8 +1177,8 @@ This operation is irreversible!
 </aside></p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.doordeck.com/account'</span> <span class="se">\</span>
    <span class="nt">-X</span> DELETE <span class="se">\</span>
-  <span class="nt">--header</span> <span class="s1">'Authorization: Bearer TOKEN'</span> <span class="se">\</span>
-</code></pre></div><h3 id='http-request-16'>HTTP Request</h3>
+  <span class="nt">--header</span> <span class="s1">'Authorization: Bearer TOKEN'</span>
+</code></pre></div><h3 id='http-request-14'>HTTP Request</h3>
 <p><code>DELETE https://api.doordeck.com/account</code></p>
 
 <h1 id='sites'>Sites</h1><h2 id='list-sites'>List Sites</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.doordeck.com/site/'</span>
@@ -1815,7 +1699,39 @@ The behavior of this endpoint is as follows:
 </tr>
 <tr>
 <td>DEVICE_DISCONNECTED</td>
-<td>Lock has disconected from Doordeck platform</td>
+<td>Lock has disconnected from Doordeck platform</td>
+</tr>
+<tr>
+<td>LOCK_SHARED</td>
+<td>The lock&#39;s access has been shared to a new user</td>
+</tr>
+<tr>
+<td>LOCK_REVOKED</td>
+<td>Access to the lock has been revoked for the specified user</td>
+</tr>
+<tr>
+<td>USER_PROMOTED</td>
+<td>A user was promoted to an administrator</td>
+</tr>
+<tr>
+<td>USER_DEMOTED</td>
+<td>An administrator was demoted to a user</td>
+</tr>
+<tr>
+<td>SETTING_CHANGED</td>
+<td>A lock setting has been changed</td>
+</tr>
+<tr>
+<td>TILE_ASSOCIATED</td>
+<td>A tile has been associated with a device</td>
+</tr>
+<tr>
+<td>TILE_DISASSOCIATED</td>
+<td>A tile has been dissociated from a device</td>
+</tr>
+<tr>
+<td>DEVICE_DECOMMISSIONED</td>
+<td>A device has been decommissioned</td>
 </tr>
 </tbody></table>
 <h2 id='get-lock-audit-trail-v2'>Get Lock Audit Trail (v2)</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.doordeck.com/device/00000000-0000-0000-0000-000000000000/log?start=0000&amp;end=0000'</span>
@@ -1898,7 +1814,7 @@ The behavior of this endpoint is as follows:
 </tr>
 <tr>
 <td>DEVICE_DISCONNECTED</td>
-<td>Lock has disconected from Doordeck platform</td>
+<td>Lock has disconnected from Doordeck platform</td>
 </tr>
 <tr>
 <td>LOCK_SHARED</td>
