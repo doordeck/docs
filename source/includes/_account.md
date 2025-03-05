@@ -3,7 +3,15 @@
 ## Login (v1)
 
 <aside class="warning">
+This endpoint is only available to Doordeck registered users.
+</aside>
+
+<aside class="warning">
 This endpoint has been deprecated and is due for removal, do not use.
+</aside>
+
+<aside class="warning">
+This endpoint will return the v2 response for any users registered after 1st March 2025
 </aside>
 
 ```shell
@@ -34,19 +42,19 @@ This endpoint lets user's attempt to login.
 
 ### Request Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-email | true | User's email address
-password | true | User's password
+| Parameter | Required | Description          |
+|-----------|----------|----------------------|
+| email     | true     | User's email address |
+| password  | true     | User's password      |
 
 ### Response
 
-Parameter | Description
---------- | -----------
-privateKey | PKCS8 encoded private key wrapped in base 64 encoding to be JSON friendly
-publicKey | Base 64 encoded public key
-authToken | JSON web token to be used for normal requests
-refreshToken | JSON web token to be used for getting new authentication tokens
+| Parameter    | Description                                                       |
+|--------------|-------------------------------------------------------------------|
+| privateKey   | Base 64 + PKCS8 encoded private key, only visible to legacy users |
+| publicKey    | Base 64 encoded public key, only visible to legacy users          |
+| authToken    | JSON web token to be used for normal requests                     |
+| refreshToken | JSON web token to be used for getting new authentication tokens   |
 
 ## Login (v2)
 
@@ -83,114 +91,23 @@ This call must be made with the ```Accept``` header set to ```application/vnd.do
 
 ### Request Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-email | true | User's email address
-password | true | User's password
+| Parameter | Required | Description          |
+|-----------|----------|----------------------|
+| email     | true     | User's email address |
+| password  | true     | User's password      |
 
 ### Response
 
-Parameter | Description
---------- | -----------
-authToken | JSON web token to be used for normal requests
-refreshToken | JSON web token to be used for getting new authentication tokens
+| Parameter    | Description                                                     |
+|--------------|-----------------------------------------------------------------|
+| authToken    | JSON web token to be used for normal requests                   |
+| refreshToken | JSON web token to be used for getting new authentication tokens |
 
-## Registration (v1)
+## Registration
 
-<aside class="warning">
-This endpoint has been deprecated and is due for removal, do not use.
+<aside class="notice">
+To preserve compatibility, this endpoint responds to requests for v1 through v3.
 </aside>
-
-```shell
-curl "https://api.doordeck.com/auth/register"
-  -X POST
-  -H 'content-type: application/json'
-  --data-binary '{"email":"EMAIL","password":"PASSWORD"}'
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "privateKey":"base 64 encoded private key",
-  "publicKey":"base 64 encoded public key",
-  "authToken":"JSON Web Token for authentication",
-  "refreshToken":"JSON Web Token for refreshing authentication credentials"
-}
-```
-
-This endpoint allows users to register for a Doordeck account.
-
-### HTTP Request
-
-`POST https://api.doordeck.com/auth/register`
-
-### Request Parameters
-
-Parameter | Required | Description
---------- | ------- | -----------
-email | true | Email address to register.
-password | true | Password for access to account.
-displayName | false | User's display name (e.g. their fullname)
-
-<aside class="success">
-A validation email will be dispatched to the user's email address upon successful registration.
-</aside>
-
-## Registration (v2)
-
-<aside class="warning">
-This endpoint has been deprecated and is due for removal, do not use.
-</aside>
-
-```shell
-curl "https://api.doordeck.com/auth/register"
-  -X POST
-  -H "Accept: application/vnd.doordeck.api-v2+json"
-  -H 'content-type: application/json'
-  --data-binary '{"email":"EMAIL","password":"PASSWORD"}'
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "privateKey":"base 64 encoded private key",
-  "publicKey":"base 64 encoded public key",
-  "authToken":"JSON Web Token for authentication",
-  "refreshToken":"JSON Web Token for refreshing authentication credentials"
-}
-```
-
-This endpoint allows users to register for a Doordeck account; it's handling of accounts with a pending invite is 
-different from v1 in that the call will fail with a 409 conflict error if there is a pending invite (unless force is set
- to true).
-
-### HTTP Request
-
-`POST https://api.doordeck.com/auth/register`
-
-This call must be made with the ```Accept``` header set to ```application/vnd.doordeck.api-v2+json```
-
-### Request Parameters
-
-Parameter | Required | Description
---------- | ------- | -----------
-email | true | Email address to register.
-password | true | Password for access to account.
-displayName | false | User's display name (e.g. their fullname)
-
-### Query Parameters
-
-Parameter | Required | Description
---------- | ------- | -----------
-force | false | Boolean flag to indicate if a pending invite should be discarded and a new account created
-
-<aside class="success">
-A validation email will be disptahced to the user's email address upon successful registration.
-</aside>
-
-## Registration (v3)
 
 ```shell
 curl "https://api.doordeck.com/auth/register"
@@ -212,31 +129,28 @@ curl "https://api.doordeck.com/auth/register"
 This endpoint allows users to register for a Doordeck account; the call will fail with a 409 conflict error if there is 
 a pending invite (unless force is set to true).
 
-This call differs from v2 by removing the privateKey and publicKey fields in favour of the ephemeral key registration
-endpoints.
-
 ### HTTP Request
 
 `POST https://api.doordeck.com/auth/register`
 
-This call must be made with the ```Accept``` header set to ```application/vnd.doordeck.api-v3+json```
+This call should be made with the ```Accept``` header set to ```application/vnd.doordeck.api-v3+json```
 
 ### Request Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-email | true | Email address to register.
-password | true | Password for access to account.
-displayName | false | User's display name (e.g. their fullname)
+| Parameter   | Required | Description                               |
+|-------------|----------|-------------------------------------------|
+| email       | true     | Email address to register.                |
+| password    | true     | Password for access to account.           |
+| displayName | false    | User's display name (e.g. their fullname) |
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-force | false | Boolean flag to indicate if a pending invite should be discarded and a new account created
+| Parameter | Required | Description                                                                                |
+|-----------|----------|--------------------------------------------------------------------------------------------|
+| force     | false    | Boolean flag to indicate if a pending invite should be discarded and a new account created |
 
 <aside class="success">
-A validation email will be disptahced to the user's email address upon successful registration.
+A validation email will be dispatched to the user's email address upon successful registration.
 </aside>
 
 ## Refresh Token
@@ -326,9 +240,9 @@ The certificate chain returned should be used in the ```x5c``` field when perfor
 
 ### Request Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-ephemeralKey | true | Base64 encoded ephemeral Ed25519 key
+| Parameter    | Required | Description                          |
+|--------------|----------|--------------------------------------|
+| ephemeralKey | true     | Base64 encoded ephemeral Ed25519 key |
 
 ## Register Ephemeral Key With Secondary Authentication
 
@@ -357,15 +271,15 @@ auth token or it can be specified as a query parameter.
 
 ### Request Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-ephemeralKey | true | Base64 encoded ephemeral Ed25519 key
+| Parameter    | Required | Description                          |
+|--------------|----------|--------------------------------------|
+| ephemeralKey | true     | Base64 encoded ephemeral Ed25519 key |
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-method | false | One of EMAIL, TELEPHONE, SMS, WHATSAPP
+| Parameter | Required | Description                            |
+|-----------|----------|----------------------------------------|
+| method    | false    | One of EMAIL, TELEPHONE, SMS, WHATSAPP |
 
 ## Verify Ephemeral Key Registration
 
@@ -398,9 +312,9 @@ code so that Doordeck is sure the same ephemeral key is used.
 
 ### Request Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-verificationSignature | true | Base64 encoded signature of the verification code with the ephemeral key
+| Parameter             | Required | Description                                                              |
+|-----------------------|----------|--------------------------------------------------------------------------|
+| verificationSignature | true     | Base64 encoded signature of the verification code with the ephemeral key |
 
 ## Verify Email
 
@@ -418,9 +332,9 @@ This endpoint is used to verify a user's email address.
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-code | true | Verification code from email.
+| Parameter | Required | Description                   |
+|-----------|----------|-------------------------------|
+| code      | true     | Verification code from email. |
 
 ## Reverify Email
 
@@ -462,10 +376,10 @@ This endpoint is used to allow a user to change their password.
 
 ### Request Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-oldPassword | true | User's old password.
-newPassword | true | User's desired new password.
+| Parameter   | Required | Description                  |
+|-------------|----------|------------------------------|
+| oldPassword | true     | User's old password.         |
+| newPassword | true     | User's desired new password. |
 
 ## Get User Details
 
@@ -509,9 +423,9 @@ This endpoint updates a user's details, currently this is limited to display nam
 
 ### Request Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-displayName | true | User's desired display name
+| Parameter   | Required | Description                 |
+|-------------|----------|-----------------------------|
+| displayName | true     | User's desired display name |
 
 ## Delete Account
 
@@ -523,7 +437,7 @@ This operation is irreversible!
 ```shell
 curl 'https://api.doordeck.com/account' \
    -X DELETE \
-  --header 'Authorization: Bearer TOKEN' \
+  --header 'Authorization: Bearer TOKEN'
 ```
 
 ### HTTP Request
