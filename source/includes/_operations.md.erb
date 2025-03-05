@@ -198,15 +198,23 @@ Replace `LOCK_ID` with the appropriate lock ID.
 ### Event Types
 The call returns an enum of event types:
 
-Type | Description
---------- | -----------
-DOOR_OPEN | The lock's monitor shows the door is open
-DOOR_CLOSE | The lock's monitor shows the door is closed
-DOOR_UNLOCK | The lock has changed to the unlock stated
-DOOR_LOCK | The lock has changed to the locked state
-OWNER_ASSIGNED | The lock's owner has been updated
-DEVICE_CONNECTED | Lock has connected to Doordeck platform
-DEVICE_DISCONNECTED | Lock has disconected from Doordeck platform
+| Type                  | Description                                                |
+|-----------------------|------------------------------------------------------------|
+| DOOR_OPEN             | The lock's monitor shows the door is open                  |
+| DOOR_CLOSE            | The lock's monitor shows the door is closed                |
+| DOOR_UNLOCK           | The lock has changed to the unlock stated                  |
+| DOOR_LOCK             | The lock has changed to the locked state                   |
+| OWNER_ASSIGNED        | The lock's owner has been updated                          |
+| DEVICE_CONNECTED      | Lock has connected to Doordeck platform                    |
+| DEVICE_DISCONNECTED   | Lock has disconnected from Doordeck platform               |
+| LOCK_SHARED           | The lock's access has been shared to a new user            |
+| LOCK_REVOKED          | Access to the lock has been revoked for the specified user |
+| USER_PROMOTED         | A user was promoted to an administrator                    |
+| USER_DEMOTED          | An administrator was demoted to a user                     |
+| SETTING_CHANGED       | A lock setting has been changed                            |
+| TILE_ASSOCIATED       | A tile has been associated with a device                   |
+| TILE_DISASSOCIATED    | A tile has been dissociated from a device                  |
+| DEVICE_DECOMMISSIONED | A device has been decommissioned                           |
 
 ## Get Lock Audit Trail (v2)
 
@@ -263,24 +271,23 @@ This call must be made with the ```Accept``` header set to ```application/vnd.do
 ### Event Types
 The call returns an enum of event types:
 
-Type | Description
---------- | -----------
-DOOR_OPEN | The lock's monitor shows the door is open
-DOOR_CLOSE | The lock's monitor shows the door is closed
-DOOR_UNLOCK | The lock has changed to the unlock stated
-DOOR_LOCK | The lock has changed to the locked state
-OWNER_ASSIGNED | The lock's owner has been updated
-DEVICE_CONNECTED | Lock has connected to Doordeck platform
-DEVICE_DISCONNECTED | Lock has disconected from Doordeck platform
-LOCK_SHARED | The lock's access has been shared to a new user
-LOCK_REVOKED | Access to the lock has been revoked for the specified user
-USER_PROMOTED | A user was promoted to an administrator
-USER_DEMOTED | An administrator was demoted to a user
-SETTING_CHANGED | A lock setting has been changed
-TILE_ASSOCIATED | A tile has been associated with a device
-TILE_DISASSOCIATED | A tile has been dissociated from a device
-DEVICE_DECOMMISSIONED | A device has been decommissioned
-
+| Type                  | Description                                                |
+|-----------------------|------------------------------------------------------------|
+| DOOR_OPEN             | The lock's monitor shows the door is open                  |
+| DOOR_CLOSE            | The lock's monitor shows the door is closed                |
+| DOOR_UNLOCK           | The lock has changed to the unlock stated                  |
+| DOOR_LOCK             | The lock has changed to the locked state                   |
+| OWNER_ASSIGNED        | The lock's owner has been updated                          |
+| DEVICE_CONNECTED      | Lock has connected to Doordeck platform                    |
+| DEVICE_DISCONNECTED   | Lock has disconnected from Doordeck platform               |
+| LOCK_SHARED           | The lock's access has been shared to a new user            |
+| LOCK_REVOKED          | Access to the lock has been revoked for the specified user |
+| USER_PROMOTED         | A user was promoted to an administrator                    |
+| USER_DEMOTED          | An administrator was demoted to a user                     |
+| SETTING_CHANGED       | A lock setting has been changed                            |
+| TILE_ASSOCIATED       | A tile has been associated with a device                   |
+| TILE_DISASSOCIATED    | A tile has been dissociated from a device                  |
+| DEVICE_DECOMMISSIONED | A device has been decommissioned                           |
 
 ## Get Audit For A User
 
@@ -515,9 +522,9 @@ Replace `USER_EMAIL` with the user's email
 
 ### Query Parameters
 
-Parameter | Required | Description
---------- | -------- | -----------
-visitor   | false    | Defaults to false, set to true to direct the visitor to a purely web based experience.
+| Parameter | Required | Description                                                                            |
+|-----------|----------|----------------------------------------------------------------------------------------|
+| visitor   | false    | Defaults to false, set to true to direct the visitor to a purely web based experience. |
 
 ## Lookup User Public Key (v1)
 
