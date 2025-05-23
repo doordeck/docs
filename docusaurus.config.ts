@@ -53,13 +53,9 @@ const config: Config = {
       title: '',
       logo: {
         alt: 'My Site Logo',
-        src: 'img/doordeck-logo.svg',
+        src: 'img/logo.svg',
+        srcDark: 'img/dark-logo.svg',
       },
-    },
-    colorMode: {
-      defaultMode: 'dark',
-      disableSwitch: true,
-      respectPrefersColorScheme: false,
     },
     docs: {
       sidebar: {
