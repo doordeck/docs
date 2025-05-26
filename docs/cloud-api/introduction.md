@@ -1,7 +1,3 @@
----
-slug: /cloud-api
----
-
 # Introduction
 
 Welcome to the Doordeck API! You can use our API to access Doordeck API endpoints,
