@@ -13,7 +13,6 @@ This endpoint destroys a session associated with an authentication token and any
 ### HTTP Request
 `POST https://api.doordeck.com/auth/token/destroy`
 
-
 ### Example
 
 import Tabs from '@theme/Tabs';
@@ -26,8 +25,6 @@ import TabItem from '@theme/TabItem';
 curl "https://api.doordeck.com/auth/token/destroy"
   -H "Authorization: Bearer TOKEN"
 ```
-
-> Make sure to replace `REFRESH_TOKEN` with your refresh token.
 
 </TabItem>
 <TabItem value="json" label="Response">
