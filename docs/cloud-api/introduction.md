@@ -19,7 +19,3 @@ Doordeck operates production, staging and development environments at the follow
  - https://api.dev.doordeck.com
 
 Newer endpoints may only exist in staging or development environments, these will be flagged as such.
- 
-import DocCardList from '@theme/DocCardList';
-
-<DocCardList />

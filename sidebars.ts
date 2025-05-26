@@ -93,7 +93,8 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Kotlin Multiplatform SDK',
       items: [
-        'kotlin-multiplatform-sdk/build'
+        'kotlin-multiplatform-sdk/build',
+        'kotlin-multiplatform-sdk/install'
       ]
     }
   ],
