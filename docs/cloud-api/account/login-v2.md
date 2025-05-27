@@ -14,7 +14,11 @@ This endpoint lets user's attempt to login.
 
 `POST https://api.doordeck.com/auth/token`
 
-This call must be made with the ```Accept``` header set to ```application/vnd.doordeck.api-v2+json```
+### Request Headers
+
+| Header | Required | Description                          |
+|--------|----------|--------------------------------------|
+| Accept | true     | application/vnd.doordeck.api-v2+json |
 
 ### Request Parameters
 

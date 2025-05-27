@@ -82,7 +82,7 @@ The iOS and macOS packages are available via [CocoaPods](https://cocoapods.org/p
 
 The JavaScript artifacts are available on [NPM](https://www.npmjs.com/package/@doordeck/doordeck-headless-sdk)
 
-```javascript title="NPM"
+```shell title="Shell"
 npm install @doordeck/doordeck-headless-sdk --save
 ```
 

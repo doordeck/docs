@@ -3,3 +3,80 @@ sidebar_position: 11
 ---
 
 # Lookup User Public Key (v2)
+
+This endpoint expands upon the v1 endpoint by allowing multiple query keys to be used in a single request, this allows
+for batches of up to 25 users to be queried in a single request.
+
+| Field      | Description                                     |
+|------------|-------------------------------------------------|
+| email      | Email addresses                                 |
+| telephone  | E.164 formatted telephone numbers               |
+| localKey   | Doordeck identifier for a user (UUID)           |
+| foreignKey | Third-party application's identifier for a user |
+
+### HTTP Request
+
+`POST https://api.doordeck.com/directory/query`
+
+This call must be made with the ```Accept``` header set to ```application/vnd.doordeck.api-v2+json```
+
+### Request Parameters
+
+The request body must have one and only one of the following fields.
+
+| Parameter  | Required | Description                                      |
+|------------|----------|--------------------------------------------------|
+| email      | false    | Email addresses                                  |
+| telephone  | false    | E.164 formatted telephone numbers                |
+| localKey   | false    | Doordeck identifier for users (UUID)             |
+| foreignKey | false    | Third-party application's identifier for a users |
+
+### Example
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="shell" label="Request">
+
+```shell title="CURL"
+curl 'https://api.doordeck.com/directory/query' \
+    --header 'Accept: application/vnd.doordeck.api-v2+json' \
+    --header 'Content-Type: application/json' \
+    --header 'Authorization: Bearer TOKEN' \
+    --data-raw '{
+        "email": ["example1@doordeck.com", "example2@doordeck.com"],
+        "localKey": ["ee03c470-c080-11e6-9b35-cb2329105e85"],
+        "foreignKey": ["5a5f6e80-3c51-11e6-9e57-cf40be3013fb"]
+    }'
+```
+
+</TabItem>
+<TabItem value="json" label="Response">
+
+```json title="JSON"
+[
+  {
+    "email": "example1@doordeck.com",
+    "id": "5a5f6e80-3c51-11e6-9e57-cf40be3013fb",
+    "publicKey": "MIIBIjANBgk...IDAQAB"
+  },
+  {
+    "email": "example2@doordeck.com",
+    "id": "ee03c470-c080-11e6-9b35-cb2329105e85",
+    "publicKey": "MIIBIjANBgk...IDAQAB"
+  },
+  {
+    "foreignKey": "5a5f6e80-3c51-11e6-9e57-cf40be3013fb",
+    "id": "5a5f6e80-3c51-11e6-9e57-cf40be3013fb",
+    "publicKey": "MIIBIjANBgk...IDAQAB"
+  },
+  {
+    "id": "ee03c470-c080-11e6-9b35-cb2329105e85",
+    "publicKey": "MIIBIjANBgk...IDAQAB"
+  }
+]
+```
+
+</TabItem>
+</Tabs>

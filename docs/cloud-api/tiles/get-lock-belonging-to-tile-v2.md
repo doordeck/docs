@@ -10,13 +10,18 @@ This endpoint is marked for deprecation. Please refer to v3 for the latest versi
 
 This endpoint identifies which lock belongs to the specific tile.
 
-This call must be made with the `Accept` header set to `application/vnd.doordeck.api-v2+json`.
-
 ### HTTP Request
 
 `GET https://api.doordeck.com/tile/TILE_ID/`
 
 Replace `TILE_ID` with the appropriate tile ID.
+
+### Request Headers
+
+| Header | Required | Description                          |
+|--------|----------|--------------------------------------|
+| Accept | true     | application/vnd.doordeck.api-v2+json |
+
 
 ### Example
 

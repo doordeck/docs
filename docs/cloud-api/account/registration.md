@@ -15,7 +15,11 @@ a pending invite (unless force is set to true).
 
 `POST https://api.doordeck.com/auth/register`
 
-This call should be made with the ```Accept``` header set to ```application/vnd.doordeck.api-v3+json```
+### Request Headers
+
+| Header | Required | Description                          |
+|--------|----------|--------------------------------------|
+| Accept | true     | application/vnd.doordeck.api-v3+json |
 
 ### Request Parameters
 
