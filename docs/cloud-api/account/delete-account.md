@@ -20,21 +20,23 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="shell" label="Request">
+<TabItem value="request" label="Request">
 
-```shell title="CURL"
+```shell showLineNumbers title="CURL"
 curl 'https://api.doordeck.com/account' \
    -X DELETE \
   --header 'Authorization: Bearer TOKEN'
 ```
 
-> Make sure to replace `TOKEN` with your access token.
+:::note
+Make sure to replace `TOKEN` with your access token.
+:::
 
 </TabItem>
-<TabItem value="json" label="Response">
+<TabItem value="response" label="Response">
 
-```json title="JSON"
-{}
+```json title="HTTP CODE"
+204
 ```
 
 </TabItem>

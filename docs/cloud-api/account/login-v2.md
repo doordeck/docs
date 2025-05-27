@@ -41,22 +41,24 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="shell" label="Request">
+<TabItem value="request" label="Request">
 
-```shell title="CURL"
-curl 'https://api.doordeck.com/auth/token/'
-  -X POST
-  -H "Accept: application/vnd.doordeck.api-v2+json"
-  -H 'content-type: application/json'
+```shell showLineNumbers title="CURL"
+curl 'https://api.doordeck.com/auth/token/' \
+  -X POST \
+  -H "Accept: application/vnd.doordeck.api-v2+json" \
+  -H 'content-type: application/json' \
   --data-binary '{"email":"EMAIL","password":"PASSWORD"}'
 ```
 
-> Make sure to replace `USERNAME` and `PASSWORD` with your credentials.
+:::note
+Make sure to replace `USERNAME` and `PASSWORD` with your credentials.
+:::
 
 </TabItem>
-<TabItem value="json" label="Response">
+<TabItem value="response" label="Response">
 
-```json title="JSON"
+```json showLineNumbers title="JSON"
 {
   "authToken":"JSON Web Token for authentication",
   "refreshToken":"JSON Web Token for refreshing authentication credentials"

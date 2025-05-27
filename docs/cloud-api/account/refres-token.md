@@ -28,19 +28,21 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="shell" label="Request">
+<TabItem value="request" label="Request">
 
-```shell title="CURL"
-curl -X POST "https://api.doordeck.com/auth/token/refresh"
+```shell showLineNumbers title="CURL"
+curl -X POST "https://api.doordeck.com/auth/token/refresh" \
   -H "Authorization: Bearer REFRESH_TOKEN"
 ```
 
-> Make sure to replace `REFRESH_TOKEN` with your refresh token.
+:::note
+Make sure to replace `REFRESH_TOKEN` with your refresh token.
+:::
 
 </TabItem>
-<TabItem value="json" label="Response">
+<TabItem value="response" label="Response">
 
-```json title="JSON"
+```json showLineNumbers title="JSON"
 {
   "authToken":"JSON Web Token for authentication",
   "refreshToken":"(Optional) JSON Web Token for refreshing authentication credentials"

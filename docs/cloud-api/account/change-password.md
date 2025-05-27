@@ -27,23 +27,26 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="shell" label="Request">
+<TabItem value="request" label="Request">
 
-```shell title="CURL"
-curl "https://api.doordeck.com/account/password"
-  -H "Authorization: Bearer TOKEN"
-  -X POST
-  -H 'content-type: application/json'
+```shell showLineNumbers title="CURL"
+curl "https://api.doordeck.com/account/password" \
+  -H "Authorization: Bearer TOKEN" \
+  -X POST \
+  -H 'content-type: application/json' \
   --data-binary '{"oldPassword":"OLD_PASSWORD","newPassword":"NEW_PASSWORD"}'
 ```
 
-> Replace `OLD_PASSWORD` with the users' current password and `NEW_PASSWORD` with their desired password.
+:::note
+* Make sure to replace `TOKEN` with your access token.
+* Replace `OLD_PASSWORD` with the users' current password and `NEW_PASSWORD` with their desired password.
+:::
 
 </TabItem>
-<TabItem value="json" label="Response">
+<TabItem value="response" label="Response">
 
-```json title="JSON"
-{}
+```json showLineNumbers title="HTTP CODE"
+204
 ```
 
 </TabItem>

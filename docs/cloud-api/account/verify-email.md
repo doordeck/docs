@@ -21,19 +21,22 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="shell" label="Request">
+<TabItem value="request" label="Request">
 
-```shell title="CURL"
-curl "https://api.doordeck.com/account/email/verify?code=CODE"
+```shell showLineNumbers title="CURL"
+curl "https://api.doordeck.com/account/email/verify?code=CODE" \
   -X PUT
 ```
-> Replace `CODE` with the verification code from the email.
+
+:::note
+Replace `CODE` with the verification code from the email.
+:::
 
 </TabItem>
-<TabItem value="json" label="Response">
+<TabItem value="response" label="Response">
 
-```json title="JSON"
-{}
+```json showLineNumbers title="HTTP CODE"
+200
 ```
 
 </TabItem>

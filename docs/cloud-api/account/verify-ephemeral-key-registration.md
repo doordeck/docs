@@ -16,16 +16,15 @@ code so that Doordeck is sure the same ephemeral key is used.
 |-----------------------|----------|--------------------------------------------------------------------------|
 | verificationSignature | true     | Base64 encoded signature of the verification code with the ephemeral key |
 
-
 ### Example
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="shell" label="Request">
+<TabItem value="request" label="Request">
 
-```shell title="CURL"
+```shell showLineNumbers title="CURL"
 # Calculate the signature of the authentication code using the previously generated private key
 echo -n "AUTHENTICATION_CODE" > code.txt
 SIGNATURE=$(openssl pkeyutl -sign -inkey private.key -rawin -in code.txt | base64)
@@ -36,11 +35,14 @@ curl "https://api.doordeck.com/auth/certificate/check" \
   -H 'content-type: application/json' \
   --data-binary '{"verificationSignature":"'${SIGNATURE}'"}' 
 ```
+:::note
+Make sure to replace `TOKEN` with your access token.
+:::
 
 </TabItem>
-<TabItem value="json" label="Response">
+<TabItem value="response" label="Response">
 
-```json title="JSON"
+```json showLineNumbers title="JSON"
 {
   "certificateChain": ["List of base64 encoded DER X509 certificates forming a complete certificate chain"],
   "userId": "Doordeck identifier for the user"

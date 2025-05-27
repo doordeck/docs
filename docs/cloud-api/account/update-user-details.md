@@ -21,23 +21,26 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="shell" label="Request">
+<TabItem value="request" label="Request">
 
-```shell title="CURL"
-curl "https://api.doordeck.com/account"
-  -H "Authorization: Bearer TOKEN"
-  -X POST
-  -H 'content-type: application/json'
+```shell showLineNumbers title="CURL"
+curl "https://api.doordeck.com/account" \
+  -H "Authorization: Bearer TOKEN" \
+  -X POST \
+  -H 'content-type: application/json' \
   --data-binary '{"displayName":"NEW_DISPLAY_NAME"}'
 ```
 
-> Replace `NEW_DISPLAY_NAME` with the new display name to use
+:::note
+* Make sure to replace `TOKEN` with your access token.
+* Replace `NEW_DISPLAY_NAME` with the new display name to use
+:::
 
 </TabItem>
-<TabItem value="json" label="Response">
+<TabItem value="response" label="Response">
 
-```json title="JSON"
-{}
+```json showLineNumbers title="HTTP CODE"
+204
 ```
 
 </TabItem>

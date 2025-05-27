@@ -24,16 +24,15 @@ The certificate chain returned should be used in the ```x5c``` field when perfor
 |--------------|----------|--------------------------------------|
 | ephemeralKey | true     | Base64 encoded ephemeral Ed25519 key |
 
-
 ### Example
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="shell" label="Request">
+<TabItem value="request" label="Request">
 
-```shell title="CURL"
+```shell showLineNumbers title="CURL"
 curl "https://api.doordeck.com/auth/certificate" \
   -X POST \
   -H "Authorization: Bearer TOKEN" \
@@ -41,12 +40,15 @@ curl "https://api.doordeck.com/auth/certificate" \
   --data-binary '{"ephemeralKey":"Base64 encoded Ed25519 public key"}' 
 ```
 
-> Replace `Base64 encoded Ed25519 public key` with the user's ephemeral key.
+:::note
+* Replace `Base64 encoded Ed25519 public key` with the user's ephemeral key.
+* Make sure to replace `TOKEN` with your access token.
+:::
 
 </TabItem>
-<TabItem value="json" label="Response">
+<TabItem value="response" label="Response">
 
-```json title="JSON"
+```json showLineNumbers title="JSON"
 {
   "certificateChain": ["List of base64 encoded DER X509 certificates forming a complete certificate chain"],
   "userId": "Doordeck identifier for the user"

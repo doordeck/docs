@@ -5,7 +5,7 @@ sidebar_position: 7
 # Register Ephemeral Key With Secondary Authentication
 
 This endpoint is used to register ephemeral keys for users, it will start a secondary authentication flow using email,
-SMS, telephone or WhatsApp - the service will pick the most appropriate method based on the contents of the provided
+SMS, or telephone - the service will pick the most appropriate method based on the contents of the provided
 auth token or it can be specified as a query parameter.
 
 ### HTTP Request
@@ -19,9 +19,9 @@ auth token or it can be specified as a query parameter.
 
 ### Query Parameters
 
-| Parameter | Required | Description                            |
-|-----------|----------|----------------------------------------|
-| method    | false    | One of EMAIL, TELEPHONE, SMS, WHATSAPP |
+| Parameter | Required | Description                  |
+|-----------|----------|------------------------------|
+| method    | false    | One of EMAIL, TELEPHONE, SMS |
 
 ### Example
 
@@ -29,9 +29,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="shell" label="Request">
+<TabItem value="request" label="Request">
 
-```shell title="CURL"
+```shell showLineNumbers title="CURL"
 # Generate a new ephemeral key
 openssl genpkey -algorithm ED25519 -out private.key
 
@@ -45,10 +45,14 @@ curl "https://api.doordeck.com/auth/certificate/verify" \
   --data-binary '{"ephemeralKey":"'${PUBLIC_KEY}'"}' 
 ```
 
-</TabItem>
-<TabItem value="json" label="Response">
+:::note 
+Make sure to replace `TOKEN` with your access token.
+:::
 
-```json title="HTTP CODE"
+</TabItem>
+<TabItem value="response" label="Response">
+
+```json showLineNumbers title="HTTP CODE"
 204
 ```
 
