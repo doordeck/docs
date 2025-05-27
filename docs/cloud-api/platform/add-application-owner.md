@@ -36,9 +36,9 @@ import TabItem from '@theme/TabItem';
 
 ```shell showLineNumbers title="CURL"
 curl 'https://api.doordeck.com/platform/application/APPLICATION_ID/owner' \
-   -X POST \
-  --header 'Content-Type: application/json' \
-  --header 'Authorization: Bearer TOKEN' \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer TOKEN' \
   --data-binary '{"userId": "00000000-0000-0000-0000-000000000000"}'
 ```
 
@@ -51,8 +51,8 @@ curl 'https://api.doordeck.com/platform/application/APPLICATION_ID/owner' \
 </TabItem>
 <TabItem value="response" label="Response">
 
-```json showLineNumbers title="JSON"
-{}
+```json showLineNumbers title="HTTP CODE"
+204
 ```
 
 </TabItem>

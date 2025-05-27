@@ -45,9 +45,9 @@ import TabItem from '@theme/TabItem';
 
 ```shell showLineNumbers title="CURL"
 curl 'https://api.doordeck.com/directory/query' \
-    --header 'Accept: application/vnd.doordeck.api-v2+json' \
-    --header 'Content-Type: application/json' \
-    --header 'Authorization: Bearer TOKEN' \
+    -H 'Accept: application/vnd.doordeck.api-v2+json' \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer TOKEN' \
     --data-raw '{
         "email": ["example1@doordeck.com", "example2@doordeck.com"],
         "localKey": ["ee03c470-c080-11e6-9b35-cb2329105e85"],

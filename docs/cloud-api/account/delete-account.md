@@ -24,8 +24,8 @@ import TabItem from '@theme/TabItem';
 
 ```shell showLineNumbers title="CURL"
 curl 'https://api.doordeck.com/account' \
-   -X DELETE \
-  --header 'Authorization: Bearer TOKEN'
+  -X DELETE \
+  -H 'Authorization: Bearer TOKEN'
 ```
 
 :::note[Remember]

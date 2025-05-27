@@ -4,7 +4,6 @@ sidebar_position: 11
 
 # Change Password
 
-
 :::warning
 This endpoint is only available to users with Doordeck issued auth tokens.
 :::

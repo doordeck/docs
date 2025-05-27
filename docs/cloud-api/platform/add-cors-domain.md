@@ -16,6 +16,6 @@ Adds a domain to the list of permitted CORS domains to allow webapps to call Doo
 
 ### Request Parameters
 
-Parameter | Required | Description
---------- | -------- | -----------
-url | true | CORS Domain
+| Parameter | Required | Description |
+|-----------|----------|-------------|
+| url       | true     | CORS Domain |

@@ -38,8 +38,8 @@ import TabItem from '@theme/TabItem';
 ```shell showLineNumbers title="CURL"
 curl 'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000' \
   -X PUT \
-  --header 'Authorization: Bearer TOKEN' \
-  --header 'Accept: application/vnd.doordeck.api-v2+json' \
+  -H 'Authorization: Bearer TOKEN' \
+  -H 'Accept: application/vnd.doordeck.api-v2+json' \
   --data-binary '{ \
   "siteId": "SITE_ID", \
   "devices": ["DEVICE_ID_1", "DEVICE_ID_2", "DEVICE_ID_3"] \

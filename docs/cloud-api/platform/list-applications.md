@@ -36,7 +36,42 @@ Replace `TOKEN` with your access token.
 <TabItem value="response" label="Response">
 
 ```json showLineNumbers title="JSON"
-{}
+[
+  {
+    "applicationId":"00000000-0000-0000-0000-000000000000",
+    "name":"My Amazing App",
+    "lastUpdated":1748363687.000000000,
+    "owners":[
+      "00000000-0000-0000-0000-000000000000"
+    ],
+    "corsDomains":[
+
+    ],
+    "authDomains":[
+
+    ],
+    "logoUrl":null,
+    "privacyPolicy":null,
+    "mailingAddress":"My address",
+    "companyName":"My amazing company",
+    "supportContact":null,
+    "appLink":null,
+    "slug":null,
+    "emailPreferences":{
+      "senderEmail":"info@doordeck.com",
+      "senderName":"Doordeck",
+      "primaryColour":"#00283C",
+      "secondaryColour":"#45BDD1",
+      "onlySendEssentialEmails":false,
+      "callToAction":null
+    },
+    "authKeys":{
+
+    },
+    "oauth":null,
+    "isDoordeckApplication":false
+  }
+]
 ```
 
 </TabItem>

@@ -30,9 +30,9 @@ import TabItem from '@theme/TabItem';
 
 ```shell showLineNumbers title="CURL"
 curl 'https://api.doordeck.com/platform/application/APPLICATION_ID/logo' \
-   -X POST \
-  --header 'Content-Type: application/json' \
-  --header 'Authorization: Bearer TOKEN' \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer TOKEN' \
   --data-binary '{"contentType": "IMAGE_CONTENT_TYPE"}'
 ```
 
