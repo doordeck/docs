@@ -34,20 +34,39 @@ The operation object definition is as follows
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
-import SecureOperationSetup from '!!raw-loader!./partials/shell/_secure-operation-setup.sh';
-import SecureOperationExecute from '!!raw-loader!./partials/shell/_secure-operation-execute.sh';
-import x from '!!raw-loader!./partials/shell/_secure-operation-unlock-body.sh';
+import Setup from '!!raw-loader!./partials/shell/_secure-operation-setup.sh';
+import Execute from '!!raw-loader!./partials/shell/_secure-operation-execute.sh';
 
 <Tabs>
 <TabItem value="shell" label="Request">
 
 <CodeBlock language="shell" title="CURL">
 
-{SecureOperationSetup}
+{`${Setup}
 
-{x}
+BODY=$(
+  jq -n \\
+    --arg iss "$USER_ID" \\
+    --arg sub "$DEVICE_ID" \\
+    --arg jti "$(uuidgen)" \\
+    --argjson nbf "$(date +%s)" \\
+    --argjson iat "$(date +%s)" \\
+    --argjson exp "$(($(date +%s) + 60))" \\
+    '{
+      iss: $iss,
+      sub: $sub,
+      jti: $jti,
+      nbf: $nbf,
+      iat: $iat,
+      exp: $exp,
+      operation: {
+        type: "MUTATE_LOCK",
+        "locked":false
+      }
+    }'
+)
 
-{SecureOperationExecute}
+${Execute}`}
 
 </CodeBlock>
 

@@ -24,4 +24,3 @@ HEADER=$(jq -n \
     typ: $typ,
     x5c: $x5c
   }')
-

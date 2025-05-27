@@ -16,11 +16,11 @@ Share a single lock with up to 25 users in a single request.
 
 Replace `LOCK_ID` with the appropriate lock ID.
 
-:::info
+:::tip[Success]
 If a request expires within the next 60 seconds, a 204 is returned upon success, if a request expires in more than 60 seconds, a 202 is returned to indicate the request has been queued for the device.
 :::
 
-### JWT Structure
+### Request Parameters
 
 import SecureOperationParameters from './partials/_secure-operation-params.md';
 
@@ -50,18 +50,18 @@ After the request has been signed with user's private key, it should be sent to 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
-import SecureOperationSetup from '!!raw-loader!./partials/shell/_secure-operation-setup.sh';
-import SecureOperationExecute from '!!raw-loader!./partials/shell/_secure-operation-execute.sh';
+import Setup from '!!raw-loader!./partials/shell/_secure-operation-setup.sh';
+import Execute from '!!raw-loader!./partials/shell/_secure-operation-execute.sh';
 
 <Tabs>
 <TabItem value="shell" label="Request">
 
 <CodeBlock language="shell" title="CURL">
 
-{`${SecureOperationSetup}
+{`${Setup}
 
 BODY=$(
-  jq -n \
+  jq -n \\
     --arg iss "$USER_ID" \\
     --arg sub "$DEVICE_ID" \\
     --arg jti "$(uuidgen)" \\
@@ -95,8 +95,7 @@ BODY=$(
     }'
 )
 
-
-${SecureOperationExecute} `}
+${Execute}`}
 
 </CodeBlock>
 
