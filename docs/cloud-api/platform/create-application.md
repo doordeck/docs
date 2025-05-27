@@ -4,6 +4,10 @@ sidebar_position: 1
 
 # Create application
 
+:::warning
+This endpoint is only available to users with Doordeck issued auth tokens.
+:::
+
 This endpoint allows the creation of an application; an application is how user's are divided between third-parties
 within Doordeck and define certain branding, UI and authentication elements.
 

@@ -10,7 +10,7 @@ This API documentation includes details of both endpoints available to Doordeck 
 on [Doordeck](https://app.doordeck.com) directly) and to third-party app developers, some endpoints are only available
 to one set of users, these are flagged as follows:
 
-:::warning
+:::warning[Important]
 This endpoint is only available to users with Doordeck issued auth tokens.
 :::
 

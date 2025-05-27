@@ -4,6 +4,10 @@ sidebar_position: 9
 
 # Delete Auth Issuer
 
+:::warning
+This endpoint is only available to users with Doordeck issued auth tokens.
+:::
+
 Deletes an auth issuer.
 
 ### HTTP Request

@@ -4,6 +4,10 @@ sidebar_position: 12
 
 # Add Application Owner
 
+:::warning
+This endpoint is only available to users with Doordeck issued auth tokens.
+:::
+
 Adds a new owner to an existing application.
 
 ### HTTP Request

@@ -4,6 +4,10 @@ sidebar_position: 5
 
 # Delete Application
 
+:::warning
+This endpoint is only available to users with Doordeck issued auth tokens.
+:::
+
 Delete's the application.
 
 :::danger

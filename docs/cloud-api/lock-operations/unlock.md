@@ -12,7 +12,7 @@ This endpoint allows a device to be unlocked. Requests to this endpoint must be 
 
 Replace `LOCK_ID` with the appropriate lock ID.
 
-:::note
+:::tip[Success]
 If a request expires within the next 60 seconds, a 200 is returned upon success, if a request expires in more than 60 seconds, a 202 is returned to indicate the request has been queued for the device.
 :::
 

@@ -4,6 +4,10 @@ sidebar_position: 2
 
 # List applications
 
+:::warning
+This endpoint is only available to users with Doordeck issued auth tokens.
+:::
+
 Lists all application's owned by the current user
 
 ### HTTP Request

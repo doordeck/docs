@@ -35,8 +35,9 @@ a pending invite (unless force is set to true).
 |-----------|----------|--------------------------------------------------------------------------------------------|
 | force     | false    | Boolean flag to indicate if a pending invite should be discarded and a new account created |
 
-
+:::tip[Success]
 A validation email will be dispatched to the user's email address upon successful registration.
+:::
 
 ### Example
 

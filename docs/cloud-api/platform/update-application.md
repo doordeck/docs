@@ -4,6 +4,10 @@ sidebar_position: 4
 
 # Update Application
 
+:::warning
+This endpoint is only available to users with Doordeck issued auth tokens.
+:::
+
 Updates any of the fields defined in the initial [create application](#create-application) request.
 
 ### HTTP Request

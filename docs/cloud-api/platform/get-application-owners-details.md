@@ -4,6 +4,10 @@ sidebar_position: 14
 
 # Get Application Owners Details
 
+:::warning
+This endpoint is only available to users with Doordeck issued auth tokens.
+:::
+
 This endpoint will return the details of all owners of an application (see json below), given the requesting user is an owner.
 
 ### HTTP Request
