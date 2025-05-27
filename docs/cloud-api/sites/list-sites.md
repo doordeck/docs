@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # List Sites
 
+This endpoint lists all the sites a user has access to.
+
 ### HTTP Request
 
 `GET https://api.doordeck.com/site/`
