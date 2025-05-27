@@ -18,7 +18,11 @@ for batches of up to 25 users to be queried in a single request.
 
 `POST https://api.doordeck.com/directory/query`
 
-This call must be made with the ```Accept``` header set to ```application/vnd.doordeck.api-v2+json```
+### Request Headers
+
+| Header | Required | Description                          |
+|--------|----------|--------------------------------------|
+| Accept | true     | application/vnd.doordeck.api-v2+json |
 
 ### Request Parameters
 
