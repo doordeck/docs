@@ -16,9 +16,9 @@ Gets a pre-signed URL ready for uploading the application logo to.
 
 ### Request Parameters
 
-| Parameter   | Required | Description                              |
-|-------------|----------|------------------------------------------|
-| contentType | true     | Content-type of the logo, e.g. image/png |
+| Parameter   | Required | Description                                        |
+|-------------|----------|----------------------------------------------------|
+| contentType | true     | Content-type of the logo (image/png or image/jpeg) |
 
 ### Example
 
