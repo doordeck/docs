@@ -35,8 +35,8 @@ curl -X POST "https://api.doordeck.com/auth/token/refresh" \
   -H "Authorization: Bearer REFRESH_TOKEN"
 ```
 
-:::note
-Make sure to replace `REFRESH_TOKEN` with your refresh token.
+:::note[Remember]
+Replace `REFRESH_TOKEN` with your refresh token.
 :::
 
 </TabItem>

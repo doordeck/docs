@@ -50,7 +50,7 @@ import Setup from '!!raw-loader!./partials/shell/_secure-operation-setup.sh';
 import Execute from '!!raw-loader!./partials/shell/_secure-operation-execute.sh';
 
 <Tabs>
-<TabItem value="shell" label="Request">
+<TabItem value="request" label="Request">
 
 <CodeBlock language="shell" title="CURL">
 
@@ -83,12 +83,15 @@ ${Execute}`}
 
 </CodeBlock>
 
-> - Replace `00000000-0000-0000-0000-000000000000` with the lock's ID
+:::note[Remember]
+* Replace `TOKEN` with your access token.
+* Replace `00000000-0000-0000-0000-000000000000` with the lock's ID.
+:::
 
 </TabItem>
-<TabItem value="json" label="Response">
+<TabItem value="response" label="Response">
 
-```json title="JSON"
+```json showLineNumbers title="JSON"
 {}
 ```
 

@@ -19,18 +19,22 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="shell" label="Request">
+<TabItem value="request" label="Request">
 
-```shell title="CURL"
-curl 'https://api.doordeck.com/user/00000000-0000-0000-0000-000000000000'
+```shell showLineNumbers title="CURL"
+curl 'https://api.doordeck.com/user/00000000-0000-0000-0000-000000000000' \
+  -H "Authorization: Bearer TOKEN"
 ```
 
-> Replace `00000000-0000-0000-0000-000000000000` with the user's ID.
+:::note[Remember]
+* Replace `TOKEN` with your access token.
+* Replace `00000000-0000-0000-0000-000000000000` with the user's ID.
+:::
 
 </TabItem>
-<TabItem value="json" label="Response">
+<TabItem value="response" label="Response">
 
-```json title="JSON"
+```json showLineNumbers title="JSON"
 {
   "userId": "5a5e6e70-3c51-11e6-9e57-cf40be3013fb",
   "email": "michael@doordeck.com",

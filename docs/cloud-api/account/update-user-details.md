@@ -31,9 +31,9 @@ curl "https://api.doordeck.com/account" \
   --data-binary '{"displayName":"NEW_DISPLAY_NAME"}'
 ```
 
-:::note
-* Make sure to replace `TOKEN` with your access token.
-* Replace `NEW_DISPLAY_NAME` with the new display name to use
+:::note[Remember]
+* Replace `TOKEN` with your access token.
+* Replace `NEW_DISPLAY_NAME` with the new display name to use.
 :::
 
 </TabItem>

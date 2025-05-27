@@ -22,27 +22,29 @@ Replace `TILE_ID` with the appropriate tile ID.
 |--------|----------|--------------------------------------|
 | Accept | true     | application/vnd.doordeck.api-v2+json |
 
-
 ### Example
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="shell" label="Request">
+<TabItem value="request" label="Request">
 
-```shell title="CURL"
-curl 'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/'
-  -H "Accept: application/vnd.doordeck.api-v2+json"
+```shell showLineNumbers title="CURL"
+curl 'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/' \
+  -H "Accept: application/vnd.doordeck.api-v2+json" \
   -H "Authorization: Bearer TOKEN"
 ```
 
-> Replace `00000000-0000-0000-0000-000000000000` with the tile ID.
+:::note[Remember]
+* Replace `TOKEN` with your access token.
+* Replace `00000000-0000-0000-0000-000000000000` with the tile ID.
+:::
 
 </TabItem>
-<TabItem value="json" label="Response">
+<TabItem value="response" label="Response">
 
-```json title="JSON"
+```json showLineNumbers title="JSON"
 {
   "deviceId": "device-uuid"
 }

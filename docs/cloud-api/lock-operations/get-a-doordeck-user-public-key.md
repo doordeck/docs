@@ -29,21 +29,24 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="shell" label="Request">
+<TabItem value="request" label="Request">
 
-```shell title="CURL"
+```shell showLineNumbers title="CURL"
 curl 'https://api.doordeck.com/share/invite/USER_EMAIL' \
   -X POST \
   -H 'authorization: Bearer TOKEN' \
   -H 'content-type: application/json'
 ```
 
-> - Replace `USER_EMAIL` with the user's email
+:::note[Remember]
+* Replace `TOKEN` with your access token.
+* Replace `USER_EMAIL` with the user's email.
+:::
 
 </TabItem>
-<TabItem value="json" label="Response">
+<TabItem value="response" label="Response">
 
-```json title="JSON"
+```json showLineNumbers title="JSON"
 {
   "id":"00000000-0000-0000-0000-000000000000",
   "publicKey":"base 64 encoded public key"

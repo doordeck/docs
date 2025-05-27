@@ -22,22 +22,23 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="shell" label="Request">
+<TabItem value="request" label="Request">
 
-```shell title="CURL"
-curl 'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/'
+```shell showLineNumbers title="CURL"
+curl 'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/' \
   -H "Authorization: Bearer TOKEN"
 ```
 
-> Replace `00000000-0000-0000-0000-000000000000` with the tile ID.
-> The above command returns 404 if no tile is known, or a see other 303 with the `Location` header set to the value of
-the lock
+:::note[Remember]
+* Replace `TOKEN` with your access token.
+* Replace `00000000-0000-0000-0000-000000000000` with the tile ID.
+:::
 
 </TabItem>
-<TabItem value="json" label="Response">
+<TabItem value="response" label="Response">
 
-```json title="JSON"
-{}
+```json showLineNumbers title="HTTP CODE"
+404 if no tile is known or 303 with the Location header set to the value of the lock
 ```
 
 </TabItem>

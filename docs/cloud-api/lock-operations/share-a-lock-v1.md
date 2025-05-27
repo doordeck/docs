@@ -44,7 +44,7 @@ import Setup from '!!raw-loader!./partials/shell/_secure-operation-setup.sh';
 import Execute from '!!raw-loader!./partials/shell/_secure-operation-execute.sh';
 
 <Tabs>
-<TabItem value="shell" label="Request">
+<TabItem value="request" label="Request">
 
 <CodeBlock language="shell" title="CURL">
 
@@ -85,16 +85,18 @@ ${Execute}`}
 
 </CodeBlock>
 
-> - Replace `00000000-0000-0000-0000-000000000000` with the lock's ID
-> - Replace `INVITEE_PUBLIC_KEY` with the invitee's public key
-> - Replace `11111111-1111-1111-1111-111111111111` with the invitee's user ID,
-> - Replace `USER_START_TIME` and `USER_END_TIME` with Unix timestamps of when the user should be activated from and until, use null for indefinite
-
+:::note[Remember]
+* Replace `TOKEN` with your access token.
+* Replace `00000000-0000-0000-0000-000000000000` with the lock's ID.
+* Replace `INVITEE_PUBLIC_KEY` with the invitee's public key.
+* Replace `11111111-1111-1111-1111-111111111111` with the invitee's user ID.
+* Replace `USER_START_TIME` and `USER_END_TIME` with Unix timestamps of when the user should be activated from and until, use null for indefinite.
+:::
 
 </TabItem>
-<TabItem value="json" label="Response">
+<TabItem value="response" label="Response">
 
-```json title="JSON"
+```json showLineNumbers title="JSON"
 {}
 ```
 

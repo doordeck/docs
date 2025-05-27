@@ -41,9 +41,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="shell" label="Request">
+<TabItem value="request" label="Request">
 
-```shell title="CURL"
+```shell showLineNumbers title="CURL"
 curl 'https://api.doordeck.com/directory/query' \
     --header 'Accept: application/vnd.doordeck.api-v2+json' \
     --header 'Content-Type: application/json' \
@@ -55,10 +55,14 @@ curl 'https://api.doordeck.com/directory/query' \
     }'
 ```
 
-</TabItem>
-<TabItem value="json" label="Response">
+:::note[Remember]
+* Replace `TOKEN` with your access token.
+:::
 
-```json title="JSON"
+</TabItem>
+<TabItem value="response" label="Response">
+
+```json showLineNumbers title="JSON"
 [
   {
     "email": "example1@doordeck.com",

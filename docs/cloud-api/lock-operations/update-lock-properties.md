@@ -68,23 +68,26 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="shell" label="Request">
+<TabItem value="request" label="Request">
 
-```shell title="CURL"
-curl 'https://api.doordeck.com/device/00000000-0000-0000-0000-000000000000'
-  -X PUT
-  -H "Authorization: Bearer TOKEN"
-  -H 'content-type: application/json'
+```shell showLineNumbers title="CURL"
+curl 'https://api.doordeck.com/device/00000000-0000-0000-0000-000000000000' \
+  -X PUT \
+  -H "Authorization: Bearer TOKEN" \
+  -H 'content-type: application/json' \
   --data-binary '{"name":"Home","favourite":false,"colour":"#ffggaa"}'
 ```
 
-> Replace `00000000-0000-0000-0000-000000000000` with the lock's ID.
+:::note[Remember]
+* Replace `TOKEN` with your access token.
+* Replace `00000000-0000-0000-0000-000000000000` with the lock's ID.
+:::
 
 </TabItem>
-<TabItem value="json" label="Response">
+<TabItem value="response" label="Response">
 
-```json title="JSON"
-{}
+```json showLineNumbers title="HTTP CODE"
+200
 ```
 
 </TabItem>

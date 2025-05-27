@@ -27,8 +27,8 @@ curl "https://api.doordeck.com/auth/token/destroy" \
   -H "Authorization: Bearer TOKEN"
 ```
 
-:::note
-Make sure to replace `TOKEN` with your access token.
+:::note[Remember]
+Replace `TOKEN` with your access token.
 :::
 
 </TabItem>

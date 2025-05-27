@@ -8,7 +8,7 @@ sidebar_position: 4
 This endpoint is only available to users with Doordeck issued auth tokens.
 :::
 
-Updates any of the fields defined in the initial [create application](#create-application) request.
+Updates any of the fields defined in the initial [create application](./create-application.md) request.
 
 ### HTTP Request
 

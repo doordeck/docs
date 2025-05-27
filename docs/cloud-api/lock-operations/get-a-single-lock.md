@@ -18,20 +18,23 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="shell" label="Request">
+<TabItem value="request" label="Request">
 
-```shell title="CURL"
-curl 'https://api.doordeck.com/device/00000000-0000-0000-0000-000000000000'
-  -H "Accept: application/vnd.doordeck.api-v3+json"
+```shell showLineNumbers title="CURL"
+curl 'https://api.doordeck.com/device/00000000-0000-0000-0000-000000000000' \
+  -H "Accept: application/vnd.doordeck.api-v3+json" \
   -H "Authorization: Bearer TOKEN"
 ```
 
-> Replace `00000000-0000-0000-0000-000000000000` with the lock's ID.
+:::note[Remember]
+* Replace `TOKEN` with your access token.
+* Replace `00000000-0000-0000-0000-000000000000` with the lock's ID.
+:::
 
 </TabItem>
-<TabItem value="json" label="Response">
+<TabItem value="response" label="Response">
 
-```json title="JSON"
+```json showLineNumbers title="JSON"
 {
   "id": "00000000-0000-0000-0000-000000000001",
   "name": "Home",

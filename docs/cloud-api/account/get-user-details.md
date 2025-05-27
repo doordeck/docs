@@ -22,8 +22,8 @@ curl "https://api.doordeck.com/account" \
   -H "Authorization: Bearer TOKEN"
 ```
 
-:::note 
-Make sure to replace `TOKEN` with your access token.
+:::note[Remember]
+Replace `TOKEN` with your access token.
 :::
 
 </TabItem>

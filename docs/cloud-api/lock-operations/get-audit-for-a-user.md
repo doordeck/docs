@@ -18,21 +18,24 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="shell" label="Request">
+<TabItem value="request" label="Request">
 
-```shell title="CURL"
-curl 'https://api.doordeck.com/user/00000000-0000-0000-0000-000000000000/log?start=0000&end=0000'
-  -H "Accept: application/vnd.doordeck.api-v2+json"
+```shell showLineNumbers title="CURL"
+curl 'https://api.doordeck.com/user/00000000-0000-0000-0000-000000000000/log?start=0000&end=0000' \
+  -H "Accept: application/vnd.doordeck.api-v2+json" \
   -H "Authorization: Bearer TOKEN"
 ```
 
-> Replace `00000000-0000-0000-0000-000000000000` with the user's ID.
-> Replace `start=0000` & `end=0000` with Epoch date range, e.g. start=1593558000&end=1610495999
+:::note[Remember]
+* Replace `TOKEN` with your access token.
+* Replace `00000000-0000-0000-0000-000000000000` with the user's ID.
+* Replace `start=0000` & `end=0000` with Epoch date range, e.g. start=1593558000&end=1610495999
+:::
 
 </TabItem>
-<TabItem value="json" label="Response">
+<TabItem value="response" label="Response">
 
-```json title="JSON"
+```json showLineNumbers title="JSON"
 [
   {
     "deviceId": "00000000-0000-0000-0000-000000000001",

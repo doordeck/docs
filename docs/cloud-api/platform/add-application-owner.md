@@ -32,9 +32,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="shell" label="Request">
+<TabItem value="request" label="Request">
 
-```shell title="CURL"
+```shell showLineNumbers title="CURL"
 curl 'https://api.doordeck.com/platform/application/APPLICATION_ID/owner' \
    -X POST \
   --header 'Content-Type: application/json' \
@@ -42,13 +42,16 @@ curl 'https://api.doordeck.com/platform/application/APPLICATION_ID/owner' \
   --data-binary '{"userId": "00000000-0000-0000-0000-000000000000"}'
 ```
 
-> - Replace `00000000-0000-0000-0000-000000000000` with the new owner's ID
-> - Replace `APPLICATION_ID` with the application ID.
+:::note[Remember]
+* Replace `TOKEN` with your access token.
+* Replace `APPLICATION_ID` with the application ID.
+* Replace `00000000-0000-0000-0000-000000000000` with the ID of owner to be added.
+:::
 
 </TabItem>
-<TabItem value="json" label="Response">
+<TabItem value="response" label="Response">
 
-```json title="JSON"
+```json showLineNumbers title="JSON"
 {}
 ```
 

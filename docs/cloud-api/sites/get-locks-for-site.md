@@ -10,7 +10,7 @@ This endpoint lists all the locks in a particular site that the user has access 
 
 `GET https://api.doordeck.com/site/SITE_ID/device/`
 
-> Replace `SITE_ID` with the appropriate site ID.
+Replace `SITE_ID` with the appropriate site ID.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -23,8 +23,8 @@ curl 'https://api.doordeck.com/site/00000000-0000-0000-0000-000000000000/device/
   -H "Authorization: Bearer TOKEN"
 ```
 
-:::note
-* Make sure to replace `TOKEN` with your access token
+:::note[Replace]
+* Replace `TOKEN` with your access token.
 * Replace `00000000-0000-0000-0000-000000000000` with the site's ID.
 :::
 

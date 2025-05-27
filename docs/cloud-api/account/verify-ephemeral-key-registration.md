@@ -35,8 +35,8 @@ curl "https://api.doordeck.com/auth/certificate/check" \
   -H 'content-type: application/json' \
   --data-binary '{"verificationSignature":"'${SIGNATURE}'"}' 
 ```
-:::note
-Make sure to replace `TOKEN` with your access token.
+:::note[Remember]
+Replace `TOKEN` with your access token.
 :::
 
 </TabItem>
