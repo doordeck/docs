@@ -8,7 +8,7 @@ sidebar_position: 1
 This endpoint is only available to Doordeck registered users.
 :::
 
-:::warning[Deprecated]
+:::danger[Deprecated]
 This endpoint has been deprecated and is due for removal, do not use.
 :::
 

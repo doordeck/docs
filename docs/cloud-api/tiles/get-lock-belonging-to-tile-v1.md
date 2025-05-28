@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Get Lock Belonging To Tile (v1)
 
-:::warning[Deprecated]
+:::danger[Deprecated]
 This endpoint is marked for deprecation. Please refer to v3 for the latest version.
 :::
 
