@@ -38,7 +38,7 @@ curl 'https://api.doordeck.com/share/invite/USER_EMAIL' \
   -H 'content-type: application/json'
 ```
 
-:::note[Remember]
+:::info[Remember]
 * Replace `TOKEN` with your access token.
 * Replace `USER_EMAIL` with the user's email.
 :::

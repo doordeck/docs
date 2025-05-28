@@ -99,7 +99,7 @@ ${Execute}`}
 
 </CodeBlock>
 
-:::note[Remember]
+:::info[Remember]
 * Replace `TOKEN` with your access token.
 * Replace `00000000-0000-0000-0000-000000000000` with the lock's ID.
 * Replace `11111111-1111-1111-1111-111111111111` with the invitee's user ID.

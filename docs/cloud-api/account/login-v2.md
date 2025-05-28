@@ -51,7 +51,7 @@ curl 'https://api.doordeck.com/auth/token/' \
   --data-binary '{"email":"EMAIL","password":"PASSWORD"}'
 ```
 
-:::note[Remember]
+:::info[Remember]
 Replace `USERNAME` and `PASSWORD` with your credentials.
 :::
 

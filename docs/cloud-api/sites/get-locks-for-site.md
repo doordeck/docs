@@ -23,7 +23,7 @@ curl 'https://api.doordeck.com/site/00000000-0000-0000-0000-000000000000/device/
   -H "Authorization: Bearer TOKEN"
 ```
 
-:::note[Replace]
+:::info[Remember]
 * Replace `TOKEN` with your access token.
 * Replace `00000000-0000-0000-0000-000000000000` with the site's ID.
 :::

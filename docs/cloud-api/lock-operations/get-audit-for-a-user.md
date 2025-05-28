@@ -26,7 +26,7 @@ curl 'https://api.doordeck.com/user/00000000-0000-0000-0000-000000000000/log?sta
   -H "Authorization: Bearer TOKEN"
 ```
 
-:::note[Remember]
+:::info[Remember]
 * Replace `TOKEN` with your access token.
 * Replace `00000000-0000-0000-0000-000000000000` with the user's ID.
 * Replace `start=0000` & `end=0000` with Epoch date range, e.g. start=1593558000&end=1610495999

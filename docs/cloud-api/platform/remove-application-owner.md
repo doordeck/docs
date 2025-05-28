@@ -42,7 +42,7 @@ curl 'https://api.doordeck.com/platform/application/APPLICATION_ID/owner' \
   --data-raw '{"userId": "00000000-0000-0000-0000-000000000000"}'
 ```
 
-:::note[Remember]
+:::info[Remember]
 * Replace `TOKEN` with your access token.
 * Replace `APPLICATION_ID` with the application ID.
 * Replace `00000000-0000-0000-0000-000000000000` with the ID of owner to be removed.

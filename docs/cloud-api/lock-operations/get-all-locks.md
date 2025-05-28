@@ -22,7 +22,7 @@ import TabItem from '@theme/TabItem';
 curl 'https://api.doordeck.com/device' \
   -H "Authorization: Bearer TOKEN"
 ```
-:::note[Remember]
+:::info[Remember]
 Replace `TOKEN` with your access token.
 :::
 

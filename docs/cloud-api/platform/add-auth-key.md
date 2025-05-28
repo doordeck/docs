@@ -41,7 +41,7 @@ import TabItem from '@theme/TabItem';
   }'
 ```
 
-:::note[Remember]
+:::info[Remember]
 * Replace `TOKEN` with your access token.
 * Replace `APPLICATION_ID` with the application ID.
 :::

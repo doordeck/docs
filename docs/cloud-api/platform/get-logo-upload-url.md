@@ -36,7 +36,7 @@ curl 'https://api.doordeck.com/platform/application/APPLICATION_ID/logo' \
   --data-binary '{"contentType": "IMAGE_CONTENT_TYPE"}'
 ```
 
-:::note[Remember]
+:::info[Remember]
 * Replace `TOKEN` with your access token.
 * Replace `APPLICATION_ID` with the application ID.
 * Replace `IMAGE_CONTENT_TYPE` with the image's content type.

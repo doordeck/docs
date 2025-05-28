@@ -36,7 +36,7 @@ curl 'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/' \
   -H "Authorization: Bearer TOKEN"
 ```
 
-:::note[Remember]
+:::info[Remember]
 * Replace `TOKEN` with your access token.
 * Replace `00000000-0000-0000-0000-000000000000` with the tile ID.
 :::

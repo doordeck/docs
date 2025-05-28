@@ -35,7 +35,7 @@ a pending invite (unless force is set to true).
 |-----------|----------|--------------------------------------------------------------------------------------------|
 | force     | false    | Boolean flag to indicate if a pending invite should be discarded and a new account created |
 
-:::tip[Success]
+:::info[Validation Email]
 A validation email will be dispatched to the user's email address upon successful registration.
 :::
 
@@ -55,7 +55,7 @@ curl "https://api.doordeck.com/auth/register" \
   --data-binary '{"email":"EMAIL","password":"PASSWORD"}'
 ```
 
-:::note[Remember]
+:::info[Remember]
 Replace `USERNAME` and `PASSWORD` with your credentials.
 :::
 

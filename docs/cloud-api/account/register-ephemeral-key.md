@@ -40,7 +40,7 @@ curl "https://api.doordeck.com/auth/certificate" \
   --data-binary '{"ephemeralKey":"Base64 encoded Ed25519 public key"}' 
 ```
 
-:::note[Remember]
+:::info[Remember]
 * Replace `TOKEN` with your access token.
 * Replace `Base64 encoded Ed25519 public key` with the user's ephemeral key.
 :::

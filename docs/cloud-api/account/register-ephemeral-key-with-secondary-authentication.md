@@ -45,7 +45,7 @@ curl "https://api.doordeck.com/auth/certificate/verify" \
   --data-binary '{"ephemeralKey":"'${PUBLIC_KEY}'"}' 
 ```
 
-:::note[Remember]
+:::info[Remember]
 * Replace `TOKEN` with your access token.
 :::
 

@@ -13,7 +13,7 @@ This endpoint has been deprecated and is due for removal, do not use.
 :::
 
 :::warning
-This endpoint will return the v2 response for any users registered after 1st March 2025
+This endpoint will return the v2 response for any users registered after 1st March 2025.
 :::
 
 This endpoint lets user's attempt to login.
@@ -53,7 +53,7 @@ curl 'https://api.doordeck.com/auth/token/' \
   --data-binary '{"email":"EMAIL","password":"PASSWORD"}'
 ```
 
-:::note[Remember]
+:::info[Remember]
 Replace `USERNAME` and `PASSWORD` with your credentials.
 :::
 

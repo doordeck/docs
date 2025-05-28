@@ -78,7 +78,7 @@ curl 'https://api.doordeck.com/device/00000000-0000-0000-0000-000000000000' \
   --data-binary '{"name":"Home","favourite":false,"colour":"#ffggaa"}'
 ```
 
-:::note[Remember]
+:::info[Remember]
 * Replace `TOKEN` with your access token.
 * Replace `00000000-0000-0000-0000-000000000000` with the lock's ID.
 :::

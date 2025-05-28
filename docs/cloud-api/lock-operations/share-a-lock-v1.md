@@ -85,7 +85,7 @@ ${Execute}`}
 
 </CodeBlock>
 
-:::note[Remember]
+:::info[Remember]
 * Replace `TOKEN` with your access token.
 * Replace `00000000-0000-0000-0000-000000000000` with the lock's ID.
 * Replace `INVITEE_PUBLIC_KEY` with the invitee's public key.

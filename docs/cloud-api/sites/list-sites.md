@@ -21,7 +21,7 @@ curl 'https://api.doordeck.com/site/' \
   -H "Authorization: Bearer TOKEN"
 ```
 
-:::note[Remember]
+:::info[Remember]
 Replace `TOKEN` with your access token.
 :::
 

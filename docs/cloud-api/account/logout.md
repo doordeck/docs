@@ -27,7 +27,7 @@ curl "https://api.doordeck.com/auth/token/destroy" \
   -H "Authorization: Bearer TOKEN"
 ```
 
-:::note[Remember]
+:::info[Remember]
 Replace `TOKEN` with your access token.
 :::
 

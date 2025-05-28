@@ -46,7 +46,7 @@ curl 'https://api.doordeck.com/directory/query' \
   --data-binary '{"email":"USER_EMAIL"}'
 ```
 
-:::note[Remember]
+:::info[Remember]
 * Replace `TOKEN` with your access token.
 * Replace `USER_EMAIL` with the user's email.
 :::

@@ -36,7 +36,7 @@ curl "https://api.doordeck.com/account/password" \
   --data-binary '{"oldPassword":"OLD_PASSWORD","newPassword":"NEW_PASSWORD"}'
 ```
 
-:::note[Remember]
+:::info[Remember]
 * Replace `TOKEN` with your access token.
 * Replace `OLD_PASSWORD` with the users' current password and `NEW_PASSWORD` with their desired password.
 :::

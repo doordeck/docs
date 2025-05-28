@@ -65,7 +65,7 @@ curl 'https://api.doordeck.com/platform/application' \
   --data-binary '{"name":"My Amazing App","companyName":"My amazing company","mailingAddress":"My address"}'
 ```
 
-:::note[Remember]
+:::info[Remember]
 Replace `TOKEN` with your access token.
 :::
 

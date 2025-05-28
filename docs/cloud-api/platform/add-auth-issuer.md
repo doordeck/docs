@@ -38,7 +38,7 @@ curl 'https://api.doordeck.com/platform/application/APPLICATION_ID/auth/issuer' 
   --data-binary '{"url": "AUTH_ISSUER"}'
 ```
 
-:::note[Remember]
+:::info[Remember]
 * Replace `TOKEN` with your access token.
 * Replace `APPLICATION_ID` with the application ID.
 * Replace `AUTH_ISSUER` with the auth issuer to be added.

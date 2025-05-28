@@ -36,7 +36,7 @@ curl 'https://api.doordeck.com/platform/application/APPLICATION_ID/cors' \
   --data-binary '{"url": "CORS_URL"}'
 ```
 
-:::note[Remember]
+:::info[Remember]
 * Replace `TOKEN` with your access token.
 * Replace `APPLICATION_ID` with the application ID.
 * Replace `CORS_URL` with the CORS domain to be added.

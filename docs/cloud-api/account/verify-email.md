@@ -28,7 +28,7 @@ curl "https://api.doordeck.com/account/email/verify?code=CODE" \
   -X PUT
 ```
 
-:::note[Remember]
+:::info[Remember]
 Replace `CODE` with the verification code from the email.
 :::
 

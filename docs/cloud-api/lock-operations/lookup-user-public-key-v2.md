@@ -55,7 +55,7 @@ curl 'https://api.doordeck.com/directory/query' \
     }'
 ```
 
-:::note[Remember]
+:::info[Remember]
 * Replace `TOKEN` with your access token.
 :::
 

@@ -30,7 +30,7 @@ curl 'https://api.doordeck.com/platform/application/APPLICATION_ID' \
   --data-binary '{"name":"My Amazing Updated App"}'
 ```
 
-:::note[Remember]
+:::info[Remember]
 * Replace `TOKEN` with your access token.
 * Replace `APPLICATION_ID` with the application ID.
 :::
