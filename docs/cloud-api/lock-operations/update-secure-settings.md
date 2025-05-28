@@ -11,8 +11,6 @@ This section explains how to change on-lock settings, such as unlock time and op
 
 `POST https://api.doordeck.com/device/LOCK_ID/execute`
 
-Replace `LOCK_ID` with the appropriate lock ID.
-
 :::tip[Success]
 If a request expires within the next 60 seconds, a 200 is returned upon success, if a request expires in more than 60 seconds, a 202 is returned to indicate the request has been queued for the device.
 :::

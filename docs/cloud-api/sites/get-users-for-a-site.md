@@ -11,8 +11,6 @@ administrator of will return user information.
 
 `GET https://api.doordeck.com/site/SITE_ID/user/`
 
-Replace `SITE_ID` with the appropriate site ID.
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

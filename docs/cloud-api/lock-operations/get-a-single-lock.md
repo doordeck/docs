@@ -10,8 +10,6 @@ This endpoint retrieves information about a specific lock, its usage is preferre
 
 `GET https://api.doordeck.com/device/LOCK_ID`
 
-Replace `LOCK_ID` with the appropriate lock ID.
-
 ### Example
 
 import Tabs from '@theme/Tabs';

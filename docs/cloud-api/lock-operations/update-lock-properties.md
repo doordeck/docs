@@ -10,8 +10,6 @@ This endpoint allows the name, favourite flag and colour to be updated for an ex
 
 `PUT https://api.doordeck.com/device/LOCK_ID`
 
-Replace `LOCK_ID` with the appropriate lock ID.
-
 ### Request Parameters
 
 | Parameter | Required | Description                          |

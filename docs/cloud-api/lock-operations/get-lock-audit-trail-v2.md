@@ -10,8 +10,6 @@ This endpoint retrieves all log events associated with a particular lock, it inc
 
 `GET https://api.doordeck.com/device/LOCK_ID/log?start=0000&end=0000`
 
-Replace `LOCK_ID` with the appropriate lock ID.
-
 ### Request Headers
 
 | Header | Required | Description                          |

@@ -10,8 +10,6 @@ This endpoint retrieves all log events associated with a particular lock.
 
 `GET https://api.doordeck.com/device/LOCK_ID/log`
 
-Replace `LOCK_ID` with the appropriate lock ID.
-
 ### Event Types
 The call returns an enum of event types:
 

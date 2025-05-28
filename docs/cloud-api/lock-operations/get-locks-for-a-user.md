@@ -11,8 +11,6 @@ enrolled on, the list will only show locks where the current user is an administ
 
 `GET https://api.doordeck.com/user/USER_ID/`
 
-Replace `USER_ID` with the appropriate user ID.
-
 ### Example
 
 import Tabs from '@theme/Tabs';

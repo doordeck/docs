@@ -10,8 +10,6 @@ The endpoint removes the relationship between a tile and a lock, the tile can th
 
 `DELETE https://api.doordeck.com/device/DEVICE_ID/tile/TILE_ID/`
 
-Replace `TILE_ID` with the appropriate tile ID and `DEVICE_ID` with the appropriate device ID.
-
 ### Example
 
 import Tabs from '@theme/Tabs';

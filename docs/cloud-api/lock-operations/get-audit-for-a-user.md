@@ -10,8 +10,6 @@ This endpoint retrieves all log events associated with a particular user, it use
 
 `GET https://api.doordeck.com/user/USER_ID/log?start=0000&end=0000`
 
-Replace `USER_ID` with the appropriate user ID.
-
 ### Example
 
 import Tabs from '@theme/Tabs';

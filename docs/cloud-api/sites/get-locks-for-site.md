@@ -10,8 +10,6 @@ This endpoint lists all the locks in a particular site that the user has access 
 
 `GET https://api.doordeck.com/site/SITE_ID/device/`
 
-Replace `SITE_ID` with the appropriate site ID.
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -14,8 +14,6 @@ This endpoint identifies which lock belongs to the specific tile.
 
 `GET https://api.doordeck.com/tile/TILE_ID/`
 
-Replace `TILE_ID` with the appropriate tile ID.
-
 ### Example
 
 import Tabs from '@theme/Tabs';

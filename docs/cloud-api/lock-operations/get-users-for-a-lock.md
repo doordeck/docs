@@ -10,8 +10,6 @@ This endpoint retrieves all users associated with a particular lock.
 
 `GET https://api.doordeck.com/device/LOCK_ID/users`
 
-Replace `LOCK_ID` with the appropriate lock ID.
-
 ### Example
 
 import Tabs from '@theme/Tabs';

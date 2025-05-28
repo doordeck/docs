@@ -15,8 +15,6 @@ If user is not found, one is created for the specified USER_EMAIL.
 
 `POST https://api.doordeck.com/share/invite/USER_EMAIL`
 
-Replace `USER_EMAIL` with the user's email
-
 ### Query Parameters
 
 | Parameter | Required | Description                                                                            |
