@@ -89,6 +89,7 @@ const sidebars: SidebarsConfig = {
         'cloud-api/errors'
       ]
     },
+    /*
     {
       type: 'category',
       label: 'Kotlin Multiplatform SDK',
@@ -97,6 +98,7 @@ const sidebars: SidebarsConfig = {
         'kotlin-multiplatform-sdk/install'
       ]
     }
+     */
   ],
 };
 
