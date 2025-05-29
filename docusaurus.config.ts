@@ -71,7 +71,7 @@ const config: Config = {
     navbar: {
       title: '',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Doordeck',
         src: 'img/logo.svg',
         srcDark: 'img/dark-logo.svg',
       },
