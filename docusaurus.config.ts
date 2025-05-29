@@ -10,7 +10,7 @@ const config: Config = {
   favicon: 'img/favicon.png',
 
   // Set the production url of your site here
-  url: 'https://doordeck.github.io',
+  url: 'https://developer.doordeck.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/docs/',
@@ -56,6 +56,7 @@ const config: Config = {
         // `hashed` is recommended as long-term-cache of index file is possible.
         hashed: true,
         docsRouteBasePath: '/',
+        indexBlog: false,
         // For Docs using Chinese, it is recomended to set:
         // language: ["en", "zh"],
 
