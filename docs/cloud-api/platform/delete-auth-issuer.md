@@ -45,7 +45,7 @@ curl 'https://api.doordeck.com/platform/application/APPLICATION_ID/auth/issuer' 
 </TabItem>
 <TabItem value="response" label="Response">
 
-```json showLineNumbers title="HTTP CODE"
+```markdown showLineNumbers title="HTTP CODE"
 204
 ```
 

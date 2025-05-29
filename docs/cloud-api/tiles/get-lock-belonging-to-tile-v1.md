@@ -35,7 +35,7 @@ curl 'https://api.doordeck.com/tile/00000000-0000-0000-0000-000000000000/' \
 </TabItem>
 <TabItem value="response" label="Response">
 
-```json showLineNumbers title="HTTP CODE"
+```markdown showLineNumbers title="HTTP CODE"
 404 if no tile is known or 303 with the Location header set to the value of the lock
 ```
 

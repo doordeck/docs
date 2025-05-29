@@ -35,7 +35,7 @@ Replace `CODE` with the verification code from the email.
 </TabItem>
 <TabItem value="response" label="Response">
 
-```json showLineNumbers title="HTTP CODE"
+```markdown showLineNumbers title="HTTP CODE"
 200
 ```
 

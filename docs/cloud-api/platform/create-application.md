@@ -72,7 +72,7 @@ Replace `TOKEN` with your access token.
 </TabItem>
 <TabItem value="response" label="Response">
 
-```json showLineNumbers title="HTTP CODE"
+```markdown showLineNumbers title="HTTP CODE"
 204
 ```
 

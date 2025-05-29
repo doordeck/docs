@@ -52,7 +52,7 @@ curl "https://api.doordeck.com/auth/certificate/verify" \
 </TabItem>
 <TabItem value="response" label="Response">
 
-```json showLineNumbers title="HTTP CODE"
+```markdown showLineNumbers title="HTTP CODE"
 204
 ```
 

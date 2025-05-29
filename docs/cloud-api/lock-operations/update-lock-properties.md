@@ -84,7 +84,7 @@ curl 'https://api.doordeck.com/device/00000000-0000-0000-0000-000000000000' \
 </TabItem>
 <TabItem value="response" label="Response">
 
-```json showLineNumbers title="HTTP CODE"
+```markdown showLineNumbers title="HTTP CODE"
 200
 ```
 

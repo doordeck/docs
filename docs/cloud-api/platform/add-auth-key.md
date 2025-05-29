@@ -49,7 +49,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="response" label="Response">
 
-```json showLineNumbers title="HTTP CODE"
+```markdown showLineNumbers title="HTTP CODE"
 204
 ```
 
