@@ -58,6 +58,7 @@ const config: Config = {
         hashed: true,
         docsRouteBasePath: '/',
         indexBlog: false,
+        explicitSearchResultPath: true,
         // For Docs using Chinese, it is recomended to set:
         // language: ["en", "zh"],
 
@@ -97,7 +98,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ['bash', 'java'],
+      additionalLanguages: ['bash', 'csharp', 'python', 'kotlin', 'swift', 'javascript'],
     },
   } satisfies Preset.ThemeConfig,
 };
