@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
-In JavaScript, we provide a sample built with Angular demonstrating how the SDK can be integrated into a web application.
+In JavaScript, we provide a sample built with **Angular** demonstrating how the SDK can be integrated into a web application.
 
 #### Functionalities Included:
 * User login
