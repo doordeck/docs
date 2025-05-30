@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
-In JavaScript, we provide a sample built with **Angular** demonstrating how the SDK can be integrated into a web application.
+In JavaScript, we provide a sample built with [Angular](https://github.com/doordeck/doordeck-headless-sdk/tree/main/samples/angular) demonstrating how the SDK can be integrated into a web application.
 
 #### Functionalities Included:
 * User login
@@ -57,7 +57,7 @@ In JavaScript, we provide a sample built with **Angular** demonstrating how the 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
-In C#, we provide a sample build with **WPF** demonstrating how the SDK can be integrated into a desktop application.
+In C#, we provide a sample build with [WPF](https://github.com/doordeck/doordeck-headless-sdk/tree/main/samples/wpf) demonstrating how the SDK can be integrated into a desktop application.
 
 #### Functionalities Included:
 * User login
