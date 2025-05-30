@@ -6,6 +6,6 @@ To build the project, you need to specify the Android SDK directory. To do this,
 sdk.dir=ANDROID_SDK_DIR
 ```
 
-:::note
+:::info
 It’s normal to see `Unresolved references`. For example, if you are using Windows, you won’t be able to resolve macOS-specific imports.
 :::

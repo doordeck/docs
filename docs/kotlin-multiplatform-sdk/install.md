@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 The Kotlin Multiplatform artifacts are available on [Maven Central](https://central.sonatype.com/artifact/com.doordeck.headless.sdk/doordeck-sdk).
 
-```kotlin title="gradle.kts"
+```kotlin showLineNumbers title="gradle.kts"
 // Add Maven Central repository
 repositories {
   mavenCentral()
@@ -20,8 +20,8 @@ repositories {
 implementation("com.doordeck.headless.sdk:doordeck-sdk:[SDK_VERSION]")
 ```
 
-:::info
-**Supported Platforms:** JVM, Android, jsNode, jsBrowser, iOS (x64, ARM x64, simulator ARM x64), macOS (ARM x64), and mingW (x64).
+:::info[Supported Platforms]
+JVM, Android, jsNode, jsBrowser, iOS (x64, ARM x64, simulator ARM x64), macOS (ARM x64), and mingW (x64).
 :::
 
 </TabItem>
@@ -29,7 +29,7 @@ implementation("com.doordeck.headless.sdk:doordeck-sdk:[SDK_VERSION]")
 
 The JVM artifacts are available on [Maven Central](https://central.sonatype.com/artifact/com.doordeck.headless.sdk/doordeck-sdk-jvm).
 
-```kotlin title="gradle.kts"
+```kotlin showLineNumbers title="gradle.kts"
 // Add Maven Central repository
 repositories {
   mavenCentral()
@@ -38,8 +38,8 @@ repositories {
 // Import the JVM package
 implementation("com.doordeck.headless.sdk:doordeck-sdk-jvm:[SDK_VERSION]")
 ```
-:::info
-**Requirement:** Java SDK 1.8 or higher.
+:::info[Requirement]
+Java SDK 1.8 or higher.
 :::
 
 </TabItem>
@@ -47,7 +47,7 @@ implementation("com.doordeck.headless.sdk:doordeck-sdk-jvm:[SDK_VERSION]")
 
 The Android artifacts are available on [Maven Central](https://central.sonatype.com/artifact/com.doordeck.headless.sdk/doordeck-sdk-android).
 
-```kotlin title="gradle.kts"
+```kotlin showLineNumbers title="gradle.kts"
 // Add Maven Central repository
 repositories {
   mavenCentral()
@@ -56,8 +56,8 @@ repositories {
 // Import the Android package
 implementation("com.doordeck.headless.sdk:doordeck-sdk-android:[SDK_VERSION]")
 ```
-:::info
-**Requirement:** Android SDK 26 or higher.
+:::info[Requirement]
+Android SDK 26 or higher.
 :::
 
 </TabItem>
@@ -73,14 +73,14 @@ The iOS and macOS packages are available via [CocoaPods](https://cocoapods.org/p
 2. Enter the URL: [https://github.com/doordeck/doordeck-headless-sdk-spm](https://github.com/doordeck/doordeck-headless-sdk-spm).
 3. Choose **Up to next major version** from the dependency rule dropdown, and click **Add Package**.
 
-:::info
-**Requirement:** iOS 14 or higher.
+:::info[Requirement]
+iOS 14 or higher.
 :::
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
-The JavaScript artifacts are available on [NPM](https://www.npmjs.com/package/@doordeck/doordeck-headless-sdk)
+The JavaScript artifacts are available on [NPM](https://www.npmjs.com/package/@doordeck/doordeck-headless-sdk).
 
 ```shell title="Shell"
 npm install @doordeck/doordeck-headless-sdk --save
@@ -94,8 +94,8 @@ The Windows artifacts for C# are available on [NuGet](https://www.nuget.org/pack
 ```shell title="Shell"
 dotnet add package Doordeck.Headless.Sdk
 ```
-:::info
-**Requirement:** .NET 9 or higher, with unsafe code enabled.
+:::info[Requirement]
+.NET 9 or higher, with unsafe code enabled.
 :::
 
 </TabItem>
@@ -106,8 +106,8 @@ The Windows artifacts for Python are available on [PyPi](https://pypi.org/projec
 ```shell title="Shell"
 pip install doordeck-headless-sdk
 ```
-:::info
-**Requirement:** Python 3.13.2.
+:::info[Requirement]
+Python 3.13.2.
 :::
 
 </TabItem>

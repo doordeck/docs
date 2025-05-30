@@ -89,16 +89,26 @@ const sidebars: SidebarsConfig = {
         'cloud-api/errors'
       ]
     },
-    /*
     {
       type: 'category',
       label: 'Kotlin Multiplatform SDK',
       items: [
         'kotlin-multiplatform-sdk/build',
-        'kotlin-multiplatform-sdk/install'
+        'kotlin-multiplatform-sdk/install',
+        'kotlin-multiplatform-sdk/initialize',
+        'kotlin-multiplatform-sdk/crypto',
+        'kotlin-multiplatform-sdk/context-manager',
+        'kotlin-multiplatform-sdk/accountless',
+        'kotlin-multiplatform-sdk/account',
+        'kotlin-multiplatform-sdk/fusion',
+        'kotlin-multiplatform-sdk/helper',
+        'kotlin-multiplatform-sdk/lock-operations',
+        'kotlin-multiplatform-sdk/platform',
+        'kotlin-multiplatform-sdk/sites',
+        'kotlin-multiplatform-sdk/tiles',
+        'kotlin-multiplatform-sdk/samples'
       ]
     }
-     */
   ],
 };
 
