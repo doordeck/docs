@@ -43,14 +43,14 @@ import TabItem from '@theme/TabItem';
 <Tabs>
 <TabItem value="jvm-android" label="JVM & Android">
 
-```kotlin showLineNumbers showLineNumbers
+```kotlin showLineNumbers
 val sdk = KDoordeckFactory.initialize(SdkConfig.Builder().setCloudAuthToken("AUTH_TOKEN").build())
 ```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
-```swift showLineNumbers showLineNumbers
+```swift showLineNumbers
 let sdk = KDoordeckFactory().initialize(sdkConfig: SdkConfig.Builder().setCloudAuthToken(cloudAuthToken: "AUTH_TOKEN").build())
 ```
 
@@ -65,7 +65,7 @@ const sdk = doordeck.com.doordeck.multiplatform.sdk.KDoordeckFactory.initialize(
 </TabItem>
 <TabItem value="csharp" label="C#">
 
-```csharp showLineNumbers showLineNumbers
+```csharp showLineNumbers
 var sdk = new DoordeckSdk(cloudAuthToken: "AUTH_TOKEN");
 ```
 
@@ -76,7 +76,7 @@ You should also call `sdk.Release();` at the end of your application’s lifecyc
 </TabItem>
 <TabItem value="python" label="Python">
 
-```python showLineNumbers showLineNumbers
+```python showLineNumbers
 sdk = doordeck_headless_sdk.InitializeSdk("AUTH_TOKEN")
 ```
 
