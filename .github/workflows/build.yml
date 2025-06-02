@@ -48,6 +48,12 @@ jobs:
           node-version: 22
           cache: npm
 
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: 'arn:aws:iam::135184807345:role/GitHubAction-DocsRelease'
+          aws-region: eu-west-1
+
       - name: Install dependencies
         run: npm ci
 
@@ -59,3 +65,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
+
+      - name: Invalidate cloudfront cache
+        run: aws cloudfront create-invalidation --distribution-id E2GXEODIKKZ5LV --paths "/docs/*" "/docs/" "/docs"
