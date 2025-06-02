@@ -29,7 +29,7 @@ JVM, Android, jsNode, jsBrowser, iOS (x64, ARM x64, simulator ARM x64), macOS (A
 
 The JVM artifacts are available on [Maven Central](https://central.sonatype.com/artifact/com.doordeck.headless.sdk/doordeck-sdk-jvm).
 
-```kotlin showLineNumbers title="gradle.kts"
+```kotlin showLineNumbers title="build.gradle.kts"
 // Add Maven Central repository
 repositories {
   mavenCentral()
