@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 The Kotlin Multiplatform artifacts are available on [Maven Central](https://central.sonatype.com/artifact/com.doordeck.headless.sdk/doordeck-sdk).
 
-```kotlin showLineNumbers title="gradle.kts"
+```kotlin showLineNumbers title="build.gradle.kts"
 // Add Maven Central repository
 repositories {
   mavenCentral()
