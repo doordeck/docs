@@ -26,3 +26,6 @@ doc/
 
 # Vagrant artifacts
 ubuntu-*-console.log
+
+.docusaurus/
+node_modules/

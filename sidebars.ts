@@ -141,6 +141,21 @@ const sidebars: SidebarsConfig = {
         'kotlin-multiplatform-sdk/tiles',
         'kotlin-multiplatform-sdk/samples'
       ]
+    },
+
+    {
+      type: 'category',
+      label: 'Guides',
+      link: {
+        "type": "generated-index",
+        "title": "Integration Guides"
+      },
+      items: [
+        'guide/authenticating-your-users',
+        'guide/ephemeral-key-registration-unlocking-a-door',
+        'guide/adding-more-ephemeral-keys-secondary-authentication-checks',
+        'guide/sharing-doors'
+      ]
     }
   ],
 };
