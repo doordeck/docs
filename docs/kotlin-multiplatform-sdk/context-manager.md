@@ -49,43 +49,43 @@ sdk.contextManager.set_operation_context("USER_ID", USER_CERTIFICATE_CHAIN_AS_ST
 </TabItem>
 </Tabs>
 
-## Is certificate chain about to expire
+## Is certificate chain invalid or expired
 
-Checks if the current certificate chain from the context is about to expire within the next 7 days.
+Checks if the current certificate chain from the context is invalid or expired (we consider it expired if it will expire within the next 7 days).
 
 <Tabs>
 <TabItem value="kotlin" label="JVM & Android">
 
 ```kotlin showLineNumbers
-val result = sdk.contextManager().isCertificateChainAboutToExpire()
+val result = sdk.contextManager().isCertificateChainInvalidOrExpired()
 ```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let result = sdk.contextManager().isCertificateChainAboutToExpire()
+let result = sdk.contextManager().isCertificateChainInvalidOrExpired()
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const result = sdk.contextManager().isCertificateChainAboutToExpire();
+const result = sdk.contextManager().isCertificateChainInvalidOrExpired();
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var result = sdk.GetContextManager().IsCertificateChainAboutToExpire();
+var result = sdk.GetContextManager().IsCertificateChainInvalidOrExpired();
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-result = sdk.contextManager.is_certificate_chain_about_to_expire()
+result = sdk.contextManager.is_certificate_chain_invalid_or_expired()
 ```
 
 </TabItem>
@@ -215,43 +215,43 @@ token = sdk.contextManager.get_cloud_auth_token()
 </TabItem>
 </Tabs>
 
-## Is cloud auth token about to expire
+## Is cloud auth token invalid or expired
 
-Checks if the current cloud auth token from the context is about to expire within the next 24 hours
+Checks if the current cloud auth token from the context is invalid or expired (we consider it expired if it will expire within the next 24 hours).
 
 <Tabs>
 <TabItem value="kotlin" label="JVM & Android">
 
 ```kotlin showLineNumbers
-val result = sdk.contextManager().isCloudAuthTokenAboutToExpire()
+val result = sdk.contextManager().isCloudAuthTokenInvalidOrExpired()
 ```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let result = sdk.contextManager().isCloudAuthTokenAboutToExpire()
+let result = sdk.contextManager().isCloudAuthTokenInvalidOrExpired()
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const result = sdk.contextManager().isCloudAuthTokenAboutToExpire();
+const result = sdk.contextManager().isCloudAuthTokenInvalidOrExpired();
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var result = sdk.GetContextManager().IsCloudAuthTokenAboutToExpire();
+var result = sdk.GetContextManager().IsCloudAuthTokenInvalidOrExpired();
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-result = sdk.contextManager.is_cloud_auth_token_about_to_expire()
+result = sdk.contextManager.is_cloud_auth_token_invalid_or_expired()
 ```
 
 </TabItem>
