@@ -14,7 +14,7 @@ the first step to actually unlocking a door.
 
 ## Setup Your Application
 
-Start by heading over to our [application console](https://portal.doordeck.com) and logging in (or creating a
+Start by heading over to our [application console](https://portal.sentryinteractive.com) and logging in (or creating a
 Doordeck account if you don't already have one), then click **"Add Application"** to get started.
 
 Our application wizard guides you through a few steps:
