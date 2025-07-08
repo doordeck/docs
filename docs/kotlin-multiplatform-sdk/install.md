@@ -21,7 +21,7 @@ implementation("com.doordeck.headless.sdk:doordeck-sdk:[SDK_VERSION]")
 ```
 
 :::info[Supported Platforms]
-JVM, Android, jsNode, jsBrowser, iOS (x64, ARM x64, simulator ARM x64), macOS (ARM x64), and mingW (x64).
+JVM, Android, jsNode, jsBrowser, iOS (x64, ARM x64, simulator ARM x64), macOS (ARM x64), watchOS (x64, ARM x64, device ARM x64, simulator ARM x64) and mingW (x64).
 :::
 
 </TabItem>
@@ -63,7 +63,7 @@ Android SDK 26 or higher.
 </TabItem>
 <TabItem value="swift" label="Swift">
 
-The iOS and macOS packages are available via [CocoaPods](https://cocoapods.org/pods/DoordeckSDK) and [Swift Package Manager (SPM)](https://github.com/doordeck/doordeck-headless-sdk-spm).
+The iOS, macOS and watchOS packages are available via [CocoaPods](https://cocoapods.org/pods/DoordeckSDK) and [Swift Package Manager (SPM)](https://github.com/doordeck/doordeck-headless-sdk-spm).
 
 #### Cocoapods
 ```pod 'DoordeckSDK', '~> [SDK_VERSION]'```
@@ -74,7 +74,9 @@ The iOS and macOS packages are available via [CocoaPods](https://cocoapods.org/p
 3. Choose **Up to next major version** from the dependency rule dropdown, and click **Add Package**.
 
 :::info[Requirement]
-iOS 14 or higher.
+* macOS 14 or higher.
+* iOS 14 or higher.
+* watchOS 11 or higher.
 :::
 
 </TabItem>

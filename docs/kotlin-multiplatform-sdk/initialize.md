@@ -28,6 +28,7 @@ By default, the SDK stores the context information on its own, as shown in the f
 |   JVM    | `Memory`                     |
 |   iOS    | `Keychain`                   |
 |  macOS   | `Keychain`                   |
+| watchOS  | `Keychain`                   |
 |    JS    | `LocalStorage`               |
 | Windows  | `Memory`                     |
 
