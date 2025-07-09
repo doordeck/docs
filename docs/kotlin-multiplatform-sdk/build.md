@@ -7,5 +7,5 @@ sdk.dir=ANDROID_SDK_DIR
 ```
 
 :::info
-It’s normal to see `Unresolved references`. For example, if you are using Windows, you won’t be able to resolve apple-specific imports (iOS, macOS, watchOS).
+It’s normal to see `Unresolved references`. For example, if you are using Windows, you won’t be able to resolve Apple-specific imports (iOS, macOS, watchOS).
 :::
