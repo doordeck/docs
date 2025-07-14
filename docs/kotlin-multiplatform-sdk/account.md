@@ -109,14 +109,15 @@ await sdk.account.logout()
 To register a new ephemeral key, you will need to [generate a new key pair](crypto.md#generate-a-key-pair).
 
 :::info
-When used successfully, the user ID and user certificate chain from the response are added to the [context manager](context-manager.md) and automatically stored in [secure storage](initialize.md#secure-storage).
+* When used successfully, both the supplied private and public keys are added to the [context manager](context-manager.md) and automatically stored in [secure storage](initialize.md#secure-storage), along with the user ID and user certificate chain from the response.
+* If your [context manager](context-manager.md) already has public and private keys, you can pass ``null`` for those parameters, and those values will be retrieved from the [context manager](context-manager.md) instead.
 :::
 
 <Tabs>
 <TabItem value="jvm-android" label="JVM & Android">
 
 ```kotlin showLineNumbers
-val response = sdk.account().registerEphemeralKey(PUBLIC_KEY)
+val response = sdk.account().registerEphemeralKey(PUBLIC_KEY, PRIVATE_KEY)
 ```
 
 :::tip[In Java...]
@@ -127,28 +128,28 @@ Use the `registerEphemeralKeyAsync` function, which returns a `CompletableFuture
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.account().registerEphemeralKey(publicKey: PUBLIC_KEY)
+let response = sdk.account().registerEphemeralKey(publicKey: PUBLIC_KEY, privateKey: PRIVATE_KEY)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.account().registerEphemeralKey(PUBLIC_KEY);
+const response = await doordeck.com.doordeck.multiplatform.sdk.api.account().registerEphemeralKey(PUBLIC_KEY, PRIVATE_KEY);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var response = await sdk.GetAccount().RegisterEphemeralKey("BASE64_PUBLIC_KEY");
+var response = await sdk.GetAccount().RegisterEphemeralKey("BASE64_PUBLIC_KEY", "BASE64_PRIVATE_KEY");
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-response = await sdk.account.register_ephemeral_key("BASE64_PUBLIC_KEY")
+response = await sdk.account.register_ephemeral_key("BASE64_PUBLIC_KEY", "BASE64_PRIVATE_KEY")
 ```
 
 </TabItem>
@@ -158,6 +159,10 @@ response = await sdk.account.register_ephemeral_key("BASE64_PUBLIC_KEY")
 
 To register a new ephemeral key with secondary authentication, you will need to [generate a new key pair](crypto.md#generate-a-key-pair). After the registration, you will need to [verify the ephemeral key registration](#verify-ephemeral-key-registration).
 
+:::info 
+If your [context manager](context-manager.md) already has public key, you can pass ``null`` for that parameter, and the value will be retrieved from the [context manager](context-manager.md) instead.
+:::
+* 
 <Tabs>
 <TabItem value="jvm-android" label="JVM & Android">
 
@@ -203,15 +208,16 @@ response = await sdk.account.register_ephemeral_key_with_secondary_authenticatio
 
 ## Verify ephemeral key registration
 
-:::info  
-When used successfully, the user ID and user certificate chain from the response are added to the [context manager](context-manager.md) and automatically stored in [secure storage](initialize.md#secure-storage).
+:::info
+* When used successfully, both the supplied private and public keys are added to the [context manager](context-manager.md) and automatically stored in [secure storage](initialize.md#secure-storage), along with the user ID and user certificate chain from the response.
+* If your [context manager](context-manager.md) already has public and private keys, you can pass ``null`` for those parameters, and those values will be retrieved from the [context manager](context-manager.md) instead.
 :::
 
 <Tabs>
 <TabItem value="jvm-android" label="JVM & Android">
 
 ```kotlin showLineNumbers
-val response = sdk.account().verifyEphemeralKeyRegistration("CODE", PRIVATE_KEY)
+val response = sdk.account().verifyEphemeralKeyRegistration("CODE", PUBLIC_KEY, PRIVATE_KEY)
 ```
 
 :::tip[In Java...]
@@ -222,28 +228,28 @@ Use the `verifyEphemeralKeyRegistrationAsync` function, which returns a `Complet
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.account().verifyEphemeralKeyRegistration(code: "CODE", privateKey: PRIVATE_KEY)
+let response = sdk.account().verifyEphemeralKeyRegistration(code: "CODE", publicKey: PUBLIC_KEY, privateKey: PRIVATE_KEY)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.account().verifyEphemeralKeyRegistration("CODE", PRIVATE_KEY);
+const response = await doordeck.com.doordeck.multiplatform.sdk.api.account().verifyEphemeralKeyRegistration("CODE", PUBLIC_KEY, PRIVATE_KEY);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var response = await sdk.GetAccount().VerifyEphemeralKeyRegistration("CODE", "BASE64_PRIVATE_KEY");
+var response = await sdk.GetAccount().VerifyEphemeralKeyRegistration("CODE", "BASE64_PUBLIC_KEY", "BASE64_PRIVATE_KEY");
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-response = await sdk.account.verify_ephemeral_key_registration("CODE", "BASE64_PRIVATE_KEY")
+response = await sdk.account.verify_ephemeral_key_registration("CODE", "BASE64_PUBLIC_KEY", "BASE64_PRIVATE_KEY")
 ```
 
 </TabItem>
