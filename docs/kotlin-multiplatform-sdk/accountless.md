@@ -3,7 +3,7 @@
 ## Login
 
 :::info
-When used successfully, the cloud auth token and cloud refresh token from the response are added to the [context manager](context-manager.md) and automatically stored in [secure storage](initialize.md#secure-storage).
+When used successfully, the supplied email is added to the [context manager](context-manager.md) and automatically stored in [secure storage](initialize.md#secure-storage), along with the cloud auth token and cloud refresh token from the response.
 :::
 
 import Tabs from '@theme/Tabs';
@@ -56,7 +56,7 @@ response = await sdk.accountless.login("EMAIL", "PASSWORD")
 After registration, you will need to [verify the email](#verify-email)
 
 :::info
-When used successfully, the cloud auth token and cloud refresh token from the response are added to the [context manager](context-manager.md) and automatically stored in [secure storage](initialize.md#secure-storage).
+When used successfully, the supplied email is added to the [context manager](context-manager.md) and automatically stored in [secure storage](initialize.md#secure-storage), along with the cloud auth token and cloud refresh token from the response.
 :::
 
 <Tabs>
