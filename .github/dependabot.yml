@@ -7,3 +7,12 @@ updates:
   open-pull-requests-limit: 10
   target-branch: dev
   versioning-strategy: increase-if-necessary
+
+- package-ecosystem: "github-actions"
+  directory: "/"
+  schedule:
+    interval: "weekly"
+  groups:
+    actions-all:
+      patterns: ["*"]
+      update-types: ["major", "minor", "patch"]
