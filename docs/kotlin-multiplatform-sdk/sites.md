@@ -53,7 +53,7 @@ response = await sdk.sites.list_sites()
 <TabItem value="jvm-android" label="JVM & Android">
 
 ```kotlin showLineNumbers
-val response = sdk.sites().getLocksForSite("SITE_ID")
+val response = sdk.sites().getLocksForSite(SITE_ID)
 ```
 
 :::tip[In Java...]
@@ -64,7 +64,7 @@ Use the `getLocksForSiteAsync` function, which returns a `CompletableFuture<List
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.sites().getLocksForSite(siteId: "SITE_ID")
+let response = sdk.sites().getLocksForSite(siteId: SITE_ID)
 ```
 
 </TabItem>
@@ -78,7 +78,7 @@ const response = await doordeck.com.doordeck.multiplatform.sdk.api.sites().getLo
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var response = await sdk.GetSites().GetLocksForSite("SITE_ID");
+var response = await sdk.GetSites().GetLocksForSite(SITE_ID);
 ```
 
 </TabItem>
@@ -97,7 +97,7 @@ response = await sdk.sites.get_locks_for_site("SITE_ID")
 <TabItem value="jvm-android" label="JVM & Android">
 
 ```kotlin showLineNumbers
-val response = sdk.sites().getUsersForSite("SITE_ID")
+val response = sdk.sites().getUsersForSite(SITE_ID)
 ```
 
 :::tip[In Java...]
@@ -108,7 +108,7 @@ Use the `getUsersForSiteAsync` function, which returns a `CompletableFuture<List
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.sites().getUsersForSite(siteId: "SITE_ID")
+let response = sdk.sites().getUsersForSite(siteId: SITE_ID)
 ```
 
 </TabItem>
@@ -122,7 +122,7 @@ const response = await doordeck.com.doordeck.multiplatform.sdk.api.sites().getUs
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var response = await sdk.GetSites().GetUsersForSite("SITE_ID");
+var response = await sdk.GetSites().GetUsersForSite(SITE_ID);
 ```
 
 </TabItem>

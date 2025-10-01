@@ -15,15 +15,20 @@ import TabItem from '@theme/TabItem';
 <TabItem value="kotlin" label="JVM & Android">
 
 ```kotlin showLineNumbers
-sdk.contextManager().setOperationContext("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PUBLIC_KEY, PRIVATE_KEY)
+sdk.contextManager().setOperationContext(
+  USER_ID, 
+  USER_CERTIFICATE_CHAIN_LIST, 
+  KEY_PAIR,
+  IS_KEY_PAIR_VERIFIED
+)
 ```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.contextManager().setOperationContext(userId: "USER_ID", certificateChain: USER_CERTIFICATE_CHAIN_LIST, publicKey: PUBLIC_KEY, privateKey: PRIVATE_KEY)
-```
+```sdk.contextManager().setOperationContext(userId: USER_ID, certificateChain: USER_CERTIFICATE_CHAIN_LIST, publicKey: PUBLIC_KEY, privateKey: PRIVATE_KEY)
+
 
 </TabItem>
 <TabItem value="js" label="JavaScript">

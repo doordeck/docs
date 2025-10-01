@@ -14,11 +14,11 @@ import TabItem from '@theme/TabItem';
 
 ```kotlin showLineNumbers
 val application = Platform.CreateApplication("APPLICATION_NAME", "COMPANY_NAME", "COMPANY@MAIL.COM")
-sdk.platform().createApplication(application)
+val response = sdk.platform().createApplication(application)
 ```
 
 :::tip[In Java...]
-Use the `createApplicationAsync` function, which returns a `CompletableFuture<Void>` instead.
+Use the `createApplicationAsync` function, which returns a `CompletableFuture<UUID>` instead.
 :::
 
 </TabItem>
@@ -26,7 +26,7 @@ Use the `createApplicationAsync` function, which returns a `CompletableFuture<Vo
 
 ```swift showLineNumbers
 let application = Platform.CreateApplication(name: "APPLICATION_NAME", companyName: "COMPANY_NAME", mailingAddress: "COMPANY@MAIL.COM", privacyPolicy: null, supportContact: null, appLink: null, emailPreferences: null, logoUrl: null)
-sdk.platform().createApplication(application: application)
+let response = sdk.platform().createApplication(application: application)
 ```
 
 </TabItem>
@@ -35,7 +35,7 @@ sdk.platform().createApplication(application: application)
 ```js showLineNumbers
 const platform = doordeck.com.doordeck.multiplatform.sdk.model.data.Platform;
 const application = new platform.CreateApplication("APPLICATION_NAME", "COMPANY_NAME", "COMPANY@MAIL.COM", null, null, null, null, null);
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().createApplication(application);
+const response = await doordeck.com.doordeck.multiplatform.sdk.api.platform().createApplication(application);
 ```
 
 </TabItem>
@@ -43,7 +43,7 @@ await doordeck.com.doordeck.multiplatform.sdk.api.platform().createApplication(a
 
 ```csharp showLineNumbers
 var data = new CreateApplication("APPLICATION_NAME", "COMPANY_NAME", "COMPANY@MAIL.COM");
-await sdk.GetPlatform().CreateApplication(data);
+var response = await sdk.GetPlatform().CreateApplication(data);
 ```
 
 </TabItem>
@@ -51,7 +51,7 @@ await sdk.GetPlatform().CreateApplication(data);
 
 ```python showLineNumbers
 data = doordeck_headless_sdk.CreateApplication("APPLICATION_NAME", "COMPANY_NAME", "COMPANY@MAIL.COM")
-await sdk.platform.create_application(data)
+response = await sdk.platform.create_application(data)
 ```
 
 </TabItem>

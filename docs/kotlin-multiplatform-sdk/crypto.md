@@ -31,7 +31,7 @@ const keyPair = crypto.generateKeyPair();
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var keyPair = sdk.GetCryptoManager().GenerateEncodedKeyPair();
+var keyPair = sdk.GetCryptoManager().GenerateKeyPair();
 ```
 
 </TabItem>

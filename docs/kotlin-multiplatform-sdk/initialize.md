@@ -6,13 +6,14 @@ To initialize the SDK, you need to provide an [SdkConfig](#sdk-config-builder) w
 
 The minimum viable `SdkConfig` is `SdkConfig.Builder().build()`, although the following configurations are also available:
 
-|           Configuration           | Method                     |        Default         |
-|:---------------------------------:|:---------------------------|:----------------------:|
-|          API environment          | `setApiEnvironment`        |       Production       |
-|         Cloud auth token          | `setCloudAuthToken`        |           -            |
-|        Cloud refresh token        | `setCloudRefreshToken`     |           -            |
-|            Fusion host            | `setFusionHost`            | http://localhost:27700 |
-| [Secure storage](#secure-storage) | `setSecureStorageOverride` |           -            |
+|           Configuration           |           Method            |        Default         |
+|:---------------------------------:|:---------------------------:|:----------------------:|
+|          API environment          |     `setApiEnvironment`     |       Production       |
+|         Cloud auth token          |     `setCloudAuthToken`     |           -            |
+|        Cloud refresh token        |   `setCloudRefreshToken`    |           -            |
+|            Fusion host            |       `setFusionHost`       | http://localhost:27700 |
+| [Secure storage](#secure-storage) | `setSecureStorageOverride`  |           -            |
+|           Debug Logging           |      `setDebugLogging`      |         false          |
 
 :::info
 If you initialize the SDK without a cloud auth token, you will need to either provide one manually through the [context manager](context-manager.md#set-cloud-auth-token) or call the [login](accountless.md#login) function to access most SDK functionalities.
@@ -22,15 +23,13 @@ If you initialize the SDK without a cloud auth token, you will need to either pr
 
 By default, the SDK stores the context information on its own, as shown in the following table:
 
-| Platform | Storage                      |
-|:--------:|------------------------------|
-| Android  | `EncryptedSharedPreferences` |
-|   JVM    | `Memory`                     |
-|   iOS    | `Keychain`                   |
-|  macOS   | `Keychain`                   |
-| watchOS  | `Keychain`                   |
-|    JS    | `LocalStorage`               |
-| Windows  | `Memory`                     |
+|       Platform        |            Storage             |
+|:---------------------:|:------------------------------:|
+|        Android        |  `EncryptedSharedPreferences`  |
+|          JVM          |            `Memory`            |
+| iOS / macOS / watchOS |           `Keychain`           |
+|       JS / Node       |         `LocalStorage`         |
+|      C# / Python      |            `Memory`            |
 
 :::info
 To override the default secure storage, you must implement the `SecureStorage` interface and pass the class through the `setSecureStorageOverride` function from `SdkConfig` builder.
@@ -45,22 +44,36 @@ import TabItem from '@theme/TabItem';
 <TabItem value="jvm-android" label="JVM & Android">
 
 ```kotlin showLineNumbers
-val sdk = KDoordeckFactory.initialize(SdkConfig.Builder().setCloudAuthToken("AUTH_TOKEN").build())
+val sdkConfig = SdkConfig.Builder()
+  .setCloudAuthToken("AUTH_TOKEN")
+  .build()
+val sdk = KDoordeckFactory.initialize(sdkConfig)
 ```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let sdk = KDoordeckFactory().initialize(sdkConfig: SdkConfig.Builder().setCloudAuthToken(cloudAuthToken: "AUTH_TOKEN").build())
+let sdkConfig = SdkConfig.Builder()
+  .setCloudAuthToken(cloudAuthToken: "AUTH_TOKEN")
+  .build()
+let sdk = KDoordeckFactory().initialize(sdkConfig: sdkConfig)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```javascript showLineNumbers
-import doordeck from '@doordeck/doordeck-headless-sdk';
-const sdk = doordeck.com.doordeck.multiplatform.sdk.KDoordeckFactory.initialize(new SdkConfig.Builder().setCloudAuthToken("AUTH_TOKEN").build());
+import doordeck from "@doordeck/doordeck-headless-sdk"
+
+const KDoordeckFactory = doordeck.com.doordeck.multiplatform.sdk.KDoordeckFactory;
+const SdkConfig = doordeck.com.doordeck.multiplatform.sdk.config.SdkConfig;
+
+const sdk = KDoordeckFactory.initialize(
+  new SdkConfig.Builder()
+    .setCloudAuthToken("AUTH_TOKEN")
+    .build(),
+);
 ```
 
 </TabItem>
