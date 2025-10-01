@@ -41,7 +41,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
 val sdkConfig = SdkConfig.Builder()
@@ -51,13 +51,23 @@ val sdk = KDoordeckFactory.initialize(sdkConfig)
 ```
 
 </TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+var sdkConfig = SdkConfig.Builder()
+  .setCloudAuthToken("AUTH_TOKEN")
+  .build(); 
+var sdk = KDoordeckFactory.initializeAsync(sdkConfig);
+```
+
+</TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
 let sdkConfig = SdkConfig.Builder()
   .setCloudAuthToken(cloudAuthToken: "AUTH_TOKEN")
   .build()
-let sdk = KDoordeckFactory().initialize(sdkConfig: sdkConfig)
+let sdk = await KDoordeckFactory().initialize(sdkConfig: sdkConfig)
 ```
 
 </TabItem>
@@ -69,7 +79,7 @@ import doordeck from "@doordeck/doordeck-headless-sdk"
 const KDoordeckFactory = doordeck.com.doordeck.multiplatform.sdk.KDoordeckFactory;
 const SdkConfig = doordeck.com.doordeck.multiplatform.sdk.config.SdkConfig;
 
-const sdk = KDoordeckFactory.initialize(
+const sdk = await KDoordeckFactory.initialize(
   new SdkConfig.Builder()
     .setCloudAuthToken("AUTH_TOKEN")
     .build(),

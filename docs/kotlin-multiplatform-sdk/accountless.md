@@ -103,7 +103,7 @@ val response = sdk.accountless().registration(
 
 ```java showLineNumbers
 // Returns a CompletableFuture<TokenResponse>
-val response = sdk.accountless().registrationAsync("EMAIL", "PASSWORD");
+var response = sdk.accountless().registrationAsync("EMAIL", "PASSWORD");
 ```
 
 </TabItem>
