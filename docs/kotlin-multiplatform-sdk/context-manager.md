@@ -27,8 +27,8 @@ sdk.contextManager().setOperationContext(
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-```sdk.contextManager().setOperationContext(userId: USER_ID, certificateChain: USER_CERTIFICATE_CHAIN_LIST, publicKey: PUBLIC_KEY, privateKey: PRIVATE_KEY)
-
+sdk.contextManager().setOperationContext(userId: USER_ID, certificateChain: USER_CERTIFICATE_CHAIN_LIST, publicKey: PUBLIC_KEY, privateKey: PRIVATE_KEY)
+```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">

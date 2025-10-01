@@ -423,8 +423,7 @@ sdk.lockOperations().setLockSettingPermittedAddresses(lockId: "LOCK_ID", permitt
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const ktList = doordeck.kotlin.collections.KtList;
-await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().setLockSettingPermittedAddresses("LOCK_ID", ktList.fromJsArray(["PERMITTED_ADDRESS"]));
+await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().setLockSettingPermittedAddresses("LOCK_ID", ["PERMITTED_ADDRESS"]);
 ```
 
 </TabItem>
@@ -514,10 +513,9 @@ sdk.lockOperations().setLockSettingTimeRestrictions(lockId: "LOCK_ID", times: lo
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const ktList = doordeck.kotlin.collections.KtList;
 const lockOperations = doordeck.com.doordeck.multiplatform.sdk.model.data.LockOperations;
 await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().setLockSettingTimeRestrictions("LOCK_ID",
-    ktList.fromJsArray([new lockOperations.TimeRequirement("START_HH_MM", "END_HH_MM", "TIMEZONE", ktList.fromJsArray(["MONDAY"]))]));
+    [new lockOperations.TimeRequirement("START_HH_MM", "END_HH_MM", "TIMEZONE", ["MONDAY"])]);
 ```
 
 </TabItem>
@@ -881,8 +879,7 @@ let response = sdk.lockOperations().getUserPublicKeyByEmails(emails: ["USER_EMAI
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const ktList = doordeck.kotlin.collections.KtList;
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByEmails(ktList.fromJsArray(["USER_EMAIL", "USER_EMAIL"]));
+const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByEmails(["USER_EMAIL", "USER_EMAIL"]);
 ```
 
 </TabItem>
@@ -926,8 +923,7 @@ let response = sdk.lockOperations().getUserPublicKeyByTelephones(telephones: ["U
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const ktList = doordeck.kotlin.collections.KtList;
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByTelephones(ktList.fromJsArray(["USER_TELEPHONE", "USER_TELEPHONE"]));
+const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByTelephones(["USER_TELEPHONE", "USER_TELEPHONE"]);
 ```
 
 </TabItem>
@@ -971,8 +967,7 @@ let response = sdk.lockOperations().getUserPublicKeyByLocalKeys(localKeys: ["USE
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const ktList = doordeck.kotlin.collections.KtList;
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByLocalKeys(ktList.fromJsArray(["USER_LOCAL_KEY", "USER_LOCAL_KEY"]));
+const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByLocalKeys(["USER_LOCAL_KEY", "USER_LOCAL_KEY"]);
 ```
 
 </TabItem>
@@ -1016,8 +1011,7 @@ let response = sdk.lockOperations().getUserPublicKeyByForeignKeys(foreignKeys: [
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const ktList = doordeck.kotlin.collections.KtList;
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByForeignKey(ktList.fromJsArray(["USER_FOREIGN_KEY", "USER_FOREIGN_KEY"]));
+const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByForeignKey(["USER_FOREIGN_KEY", "USER_FOREIGN_KEY"]);
 ```
 
 </TabItem>
@@ -1196,12 +1190,11 @@ sdk.lockOperations().batchShareLock(shareLockOperation: shareLockOperation)
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const ktList = doordeck.kotlin.collections.KtList;
 const lockOperations = doordeck.com.doordeck.multiplatform.sdk.model.data.LockOperations;
 const baseOperation = new lockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID", NOT_BEFORE, ISSUED_AT, EXPIRES_AT, "UUID");
 const userRole = doordeck.com.doordeck.multiplatform.sdk.model.common.UserRole;
 const users = [new lockOperations.ShareLock("TARGET_USER_ID", userRole.USER, TARGET_PUBLIC_KEY, null, null)];
-const shareLockOperation = new lockOperations.BatchShareLockOperation(baseOperation, ktList.fromJsArray(users));
+const shareLockOperation = new lockOperations.BatchShareLockOperation(baseOperation, users);
 await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().batchShareLock(shareLockOperation);
 ```
 
@@ -1260,10 +1253,9 @@ sdk.lockOperations().revokeAccessToLock(revokeAccessToLockOperation: revokeAcces
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const ktList = doordeck.kotlin.collections.KtList;
 const lockOperations = doordeck.com.doordeck.multiplatform.sdk.model.data.LockOperations;
 const baseOperation = new lockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID", NOT_BEFORE, ISSUED_AT, EXPIRES_AT, "UUID");
-const revokeAccessToLockOperation = new lockOperations.RevokeAccessToLockOperation(baseOperation, ktList.fromJsArray(["USER_ID"]));
+const revokeAccessToLockOperation = new lockOperations.RevokeAccessToLockOperation(baseOperation, ["USER_ID"]);
 await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().revokeAccessToLock(revokeAccessToLockOperation);
 ```
 
