@@ -11,8 +11,8 @@ along with the **cloud auth token** and **cloud refresh token** from the respons
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs>
-<TabItem value="Kotlin" label="Kotlin">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
 // Returns a TokenResponse
@@ -87,7 +87,7 @@ and automatically stored in [secure storage](initialize.md#secure-storage),
 along with the **cloud auth token** and **cloud refresh token** from the response.
 :::
 
-<Tabs>
+<Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
@@ -135,7 +135,7 @@ const response = await doordeck.com.doordeck.multiplatform.sdk.api.accountless()
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-// Returns Task<TokenResponse>
+// Returns a Task<TokenResponse>
 var response = await sdk.GetAccountless().Registration(
   email: "EMAIL", 
   password: "PASSWORD"
@@ -158,7 +158,7 @@ response = await sdk.accountless.registration(
 
 ## Verify email
 
-<Tabs>
+<Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
@@ -211,7 +211,7 @@ await sdk.accountless.verify_email("CODE")
 
 ## Password reset
 
-<Tabs>
+<Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
@@ -264,7 +264,7 @@ await sdk.accountless.password_reset("EMAIL")
 
 ## Password reset verify
 
-<Tabs>
+<Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
