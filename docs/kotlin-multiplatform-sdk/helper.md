@@ -43,6 +43,7 @@ await sdk.helper().uploadPlatformLogo(
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
+// Returns a Promise<any>
 await doordeck.com.doordeck.multiplatform.sdk.api.helper().uploadPlatformLogo(
   "APPLICATION_ID", 
   "CONTENT_TYPE", 
