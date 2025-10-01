@@ -3,49 +3,75 @@
 ## Login
 
 :::info
-When used successfully, the supplied email is added to the [context manager](context-manager.md) and automatically stored in [secure storage](initialize.md#secure-storage), along with the cloud auth token and cloud refresh token from the response.
+When used successfully, the supplied **email** is added to the [context manager](context-manager.md) 
+and automatically stored in [secure storage](initialize.md#secure-storage), 
+along with the **cloud auth token** and **cloud refresh token** from the response.
 :::
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<TabItem value="Kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val response = sdk.accountless().login("EMAIL", "PASSWORD")
+// Returns a TokenResponse
+val response = sdk.accountless().login(
+  email = "EMAIL", 
+  password = "PASSWORD"
+)
 ```
 
-:::tip[In Java...]
-Use the `loginAsync` function, which returns a `CompletableFuture<TokenResponse>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<TokenResponse>
+var response = sdk.accountless().loginAsync("EMAIL", "PASSWORD");
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.accountless().login(email: "EMAIL", password: "PASSWORD")
+// Returns a TokenResponse asynchronously
+let response = await sdk.accountless().login(
+  email: "EMAIL", 
+  password: "PASSWORD"
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.accountless().login("EMAIL", "PASSWORD");
+// Returns a Promise<TokenResponse>
+const response = await doordeck.com.doordeck.multiplatform.sdk.api.accountless().login(
+  "EMAIL", 
+  "PASSWORD"
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var response = await sdk.GetAccountless().Login("EMAIL", "PASSWORD");
+// Returns a Task<TokenResponse>
+var response = await sdk.GetAccountless().Login(
+  email: "EMAIL", 
+  password: "PASSWORD"
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-response = await sdk.accountless.login("EMAIL", "PASSWORD")
+# Returns a Future[SimpleNamespace]
+response = await sdk.accountless.login(
+  "EMAIL", 
+  "PASSWORD"
+)
 ```
 
 </TabItem>
@@ -53,49 +79,78 @@ response = await sdk.accountless.login("EMAIL", "PASSWORD")
 
 ## Register a new user
 
-After registration, you will need to [verify the email](#verify-email)
+After registration, you will need to [verify the email](#verify-email).
 
 :::info
-When used successfully, the supplied email is added to the [context manager](context-manager.md) and automatically stored in [secure storage](initialize.md#secure-storage), along with the cloud auth token and cloud refresh token from the response.
+When used successfully, the supplied **email** is added to the [context manager](context-manager.md) 
+and automatically stored in [secure storage](initialize.md#secure-storage), 
+along with the **cloud auth token** and **cloud refresh token** from the response.
 :::
 
 <Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val response = sdk.accountless().registration("EMAIL", "PASSWORD", "DISPLAY_NAME", false, PUBLIC_KEY)
+// Returns a TokenResponse
+val response = sdk.accountless().registration(
+  email = "EMAIL", 
+  password = "PASSWORD"
+)
 ```
 
-:::tip[In Java...]
-Use the `registrationAsync` function, which returns a `CompletableFuture<TokenResponse>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<TokenResponse>
+val response = sdk.accountless().registrationAsync("EMAIL", "PASSWORD");
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.accountless().registration(email: "EMAIL", password: "PASSWORD", displayName: "DISPLAY_NAME", force: false, publicKey: PUBLIC_KEY)
+// Returns a TokenResponse asynchronously
+let response = await sdk.accountless().registration(
+  email: "EMAIL", 
+  password: "PASSWORD", 
+  displayName: "DISPLAY_NAME", 
+  force: false, 
+  publicKey: PUBLIC_KEY
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.accountless().registration("EMAIL", "PASSWORD", "DISPLAY_NAME", false, PUBLIC_KEY);
+// Returns a Promise<TokenResponse>
+const response = await doordeck.com.doordeck.multiplatform.sdk.api.accountless().registration(
+  "EMAIL", 
+  "PASSWORD"
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var response = await sdk.GetAccountless().Registration("EMAIL", "PASSWORD", "DISPLAY_NAME", false, "BASE64_PUBLIC_KEY");
+// Returns Task<TokenResponse>
+var response = await sdk.GetAccountless().Registration(
+  email: "EMAIL", 
+  password: "PASSWORD"
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-response = await sdk.accountless.registration("EMAIL", "PASSWORD", "DISPLAY_NAME", False, "BASE64_PUBLIC_KEY")
+# Returns a Future[SimpleNamespace]
+response = await sdk.accountless.registration(
+  "EMAIL", 
+  "PASSWORD"
+)
 ```
 
 </TabItem>
@@ -104,27 +159,34 @@ response = await sdk.accountless.registration("EMAIL", "PASSWORD", "DISPLAY_NAME
 ## Verify email
 
 <Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns Unit
 sdk.accountless().verifyEmail("CODE")
 ```
 
-:::tip[In Java...]
-Use the `verifyEmailAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.accountless().verifyEmailAsync("CODE");
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.accountless().verifyEmail(code: "CODE")
+// Returns Void asynchronously
+await sdk.accountless().verifyEmail(code: "CODE")
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
+// Returns a Promise<any>
 await doordeck.com.doordeck.multiplatform.sdk.api.accountless().verifyEmail("CODE");
 ```
 
@@ -132,6 +194,7 @@ await doordeck.com.doordeck.multiplatform.sdk.api.accountless().verifyEmail("COD
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
+// Returns a Task<object>
 await sdk.GetAccountless().VerifyEmail("CODE");
 ```
 
@@ -139,6 +202,7 @@ await sdk.GetAccountless().VerifyEmail("CODE");
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 await sdk.accountless.verify_email("CODE")
 ```
 
@@ -148,27 +212,34 @@ await sdk.accountless.verify_email("CODE")
 ## Password reset
 
 <Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns Unit
 sdk.accountless().passwordReset("EMAIL")
 ```
 
-:::tip[In Java...]
-Use the `passwordResetAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.accountless().passwordResetAsync("EMAIL");
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.accountless().passwordReset(email: "EMAIL")
+// Returns Void asynchronously
+await sdk.accountless().passwordReset(email: "EMAIL")
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
+// Returns a Promise<any>
 await doordeck.com.doordeck.multiplatform.sdk.api.accountless().passwordReset("EMAIL");
 ```
 
@@ -176,6 +247,7 @@ await doordeck.com.doordeck.multiplatform.sdk.api.accountless().passwordReset("E
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
+// Returns a Task<object>
 await sdk.GetAccountless().PasswordReset("EMAIL");
 ```
 
@@ -183,6 +255,7 @@ await sdk.GetAccountless().PasswordReset("EMAIL");
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 await sdk.accountless.password_reset("EMAIL")
 ```
 
@@ -192,42 +265,71 @@ await sdk.accountless.password_reset("EMAIL")
 ## Password reset verify
 
 <Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.accountless().passwordResetVerify("USERID", "TOKEN", "EMAIL")
+// Returns Unit
+sdk.accountless().passwordResetVerify(
+  userId = "USERID", 
+  token = "TOKEN", 
+  email = "EMAIL"
+)
 ```
 
-:::tip[In Java...]
-Use the `passwordResetVerify` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.accountless().passwordResetVerifyAsync("USERID", "TOKEN", "EMAIL");
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.accountless().passwordResetVerify(userId: "USERID", token: "TOKEN", email: "EMAIL")
+// Returns Void asynchronously
+await sdk.accountless().passwordResetVerify(
+  userId: "USERID", 
+  token: "TOKEN", 
+  email: "EMAIL"
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-await doordeck.com.doordeck.multiplatform.sdk.api.accountless().passwordResetVerify("USERID", "TOKEN", "EMAIL");
+// Returns a Promise<any>
+await doordeck.com.doordeck.multiplatform.sdk.api.accountless().passwordResetVerify(
+  "USERID", 
+  "TOKEN", 
+  "EMAIL"
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetAccountless().PasswordResetVerify("USERID", "TOKEN", "EMAIL");
+// Returns a Task<object>
+await sdk.GetAccountless().PasswordResetVerify(
+  userId: "USERID", 
+  token: "TOKEN", 
+  password: "EMAIL"
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-await sdk.accountless.password_reset_verify("USERID", "TOKEN", "EMAIL")
+# Returns a Future[SimpleNamespace]
+await sdk.accountless.password_reset_verify(
+  "USERID", 
+  "TOKEN", 
+  "EMAIL"
+)
 ```
 
 </TabItem>
