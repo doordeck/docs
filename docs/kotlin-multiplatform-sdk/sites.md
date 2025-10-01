@@ -5,28 +5,35 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns a List<SiteResponse>
 val response = sdk.sites().listSites()
 ```
 
-:::tip[In Java...]
-Use the `listSitesAsync` function, which returns a `CompletableFuture<List<SiteResponse>>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<List<SiteResponse>>
+var response = sdk.sites().listSitesAsync();
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.sites().listSites()
+// Returns a Array<SiteResponse> asynchronously
+let response = await sdk.sites().listSites()
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
+// Returns a Promise<Array<SiteResponse>>
 const response = await doordeck.com.doordeck.multiplatform.sdk.api.sites().listSites();
 ```
 
@@ -34,13 +41,15 @@ const response = await doordeck.com.doordeck.multiplatform.sdk.api.sites().listS
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
+// Returns a Task<List<SiteResponse>>
 var response = await sdk.GetSites().ListSites();
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
-```python showLineNumbers
+```python 
+# Returns a Future[SimpleNamespace]
 response = await sdk.sites.list_sites()
 ```
 
@@ -49,28 +58,35 @@ response = await sdk.sites.list_sites()
 
 ## Get locks for a site
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns a List<SiteLocksResponse>
 val response = sdk.sites().getLocksForSite(SITE_ID)
 ```
 
-:::tip[In Java...]
-Use the `getLocksForSiteAsync` function, which returns a `CompletableFuture<List<SiteLocksResponse>>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<List<SiteLocksResponse>>
+var response = sdk.sites().getLocksForSiteAsync(SITE_ID);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.sites().getLocksForSite(siteId: SITE_ID)
+// Returns a Array<SiteLocksResponse> asynchronously
+let response = await sdk.sites().getLocksForSite(siteId: SITE_ID)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
+// Returns a Promise<Array<SiteLocksResponse>>
 const response = await doordeck.com.doordeck.multiplatform.sdk.api.sites().getLocksForSite("SITE_ID");
 ```
 
@@ -78,6 +94,7 @@ const response = await doordeck.com.doordeck.multiplatform.sdk.api.sites().getLo
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
+// Returns a Task<List<SiteLocksResponse>>
 var response = await sdk.GetSites().GetLocksForSite(SITE_ID);
 ```
 
@@ -85,6 +102,7 @@ var response = await sdk.GetSites().GetLocksForSite(SITE_ID);
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.sites.get_locks_for_site("SITE_ID")
 ```
 
@@ -93,28 +111,35 @@ response = await sdk.sites.get_locks_for_site("SITE_ID")
 
 ## Get users for a site
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns a List<UserForSiteResponse>
 val response = sdk.sites().getUsersForSite(SITE_ID)
 ```
 
-:::tip[In Java...]
-Use the `getUsersForSiteAsync` function, which returns a `CompletableFuture<List<UserForSiteResponse>>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<List<UserForSiteResponse>>
+var response = sdk.sites().getUsersForSiteAsync(SITE_ID);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.sites().getUsersForSite(siteId: SITE_ID)
+// Returns a Array<UserForSiteResponse> asynchronously
+let response = await sdk.sites().getUsersForSite(siteId: SITE_ID)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
+// Returns a Promise<Array<UserForSiteResponse>>
 const response = await doordeck.com.doordeck.multiplatform.sdk.api.sites().getUsersForSite("SITE_ID");
 ```
 
@@ -122,6 +147,7 @@ const response = await doordeck.com.doordeck.multiplatform.sdk.api.sites().getUs
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
+// Returns a Task<List<UserForSiteResponse>>
 var response = await sdk.GetSites().GetUsersForSite(SITE_ID);
 ```
 
@@ -129,6 +155,7 @@ var response = await sdk.GetSites().GetUsersForSite(SITE_ID);
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.sites.get_users_for_site("SITE_ID")
 ```
 
