@@ -3,49 +3,73 @@
 ## Login
 
 :::info  
-When used successfully, the auth token from the response is added to the [context manager](context-manager.md).
+When used successfully, the **auth token** from the response is added to the [context manager](context-manager.md).
 :::
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val response = sdk.fusion().login("EMAIL", "PASSWORD")
+// Returns a FusionLoginResponse
+val response = sdk.fusion().login(
+  email = "EMAIL", 
+  password = "PASSWORD"
+)
 ```
 
-:::tip[In Java...]
-Use the `fusionAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<FusionLoginResponse>
+var response = sdk.fusion().loginAsync("EMAIL", "PASSWORD");
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.fusion().login(email: "EMAIL", password: "PASSWORD")
+// Returns a FusionLoginResponse asynchronously
+let response = await sdk.fusion().login(
+  email: "EMAIL", 
+  password: "PASSWORD"
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.fusion().login("EMAIL", "PASSWORD");
+// Returns a Promise<FusionLoginResponse>
+const response = await doordeck.com.doordeck.multiplatform.sdk.api.fusion().login(
+  "EMAIL", 
+  "PASSWORD"
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var response = await sdk.GetFusion().Login("EMAIL", "PASSWORD");
+// Returns a Task<FusionLoginResponse>
+var response = await sdk.GetFusion().Login(
+  email: "EMAIL", 
+  password: "PASSWORD"
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-response = await sdk.fusion.login("EMAIL", "PASSWORD")
+# Returns a Future[SimpleNamespace]
+response = await sdk.fusion.login(
+  "EMAIL", 
+  "PASSWORD"
+)
 ```
 
 </TabItem>
@@ -53,28 +77,35 @@ response = await sdk.fusion.login("EMAIL", "PASSWORD")
 
 ## Get integration type
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns a IntegrationTypeResponse
 val response = sdk.fusion().getIntegrationType()
 ```
 
-:::tip[In Java...]
-Use the `getIntegrationTypeAsync` function, which returns a `CompletableFuture<IntegrationTypeResponse>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<IntegrationTypeResponse>
+var response = sdk.fusion().getIntegrationTypeAsync();
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.fusion().getIntegrationType()
+// Returns a IntegrationTypeResponse asynchronously
+let response = await sdk.fusion().getIntegrationType()
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
+// Returns a Promise<IntegrationTypeResponse>
 const response = await doordeck.com.doordeck.multiplatform.sdk.api.fusion().getIntegrationType();
 ```
 
@@ -82,6 +113,7 @@ const response = await doordeck.com.doordeck.multiplatform.sdk.api.fusion().getI
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
+// Returns a Task<IntegrationTypeResponse>
 var response = await sdk.GetFusion().GetIntegrationType();
 ```
 
@@ -89,6 +121,7 @@ var response = await sdk.GetFusion().GetIntegrationType();
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.fusion.get_integration_type()
 ```
 
@@ -97,43 +130,52 @@ response = await sdk.fusion.get_integration_type()
 
 ## Get integration configuration
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val response = sdk.fusion().getIntegrationConfiguration("demo")
+// Returns a List<IntegrationConfigurationResponse>
+val response = sdk.fusion().getIntegrationConfiguration("CONTROLLER_TYPE")
 ```
 
-:::tip[In Java...]
-Use the `getIntegrationConfigurationAsync` function, which returns a `CompletableFuture<List<IntegrationConfigurationResponse>>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java 
+// Returns a CompletableFuture<List<IntegrationConfigurationResponse>>
+var response = sdk.fusion().getIntegrationConfigurationAsync("CONTROLLER_TYPE");
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.fusion().getIntegrationConfiguration(type: "demo")
+// Returns a Array<IntegrationConfigurationResponse> asynchronously
+let response = await sdk.fusion().getIntegrationConfiguration(type: "CONTROLLER_TYPE")
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.fusion().getIntegrationConfiguration("demo");
+// Returns a Promise<Array<IntegrationConfigurationResponse>>
+const response = await doordeck.com.doordeck.multiplatform.sdk.api.fusion().getIntegrationConfiguration("CONTROLLER_TYPE");
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var response = await sdk.GetFusion().GetIntegrationConfiguration("demo");
+// Returns a Task<List<IntegrationConfigurationResponse>>
+var response = await sdk.GetFusion().GetIntegrationConfiguration("CONTROLLER_TYPE");
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-response = await sdk.fusion.get_integration_configuration("demo")
+# Returns a Future[SimpleNamespace]
+response = await sdk.fusion.get_integration_configuration("CONTROLLER_TYPE")
 ```
 
 </TabItem>
@@ -141,24 +183,39 @@ response = await sdk.fusion.get_integration_configuration("demo")
 
 ## Enable door
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
 val controller = Fusion.DemoController()
-sdk.fusion().enableDoor("NAME", "SITE_ID", controller)
+// Returns Unit
+sdk.fusion().enableDoor(
+  name = "NAME",
+  siteId = SITE_ID, 
+  controller = controller
+)
 ```
 
-:::tip[In Java...]
-Use the `enableDoorAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+var controller = Fusion.DemoController();
+// Returns a CompletableFuture<Void>
+sdk.fusion().enableDoorAsync("NAME", SITE_ID, controller);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
 let controller = Fusion.DemoController()
-sdk.fusion().enableDoor(name: "NAME", siteId: "SITE_ID", controller: controller)
+// Returns Void asynchronously
+await sdk.fusion().enableDoor(
+  name: "NAME", 
+  siteId: SITE_ID, 
+  controller: controller
+)
 ```
 
 </TabItem>
@@ -167,7 +224,12 @@ sdk.fusion().enableDoor(name: "NAME", siteId: "SITE_ID", controller: controller)
 ```js showLineNumbers
 const fusion = doordeck.com.doordeck.multiplatform.sdk.model.data.Fusion;
 const controller = new fusion.DemoController(8080);
-await doordeck.com.doordeck.multiplatform.sdk.api.fusion().enableDoor("NAME", "SITE_ID", controller);
+// Returns a Promise<any>
+await doordeck.com.doordeck.multiplatform.sdk.api.fusion().enableDoor(
+  "NAME", 
+  "SITE_ID", 
+  controller
+);
 ```
 
 </TabItem>
@@ -175,7 +237,12 @@ await doordeck.com.doordeck.multiplatform.sdk.api.fusion().enableDoor("NAME", "S
 
 ```csharp showLineNumbers
 var controller = new DemoController();
-await sdk.GetFusion().EnableDoor("NAME", "SITE_ID", controller);
+// Returns a Task<object>
+await sdk.GetFusion().EnableDoor(
+  name: "NAME", 
+  siteId: SITE_ID, 
+  controller: controller
+);
 ```
 
 </TabItem>
@@ -183,7 +250,12 @@ await sdk.GetFusion().EnableDoor("NAME", "SITE_ID", controller);
 
 ```python showLineNumbers
 controller = DemoController(8080)
-await sdk.fusion.enable_door("NAME", "SITE_ID", controller)
+# Returns a Future[SimpleNamespace]
+await sdk.fusion.enable_door(
+  "NAME", 
+  "SITE_ID", 
+  controller
+)
 ```
 
 </TabItem>
@@ -191,28 +263,35 @@ await sdk.fusion.enable_door("NAME", "SITE_ID", controller)
 
 ## Delete door
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.fusion().deleteDoor("DEVICE_ID")
+// Returns Unit
+sdk.fusion().deleteDoor(DEVICE_ID)
 ```
 
-:::tip[In Java...]
-Use the `deleteDoorAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.fusion().deleteDoorAsync(DEVICE_ID);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.fusion().deleteDoor(deviceId: "DEVICE_ID")
+// Returns Void asynchronously
+await sdk.fusion().deleteDoor(deviceId: DEVICE_ID)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
+// Returns a Promise<any>
 await doordeck.com.doordeck.multiplatform.sdk.api.fusion().deleteDoor("DEVICE_ID");
 ```
 
@@ -220,13 +299,15 @@ await doordeck.com.doordeck.multiplatform.sdk.api.fusion().deleteDoor("DEVICE_ID
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetFusion().DeleteDoor("DEVICE_ID");
+// Returns Task<object>
+await sdk.GetFusion().DeleteDoor(DEVICE_ID);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 await sdk.fusion.delete_door("DEVICE_ID")
 ```
 
@@ -235,28 +316,35 @@ await sdk.fusion.delete_door("DEVICE_ID")
 
 ## Get door status
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val response = sdk.fusion().getDoorStatus("DEVICE_ID")
+// Returns a DoorStateResponse
+val response = sdk.fusion().getDoorStatus(DEVICE_ID)
 ```
 
-:::tip[In Java...]
-Use the `getDoorStatusAsync` function, which returns a `CompletableFuture<DoorStateResponse>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns CompletableFuture<DoorStateResponse>
+var response = sdk.fusion().getDoorStatusAsync(DEVICE_ID);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.fusion().getDoorStatus(deviceId: "DEVICE_ID")
+// Returns a DoorStateResponse asynchronously
+let response = await sdk.fusion().getDoorStatus(deviceId: DEVICE_ID)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
+// Returns a Promise<DoorStateResponse>
 const response = await doordeck.com.doordeck.multiplatform.sdk.api.fusion().getDoorStatus("DEVICE_ID");
 ```
 
@@ -264,13 +352,15 @@ const response = await doordeck.com.doordeck.multiplatform.sdk.api.fusion().getD
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var response = await sdk.GetFusion().GetDoorStatus("DEVICE_ID");
+// Returns a Task<DoorStateResponse>
+var response = await sdk.GetFusion().GetDoorStatus(DEVICE_ID);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.fusion.get_door_status("DEVICE_ID")
 ```
 
@@ -279,28 +369,35 @@ response = await sdk.fusion.get_door_status("DEVICE_ID")
 
 ## Start door
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.fusion().startDoor("DEVICE_ID")
+// Returns Unit
+sdk.fusion().startDoor(DEVICE_ID)
 ```
 
-:::tip[In Java...]
-Use the `startDoorAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.fusion().startDoorAsync(DEVICE_ID);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.fusion().startDoor(deviceId: "DEVICE_ID")
+// Returns Void asynchronously
+await sdk.fusion().startDoor(deviceId: DEVICE_ID)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
+// Returns Promise<any>
 await doordeck.com.doordeck.multiplatform.sdk.api.fusion().startDoor("DEVICE_ID");
 ```
 
@@ -308,13 +405,15 @@ await doordeck.com.doordeck.multiplatform.sdk.api.fusion().startDoor("DEVICE_ID"
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetFusion().StartDoor("DEVICE_ID");
+// Returns a Task<object>
+await sdk.GetFusion().StartDoor(DEVICE_ID);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 await sdk.fusion.start_door("DEVICE_ID")
 ```
 
@@ -323,28 +422,35 @@ await sdk.fusion.start_door("DEVICE_ID")
 
 ## Stop door
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.fusion().stopDoor("DEVICE_ID")
+// Returns Unit
+sdk.fusion().stopDoor(DEVICE_ID)
 ```
 
-:::tip[In Java...]
-Use the `stopDoorAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns CompletableFuture<Void>
+sdk.fusion().stopDoorAsync(DEVICE_ID);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.fusion().stopDoor(deviceId: "DEVICE_ID")
+// Returns Void asynchronously
+await sdk.fusion().stopDoor(deviceId: DEVICE_ID)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
+// Returns a Promise<any>
 await doordeck.com.doordeck.multiplatform.sdk.api.fusion().stopDoor("DEVICE_ID");
 ```
 
@@ -352,13 +458,15 @@ await doordeck.com.doordeck.multiplatform.sdk.api.fusion().stopDoor("DEVICE_ID")
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetFusion().StopDoor("DEVICE_ID");
+// Returns a Task<object>
+await sdk.GetFusion().StopDoor(DEVICE_ID);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 await sdk.fusion.stop_door("DEVICE_ID")
 ```
 

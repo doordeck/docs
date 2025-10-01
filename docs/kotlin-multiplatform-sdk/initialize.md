@@ -40,7 +40,7 @@ To override the default secure storage, you must implement the `SecureStorage` i
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs>
+<Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
