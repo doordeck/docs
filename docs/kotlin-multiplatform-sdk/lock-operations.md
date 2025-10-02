@@ -5,28 +5,35 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val response = sdk.lockOperations().getSingleLock("LOCK_ID")
+// Returns a LockResponse
+val response = sdk.lockOperations().getSingleLock(LOCK_ID)
 ```
 
-:::tip[In Java...]
-Use the `getSingleLockAsync` function, which returns a `CompletableFuture<LockResponse>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<LockResponse>
+var response = sdk.lockOperations().getSingleLockAsync(LOCK_ID);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.lockOperations().getSingleLock(lockId: "LOCK_ID")
+// Returns a LockResponse asynchronously
+let response = await sdk.lockOperations().getSingleLock(lockId: LOCK_ID)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
+// Returns a Promise<LockResponse>
 const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getSingleLock("LOCK_ID");
 ```
 
@@ -34,13 +41,15 @@ const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperation
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var response = await sdk.GetLockOperations().GetSingleLock("LOCK_ID");
+// Returns a Task<LockResponse>
+var response = await sdk.GetLockOperations().GetSingleLock(LOCK_ID);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.lockOperations.get_single_lock("LOCK_ID")
 ```
 
@@ -49,43 +58,56 @@ response = await sdk.lockOperations.get_single_lock("LOCK_ID")
 
 ## Get lock audit trail
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val response = sdk.lockOperations().getLockAuditTrail("LOCK_ID", START_EPOCH, END_EPOCH)
+// Returns a List<LockAuditTrailResponse>
+val response = sdk.lockOperations().getLockAuditTrail(LOCK_ID)
 ```
 
-:::tip[In Java...]
-Use the `getLockAuditTrailAsync` function, which returns a `CompletableFuture<List<LockAuditTrailResponse>>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<List<LockAuditTrailResponse>>
+var response = sdk.lockOperations().getLockAuditTrailAsync(LOCK_ID);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.lockOperations().getLockAuditTrail(lockId: "LOCK_ID", start: START_EPOCH, end: END_EPOCH)
+// Returns a Array<LockAuditTrailResponse> asynchronously
+let response = await sdk.lockOperations().getLockAuditTrail(
+  lockId: LOCK_ID, 
+  start: START_EPOCH, 
+  end: END_EPOCH
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getLockAuditTrail("LOCK_ID", START_EPOCH, END_EPOCH);
+// Returns a Promise<Array<LockAuditTrailResponse>>
+const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getLockAuditTrail("LOCK_ID");
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var response = await sdk.GetLockOperations().GetLockAuditTrail("LOCK_ID", START_EPOCH, END_EPOCH);
+// Returns a Task<List<LockAuditTrailResponse>>
+var response = await sdk.GetLockOperations().GetLockAuditTrail(LOCK_ID);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-response = await sdk.lockOperations.get_lock_audit_trail("LOCK_ID", START_EPOCH, END_EPOCH)
+# Returns a Future[SimpleNamespace]
+response = await sdk.lockOperations.get_lock_audit_trail("LOCK_ID")
 ```
 
 </TabItem>
@@ -93,43 +115,56 @@ response = await sdk.lockOperations.get_lock_audit_trail("LOCK_ID", START_EPOCH,
 
 ## Get audit for user
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val response = sdk.lockOperations().getAuditForUser("USER_ID", START_EPOCH, END_EPOCH)
+// Returns a List<AuditResponse>
+val response = sdk.lockOperations().getAuditForUser(USER_ID)
 ```
 
-:::tip[In Java...]
-Use the `getAuditForUserAsync` function, which returns a `CompletableFuture<List<AuditResponse>>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<List<AuditResponse>>
+var response = sdk.lockOperations().getAuditForUserAsync(USER_ID);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.lockOperations().getAuditForUser(userId: "USER_ID", start: START_EPOCH, end: END_EPOCH)
+// Returns a Array<AuditResponse> asynchronously
+let response = await sdk.lockOperations().getAuditForUser(
+  userId: "USER_ID", 
+  start: START_EPOCH, 
+  end: END_EPOCH
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getAuditForUser("USER_ID", START_EPOCH, END_EPOCH);
+// Returns a Promise<Array<AuditResponse>>
+const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getAuditForUser("USER_ID");
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var response = await sdk.GetLockOperations().GetAuditForUser("USER_ID", START_EPOCH, END_EPOCH);
+// Returns a Task<List<AuditResponse>>
+var response = await sdk.GetLockOperations().GetAuditForUser(USER_ID);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-response = await sdk.lockOperations.get_audit_for_user("USER_ID", START_EPOCH, END_EPOCH)
+# Returns a Future[SimpleNamespace]
+response = await sdk.lockOperations.get_audit_for_user("USER_ID")
 ```
 
 </TabItem>
@@ -137,42 +172,51 @@ response = await sdk.lockOperations.get_audit_for_user("USER_ID", START_EPOCH, E
 
 ## Get users for lock
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val response = sdk.lockOperations().getUsersForLock("LOCK_ID")
+// Returns a List<UserLockResponse>
+val response = sdk.lockOperations().getUsersForLock(LOCK_ID)
 ```
 
-:::tip[In Java...]
-Use the `getUsersForLockAsync` function, which returns a `CompletableFuture<List<UserLockResponse>>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<List<UserLockResponse>>
+var response = sdk.lockOperations().getUsersForLockAsync(LOCK_ID);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.lockOperations().getUsersForLock(lockId: "LOCK_ID")
+// Returns Array<UserLockResponse> asynchronously
+let response = await sdk.lockOperations().getUsersForLock(lockId: LOCK_ID)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getUsersForLock("LOCK_ID");
+// Returns a Promise<Array<UserLockResponse>>
+const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getUsersForLock(LOCK_ID);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var response = await sdk.GetLockOperations().GetUsersForLock("LOCK_ID");
+// Returns a Task<List<UserLockResponse>>
+var response = await sdk.GetLockOperations().GetUsersForLock(LOCK_ID);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.lockOperations.get_users_for_lock("LOCK_ID")
 ```
 
@@ -181,28 +225,35 @@ response = await sdk.lockOperations.get_users_for_lock("LOCK_ID")
 
 ## Get locks for user
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val response = sdk.lockOperations().getLocksForUser("LOCK_ID")
+// Returns a LockUserResponse
+val response = sdk.lockOperations().getLocksForUser(LOCK_ID)
 ```
 
-:::tip[In Java...]
-Use the `getLocksForUserAsync` function, which returns a `CompletableFuture<LockUserResponse>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<LockUserResponse>
+var response = sdk.lockOperations().getLocksForUser(LOCK_ID);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.lockOperations().getLocksForUser(lockId: "LOCK_ID")
+// Returns a LockUserResponse asynchronously
+let response = await sdk.lockOperations().getLocksForUser(lockId: LOCK_ID)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
+// Returns a Promise<LockUserResponse>
 const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getLocksForUser("LOCK_ID");
 ```
 
@@ -210,13 +261,15 @@ const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperation
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var response = await sdk.GetLockOperations().GetLocksForUser("LOCK_ID");
+// Returns a Task<LockUserResponse>
+var response = await sdk.GetLockOperations().GetLocksForUser(LOCK_ID);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.lockOperations.get_locks_for_user("LOCK_ID")
 ```
 
@@ -225,43 +278,67 @@ response = await sdk.lockOperations.get_locks_for_user("LOCK_ID")
 
 ## Update lock name
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.lockOperations().updateLockName("LOCK_ID", "LOCK_NAME")
+// Returns Unit
+sdk.lockOperations().updateLockName(
+  lockId = LOCK_ID, 
+  name = "LOCK_NAME"
+)
 ```
 
-:::tip[In Java...]
-Use the `updateLockNameAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.lockOperations().updateLockNameAsync(LOCK_ID, "LOCK_NAME");
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.lockOperations().updateLockName(lockId: "LOCK_ID", name: "LOCK_NAME")
+// Returns Void asynchronously
+await sdk.lockOperations().updateLockName(
+  lockId: LOCK_ID, 
+  name: "LOCK_NAME"
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().updateLockName("LOCK_ID", "LOCK_NAME");
+// Returns a Promise<any>
+await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().updateLockName(
+  "LOCK_ID", 
+  "LOCK_NAME"
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetLockOperations().UpdateLockName("LOCK_ID", "LOCK_NAME");
+// Returns a Task<object>
+await sdk.GetLockOperations().UpdateLockName(
+  lockId: LOCK_ID, 
+  name: "LOCK_NAME"
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-await sdk.lockOperations.update_lock_name("LOCK_ID", "LOCK_NAME")
+# Returns a Future[SimpleNamespace]
+await sdk.lockOperations.update_lock_name(
+  "LOCK_ID", 
+  "LOCK_NAME"
+)
 ```
 
 </TabItem>
@@ -269,87 +346,67 @@ await sdk.lockOperations.update_lock_name("LOCK_ID", "LOCK_NAME")
 
 ## Update lock favourite
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.lockOperations().updateLockFavourite("LOCK_ID", true)
+// Returns Unit
+sdk.lockOperations().updateLockFavourite(
+  lockId = LOCK_ID,
+  favourite = true
+)
 ```
 
-:::tip[In Java...]
-Use the `updateLockFavouriteAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.lockOperations().updateLockFavouriteAsync(LOCK_ID, true);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.lockOperations().updateLockFavourite(lockId: "LOCK_ID", favourite: true)
+// Returns Void asynchronously
+await sdk.lockOperations().updateLockFavourite(
+  lockId: LOCK_ID, 
+  favourite: true
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().updateLockFavourite("LOCK_ID", true);
+// Returns a Promise<any>
+await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().updateLockFavourite(
+  "LOCK_ID", 
+  true
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetLockOperations().UpdateLockFavourite("LOCK_ID", true);
+// Returns a Task<object>
+await sdk.GetLockOperations().UpdateLockFavourite(
+  lockId: LOCK_ID, 
+  favourite: true
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-await sdk.lockOperations.update_lock_favourite("LOCK_ID", True)
-```
-
-</TabItem>
-</Tabs>
-
-## Update lock color
-
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
-
-```kotlin showLineNumbers
-sdk.lockOperations().updateLockColour("LOCK_ID", "COLOR")
-```
-
-:::tip[In Java...]
-Use the `updateLockColourAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
-
-</TabItem>
-<TabItem value="swift" label="Swift">
-
-```swift showLineNumbers
-sdk.lockOperations().updateLockColour(lockId: "LOCK_ID", color: "COLOR")
-```
-
-</TabItem>
-<TabItem value="js" label="JavaScript">
-
-```js showLineNumbers
-await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().updateLockColour("LOCK_ID", "COLOR");
-```
-
-</TabItem>
-<TabItem value="csharp" label="C#">
-
-```csharp showLineNumbers
-await sdk.GetLockOperations().UpdateLockColour("LOCK_ID", "COLOR");
-```
-
-</TabItem>
-<TabItem value="python" label="Python">
-
-```python showLineNumbers
-await sdk.lockOperations.update_lock_colour("LOCK_ID", "COLOR")
+# Returns a Future[SimpleNamespace]
+await sdk.lockOperations.update_lock_favourite(
+  "LOCK_ID", 
+  True
+)
 ```
 
 </TabItem>
@@ -357,43 +414,67 @@ await sdk.lockOperations.update_lock_colour("LOCK_ID", "COLOR")
 
 ## Update lock setting default name
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.lockOperations().updateLockSettingDefaultName("LOCK_ID", "LOCK_NAME")
+// Returns Unit
+sdk.lockOperations().updateLockSettingDefaultName(
+  lockId = LOCK_ID, 
+  name = LOCK_NAME
+)
 ```
 
-:::tip[In Java...]
-Use the `updateLockSettingDefaultNameAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.lockOperations().updateLockSettingDefaultNameAsync(LOCK_ID, LOCK_NAME);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.lockOperations().updateLockSettingDefaultName(lockId: "LOCK_ID", name: "LOCK_NAME")
+// Returns Void asynchronously
+await sdk.lockOperations().updateLockSettingDefaultName(
+  lockId: LOCK_ID, 
+  name: "LOCK_NAME"
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().updateLockSettingDefaultName("LOCK_ID", "LOCK_NAME");
+// Returns a Promise<any>
+await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().updateLockSettingDefaultName(
+  "LOCK_ID", 
+  "LOCK_NAME"
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetLockOperations().UpdateLockSettingDefaultName("LOCK_ID", "LOCK_NAME");
+// Returns a Task<object>
+await sdk.GetLockOperations().UpdateLockSettingDefaultName(
+  lockId: LOCK_ID, 
+  name: LOCK_NAME
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-await sdk.lockOperations.update_lock_setting_default_name("LOCK_ID", "LOCK_NAME")
+# Returns a Future[SimpleNamespace]
+await sdk.lockOperations.update_lock_setting_default_name(
+  "LOCK_ID", 
+  "LOCK_NAME"
+)
 ```
 
 </TabItem>
@@ -401,43 +482,67 @@ await sdk.lockOperations.update_lock_setting_default_name("LOCK_ID", "LOCK_NAME"
 
 ## Set lock setting permitted addresses
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.lockOperations().setLockSettingPermittedAddresses("LOCK_ID", listOf("PERMITTED_ADDRESS"))
+// Returns Unit
+sdk.lockOperations().setLockSettingPermittedAddresses(
+  lockId = LOCK_ID,
+  permittedAddresses = listOf(PERMITTED_ADDRESS)
+)
 ```
 
-:::tip[In Java...]
-Use the `setLockSettingPermittedAddressesAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.lockOperations().setLockSettingPermittedAddressesAsync(LOCK_ID, listOf(PERMITTED_ADDRESS));
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.lockOperations().setLockSettingPermittedAddresses(lockId: "LOCK_ID", permittedAddresses: ["PERMITTED_ADDRESS"])
+// Returns Void asynchronously
+await sdk.lockOperations().setLockSettingPermittedAddresses(
+  lockId: LOCK_ID, 
+  permittedAddresses: [PERMITTED_ADDRESS]
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().setLockSettingPermittedAddresses("LOCK_ID", ["PERMITTED_ADDRESS"]);
+// Returns a Promise<any>
+await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().setLockSettingPermittedAddresses(
+  "LOCK_ID", 
+  ["PERMITTED_ADDRESS"]
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetLockOperations().SetLockSettingPermittedAddresses("LOCK_ID", ["PERMITTED_ADDRESS"]);
+// Returns a Task<object>
+await sdk.GetLockOperations().SetLockSettingPermittedAddresses(
+  lockId: LOCK_ID, 
+  permittedAddresses: [PERMITTED_ADDRESS]
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-await sdk.lockOperations.set_lock_setting_permitted_addresses("LOCK_ID", ["PERMITTED_ADDRESS"])
+# Returns a Future[SimpleNamespace]
+await sdk.lockOperations.set_lock_setting_permitted_addresses(
+  "LOCK_ID", 
+  ["PERMITTED_ADDRESS"]
+)
 ```
 
 </TabItem>
@@ -445,43 +550,67 @@ await sdk.lockOperations.set_lock_setting_permitted_addresses("LOCK_ID", ["PERMI
 
 ## Update lock setting hidden
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.lockOperations().updateLockSettingHidden("LOCK_ID", true)
+// Returns Unit
+sdk.lockOperations().updateLockSettingHidden(
+  lockId = LOCK_ID,
+  hidden = true
+)
 ```
 
-:::tip[In Java...]
-Use the `updateLockSettingHiddenAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.lockOperations().updateLockSettingHiddenAsync(LOCK_ID, true);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.lockOperations().updateLockSettingHidden(lockId: "LOCK_ID", hidden: true)
+// Returns Void asynchronously
+await sdk.lockOperations().updateLockSettingHidden(
+  lockId: LOCK_ID, 
+  hidden: true
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().updateLockSettingHidden("LOCK_ID", true);
+// Returns a Promise<any>
+await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().updateLockSettingHidden(
+  "LOCK_ID", 
+  true
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetLockOperations().UpdateLockSettingHidden("LOCK_ID", true);
+// Returns a Task<object>
+await sdk.GetLockOperations().UpdateLockSettingHidden(
+  lockId: LOCK_ID, 
+  hidden: true
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-await sdk.lockOperations.update_lock_setting_hidden("LOCK_ID", True)
+# Returns a Future[SimpleNamespace]
+await sdk.lockOperations.update_lock_setting_hidden(
+  "LOCK_ID", 
+  True
+)
 ```
 
 </TabItem>
@@ -489,24 +618,31 @@ await sdk.lockOperations.update_lock_setting_hidden("LOCK_ID", True)
 
 ## Set lock setting time restrictions
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns Unit
 val timeRequirements = listOf(LockOperations.TimeRequirement("START_HH_MM", "END_HH_MM", "TIMEZONE", listOf("MONDAY")))
 sdk.lockOperations().setLockSettingTimeRestrictions("LOCK_ID", timeRequirements)
 ```
 
-:::tip[In Java...]
-Use the `setLockSettingTimeRestrictionsAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+var timeRequirements = listOf(LockOperations.TimeRequirement("START_HH_MM", "END_HH_MM", "TIMEZONE", listOf("MONDAY")));
+sdk.lockOperations().setLockSettingTimeRestrictions("LOCK_ID", timeRequirements);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
+// Returns Void asynchronously
 let timeRequirements = [LockOperations.TimeRequirement(start: "START_HH_MM", end: "END_HH_MM", timezone: "TIMEZONE", days: ["MONDAY"])]
-sdk.lockOperations().setLockSettingTimeRestrictions(lockId: "LOCK_ID", times: locationRequirement)
+await sdk.lockOperations().setLockSettingTimeRestrictions(lockId: "LOCK_ID", times: locationRequirement)
 ```
 
 </TabItem>
@@ -530,6 +666,7 @@ await sdk.GetLockOperations().SetLockSettingTimeRestrictions("LOCK_ID", timeRequ
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 timeRequirements = [doordeck_headless_sdk.TimeRequirement("START_HH_MM", "END_HH_MM", "TIMEZONE", ["MONDAY"])]
 await sdk.lockOperations.set_lock_setting_time_restrictions("LOCK_ID", timeRequirements)
 ```
@@ -539,8 +676,8 @@ await sdk.lockOperations.set_lock_setting_time_restrictions("LOCK_ID", timeRequi
 
 ## Update lock setting location restrictions
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
 val locationRequirement = LockOperations.LocationRequirement(LATITUDE, LONGITUDE, true, 100)
@@ -555,8 +692,9 @@ Use the `updateLockSettingLocationRestrictionsAsync` function, which returns a `
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
+// Returns Void asynchronously
 let locationRequirement = LockOperations.LocationRequirement(latitude: LATITUDE, longitude: LONGITUDE, enabled: true, radius: 100, accuracy: 100)
-sdk.lockOperations().updateLockSettingLocationRestrictions(lockId: "LOCK_ID", location: locationRequirement)
+await sdk.lockOperations().updateLockSettingLocationRestrictions(lockId: "LOCK_ID", location: locationRequirement)
 ```
 
 </TabItem>
@@ -580,6 +718,7 @@ await sdk.GetLockOperations().UpdateLockSettingLocationRestrictions("LOCK_ID", l
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 locationRequirement = doordeck_headless_sdk.LocationRequirement(LATITUDE, LONGITUDE, True, 100)
 await sdk.lockOperations.update_lock_setting_location_restrictions("LOCK_ID", locationRequirement)
 ```
@@ -593,8 +732,8 @@ await sdk.lockOperations.update_lock_setting_location_restrictions("LOCK_ID", lo
 This function is only available to users with Doordeck issued auth tokens
 :::
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
 val response = sdk.lockOperations().getUserPublicKey("USER_EMAIL", false)
@@ -608,7 +747,8 @@ Use the `getUserPublicKeyAsync` function, which returns a `CompletableFuture<Use
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.lockOperations().getUserPublicKey(userEmail: "USER_EMAIL", visitor: false)
+// Returns Void asynchronously
+let response = await sdk.lockOperations().getUserPublicKey(userEmail: "USER_EMAIL", visitor: false)
 ```
 
 </TabItem>
@@ -629,6 +769,7 @@ var response = await sdk.GetLockOperations().GetUserPublicKey("USER_EMAIL", fals
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.lockOperations.get_user_public_key("USER_EMAIL", False)
 ```
 
@@ -637,8 +778,8 @@ response = await sdk.lockOperations.get_user_public_key("USER_EMAIL", False)
 
 ## Lookup user public key by email
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
 val response = sdk.lockOperations().getUserPublicKeyByEmail("USER_EMAIL")
@@ -652,7 +793,8 @@ Use the `getUserPublicKeyByEmailAsync` function, which returns a `CompletableFut
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.lockOperations().getUserPublicKeyByEmail(email: "USER_EMAIL")
+// Returns Void asynchronously
+let response = await sdk.lockOperations().getUserPublicKeyByEmail(email: "USER_EMAIL")
 ```
 
 </TabItem>
@@ -673,6 +815,7 @@ var response = await sdk.GetLockOperations().GetUserPublicKeyByEmail("USER_EMAIL
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.lockOperations.get_user_public_key_by_email("USER_EMAIL")
 ```
 
@@ -681,8 +824,8 @@ response = await sdk.lockOperations.get_user_public_key_by_email("USER_EMAIL")
 
 ## Lookup user public key by telephone
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
 val response = sdk.lockOperations().getUserPublicKeyByTelephone("USER_TELEPHONE")
@@ -696,7 +839,8 @@ Use the `getUserPublicKeyByTelephoneAsync` function, which returns a `Completabl
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.lockOperations().getUserPublicKeyByTelephone(telephone: "USER_TELEPHONE")
+// Returns Void asynchronously
+let response = await sdk.lockOperations().getUserPublicKeyByTelephone(telephone: "USER_TELEPHONE")
 ```
 
 </TabItem>
@@ -717,6 +861,7 @@ var response = await sdk.GetLockOperations().GetUserPublicKeyByTelephone("USER_T
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.lockOperations.get_user_public_key_by_telephone("USER_TELEPHONE")
 ```
 
@@ -725,8 +870,8 @@ response = await sdk.lockOperations.get_user_public_key_by_telephone("USER_TELEP
 
 ## Lookup user public key by local key
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
 val response = sdk.lockOperations().getUserPublicKeyByLocalKey("USER_LOCAL_KEY")
@@ -740,7 +885,8 @@ Use the `getUserPublicKeyByLocalKeyAsync` function, which returns a `Completable
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.lockOperations().getUserPublicKeyByLocalKey(localKey: "USER_LOCAL_KEY")
+// Returns Void asynchronously
+let response = await sdk.lockOperations().getUserPublicKeyByLocalKey(localKey: "USER_LOCAL_KEY")
 ```
 
 </TabItem>
@@ -761,6 +907,7 @@ var response = await sdk.GetLockOperations().GetUserPublicKeyByLocalKey("USER_LO
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.lockOperations.get_user_public_key_by_local_key("USER_LOCAL_KEY")
 ```
 
@@ -769,8 +916,8 @@ response = await sdk.lockOperations.get_user_public_key_by_local_key("USER_LOCAL
 
 ## Lookup user public key by foreign key
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
 val response = sdk.lockOperations().getUserPublicKeyByForeignKey("USER_FOREIGN_KEY")
@@ -784,7 +931,8 @@ Use the `getUserPublicKeyByForeignKeyAsync` function, which returns a `Completab
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.lockOperations().getUserPublicKeyByForeignKey(foreignKey: "USER_FOREIGN_KEY")
+// Returns Void asynchronously
+let response = await sdk.lockOperations().getUserPublicKeyByForeignKey(foreignKey: "USER_FOREIGN_KEY")
 ```
 
 </TabItem>
@@ -805,6 +953,7 @@ var response = await sdk.GetLockOperations().GetUserPublicKeyByForeignKey("USER_
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.lockOperations.get_user_public_key_by_foreign_key("USER_FOREIGN_KEY")
 ```
 
@@ -813,8 +962,8 @@ response = await sdk.lockOperations.get_user_public_key_by_foreign_key("USER_FOR
 
 ## Lookup user public key by identity
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
 val response = sdk.lockOperations().getUserPublicKeyByIdentity("USER_IDENTITY")
@@ -828,7 +977,8 @@ Use the `getUserPublicKeyByIdentityAsync` function, which returns a `Completable
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.lockOperations().getUserPublicKeyByIdentity(identity: "USER_IDENTITY")
+// Returns Void asynchronously
+let response = await sdk.lockOperations().getUserPublicKeyByIdentity(identity: "USER_IDENTITY")
 ```
 
 </TabItem>
@@ -849,6 +999,7 @@ var response = await sdk.GetLockOperations().GetUserPublicKeyByIdentity("USER_ID
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.lockOperations.get_user_public_key_by_identity("USER_IDENTITY")
 ```
 
@@ -857,8 +1008,8 @@ response = await sdk.lockOperations.get_user_public_key_by_identity("USER_IDENTI
 
 ## Batch lookup user public key by email
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
 val response = sdk.lockOperations().getUserPublicKeyByEmails(listOf("USER_EMAIL", "USER_EMAIL"))
@@ -872,7 +1023,8 @@ Use the `getUserPublicKeyByEmailsAsync` function, which returns a `CompletableFu
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.lockOperations().getUserPublicKeyByEmails(emails: ["USER_EMAIL", "USER_EMAIL"])
+// Returns Void asynchronously
+let response = await sdk.lockOperations().getUserPublicKeyByEmails(emails: ["USER_EMAIL", "USER_EMAIL"])
 ```
 
 </TabItem>
@@ -893,6 +1045,7 @@ var response = await sdk.GetLockOperations().GetUserPublicKeyByEmails(["USER_EMA
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.lockOperations.get_user_public_key_by_emails(["USER_EMAIL", "USER_EMAIL"])
 ```
 
@@ -901,8 +1054,8 @@ response = await sdk.lockOperations.get_user_public_key_by_emails(["USER_EMAIL",
 
 ## Batch lookup user public key by telephone
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
 val response = sdk.lockOperations().getUserPublicKeyByTelephones(listOf("USER_TELEPHONE", "USER_TELEPHONE"))
@@ -916,7 +1069,8 @@ Use the `getUserPublicKeyByTelephonesAsync` function, which returns a `Completab
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.lockOperations().getUserPublicKeyByTelephones(telephones: ["USER_TELEPHONE", "USER_TELEPHONE"])
+// Returns Void asynchronously
+let response = await sdk.lockOperations().getUserPublicKeyByTelephones(telephones: ["USER_TELEPHONE", "USER_TELEPHONE"])
 ```
 
 </TabItem>
@@ -937,6 +1091,7 @@ var response = await sdk.GetLockOperations().GetUserPublicKeyByTelephones(["USER
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.lockOperations.get_user_public_key_by_telephones(["USER_TELEPHONE", "USER_TELEPHONE"])
 ```
 
@@ -945,8 +1100,8 @@ response = await sdk.lockOperations.get_user_public_key_by_telephones(["USER_TEL
 
 ## Batch lookup user public key by local key
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
 val response = sdk.lockOperations().getUserPublicKeyByLocalKeys(listOf("USER_LOCAL_KEY"))
@@ -960,7 +1115,8 @@ Use the `getUserPublicKeyByLocalKeysAsync` function, which returns a `Completabl
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.lockOperations().getUserPublicKeyByLocalKeys(localKeys: ["USER_LOCAL_KEY", "USER_LOCAL_KEY"])
+// Returns Void asynchronously
+let response = await sdk.lockOperations().getUserPublicKeyByLocalKeys(localKeys: ["USER_LOCAL_KEY", "USER_LOCAL_KEY"])
 ```
 
 </TabItem>
@@ -981,6 +1137,7 @@ var response = await sdk.GetLockOperations().GetUserPublicKeyByLocalKeys(["USER_
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.lockOperations.get_user_public_key_by_local_keys(["USER_LOCAL_KEY", "USER_LOCAL_KEY"])
 ```
 
@@ -989,8 +1146,8 @@ response = await sdk.lockOperations.get_user_public_key_by_local_keys(["USER_LOC
 
 ## Batch lookup user public key by foreign key
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
 val response = sdk.lockOperations().getUserPublicKeyByForeignKeys(listOf("USER_FOREIGN_KEY", "USER_FOREIGN_KEY"))
@@ -1004,7 +1161,8 @@ Use the `getUserPublicKeyByForeignKeysAsync` function, which returns a `Completa
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.lockOperations().getUserPublicKeyByForeignKeys(foreignKeys: ["USER_FOREIGN_KEY", "USER_FOREIGN_KEY"])
+// Returns Void asynchronously
+let response = await sdk.lockOperations().getUserPublicKeyByForeignKeys(foreignKeys: ["USER_FOREIGN_KEY", "USER_FOREIGN_KEY"])
 ```
 
 </TabItem>
@@ -1025,6 +1183,7 @@ var response = await sdk.GetLockOperations().GetUserPublicKeyByForeignKeys(["USE
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.lockOperations.get_user_public_key_by_foreign_keys(["USER_FOREIGN_KEY", "USER_FOREIGN_KEY"])
 ```
 
@@ -1034,11 +1193,13 @@ response = await sdk.lockOperations.get_user_public_key_by_foreign_keys(["USER_F
 ## Unlock
 
 :::info
-This function can be used with the [user ID, certificate chain, and private key](context-manager.md#set-operation-context) values from the context. To use these values from the context, you should set those parameters to null in the ```BaseOperation``` object.
+This function can be used with the [user ID, certificate chain, and private key](context-manager.md#set-operation-context) 
+values from the context. To use these values from the context, 
+you should set those parameters to **null** in the **BaseOperation** object.
 :::
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
 val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
@@ -1054,9 +1215,10 @@ Use the `unlockAsync` function, which returns a `CompletableFuture<Void>` instea
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
+// Returns Void asynchronously
 let baseOperation = LockOperations.BaseOperation(userId: "USER_ID", userCertificateChain: USER_CERTIFICATE_CHAIN_LIST, userPrivateKey: PRIVATE_KEY, lockId: "LOCK_ID", notBefore: NOT_BEFORE, issuedAt: ISSUED_AT, expiresAt: EXPIRES_AT, jti: UUID)
 let unlockOperation = LockOperations.UnlockOperation(baseOperation: baseOperation, directAccessEndpoints: null)
-sdk.lockOperations().unlock(unlockOperation: shareLockOperation)
+await sdk.lockOperations().unlock(unlockOperation: shareLockOperation)
 ```
 
 </TabItem>
@@ -1082,6 +1244,7 @@ await sdk.GetLockOperations().Unlock(data);
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 baseOperation = doordeck_headless_sdk.BaseOperation("LOCK_ID", "USER_ID", USER_CERTIFICATE_CHAIN_LIST, "BASE64_PRIVATE_KEY")
 data = doordeck_headless_sdk.UnlockOperation(baseOperation)
 await sdk.lockOperations.unlock(data)
@@ -1093,11 +1256,13 @@ await sdk.lockOperations.unlock(data)
 ## Share lock
 
 :::info
-This function can be used with the [user ID, certificate chain, and private key](context-manager.md#set-operation-context) values from the context. To use these values from the context, you should set those parameters to null in the ```BaseOperation``` object.
+This function can be used with the [user ID, certificate chain, and private key](context-manager.md#set-operation-context) 
+values from the context. To use these values from the context, 
+you should set those parameters to **null** in the **BaseOperation** object.
 :::
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
 val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
@@ -1114,10 +1279,11 @@ Use the `shareLockAsync` function, which returns a `CompletableFuture<Void>` ins
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
+// Returns Void asynchronously
 let baseOperation = LockOperations.BaseOperation(userId: "USER_ID", userCertificateChain: USER_CERTIFICATE_CHAIN_LIST, userPrivateKey: PRIVATE_KEY, lockId: "LOCK_ID", notBefore: NOT_BEFORE, issuedAt: ISSUED_AT, expiresAt: EXPIRES_AT, jti: UUID)
 let shareLock = LockOperations.ShareLock(targetUserId: "TARGET_USER_ID", targetUserRole: TARGET_USER_ROLE, targetUserPublicKey: TARGET_PUBLIC_KEY, start: null, end: null)
 let shareLockOperation = LockOperations.ShareLockOperation(baseOperation: baseOperation, shareLock: shareLock)
-sdk.lockOperations().shareLock(shareLockOperation: shareLockOperation)
+await sdk.lockOperations().shareLock(shareLockOperation: shareLockOperation)
 ```
 
 </TabItem>
@@ -1146,6 +1312,7 @@ await sdk.GetLockOperations().ShareLock(data);
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 baseOperation = doordeck_headless_sdk.BaseOperation("LOCK_ID", "USER_ID", USER_CERTIFICATE_CHAIN_LIST, "BASE64_PRIVATE_KEY")
 shareLock = doordeck_headless_sdk.ShareLock("TARGET_USER_ID", TARGET_USER_ROLE, "BASE64_TARGET_PUBLIC_KEY")
 data = doordeck_headless_sdk.ShareLockOperation(baseOperation, shareLock)
@@ -1158,12 +1325,16 @@ await sdk.lockOperations.share_lock(data)
 ## Batch share lock
 
 :::info
-* This functionality requires the device to support the batch sharing feature. The function will retrieve the device's capabilities, store them in a cache, and perform the batch operation if supported. Otherwise, it will default to the standard device sharing process.
-* This function can be used with the [user ID, certificate chain, and private key](context-manager.md#set-operation-context) values from the context. To use these values from the context, you should set those parameters to null in the ```BaseOperation``` object.
+* This functionality requires the device to support the batch sharing feature. The function will retrieve the device's 
+capabilities, store them in a cache, and perform the batch operation if supported. Otherwise, 
+it will default to the standard device sharing process.
+* This function can be used with the [user ID, certificate chain, and private key](context-manager.md#set-operation-context) 
+values from the context. To use these values from the context, 
+you should set those parameters to **null** in the **BaseOperation** object.
 :::
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
 val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
@@ -1180,10 +1351,11 @@ Use the `batchShareLockAsync` function, which returns a `CompletableFuture<Void>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
+// Returns Void asynchronously
 let baseOperation = LockOperations.BaseOperation(userId: "USER_ID", userCertificateChain: USER_CERTIFICATE_CHAIN_LIST, userPrivateKey: PRIVATE_KEY, lockId: "LOCK_ID", notBefore: NOT_BEFORE, issuedAt: ISSUED_AT, expiresAt: EXPIRES_AT, jti: UUID)
 let users = [LockOperations.ShareLock(targetUserId: "TARGET_USER_ID", targetUserRole: TARGET_USER_ROLE, targetUserPublicKey: TARGET_PUBLIC_KEY, start: null, end: null)]
 let shareLockOperation = LockOperations.BatchShareLockOperation(baseOperation: baseOperation, users: users)
-sdk.lockOperations().batchShareLock(shareLockOperation: shareLockOperation)
+await sdk.lockOperations().batchShareLock(shareLockOperation: shareLockOperation)
 ```
 
 </TabItem>
@@ -1212,6 +1384,7 @@ await sdk.GetLockOperations().BatchShareLock(data);
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 baseOperation = doordeck_headless_sdk.BaseOperation("LOCK_ID", "USER_ID", USER_CERTIFICATE_CHAIN_LIST, "BASE64_PRIVATE_KEY")
 users = [doordeck_headless_sdk.ShareLock("TARGET_USER_ID", TARGET_USER_ROLE, "BASE64_TARGET_PUBLIC_KEY")]
 data = doordeck_headless_sdk.BatchShareLockOperation(baseOperation, users)
@@ -1224,11 +1397,13 @@ await sdk.lockOperations.batch_share_lock(data)
 ## Revoke access to lock
 
 :::info
-This function can be used with the [user ID, certificate chain, and private key](context-manager.md#set-operation-context) values from the context. To use these values from the context, you should set those parameters to null in the ```BaseOperation``` object.
+This function can be used with the [user ID, certificate chain, and private key](context-manager.md#set-operation-context) 
+values from the context. To use these values from the context, 
+you should set those parameters to **null** in the **BaseOperation** object.
 :::
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
 val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
@@ -1244,9 +1419,10 @@ Use the `revokeAccessToLockAsync` function, which returns a `CompletableFuture<V
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
+// Returns Void asynchronously
 let baseOperation = LockOperations.BaseOperation(userId: "USER_ID", userCertificateChain: USER_CERTIFICATE_CHAIN_LIST, userPrivateKey: PRIVATE_KEY, lockId: "LOCK_ID", notBefore: NOT_BEFORE, issuedAt: ISSUED_AT, expiresAt: EXPIRES_AT, jti: UUID)
 let revokeAccessToLockOperation = LockOperations.RevokeAccessToLockOperation(baseOperation: baseOperation, users: ["USER_ID"])
-sdk.lockOperations().revokeAccessToLock(revokeAccessToLockOperation: revokeAccessToLockOperation)
+await sdk.lockOperations().revokeAccessToLock(revokeAccessToLockOperation: revokeAccessToLockOperation)
 ```
 
 </TabItem>
@@ -1272,6 +1448,7 @@ await sdk.GetLockOperations().RevokeAccessToLock(data);
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 baseOperation = doordeck_headless_sdk.BaseOperation("LOCK_ID", "USER_ID", USER_CERTIFICATE_CHAIN_LIST, "BASE64_PRIVATE_KEY")
 data = doordeck_headless_sdk.RevokeAccessToLockOperation(baseOperation, ["USER_ID"])
 await sdk.lockOperations.revoke_access_to_lock(data)
@@ -1283,11 +1460,13 @@ await sdk.lockOperations.revoke_access_to_lock(data)
 ## Update secure setting unlock duration
 
 :::info
-This function can be used with the [user ID, certificate chain, and private key](context-manager.md#set-operation-context) values from the context. To use these values from the context, you should set those parameters to null in the ```BaseOperation``` object.
+This function can be used with the [user ID, certificate chain, and private key](context-manager.md#set-operation-context) 
+values from the context. To use these values from the context, 
+you should set those parameters to **null** in the **BaseOperation** object.
 :::
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
 val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
@@ -1303,9 +1482,10 @@ Use the `updateSecureSettingUnlockDurationAsync` function, which returns a `Comp
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
+// Returns Void asynchronously
 let baseOperation = LockOperations.BaseOperation(userId: "USER_ID", userCertificateChain: USER_CERTIFICATE_CHAIN_LIST, userPrivateKey: PRIVATE_KEY, lockId: "LOCK_ID", notBefore: NOT_BEFORE, issuedAt: ISSUED_AT, expiresAt: EXPIRES_AT, jti: UUID)
 let updateSecureSettingUnlockDuration = LockOperations.UpdateSecureSettingUnlockDuration(baseOperation: baseOperation, unlockDuration: UNLOCK_DURATION)
-sdk.lockOperations().updateSecureSettingUnlockDuration(updateSecureSettingUnlockDuration: updateSecureSettingUnlockDuration)
+await sdk.lockOperations().updateSecureSettingUnlockDuration(updateSecureSettingUnlockDuration: updateSecureSettingUnlockDuration)
 ```
 
 </TabItem>
@@ -1331,6 +1511,7 @@ await sdk.GetLockOperations().UpdateSecureSettingUnlockDuration(data);
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 baseOperation = doordeck_headless_sdk.BaseOperation("LOCK_ID", "USER_ID", USER_CERTIFICATE_CHAIN_LIST, "BASE64_PRIVATE_KEY")
 data = doordeck_headless_sdk.UpdateSecureSettingUnlockDuration(baseOperation, UNLOCK_DURATION)
 await sdk.lockOperations.update_secure_setting_unlock_duration(data)
@@ -1342,11 +1523,13 @@ await sdk.lockOperations.update_secure_setting_unlock_duration(data)
 ## Update secure setting unlock between
 
 :::info
-This function can be used with the [user ID, certificate chain, and private key](context-manager.md#set-operation-context) values from the context. To use these values from the context, you should set those parameters to null in the ```BaseOperation``` object.
+This function can be used with the [user ID, certificate chain, and private key](context-manager.md#set-operation-context) 
+values from the context. To use these values from the context, 
+you should set those parameters to **null** in the **BaseOperation** object.
 :::
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
 val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
@@ -1363,10 +1546,11 @@ Use the `updateSecureSettingUnlockBetweenAsync` function, which returns a `Compl
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
+// Returns Void asynchronously
 let baseOperation = LockOperations.BaseOperation(userId: "USER_ID", userCertificateChain: USER_CERTIFICATE_CHAIN_LIST, userPrivateKey: PRIVATE_KEY, lockId: "LOCK_ID", notBefore: NOT_BEFORE, issuedAt: ISSUED_AT, expiresAt: EXPIRES_AT, jti: UUID)
 let unlockBetween = LockOperations.UnlockBetween(start: "START_HH_MM", end: "END_HH_MM", timezone: "TIMEZONE", days: ["MONDAY"], exceptions: ["FRIDAY"])
 let updateSecureSettingUnlockBetween = LockOperations.UpdateSecureSettingUnlockBetween(baseOperation: baseOperation, unlockBetween: unlockBetween)
-sdk.lockOperations().updateSecureSettingUnlockBetween(updateSecureSettingUnlockBetween: updateSecureSettingUnlockBetween)
+await sdk.lockOperations().updateSecureSettingUnlockBetween(updateSecureSettingUnlockBetween: updateSecureSettingUnlockBetween)
 ```
 
 </TabItem>
@@ -1394,6 +1578,7 @@ await sdk.GetLockOperations().UpdateSecureSettingUnlockBetween(data);
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 baseOperation = doordeck_headless_sdk.BaseOperation("LOCK_ID", "USER_ID", USER_CERTIFICATE_CHAIN_LIST, "BASE64_PRIVATE_KEY")
 unlockBetween = doordeck_headless_sdk.UnlockBetween("START_HH_MM", "END_HH_MM", "TIMEZONE", DAYS_LIST)
 data = doordeck_headless_sdk.UpdateSecureSettingUnlockBetween(baseOperation, unlockBetween)
@@ -1405,28 +1590,35 @@ await sdk.lockOperations.update_secure_setting_unlock_between(data)
 
 ## Get pinned locks
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns List<LockResponse>
 val response = sdk.lockOperations().getPinnedLocks()
 ```
 
-:::tip[In Java...]
-Use the `getPinnedLocksAsync` function, which returns a `CompletableFuture<List<LockResponse>>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<List<LockResponse>>
+var response = sdk.lockOperations().getPinnedLocksAsync();
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.lockOperations().getPinnedLocks()
+// Returns Array<LockResponse> asynchronously
+let response = await sdk.lockOperations().getPinnedLocks()
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
+// Returns a Promise<Array<LockResponse>>
 const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getPinnedLocks();
 ```
 
@@ -1434,6 +1626,7 @@ const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperation
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
+// Returns a Task<List<LockResponse>>
 var response = await sdk.GetLockOperations().GetPinnedLocks();
 ```
 
@@ -1441,6 +1634,7 @@ var response = await sdk.GetLockOperations().GetPinnedLocks();
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.lockOperations.get_pinned_locks()
 ```
 
@@ -1449,28 +1643,35 @@ response = await sdk.lockOperations.get_pinned_locks()
 
 ## Get shareable locks
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns a List<ShareableLockResponse>
 val response = sdk.lockOperations().getShareableLocks()
 ```
 
-:::tip[In Java...]
-Use the `getShareableLocksAsync` function, which returns a `CompletableFuture<List<ShareableLockResponse>>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<List<ShareableLockResponse>>
+var response = sdk.lockOperations().getShareableLocksAsync();
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.lockOperations().getShareableLocks()
+// Returns a Array<ShareableLockResponse> asynchronously
+let response = await sdk.lockOperations().getShareableLocks()
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
+// Returns a Promise<Array<ShareableLockResponse>>
 const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getShareableLocks();
 ```
 
@@ -1478,6 +1679,7 @@ const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperation
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
+// Returns a Task<List<ShareableLockResponse>>
 var response = await sdk.GetLockOperations().GetShareableLocks();
 ```
 
@@ -1485,6 +1687,7 @@ var response = await sdk.GetLockOperations().GetShareableLocks();
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.lockOperations.get_shareable_locks()
 ```
 
