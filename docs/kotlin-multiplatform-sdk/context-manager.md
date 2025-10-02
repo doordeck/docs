@@ -109,7 +109,7 @@ var result = sdk.contextManager().getContextState();
 
 ```swift showLineNumbers
 // Returns a ContextState asynchronously
-let result = sdk.contextManager().getContextState()
+let result = await sdk.contextManager().getContextState()
 ```
 
 </TabItem>
@@ -117,7 +117,7 @@ let result = sdk.contextManager().getContextState()
 
 ```js showLineNumbers
 // Returns a Promise<string>
-const result = sdk.contextManager().getContextState();
+const result = await sdk.contextManager().getContextState();
 ```
 
 </TabItem>
@@ -125,7 +125,7 @@ const result = sdk.contextManager().getContextState();
 
 ```csharp showLineNumbers
 // Returns a Task<ContextState>
-var result = sdk.GetContextManager().GetContextState();
+var result = await sdk.GetContextManager().GetContextState();
 ```
 
 </TabItem>
@@ -133,7 +133,7 @@ var result = sdk.GetContextManager().GetContextState();
 
 ```python showLineNumbers
 # Returns a Future[SimpleNamespace]
-result = sdk.contextManager.get_context_state()
+result = await sdk.contextManager.get_context_state()
 ```
 
 </TabItem>
