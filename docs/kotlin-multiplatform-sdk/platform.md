@@ -9,32 +9,56 @@ import TabItem from '@theme/TabItem';
 
 ## Create application
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val application = Platform.CreateApplication("APPLICATION_NAME", "COMPANY_NAME", "COMPANY@MAIL.COM")
+val application = PlatformOperations.CreateApplication.Builder()
+  .setName("APPLICATION_NAME")
+  .setCompanyName("COMPANY_NAME")
+  .setMailingAddress("COMPANY@MAIL.COM")
+  .build()
+// Returns a UUID
 val response = sdk.platform().createApplication(application)
 ```
 
-:::tip[In Java...]
-Use the `createApplicationAsync` function, which returns a `CompletableFuture<UUID>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+var application = new PlatformOperations.CreateApplication.Builder()
+    .setName("APPLICATION_NAME")
+    .setCompanyName("COMPANY_NAME")
+    .setMailingAddress("COMPANY@MAIL.COM")
+    .build();
+// Returns a CompletableFuture<UUID>
+var response = sdk.platform().createApplicationAsync(application);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let application = Platform.CreateApplication(name: "APPLICATION_NAME", companyName: "COMPANY_NAME", mailingAddress: "COMPANY@MAIL.COM", privacyPolicy: null, supportContact: null, appLink: null, emailPreferences: null, logoUrl: null)
-let response = sdk.platform().createApplication(application: application)
+let application = PlatformOperations.CreateApplication.Builder()
+    .setName(name: "APPLICATION_NAME")
+    .setCompanyName(companyName: "COMPANY_NAME")
+    .setMailingAddress(mailingAddress: "COMPANY@MAIL.COM")
+    .build()
+// Returns a NSUUID asynchronously
+let response = await sdk.platform().createApplication(application: application)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const platform = doordeck.com.doordeck.multiplatform.sdk.model.data.Platform;
-const application = new platform.CreateApplication("APPLICATION_NAME", "COMPANY_NAME", "COMPANY@MAIL.COM", null, null, null, null, null);
+const CreateApplication = doordeck.com.doordeck.multiplatform.sdk.model.data.PlatformOperations.CreateApplication;
+const application = new CreateApplication.Builder()
+  .setName("APPLICATION_NAME")
+  .setCompanyName("COMPANY_NAME")
+  .setMailingAddress("COMPANY@MAIL.COM")
+  .build();
+// Returns a Promise<string>
 const response = await doordeck.com.doordeck.multiplatform.sdk.api.platform().createApplication(application);
 ```
 
@@ -42,7 +66,12 @@ const response = await doordeck.com.doordeck.multiplatform.sdk.api.platform().cr
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var data = new CreateApplication("APPLICATION_NAME", "COMPANY_NAME", "COMPANY@MAIL.COM");
+var data = new CreateApplication(
+  name: "APPLICATION_NAME", 
+  companyName: "COMPANY_NAME", 
+  mailingAddress: "COMPANY@MAIL.COM"
+);
+// Returns a Task<Guid>
 var response = await sdk.GetPlatform().CreateApplication(data);
 ```
 
@@ -50,7 +79,12 @@ var response = await sdk.GetPlatform().CreateApplication(data);
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-data = doordeck_headless_sdk.CreateApplication("APPLICATION_NAME", "COMPANY_NAME", "COMPANY@MAIL.COM")
+data = doordeck_headless_sdk.CreateApplication(
+  "APPLICATION_NAME", 
+  "COMPANY_NAME", 
+  "COMPANY@MAIL.COM"
+)
+# Returns a Future[SimpleNamespace]
 response = await sdk.platform.create_application(data)
 ```
 
@@ -59,28 +93,35 @@ response = await sdk.platform.create_application(data)
 
 ## List applications
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns a List<ApplicationResponse>
 val response = sdk.platform().listApplications()
 ```
 
-:::tip[In Java...]
-Use the `listApplicationsAsync` function, which returns a `CompletableFuture<List<ApplicationResponse>>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<List<ApplicationResponse>>
+var response = sdk.platform().listApplicationsAsync();
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.platform().listApplications()
+// Returns a Array<ApplicationResponse> asynchronously
+let response = await sdk.platform().listApplications()
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
+// Returns a Promise<Array<ApplicationResponse>>
 const response = await doordeck.com.doordeck.multiplatform.sdk.api.platform().listApplications();
 ```
 
@@ -88,6 +129,7 @@ const response = await doordeck.com.doordeck.multiplatform.sdk.api.platform().li
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
+// Returns a Task<List<ApplicationResponse>>
 var response = await sdk.GetPlatform().ListApplications();
 ```
 
@@ -95,6 +137,7 @@ var response = await sdk.GetPlatform().ListApplications();
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.platform.list_applications()
 ```
 
@@ -103,28 +146,35 @@ response = await sdk.platform.list_applications()
 
 ## Get application
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val response = sdk.platform().getApplication("APPLICATION_ID")
+// Returns a ApplicationResponse
+val response = sdk.platform().getApplication(APPLICATION_ID)
 ```
 
-:::tip[In Java...]
-Use the `getApplicationAsync` function, which returns a `CompletableFuture<ApplicationResponse>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<ApplicationResponse>
+var response = sdk.platform().getApplicationAsync(APPLICATION_ID);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.platform().getApplication(applicationId: "APPLICATION_ID")
+// Returns a ApplicationResponse asynchronously
+let response = await sdk.platform().getApplication(applicationId: APPLICATION_ID)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
+// Returns a Promise<ApplicationResponse>
 const response = await doordeck.com.doordeck.multiplatform.sdk.api.platform().getApplication("APPLICATION_ID");
 ```
 
@@ -132,13 +182,15 @@ const response = await doordeck.com.doordeck.multiplatform.sdk.api.platform().ge
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var response = await sdk.GetPlatform().GetApplication("APPLICATION_ID");
+// Returns a Task<ApplicationResponse>
+var response = await sdk.GetPlatform().GetApplication(APPLICATION_ID);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.platform.get_application("APPLICATION_ID")
 ```
 
@@ -147,43 +199,67 @@ response = await sdk.platform.get_application("APPLICATION_ID")
 
 ## Update application name
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.platform().updateApplicationName("APPLICATION_ID", "APPLICATION_NAME")
+// Returns Unit
+sdk.platform().updateApplicationName(
+  applicationId = APPLICATION_ID, 
+  name = "APPLICATION_NAME"
+)
 ```
 
-:::tip[In Java...]
-Use the `updateApplicationNameAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.platform().updateApplicationNameAsync(APPLICATION_ID, "APPLICATION_NAME");
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.platform().updateApplicationName(applicationId: "APPLICATION_ID", name: "APPLICATION_NAME")
+// Returns Void asynchronously
+await sdk.platform().updateApplicationName(
+  applicationId: APPLICATION_ID, 
+  name: "APPLICATION_NAME"
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationName("APPLICATION_ID", "APPLICATION_NAME");
+// Returns a Promise<any>
+await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationName(
+  "APPLICATION_ID", 
+  "APPLICATION_NAME"
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetPlatform().UpdateApplicationName("APPLICATION_ID", "APPLICATION_NAME");
+// Returns a Task<object>
+await sdk.GetPlatform().UpdateApplicationName(
+  applicationId: APPLICATION_ID, 
+  name: "APPLICATION_NAME"
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-await sdk.platform.update_application_name("APPLICATION_ID", "APPLICATION_NAME")
+# Returns a Future[SimpleNamespace]
+await sdk.platform.update_application_name(
+  "APPLICATION_ID", 
+  "APPLICATION_NAME"
+)
 ```
 
 </TabItem>
@@ -191,43 +267,67 @@ await sdk.platform.update_application_name("APPLICATION_ID", "APPLICATION_NAME")
 
 ## Update application company name
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.platform().updateApplicationCompanyName("APPLICATION_ID", "APPLICATION_COMPANY_NAME")
+// Returns Unit
+sdk.platform().updateApplicationCompanyName(
+  applicationId = APPLICATION_ID, 
+  companyName = "APPLICATION_COMPANY_NAME"
+)
 ```
 
-:::tip[In Java...]
-Use the `updateApplicationCompanyNameAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.platform().updateApplicationCompanyNameAsync(APPLICATION_ID, "APPLICATION_COMPANY_NAME");
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.platform().updateApplicationCompanyName(applicationId: "APPLICATION_ID", companyName: "APPLICATION_COMPANY_NAME")
+// Returns Void asynchronously
+await sdk.platform().updateApplicationCompanyName(
+  applicationId: APPLICATION_ID, 
+  companyName: "APPLICATION_COMPANY_NAME"
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationCompanyName("APPLICATION_ID", "APPLICATION_COMPANY_NAME");
+// Returns a Promise<any>
+await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationCompanyName(
+  "APPLICATION_ID", 
+  "APPLICATION_COMPANY_NAME"
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetPlatform().UpdateApplicationCompanyName("APPLICATION_ID", "APPLICATION_COMPANY_NAME");
+// Returns a Task<object>
+await sdk.GetPlatform().UpdateApplicationCompanyName(
+  applicationId: APPLICATION_ID, 
+  companyName: "APPLICATION_COMPANY_NAME"
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-await sdk.platform.update_application_company_name("APPLICATION_ID", "APPLICATION_COMPANY_NAME")
+# Returns a Future[SimpleNamespace]
+await sdk.platform.update_application_company_name(
+  "APPLICATION_ID", 
+  "APPLICATION_COMPANY_NAME"
+)
 ```
 
 </TabItem>
@@ -235,43 +335,67 @@ await sdk.platform.update_application_company_name("APPLICATION_ID", "APPLICATIO
 
 ## Update application mailing address
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.platform().updateApplicationMailingAddress("APPLICATION_ID", "COMPANY@MAIL.COM")
+// Returns Unit
+sdk.platform().updateApplicationMailingAddress(
+  applicationId = APPLICATION_ID,
+  mailingAddress = "COMPANY@MAIL.COM"
+)
 ```
 
-:::tip[In Java...]
-Use the `updateApplicationMailingAddressAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.platform().updateApplicationMailingAddressAsync(APPLICATION_ID, "COMPANY@MAIL.COM");
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.platform().updateApplicationMailingAddress(applicationId: "APPLICATION_ID", mailingAddress: "COMPANY@MAIL.COM")
+// Returns Void asynchronously
+await sdk.platform().updateApplicationMailingAddress(
+  applicationId: APPLICATION_ID, 
+  mailingAddress: "COMPANY@MAIL.COM"
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationMailingAddress("APPLICATION_ID", "COMPANY@MAIL.COM");
+// Returns a Promise<any>
+await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationMailingAddress(
+  "APPLICATION_ID", 
+  "COMPANY@MAIL.COM"
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetPlatform().UpdateApplicationMailingAddress("APPLICATION_ID", "COMPANY@MAIL.COM");
+// Returns a Task<object>
+await sdk.GetPlatform().UpdateApplicationMailingAddress(
+  applicationId: APPLICATION_ID, 
+  mailingAddress: "COMPANY@MAIL.COM"
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-await sdk.platform.update_application_mailing_address("APPLICATION_ID", "COMPANY@MAIL.COM")
+# Returns a Future[SimpleNamespace]
+await sdk.platform.update_application_mailing_address(
+  "APPLICATION_ID", 
+  "COMPANY@MAIL.COM"
+)
 ```
 
 </TabItem>
@@ -279,43 +403,67 @@ await sdk.platform.update_application_mailing_address("APPLICATION_ID", "COMPANY
 
 ## Update application privacy policy
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.platform().updateApplicationPrivacyPolicy("APPLICATION_ID", "PRIVACY_POLICY")
+// Returns Unit
+sdk.platform().updateApplicationPrivacyPolicy(
+  applicationId = APPLICATION_ID,
+  privacyPolicy = PRIVACY_POLICY
+)
 ```
 
-:::tip[In Java...]
-Use the `updateApplicationPrivacyPolicyAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.platform().updateApplicationPrivacyPolicyAsync(APPLICATION_ID, PRIVACY_POLICY);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.platform().updateApplicationPrivacyPolicy(applicationId: "APPLICATION_ID", privacyPolicy: "PRIVACY_POLICY")
+// Returns Void asynchronously
+await sdk.platform().updateApplicationPrivacyPolicy(
+  applicationId: APPLICATION_ID, 
+  privacyPolicy: PRIVACY_POLICY
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationPrivacyPolicy("APPLICATION_ID", "PRIVACY_POLICY");
+// Returns a Promise<any>
+await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationPrivacyPolicy(
+  "APPLICATION_ID", 
+  "PRIVACY_POLICY"
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetPlatform().UpdateApplicationPrivacyPolicy("APPLICATION_ID", "PRIVACY_POLICY");
+// Returns a Task<object>
+await sdk.GetPlatform().UpdateApplicationPrivacyPolicy(
+  applicationId: APPLICATION_ID, 
+  privacyPolicy: PRIVACY_POLICY
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-await sdk.platform.update_application_privacy_policy("APPLICATION_ID", "PRIVACY_POLICY")
+# Returns a Future[SimpleNamespace]
+await sdk.platform.update_application_privacy_policy(
+  "APPLICATION_ID", 
+  "PRIVACY_POLICY"
+)
 ```
 
 </TabItem>
@@ -323,43 +471,67 @@ await sdk.platform.update_application_privacy_policy("APPLICATION_ID", "PRIVACY_
 
 ## Update application support contact
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.platform().updateApplicationSupportContact("APPLICATION_ID", "SUPPORT_CONTACT_URL")
+// Returns Unit
+sdk.platform().updateApplicationSupportContact(
+  applicationId = APPLICATION_ID,
+  supportContact = SUPPORT_CONTACT_URL
+)
 ```
 
-:::tip[In Java...]
-Use the `updateApplicationSupportContactAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.platform().updateApplicationSupportContactAsync(APPLICATION_ID, SUPPORT_CONTACT_URL);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.platform().updateApplicationSupportContact(applicationId: "APPLICATION_ID", supportContact: "SUPPORT_CONTACT_URL")
+// Returns Void asynchronously
+await sdk.platform().updateApplicationSupportContact(
+  applicationId: APPLICATION_ID, 
+  supportContact: SUPPORT_CONTACT_URL
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationSupportContact("APPLICATION_ID", "SUPPORT_CONTACT_URL");
+// Returns a Promise<any>
+await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationSupportContact(
+  "APPLICATION_ID", 
+  "SUPPORT_CONTACT_URL"
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetPlatform().UpdateApplicationSupportContact("APPLICATION_ID", "SUPPORT_CONTACT_URL");
+// Returns a Task<object>
+await sdk.GetPlatform().UpdateApplicationSupportContact(
+  applicationId: APPLICATION_ID, 
+  supportContact: SUPPORT_CONTACT_URL
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-await sdk.platform.update_application_support_contact("APPLICATION_ID", "SUPPORT_CONTACT_URL")
+# Returns a Future[SimpleNamespace]
+await sdk.platform.update_application_support_contact(
+  "APPLICATION_ID", 
+  "SUPPORT_CONTACT_URL"
+)
 ```
 
 </TabItem>
@@ -367,43 +539,67 @@ await sdk.platform.update_application_support_contact("APPLICATION_ID", "SUPPORT
 
 ## Update application app link
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.platform().updateApplicationAppLink("APPLICATION_ID", "APP_LINK")
+// Returns Unit
+sdk.platform().updateApplicationAppLink(
+  applicationId = APPLICATION_ID,
+  appLink = APP_LINK
+)
 ```
 
-:::tip[In Java...]
-Use the `updateApplicationAppLinkAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.platform().updateApplicationAppLinkAsync(APPLICATION_ID, APP_LINK);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.platform().updateApplicationAppLink(applicationId: "APPLICATION_ID", appLink: "APP_LINK")
+// Returns Void asynchronously
+await sdk.platform().updateApplicationAppLink(
+  applicationId: APPLICATION_ID, 
+  appLink: APP_LINK
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationAppLink("APPLICATION_ID", "APP_LINK");
+// Returns a Promise<any>
+await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationAppLink(
+  "APPLICATION_ID", 
+  "APP_LINK"
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetPlatform().UpdateApplicationAppLink("APPLICATION_ID", "APP_LINK");
+// Returns a Task<object>
+await sdk.GetPlatform().UpdateApplicationAppLink(
+  applicationId: APPLICATION_ID, 
+  appLink: APP_LINK
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-await sdk.platform.update_application_app_link("APPLICATION_ID", "APP_LINK")
+# Returns a Future[SimpleNamespace]
+await sdk.platform.update_application_app_link(
+  "APPLICATION_ID", 
+  "APP_LINK"
+)
 ```
 
 </TabItem>
@@ -411,49 +607,110 @@ await sdk.platform.update_application_app_link("APPLICATION_ID", "APP_LINK")
 
 ## Update application email preferences
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val emailPreferences = Platform.EmailPreferences("SENDER_EMAIL", "SENDER_NAME", "PRIMARY_COLOR", "SECONDARY_COLOR", false, null)
-sdk.platform().updateApplicationEmailPreferences("APPLICATION_ID", emailPreferences)
+// Returns Unit
+val emailPreferences = PlatformOperations.EmailPreferences.Builder()
+  .setSenderEmail("SENDER_EMAIL")
+  .setSenderName("SENDER_NAME")
+  .setPrimaryColour("PRIMARY_COLOR")
+  .setSecondaryColour("SECONDARY_COLOR")
+  .setOnlySendEssentialEmails(false)
+  .build()
+sdk.platform().updateApplicationEmailPreferences(
+  applicationId = APPLICATION_ID,
+  emailPreferences = emailPreferences
+)
 ```
 
-:::tip[In Java...]
-Use the `updateApplicationEmailPreferencesAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+var emailPreferences = new PlatformOperations.EmailPreferences.Builder()
+    .setSenderEmail("SENDER_EMAIL")
+    .setSenderName("SENDER_NAME")
+    .setPrimaryColour("PRIMARY_COLOR")
+    .setSecondaryColour("SECONDARY_COLOR")
+    .setOnlySendEssentialEmails(false)
+    .build();
+sdk.platform().updateApplicationEmailPreferencesAsync(APPLICATION_ID, emailPreferences);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let emailPreferences = Platform.EmailPreferences(senderEmail: "SENDER_EMAIL", senderName: "SENDER_NAME", primaryColour: "PRIMARY_COLOR", secondaryColour: "SECONDARY_COLOR", onlySendEssentialEmails: false, callToAction: null)
-sdk.platform().updateApplicationEmailPreferences(applicationId: "APPLICATION_ID", emailPreferences: emailPreferences)
+// Returns Void asynchronously
+let emailPreferences = PlatformOperations.EmailPreferences.Builder()
+  .setSenderEmail(senderEmail: "SENDER_EMAIL")
+  .setSenderName(senderName: "SENDER_NAME")
+  .setPrimaryColour(primaryColour: "PRIMARY_COLOR")
+  .setSecondaryColour(secondaryColour: "SECONDARY_COLOR")
+  .setOnlySendEssentialEmails(onlySendEssentialEmails: false)
+  .build()
+await sdk.platform().updateApplicationEmailPreferences(
+  applicationId: APPLICATION_ID, 
+  emailPreferences: emailPreferences
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const platform = doordeck.com.doordeck.multiplatform.sdk.model.data.Platform;
-const emailPreferences = new platform.EmailPreferences("SENDER_EMAIL", "SENDER_NAME", "PRIMARY_COLOR", "SECONDARY_COLOR", false, null);
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationEmailPreferences("APPLICATION_ID", emailPreferences);
+const EmailPreferences = doordeck.com.doordeck.multiplatform.sdk.model.data.PlatformOperations.EmailPreferences;
+const emailPreferences = new EmailPreferences.Builder()
+  .setSenderEmail("SENDER_EMAIL")
+  .setSenderName("SENDER_NAME")
+  .setPrimaryColour("PRIMARY_COLOR")
+  .setSecondaryColour("SECONDARY_COLOR")
+  .setOnlySendEssentialEmails(false)
+  .build();
+// Returns a Promise<any>
+await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationEmailPreferences(
+  "APPLICATION_ID",
+  emailPreferences
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var emailPreferences = new EmailPreferences("SENDER_EMAIL", "SENDER_NAME", "PRIMARY_COLOR", "SECONDARY_COLOR", false);
-await sdk.GetPlatform().UpdateApplicationEmailPreferences("APPLICATION_ID", emailPreferences);
+var emailPreferences = new EmailPreferences(
+  senderEmail: "SENDER_EMAIL",
+  senderName: "SENDER_NAME", 
+  primaryColour: "PRIMARY_COLOR", 
+  secondaryColour: "SECONDARY_COLOR", 
+  onlySendEssentialEmails: false
+);
+// Returns a Task<object>
+await sdk.GetPlatform().UpdateApplicationEmailPreferences(
+  applicationId: APPLICATION_ID, 
+  emailPreferences: emailPreferences
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-emailPreferences = doordeck_headless_sdk.EmailPreferences("SENDER_EMAIL", "SENDER_NAME", "PRIMARY_COLOR", "SECONDARY_COLOR", False)
-await sdk.platform.update_application_email_preferences("APPLICATION_ID", emailPreferences)
+emailPreferences = doordeck_headless_sdk.EmailPreferences(
+  "SENDER_EMAIL", 
+  "SENDER_NAME", 
+  "PRIMARY_COLOR", 
+  "SECONDARY_COLOR", 
+  False
+)
+# Returns a Future[SimpleNamespace]
+await sdk.platform.update_application_email_preferences(
+  "APPLICATION_ID", 
+  emailPreferences
+)
 ```
 
 </TabItem>
@@ -461,43 +718,67 @@ await sdk.platform.update_application_email_preferences("APPLICATION_ID", emailP
 
 ## Update application log url
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.platform().updateApplicationLogoUrl("APPLICATION_ID", "LOGO_URL")
+// Returns Unit
+sdk.platform().updateApplicationLogoUrl(
+  applicationId = APPLICATION_ID,
+  logoUrl = LOGO_URL
+)
 ```
 
-:::tip[In Java...]
-Use the `updateApplicationLogoUrlAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.platform().updateApplicationLogoUrlAsync(APPLICATION_ID, LOGO_URL);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.platform().updateApplicationLogoUrl(applicationId: "APPLICATION_ID", logoUrl: "LOGO_URL")
+// Returns Void asynchronously
+await sdk.platform().updateApplicationLogoUrl(
+  applicationId: APPLICATION_ID, 
+  logoUrl: LOGO_URL
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationLogoUrl("APPLICATION_ID", "LOGO_URL");
+// Returns a Promise<any>
+await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationLogoUrl(
+  "APPLICATION_ID", 
+  "LOGO_URL"
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetPlatform().UpdateApplicationLogoUrl("APPLICATION_ID", "LOGO_URL");
+// Returns a Task<object>
+await sdk.GetPlatform().UpdateApplicationLogoUrl(
+  applicationId: APPLICATION_ID, 
+  logoUrl: LOGO_URL
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-await sdk.platform.update_application_logo_url("APPLICATION_ID", "LOGO_URL")
+# Returns a Future[SimpleNamespace]
+await sdk.platform.update_application_logo_url(
+  "APPLICATION_ID", 
+  "LOGO_URL"
+)
 ```
 
 </TabItem>
@@ -509,28 +790,35 @@ await sdk.platform.update_application_logo_url("APPLICATION_ID", "LOGO_URL")
 This operation is executed instantly and is irreversible
 :::
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.platform().deleteApplication("APPLICATION_ID")
+// Returns Unit
+sdk.platform().deleteApplication(APPLICATION_ID)
 ```
 
-:::tip[In Java...]
-Use the `deleteApplicationAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.platform().deleteApplicationAsync(APPLICATION_ID);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.platform().deleteApplication(applicationId: "APPLICATION_ID")
+// Returns Void asynchronously
+await sdk.platform().deleteApplication(applicationId: APPLICATION_ID)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
+// Returns a Promise<any>
 await doordeck.com.doordeck.multiplatform.sdk.api.platform().deleteApplication("APPLICATION_ID");
 ```
 
@@ -538,13 +826,15 @@ await doordeck.com.doordeck.multiplatform.sdk.api.platform().deleteApplication("
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetPlatform().DeleteApplication("APPLICATION_ID");
+// Returns a Task<object>
+await sdk.GetPlatform().DeleteApplication(APPLICATION_ID);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 await sdk.platform.delete_application("APPLICATION_ID")
 ```
 
@@ -553,43 +843,67 @@ await sdk.platform.delete_application("APPLICATION_ID")
 
 ## Get logo upload url
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val response = sdk.platform().getLogoUploadUrl("APPLICATION_ID", "CONTENT_TYPE")
+// Returns a GetLogoUploadUrlResponse
+val response = sdk.platform().getLogoUploadUrl(
+  applicationId = APPLICATION_ID,
+  contentType = "CONTENT_TYPE"
+)
 ```
 
-:::tip[In Java...]
-Use the `getLogoUploadUrlAsync` function, which returns a `CompletableFuture<GetLogoUploadUrlResponse>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<GetLogoUploadUrlResponse>
+var response = sdk.platform().getLogoUploadUrlAsync(APPLICATION_ID, "CONTENT_TYPE");
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.platform().getLogoUploadUrl(applicationId: "APPLICATION_ID", contentType: "CONTENT_TYPE")
+// Returns a GetLogoUploadUrlResponse asynchronously
+let response = await sdk.platform().getLogoUploadUrl(
+  applicationId: APPLICATION_ID, 
+  contentType: "CONTENT_TYPE"
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.platform().getLogoUploadUrl("APPLICATION_ID", "CONTENT_TYPE");
+// Returns a Promise<GetLogoUploadUrlResponse>
+const response = await doordeck.com.doordeck.multiplatform.sdk.api.platform().getLogoUploadUrl(
+  "APPLICATION_ID", 
+  "CONTENT_TYPE"
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var response = await sdk.GetPlatform().GetLogoUploadUrl("APPLICATION_ID", "CONTENT_TYPE");
+// Returns a Task<GetLogoUploadUrlResponse>
+var response = await sdk.GetPlatform().GetLogoUploadUrl(
+  applicationId: APPLICATION_ID, 
+  contentType: "CONTENT_TYPE"
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-response = await sdk.platform.get_logo_upload_url("APPLICATION_ID", "CONTENT_TYPE")
+# Returns a Future[SimpleNamespace]
+response = await sdk.platform.get_logo_upload_url(
+  "APPLICATION_ID", 
+  "CONTENT_TYPE"
+)
 ```
 
 </TabItem>
@@ -597,24 +911,37 @@ response = await sdk.platform.get_logo_upload_url("APPLICATION_ID", "CONTENT_TYP
 
 ## Add auth key
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns Unit
 val key = Platform.Ed25519Key("OKP", "sig", "90a983fd-9077-41f9-840c-7220581017f5", "EdDSA", "zVfpB5Nfj4SzYayFpTu4Qm1JaUmk6-FBbFUX3k1qqwc", "Ed25519", "0ufELXg9OUjkAZUs5aGdgVbz664erh8t9cTvFBHicrc")
-sdk.platform().addAuthKey("APPLICATION_ID", key)
+sdk.platform().addAuthKey(
+  applicationId = APPLICATION_ID, 
+  key = key
+)
 ```
 
-:::tip[In Java...]
-Use the `addAuthKeyAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+var key = Platform.Ed25519Key("OKP", "sig", "90a983fd-9077-41f9-840c-7220581017f5", "EdDSA", "zVfpB5Nfj4SzYayFpTu4Qm1JaUmk6-FBbFUX3k1qqwc", "Ed25519", "0ufELXg9OUjkAZUs5aGdgVbz664erh8t9cTvFBHicrc");
+sdk.platform().addAuthKeyAsync(APPLICATION_ID, key);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
 let key = Platform.Ed25519Key(kty: "OKP", user: "sig", kid: "90a983fd-9077-41f9-840c-7220581017f5", alg: "EdDSA", d: "zVfpB5Nfj4SzYayFpTu4Qm1JaUmk6-FBbFUX3k1qqwc", crv: "Ed25519", x: "0ufELXg9OUjkAZUs5aGdgVbz664erh8t9cTvFBHicrc")
-sdk.platform().addAuthKey(applicationId: "APPLICATION_ID", key: key)
+// Returns Void asynchronously
+await sdk.platform().addAuthKey(
+  applicationId: APPLICATION_ID, 
+  key: key
+)
 ```
 
 </TabItem>
@@ -623,7 +950,11 @@ sdk.platform().addAuthKey(applicationId: "APPLICATION_ID", key: key)
 ```js showLineNumbers
 const platform = doordeck.com.doordeck.multiplatform.sdk.model.data.Platform;
 const key = new platform.Ed25519Key("OKP", "sig", "90a983fd-9077-41f9-840c-7220581017f5", "EdDSA", "zVfpB5Nfj4SzYayFpTu4Qm1JaUmk6-FBbFUX3k1qqwc", "Ed25519", "0ufELXg9OUjkAZUs5aGdgVbz664erh8t9cTvFBHicrc");
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().addAuthKey("APPLICATION_ID", key);
+// Returns a Promise<any>
+await doordeck.com.doordeck.multiplatform.sdk.api.platform().addAuthKey(
+  "APPLICATION_ID", 
+  key
+);
 ```
 
 </TabItem>
@@ -631,15 +962,23 @@ await doordeck.com.doordeck.multiplatform.sdk.api.platform().addAuthKey("APPLICA
 
 ```csharp showLineNumbers
 var key = new Ed25519Key("sig", "90a983fd-9077-41f9-840c-7220581017f5", "EdDSA", "zVfpB5Nfj4SzYayFpTu4Qm1JaUmk6-FBbFUX3k1qqwc", "Ed25519", "0ufELXg9OUjkAZUs5aGdgVbz664erh8t9cTvFBHicrc");
-await sdk.GetPlatform().AddAuthKey("APPLICATION_ID", key);
+// Returns a Task<object>
+await sdk.GetPlatform().AddAuthKey(
+  applicationId: APPLICATION_ID, 
+  key: key
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 key = doordeck_headless_sdk.Ed25519Key("sig", "90a983fd-9077-41f9-840c-7220581017f5", "EdDSA", "zVfpB5Nfj4SzYayFpTu4Qm1JaUmk6-FBbFUX3k1qqwc", "Ed25519", "0ufELXg9OUjkAZUs5aGdgVbz664erh8t9cTvFBHicrc")
-await sdk.platform.add_auth_key("APPLICATION_ID", key)
+await sdk.platform.add_auth_key(
+  "APPLICATION_ID", 
+  key
+)
 ```
 
 </TabItem>
@@ -647,43 +986,67 @@ await sdk.platform.add_auth_key("APPLICATION_ID", key)
 
 ## Add auth issuer
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.platform().addAuthIssuer("APPLICATION_ID", "URL")
+// Returns Unit
+sdk.platform().addAuthIssuer(
+  applicationId = APPLICATION_ID, 
+  url = URL
+)
 ```
 
-:::tip[In Java...]
-Use the `addAuthIssuerAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.platform().addAuthIssuerAsync(APPLICATION_ID, URL);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.platform().addAuthIssuer(applicationId: "APPLICATION_ID", url: "URL")
+// Returns Void asynchronously
+await sdk.platform().addAuthIssuer(
+  applicationId: APPLICATION_ID, 
+  url: URL
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().addAuthIssuer("APPLICATION_ID", "URL");
+// Returns a Promise<any>
+await doordeck.com.doordeck.multiplatform.sdk.api.platform().addAuthIssuer(
+  "APPLICATION_ID", 
+  "URL"
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetPlatform().AddAuthIssuer("APPLICATION_ID", "URL");
+// Returns a Task<object>
+await sdk.GetPlatform().AddAuthIssuer(
+  applicationId: APPLICATION_ID, 
+  url: URL
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-await sdk.platform.add_auth_issuer("APPLICATION_ID", "URL")
+# Returns a Future[SimpleNamespace]
+await sdk.platform.add_auth_issuer(
+  "APPLICATION_ID", 
+  "URL"
+)
 ```
 
 </TabItem>
@@ -691,43 +1054,67 @@ await sdk.platform.add_auth_issuer("APPLICATION_ID", "URL")
 
 ## Delete auth issuer
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.platform().deleteAuthIssuer("APPLICATION_ID", "URL")
+// Returns Unit
+sdk.platform().deleteAuthIssuer(
+  applicationId = APPLICATION_ID, 
+  url = URL
+)
 ```
 
-:::tip[In Java...]
-Use the `deleteAuthIssuerAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.platform().deleteAuthIssuerAsync(APPLICATION_ID, URL);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.platform().deleteAuthIssuer(applicationId: "APPLICATION_ID", url: "URL")
+// Returns Void asynchronously
+await sdk.platform().deleteAuthIssuer(
+  applicationId: APPLICATION_ID, 
+  url: URL
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().deleteAuthIssuer("APPLICATION_ID", "URL");
+// Returns a Promise<any>
+await doordeck.com.doordeck.multiplatform.sdk.api.platform().deleteAuthIssuer(
+  "APPLICATION_ID", 
+  "URL"
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetPlatform().DeleteAuthIssuer("APPLICATION_ID", "URL");
+// Returns a Task<object>
+await sdk.GetPlatform().DeleteAuthIssuer(
+  applicationId: APPLICATION_ID, 
+  url: URL
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-await sdk.platform.delete_auth_issuer("APPLICATION_ID", "URL")
+# Returns a Future[SimpleNamespace]
+await sdk.platform.delete_auth_issuer(
+  "APPLICATION_ID", 
+  "URL"
+)
 ```
 
 </TabItem>
@@ -735,43 +1122,67 @@ await sdk.platform.delete_auth_issuer("APPLICATION_ID", "URL")
 
 ## Add CORS domain
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.platform().addCorsDomain("APPLICATION_ID", "URL")
+// Returns Unit
+sdk.platform().addCorsDomain(
+  applicationId = APPLICATION_ID, 
+  url = URL
+)
 ```
 
-:::tip[In Java...]
-Use the `addCorsDomainAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.platform().addCorsDomainAsync(APPLICATION_ID, URL);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.platform().addCorsDomain(applicationId: "APPLICATION_ID", url: "URL")
+// Returns Void asynchronously
+await sdk.platform().addCorsDomain(
+  applicationId: APPLICATION_ID, 
+  url: URL
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().addCorsDomain("APPLICATION_ID", "URL");
+// Returns a Promise<any>
+await doordeck.com.doordeck.multiplatform.sdk.api.platform().addCorsDomain(
+  "APPLICATION_ID", 
+  "URL"
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetPlatform().AddCorsDomain("APPLICATION_ID", "URL");
+// Returns a Task<object>
+await sdk.GetPlatform().AddCorsDomain(
+  applicationId: APPLICATION_ID, 
+  url: URL
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-await sdk.platform.add_cors_domain("APPLICATION_ID", "URL")
+# Returns a Future[SimpleNamespace]
+await sdk.platform.add_cors_domain(
+  "APPLICATION_ID", 
+  "URL"
+)
 ```
 
 </TabItem>
@@ -779,43 +1190,67 @@ await sdk.platform.add_cors_domain("APPLICATION_ID", "URL")
 
 ## Remove CORS domain
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.platform().removeCorsDomain("APPLICATION_ID", "URL")
+// Returns Unit
+sdk.platform().removeCorsDomain(
+  applicationId = APPLICATION_ID, 
+  url = URL
+)
 ```
 
-:::tip[In Java...]
-Use the `removeCorsDomainAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.platform().removeCorsDomainAsync(APPLICATION_ID, URL);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.platform().removeCorsDomain(applicationId: "APPLICATION_ID", url: "URL")
+// Returns Void asynchronously
+await sdk.platform().removeCorsDomain(
+  applicationId: APPLICATION_ID, 
+  url: URL
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().removeCorsDomain("APPLICATION_ID", "URL");
+// Returns a Promise<any>
+await doordeck.com.doordeck.multiplatform.sdk.api.platform().removeCorsDomain(
+  "APPLICATION_ID", 
+  "URL"
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetPlatform().RemoveCorsDomain("APPLICATION_ID", "URL");
+// Returns a Task<object>
+await sdk.GetPlatform().RemoveCorsDomain(
+  applicationId: APPLICATION_ID, 
+  url: URL
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-await sdk.platform.remove_cors_domain("APPLICATION_ID", "URL")
+# Returns a Future[SimpleNamespace]
+await sdk.platform.remove_cors_domain(
+  "APPLICATION_ID", 
+  "URL"
+)
 ```
 
 </TabItem>
@@ -823,42 +1258,63 @@ await sdk.platform.remove_cors_domain("APPLICATION_ID", "URL")
 
 ## Add application owner
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.platform().addApplicationOwner("APPLICATION_ID", "OWNER_ID")
+// Returns Unit
+sdk.platform().addApplicationOwner(
+  applicationId = APPLICATION_ID,
+  userId = OWNER_ID
+)
 ```
 
-:::tip[In Java...]
-Use the `addApplicationOwnerAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.platform().addApplicationOwnerAsync(APPLICATION_ID, OWNER_ID);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.platform().addApplicationOwner(applicationId: "APPLICATION_ID", userId: "OWNER_ID")
+// Returns Void asynchronously
+await sdk.platform().addApplicationOwner(
+  applicationId: APPLICATION_ID, 
+  userId: OWNER_ID
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().addApplicationOwner("APPLICATION_ID", "OWNER_ID");
+// Returns a Promise<any>
+await doordeck.com.doordeck.multiplatform.sdk.api.platform().addApplicationOwner(
+  "APPLICATION_ID", 
+  "OWNER_ID"
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetPlatform().AddApplicationOwner("APPLICATION_ID", "OWNER_ID");
+// Returns a Task<object>
+await sdk.GetPlatform().AddApplicationOwner(
+  applicationId: APPLICATION_ID, 
+  userId: OWNER_ID
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 await sdk.platform.add_application_owner("APPLICATION_ID", "OWNER_ID")
 ```
 
@@ -867,43 +1323,67 @@ await sdk.platform.add_application_owner("APPLICATION_ID", "OWNER_ID")
 
 ## Remove application owner
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.platform().removeApplicationOwner("APPLICATION_ID", "OWNER_ID")
+// Returns Unit
+sdk.platform().removeApplicationOwner(
+  applicationId = APPLICATION_ID, 
+  userId = OWNER_ID
+)
 ```
 
-:::tip[In Java...]
-Use the `removeApplicationOwnerAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.platform().removeApplicationOwnerAsync(APPLICATION_ID, OWNER_ID);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.platform().removeApplicationOwner(applicationId: "APPLICATION_ID", userId: "OWNER_ID")
+// Returns Void asynchronously
+await sdk.platform().removeApplicationOwner(
+  applicationId: APPLICATION_ID, 
+  userId: OWNER_ID
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().removeApplicationOwner("APPLICATION_ID", "OWNER_ID");
+// Returns a Promise<any>
+await doordeck.com.doordeck.multiplatform.sdk.api.platform().removeApplicationOwner(
+  "APPLICATION_ID", 
+  "OWNER_ID"
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetPlatform().RemoveApplicationOwner("APPLICATION_ID", "OWNER_ID");
+// Returns a Task<object>
+await sdk.GetPlatform().RemoveApplicationOwner(
+  applicationId: APPLICATION_ID, 
+  userId: OWNER_ID
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-await sdk.platform.remove_application_owner("APPLICATION_ID", "OWNER_ID")
+# Returns a Future[SimpleNamespace]
+await sdk.platform.remove_application_owner(
+  "APPLICATION_ID", 
+  "OWNER_ID"
+)
 ```
 
 </TabItem>
@@ -911,28 +1391,35 @@ await sdk.platform.remove_application_owner("APPLICATION_ID", "OWNER_ID")
 
 ## Get application owners details
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val response = sdk.platform().getApplicationOwnersDetails("APPLICATION_ID")
+// Returns a List<ApplicationOwnerDetailsResponse>
+val response = sdk.platform().getApplicationOwnersDetails(APPLICATION_ID)
 ```
 
-:::tip[In Java...]
-Use the `getApplicationOwnersDetailsAsync` function, which returns a `CompletableFuture<List<ApplicationOwnerDetailsResponse>>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<List<ApplicationOwnerDetailsResponse>>
+var response = sdk.platform().getApplicationOwnersDetailsAsync(APPLICATION_ID);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.platform().getApplicationOwnersDetails(applicationId: "APPLICATION_ID")
+// Returns a Array<ApplicationOwnerDetailsResponse> asynchronously
+let response = await sdk.platform().getApplicationOwnersDetails(applicationId: APPLICATION_ID)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
+// Returns a Promise<Array<ApplicationOwnerDetailsResponse>>
 const response = await doordeck.com.doordeck.multiplatform.sdk.api.platform().getApplicationOwnersDetails("APPLICATION_ID");
 ```
 
@@ -940,13 +1427,15 @@ const response = await doordeck.com.doordeck.multiplatform.sdk.api.platform().ge
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var response = await sdk.GetPlatform().GetApplicationOwnersDetails("APPLICATION_ID");
+// Returns a Task<List<ApplicationOwnerDetailsResponse>>
+var response = await sdk.GetPlatform().GetApplicationOwnersDetails(APPLICATION_ID);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.platform.get_application_owners_details("APPLICATION_ID")
 ```
 
