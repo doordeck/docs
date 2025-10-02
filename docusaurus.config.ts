@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Doordeck Developer Hub',
+  title: 'Sentry Interactive Developer Hub',
   tagline: 'Explore comprehensive documentation for our cloud APIs and SDKs',
   favicon: 'img/favicon.png',
 
@@ -70,11 +70,11 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/doordeck-social-card.jpg',
+    image: 'img/social-card.jpg',
     navbar: {
       title: '',
       logo: {
-        alt: 'Doordeck',
+        alt: 'Sentry Interactive',
         src: 'img/logo.svg',
         srcDark: 'img/dark-logo.svg',
       },
@@ -93,7 +93,7 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      copyright: `Copyright © ${new Date().getFullYear()} Doordeck Limited. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Sentry Interactive. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
