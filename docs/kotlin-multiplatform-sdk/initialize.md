@@ -57,7 +57,7 @@ val sdk = KDoordeckFactory.initialize(sdkConfig)
 var sdkConfig = SdkConfig.Builder()
   .setCloudAuthToken("AUTH_TOKEN")
   .build(); 
-var sdk = KDoordeckFactory.initializeAsync(sdkConfig);
+var sdk = KDoordeckFactory.INSTANCE.initializeAsync(sdkConfig);
 ```
 
 </TabItem>

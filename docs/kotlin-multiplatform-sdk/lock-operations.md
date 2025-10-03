@@ -238,7 +238,7 @@ val response = sdk.lockOperations().getLocksForUser(LOCK_ID)
 
 ```java showLineNumbers
 // Returns a CompletableFuture<LockUserResponse>
-var response = sdk.lockOperations().getLocksForUser(LOCK_ID);
+var response = sdk.lockOperations().getLocksForUserAsync(LOCK_ID);
 ```
 
 </TabItem>
@@ -671,10 +671,10 @@ await sdk.lockOperations().setLockSettingTimeRestrictions(
 
 ```js showLineNumbers
 const timeRequirement = new com.doordeck.multiplatform.sdk.model.data.LockOperations.TimeRequirement.Builder()
-  .setStart(time.start)
-  .setEnd(time.end)
-  .setTimezone(time.timezone)
-  .setDays(time.days)
+  .setStart("START_HH_MM")
+  .setEnd("END_HH_MM")
+  .setTimezone("TIMEZONE")
+  .setDays(new Set("MONDAY"))
   .build();
 // Returns a Promise<any>
 await com.doordeck.multiplatform.sdk.api.lockOperations().setLockSettingTimeRestrictions(
@@ -696,7 +696,7 @@ var timeRequirement = new TimeRequirement(
 // Returns Task<object>
 await sdk.GetLockOperations().SetLockSettingTimeRestrictions(
   lockId: LOCK_ID, 
-  times: [timeRequirements]
+  times: [timeRequirement]
 );
 ```
 
@@ -777,7 +777,7 @@ const locationRequirement = new com.doordeck.multiplatform.sdk.model.data.LockOp
   .setEnabled(ENABLED)
   .build();
 // Returns a Promise<any>
-await com.doordeck.multiplatform.sdk.api.lockOperations().setLockSettingTimeRestrictions(
+await com.doordeck.multiplatform.sdk.api.lockOperations().updateLockSettingLocationRestrictions(
   "LOCK_ID", 
   locationRequirement
 );
@@ -1529,7 +1529,7 @@ const shareLockOperation = new LockOperations.ShareLockOperation.Builder()
     .build())
   .build();
 // Returns a Promise<any>
-await com.doordeck.multiplatform.sdk.api.lockOperations().ShareLockOperation(shareLockOperation);
+await com.doordeck.multiplatform.sdk.api.lockOperations().shareLock(shareLockOperation);
 ```
 
 </TabItem>
@@ -1540,7 +1540,7 @@ await com.doordeck.multiplatform.sdk.api.lockOperations().ShareLockOperation(sha
 await sdk.GetLockOperations().ShareLock(
   new ShareLockOperation(
     baseOperation: new BaseOperation(LOCK_ID), 
-    shareLock: new ShareLock(TARGET_USER_ID, TARGET_USER_ROLE, "BASE64_TARGET_PUBLIC_KEY")
+    shareLock: new ShareLock(TARGET_USER_ID, TARGET_USER_ROLE, TARGET_PUBLIC_KEY)
   )
 );
 ```
@@ -1654,11 +1654,11 @@ await com.doordeck.multiplatform.sdk.api.lockOperations().batchShareLock(batchSh
 
 ```csharp showLineNumbers
 // Returns Task<object>
-await sdk.GetLockOperations().BatchShareLockOperation(
-  new ShareLockOperation(
-    baseOperation: new BaseOperation(LOCK_ID), 
-    users: [new ShareLock(TARGET_USER_ID, TARGET_USER_ROLE, "BASE64_TARGET_PUBLIC_KEY")]
-  )
+await sdk.GetLockOperations().BatchShareLock(
+    new BatchShareLockOperation(
+        baseOperation: new BaseOperation(LOCK_ID), 
+        users: [new ShareLock(TARGET_USER_ID, TARGET_USER_ROLE, TARGET_PUBLIC_KEY)]
+    )
 );
 ```
 
@@ -1890,7 +1890,7 @@ val updateSecureSettingUnlockBetween = LockOperations.UpdateSecureSettingUnlockB
     .setStart(START)
     .setEnd(END)
     .setTimezone(TIMEZONE)
-    .setDays(DAYS_LIST)
+    .setDays(listOf(DayOfWeek.MONDAY))
     .build())
   .build()
 // Returns Unit
@@ -1901,7 +1901,7 @@ sdk.lockOperations().updateSecureSettingUnlockBetween(updateSecureSettingUnlockB
 <TabItem value="java" label="Java">
 
 ```java showLineNumbers
-val updateSecureSettingUnlockBetween = new LockOperations.UpdateSecureSettingUnlockBetween.Builder()
+var updateSecureSettingUnlockBetween = new LockOperations.UpdateSecureSettingUnlockBetween.Builder()
   .setBaseOperation(new LockOperations.BaseOperation.Builder()
     .setLockId(LOCK_ID)
     .build())
@@ -1909,11 +1909,11 @@ val updateSecureSettingUnlockBetween = new LockOperations.UpdateSecureSettingUnl
     .setStart(START)
     .setEnd(END)
     .setTimezone(TIMEZONE)
-    .setDays(DAYS_LIST)
+    .setDays(List.of(DayOfWeek.MONDAY))
     .build())
   .build();
 // Returns Unit
-sdk.lockOperations().updateSecureSettingUnlockBetweenAsync(updateSecureSettingUnlockBetween);
+updateSecureSettingUnlockBetweenAsync(updateSecureSettingUnlockBetween);
 ```
 
 </TabItem>
@@ -1948,7 +1948,7 @@ const updateSecureSettingUnlockBetween = new LockOperations.UpdateSecureSettingU
     .setStart("START_HH_MM")
     .setEnd("END_HH_MM")
     .setTimezone("TIMEZONE")
-    .setDays(DAYS_LIST)
+    .setDays(new Set("MONDAY"))
     .build())
   .build();
 // Returns a Promise<any>
