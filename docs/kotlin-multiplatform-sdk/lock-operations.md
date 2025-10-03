@@ -1370,17 +1370,20 @@ response = await sdk.lockOperations.get_user_public_key_by_foreign_keys(["USER_F
 ## Unlock
 
 :::info
-This function can be used with the [user ID, certificate chain, and private key](context-manager.md#set-operation-context) 
-values from the context. To use these values from the context, 
-you should set those parameters to **null** in the **BaseOperation** object.
+This function can also be used by passing all the necessary parameters to it, such as the **user ID**, 
+**certificate chain**, and **private key**. In the next example, we are using these values from 
+the [context](context-manager.md#set-operation-context) and hence we do not need to pass them.
 :::
 
 <Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
-val unlockOperation = LockOperations.UnlockOperation(baseOperation)
+val unlockOperation = LockOperations.UnlockOperation.Builder()
+  .setBaseOperation(LockOperations.BaseOperation.Builder()
+    .setLockId(LOCK_ID)
+    .build())
+  .build()
 // Returns Unit
 sdk.lockOperations().unlock(unlockOperation)
 ```
@@ -1389,9 +1392,12 @@ sdk.lockOperations().unlock(unlockOperation)
 <TabItem value="java" label="Java">
 
 ```java showLineNumbers
-val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
-val unlockOperation = LockOperations.UnlockOperation(baseOperation);
-// Returns a CompletableFuture<Void>
+var unlockOperation = new LockOperations.UnlockOperation.Builder()
+  .setBaseOperation(new LockOperations.BaseOperation.Builder()
+    .setLockId(LOCK_ID)
+    .build())
+  .build();
+// Returns CompletableFuture<Void>
 sdk.lockOperations().unlockAsync(unlockOperation);
 ```
 
@@ -1399,19 +1405,26 @@ sdk.lockOperations().unlockAsync(unlockOperation);
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
+let unlockOperation = LockOperations.UnlockOperation.Builder()
+  .setBaseOperation(LockOperations.BaseOperation.Builder()
+    .setLockId(lockId: LOCK_ID)
+    .build())
+  .build()
 // Returns Void asynchronously
-let baseOperation = LockOperations.BaseOperation(userId: "USER_ID", userCertificateChain: USER_CERTIFICATE_CHAIN_LIST, userPrivateKey: PRIVATE_KEY, lockId: "LOCK_ID", notBefore: NOT_BEFORE, issuedAt: ISSUED_AT, expiresAt: EXPIRES_AT, jti: UUID)
-let unlockOperation = LockOperations.UnlockOperation(baseOperation: baseOperation, directAccessEndpoints: null)
-await sdk.lockOperations().unlock(unlockOperation: shareLockOperation)
+await sdk.lockOperations().unlock(unlockOperation: unlockOperation)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const lockOperations = com.doordeck.multiplatform.sdk.model.data.LockOperations;
-const baseOperation = new lockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID", NOT_BEFORE, ISSUED_AT, EXPIRES_AT, "UUID");
-const unlockOperation = new lockOperations.UnlockOperation(baseOperation, null);
+const LockOperations = com.doordeck.multiplatform.sdk.model.data.LockOperations;
+const unlockOperation = new LockOperations.UnlockOperation.Builder()
+  .setBaseOperation(new LockOperations.BaseOperation.Builder()
+    .setLockId("LOCK_ID")
+    .build())
+  .build();
+// Returns a Promise<any>
 await com.doordeck.multiplatform.sdk.api.lockOperations().unlock(unlockOperation);
 ```
 
@@ -1419,9 +1432,8 @@ await com.doordeck.multiplatform.sdk.api.lockOperations().unlock(unlockOperation
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var baseOperation = new BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, "BASE64_PRIVATE_KEY", "LOCK_ID");
-var data = new UnlockOperation(baseOperation);
-await sdk.GetLockOperations().Unlock(data);
+// Returns a Task<object>
+await sdk.GetLockOperations().Unlock(new UnlockOperation(new BaseOperation(LOCK_ID)));
 ```
 
 </TabItem>
@@ -1429,9 +1441,11 @@ await sdk.GetLockOperations().Unlock(data);
 
 ```python showLineNumbers
 # Returns a Future[SimpleNamespace]
-baseOperation = doordeck_headless_sdk.BaseOperation("LOCK_ID", "USER_ID", USER_CERTIFICATE_CHAIN_LIST, "BASE64_PRIVATE_KEY")
-data = doordeck_headless_sdk.UnlockOperation(baseOperation)
-await sdk.lockOperations.unlock(data)
+await sdk.lockOperations.unlock(
+  doordeck_headless_sdk.UnlockOperation(
+    doordeck_headless_sdk.BaseOperation("LOCK_ID")
+  )
+)
 ```
 
 </TabItem>
@@ -1440,18 +1454,25 @@ await sdk.lockOperations.unlock(data)
 ## Share lock
 
 :::info
-This function can be used with the [user ID, certificate chain, and private key](context-manager.md#set-operation-context) 
-values from the context. To use these values from the context, 
-you should set those parameters to **null** in the **BaseOperation** object.
+This function can also be used by passing all the necessary parameters to it, such as the **user ID**,
+**certificate chain**, and **private key**. In the next example, we are using these values from
+the [context](context-manager.md#set-operation-context) and hence we do not need to pass them.
 :::
 
 <Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
-val shareLock = LockOperations.ShareLock("TARGET_USER_ID", TARGET_USER_ROLE, TARGET_PUBLIC_KEY)
-val shareLockOperation = LockOperations.ShareLockOperation(baseOperation, shareLock)
+val shareLockOperation = LockOperations.ShareLockOperation.Builder()
+  .setBaseOperation(LockOperations.BaseOperation.Builder()
+    .setLockId(LOCK_ID)
+    .build())
+  .setShareLock(ShareLock.Builder()
+    .setTargetUserId(TARGET_USER_ID)
+    .setTargetUserRole(TARGET_USER_ROLE)
+    .setTargetUserPublicKey(TARGET_PUBLIC_KEY)
+    .build())
+  .build()
 // Returns Unit
 sdk.lockOperations().shareLock(shareLockOperation)
 ```
@@ -1460,9 +1481,16 @@ sdk.lockOperations().shareLock(shareLockOperation)
 <TabItem value="java" label="Java">
 
 ```java showLineNumbers
-val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
-val shareLock = LockOperations.ShareLock("TARGET_USER_ID", TARGET_USER_ROLE, TARGET_PUBLIC_KEY)
-val shareLockOperation = LockOperations.ShareLockOperation(baseOperation, shareLock);
+var shareLockOperation = new LockOperations.ShareLockOperation.Builder()
+  .setBaseOperation(new LockOperations.BaseOperation.Builder()
+    .setLockId(LOCK_ID)
+    .build())
+  .setShareLock(new LockOperations.ShareLock.Builder()
+    .setTargetUserId(TARGET_USER_ID)
+    .setTargetUserRole(TARGET_USER_ROLE)
+    .setTargetUserPublicKey(TARGET_PUBLIC_KEY)
+    .build())
+  .build();
 // Returns a CompletableFuture<Void>
 sdk.lockOperations().shareLockAsync(shareLockOperation);
 ```
@@ -1471,10 +1499,17 @@ sdk.lockOperations().shareLockAsync(shareLockOperation);
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-// Returns Void asynchronously
-let baseOperation = LockOperations.BaseOperation(userId: "USER_ID", userCertificateChain: USER_CERTIFICATE_CHAIN_LIST, userPrivateKey: PRIVATE_KEY, lockId: "LOCK_ID", notBefore: NOT_BEFORE, issuedAt: ISSUED_AT, expiresAt: EXPIRES_AT, jti: UUID)
-let shareLock = LockOperations.ShareLock(targetUserId: "TARGET_USER_ID", targetUserRole: TARGET_USER_ROLE, targetUserPublicKey: TARGET_PUBLIC_KEY, start: null, end: null)
-let shareLockOperation = LockOperations.ShareLockOperation(baseOperation: baseOperation, shareLock: shareLock)
+let shareLockOperation = LockOperations.ShareLockOperation.Builder()
+  .setBaseOperation(baseOperation: LockOperations.BaseOperation.Builder()
+    .setLockId(LOCK_ID)
+    .build())
+  .setShareLock(shareLock: ShareLock.Builder()
+    .setTargetUserId(TARGET_USER_ID)
+    .setTargetUserRole(TARGET_USER_ROLE)
+    .setTargetUserPublicKey(TARGET_PUBLIC_KEY)
+    .build())
+  .build()
+// Returns Void asynchronously  
 await sdk.lockOperations().shareLock(shareLockOperation: shareLockOperation)
 ```
 
@@ -1482,22 +1517,32 @@ await sdk.lockOperations().shareLock(shareLockOperation: shareLockOperation)
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const lockOperations = com.doordeck.multiplatform.sdk.model.data.LockOperations;
-const baseOperation = new lockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID", NOT_BEFORE, ISSUED_AT, EXPIRES_AT, "UUID");
-const userRole = com.doordeck.multiplatform.sdk.model.common.UserRole;
-const shareLock = new lockOperations.ShareLock("TARGET_USER_ID", userRole.USER, TARGET_PUBLIC_KEY, null, null);
-const shareLockOperation = new lockOperations.ShareLockOperation(baseOperation, shareLock);
-await com.doordeck.multiplatform.sdk.api.lockOperations().shareLock(shareLockOperation);
+const LockOperations = com.doordeck.multiplatform.sdk.model.data.LockOperations;
+const shareLockOperation = new LockOperations.ShareLockOperation.Builder()
+  .setBaseOperation(new LockOperations.BaseOperation.Builder()
+    .setLockId("LOCK_ID")
+    .build())
+  .setShareLock(new LockOperations.ShareLock.Builder()
+    .setTargetUserId("TARGET_USER_ID")
+    .setTargetUserRole("TARGET_USER_ROLE")
+    .setTargetUserPublicKey(TARGET_PUBLIC_KEY)
+    .build())
+  .build();
+// Returns a Promise<any>
+await com.doordeck.multiplatform.sdk.api.lockOperations().ShareLockOperation(shareLockOperation);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var baseOperation = new BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, "BASE64_PRIVATE_KEY", "LOCK_ID");
-var shareLock = new ShareLock("TARGET_USER_ID", TARGET_USER_ROLE, "BASE64_TARGET_PUBLIC_KEY");
-var data = new ShareLockOperation(baseOperation, shareLock);
-await sdk.GetLockOperations().ShareLock(data);
+// Returns Task<object>
+await sdk.GetLockOperations().ShareLock(
+  new ShareLockOperation(
+    baseOperation: new BaseOperation(LOCK_ID), 
+    shareLock: new ShareLock(TARGET_USER_ID, TARGET_USER_ROLE, "BASE64_TARGET_PUBLIC_KEY")
+  )
+);
 ```
 
 </TabItem>
@@ -1505,10 +1550,16 @@ await sdk.GetLockOperations().ShareLock(data);
 
 ```python showLineNumbers
 # Returns a Future[SimpleNamespace]
-baseOperation = doordeck_headless_sdk.BaseOperation("LOCK_ID", "USER_ID", USER_CERTIFICATE_CHAIN_LIST, "BASE64_PRIVATE_KEY")
-shareLock = doordeck_headless_sdk.ShareLock("TARGET_USER_ID", TARGET_USER_ROLE, "BASE64_TARGET_PUBLIC_KEY")
-data = doordeck_headless_sdk.ShareLockOperation(baseOperation, shareLock)
-await sdk.lockOperations.share_lock(data)
+await sdk.lockOperations.share_lock(
+  doordeck_headless_sdk.ShareLockOperation(
+    doordeck_headless_sdk.BaseOperation("LOCK_ID"),
+    doordeck_headless_sdk.ShareLock(
+      "TARGET_USER_ID", 
+      TARGET_USER_ROLE, 
+      "BASE64_TARGET_PUBLIC_KEY"
+    )
+  )
+)
 ```
 
 </TabItem>
@@ -1520,64 +1571,95 @@ await sdk.lockOperations.share_lock(data)
 * This functionality requires the device to support the batch sharing feature. The function will retrieve the device's 
 capabilities, store them in a cache, and perform the batch operation if supported. Otherwise, 
 it will default to the standard device sharing process.
-* This function can be used with the [user ID, certificate chain, and private key](context-manager.md#set-operation-context) 
-values from the context. To use these values from the context, 
-you should set those parameters to **null** in the **BaseOperation** object.
+* This function can also be used by passing all the necessary parameters to it, such as the **user ID**, 
+**certificate chain**, and **private key**. In the next example, we are using these values from
+the [context](context-manager.md#set-operation-context) and hence we do not need to pass them.
 :::
 
 <Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
-val users = listOf(LockOperations.ShareLock("TARGET_USER_ID", TARGET_USER_ROLE, TARGET_PUBLIC_KEY))
-val shareLockOperation = LockOperations.BatchShareLockOperation(baseOperation, users)
+val batchShareLockOperation = LockOperations.BatchShareLockOperation.Builder()
+  .setBaseOperation(LockOperations.BaseOperation.Builder()
+    .setLockId(LOCK_ID)
+    .build())
+  .setUsers(listOf(ShareLock.Builder()
+    .setTargetUserId(TARGET_USER_ID)
+    .setTargetUserRole(TARGET_USER_ROLE)
+    .setTargetUserPublicKey(TARGET_PUBLIC_KEY)
+    .build()))
+  .build()
 // Returns Unit
-sdk.lockOperations().batchShareLock(shareLockOperation)
+sdk.lockOperations().batchShareLock(batchShareLockOperation)
 ```
 
 </TabItem>
 <TabItem value="java" label="Java">
 
 ```java showLineNumbers
-val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
-val users = listOf(LockOperations.ShareLock("TARGET_USER_ID", TARGET_USER_ROLE, TARGET_PUBLIC_KEY))
-val shareLockOperation = LockOperations.BatchShareLockOperation(baseOperation, users);
-// Returns CompletableFuture<Void>
-sdk.lockOperations().batchShareLockAsync(shareLockOperation);
+var batchShareLockOperation = new LockOperations.BatchShareLockOperation.Builder()
+  .setBaseOperation(new LockOperations.BaseOperation.Builder()
+    .setLockId(LOCK_ID)
+    .build())
+  .setUsers(List.of(new LockOperations.ShareLock.Builder()
+    .setTargetUserId(TARGET_USER_ID)
+    .setTargetUserRole(TARGET_USER_ROLE)
+    .setTargetUserPublicKey(TARGET_PUBLIC_KEY)
+    .build()))
+  .build();
+// Returns a CompletableFuture<Void>
+sdk.lockOperations().batchShareLockAsync(batchShareLockOperation);
 ```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-// Returns Void asynchronously
-let baseOperation = LockOperations.BaseOperation(userId: "USER_ID", userCertificateChain: USER_CERTIFICATE_CHAIN_LIST, userPrivateKey: PRIVATE_KEY, lockId: "LOCK_ID", notBefore: NOT_BEFORE, issuedAt: ISSUED_AT, expiresAt: EXPIRES_AT, jti: UUID)
-let users = [LockOperations.ShareLock(targetUserId: "TARGET_USER_ID", targetUserRole: TARGET_USER_ROLE, targetUserPublicKey: TARGET_PUBLIC_KEY, start: null, end: null)]
-let shareLockOperation = LockOperations.BatchShareLockOperation(baseOperation: baseOperation, users: users)
-await sdk.lockOperations().batchShareLock(shareLockOperation: shareLockOperation)
+let batchShareLockOperation = LockOperations.BatchShareLockOperation.Builder()
+  .setBaseOperation(baseOperation: LockOperations.BaseOperation.Builder()
+    .setLockId(LOCK_ID)
+    .build())
+  .setUsers(users: [ShareLock.Builder()
+    .setTargetUserId(TARGET_USER_ID)
+    .setTargetUserRole(TARGET_USER_ROLE)
+    .setTargetUserPublicKey(TARGET_PUBLIC_KEY)
+    .build()])
+  .build()
+// Returns Void asynchronously  
+await sdk.lockOperations().batchShareLock(batchShareLockOperation: batchShareLockOperation)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const lockOperations = com.doordeck.multiplatform.sdk.model.data.LockOperations;
-const baseOperation = new lockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID", NOT_BEFORE, ISSUED_AT, EXPIRES_AT, "UUID");
-const userRole = com.doordeck.multiplatform.sdk.model.common.UserRole;
-const users = [new lockOperations.ShareLock("TARGET_USER_ID", userRole.USER, TARGET_PUBLIC_KEY, null, null)];
-const shareLockOperation = new lockOperations.BatchShareLockOperation(baseOperation, users);
-await com.doordeck.multiplatform.sdk.api.lockOperations().batchShareLock(shareLockOperation);
+const LockOperations = com.doordeck.multiplatform.sdk.model.data.LockOperations;
+const batchShareLockOperation = new LockOperations.BatchShareLockOperation.Builder()
+  .setBaseOperation(new LockOperations.BaseOperation.Builder()
+    .setLockId("LOCK_ID")
+    .build())
+  .setUsers([new LockOperations.ShareLock.Builder()
+    .setTargetUserId("TARGET_USER_ID")
+    .setTargetUserRole("TARGET_USER_ROLE")
+    .setTargetUserPublicKey(TARGET_PUBLIC_KEY)
+    .build()])
+  .build();
+// Returns a Promise<any>
+await com.doordeck.multiplatform.sdk.api.lockOperations().batchShareLock(batchShareLockOperation);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var baseOperation = new BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, "BASE64_PRIVATE_KEY", "LOCK_ID");
-var users = [new ShareLock("TARGET_USER_ID", TARGET_USER_ROLE, "BASE64_TARGET_PUBLIC_KEY")];
-var data = new BatchShareLockOperation(baseOperation, users);
-await sdk.GetLockOperations().BatchShareLock(data);
+// Returns Task<object>
+await sdk.GetLockOperations().BatchShareLockOperation(
+  new ShareLockOperation(
+    baseOperation: new BaseOperation(LOCK_ID), 
+    users: [new ShareLock(TARGET_USER_ID, TARGET_USER_ROLE, "BASE64_TARGET_PUBLIC_KEY")]
+  )
+);
 ```
 
 </TabItem>
@@ -1585,10 +1667,16 @@ await sdk.GetLockOperations().BatchShareLock(data);
 
 ```python showLineNumbers
 # Returns a Future[SimpleNamespace]
-baseOperation = doordeck_headless_sdk.BaseOperation("LOCK_ID", "USER_ID", USER_CERTIFICATE_CHAIN_LIST, "BASE64_PRIVATE_KEY")
-users = [doordeck_headless_sdk.ShareLock("TARGET_USER_ID", TARGET_USER_ROLE, "BASE64_TARGET_PUBLIC_KEY")]
-data = doordeck_headless_sdk.BatchShareLockOperation(baseOperation, users)
-await sdk.lockOperations.batch_share_lock(data)
+await sdk.lockOperations.batch_share_lock(
+  doordeck_headless_sdk.BatchShareLockOperation(
+    doordeck_headless_sdk.BaseOperation("LOCK_ID"),
+    [doordeck_headless_sdk.ShareLock(
+      "TARGET_USER_ID",
+      TARGET_USER_ROLE,
+      "BASE64_TARGET_PUBLIC_KEY"
+    )]
+  )
+)
 ```
 
 </TabItem>
@@ -1597,17 +1685,21 @@ await sdk.lockOperations.batch_share_lock(data)
 ## Revoke access to lock
 
 :::info
-This function can be used with the [user ID, certificate chain, and private key](context-manager.md#set-operation-context) 
-values from the context. To use these values from the context, 
-you should set those parameters to **null** in the **BaseOperation** object.
+This function can also be used by passing all the necessary parameters to it, such as the **user ID**,
+**certificate chain**, and **private key**. In the next example, we are using these values from
+the [context](context-manager.md#set-operation-context) and hence we do not need to pass them.
 :::
 
 <Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
-val revokeAccessToLockOperation = LockOperations.RevokeAccessToLockOperation(baseOperation, listOf("USER_ID"))
+val revokeAccessToLockOperation = LockOperations.RevokeAccessToLockOperation.Builder()
+  .setBaseOperation(LockOperations.BaseOperation.Builder()
+    .setLockId(LOCK_ID)
+    .build())
+  .setUsers(listOf(USER_ID))
+  .build()
 // Returns Unit
 sdk.lockOperations().revokeAccessToLock(revokeAccessToLockOperation)
 ```
@@ -1616,9 +1708,13 @@ sdk.lockOperations().revokeAccessToLock(revokeAccessToLockOperation)
 <TabItem value="java" label="Java">
 
 ```java showLineNumbers
-val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
-val revokeAccessToLockOperation = LockOperations.RevokeAccessToLockOperation(baseOperation, listOf("USER_ID"));
-// Returns a CompletableFuture<Void>
+var revokeAccessToLockOperation = new LockOperations.RevokeAccessToLockOperation.Builder()
+  .setBaseOperation(new LockOperations.BaseOperation.Builder()
+    .setLockId(LOCK_ID)
+    .build())
+  .setUsers(List.of(USER_ID))
+  .build();
+// Returns Unit
 sdk.lockOperations().revokeAccessToLockAsync(revokeAccessToLockOperation);
 ```
 
@@ -1626,9 +1722,13 @@ sdk.lockOperations().revokeAccessToLockAsync(revokeAccessToLockOperation);
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
+let revokeAccessToLockOperation = LockOperations.RevokeAccessToLockOperation.Builder()
+  .setBaseOperation(LockOperations.BaseOperation.Builder()
+    .setLockId(LOCK_ID)
+    .build())
+  .setUsers([USER_ID])
+  .build()
 // Returns Void asynchronously
-let baseOperation = LockOperations.BaseOperation(userId: "USER_ID", userCertificateChain: USER_CERTIFICATE_CHAIN_LIST, userPrivateKey: PRIVATE_KEY, lockId: "LOCK_ID", notBefore: NOT_BEFORE, issuedAt: ISSUED_AT, expiresAt: EXPIRES_AT, jti: UUID)
-let revokeAccessToLockOperation = LockOperations.RevokeAccessToLockOperation(baseOperation: baseOperation, users: ["USER_ID"])
 await sdk.lockOperations().revokeAccessToLock(revokeAccessToLockOperation: revokeAccessToLockOperation)
 ```
 
@@ -1636,9 +1736,14 @@ await sdk.lockOperations().revokeAccessToLock(revokeAccessToLockOperation: revok
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const lockOperations = com.doordeck.multiplatform.sdk.model.data.LockOperations;
-const baseOperation = new lockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID", NOT_BEFORE, ISSUED_AT, EXPIRES_AT, "UUID");
-const revokeAccessToLockOperation = new lockOperations.RevokeAccessToLockOperation(baseOperation, ["USER_ID"]);
+const LockOperations = com.doordeck.multiplatform.sdk.model.data.LockOperations;
+const revokeAccessToLockOperation = new LockOperations.RevokeAccessToLockOperation.Builder()
+  .setBaseOperation(new LockOperations.BaseOperation.Builder()
+    .setLockId("LOCK_ID")
+    .build())
+  .setUsers(["USER_ID"])
+  .build();
+// Returns a Promise<any>
 await com.doordeck.multiplatform.sdk.api.lockOperations().revokeAccessToLock(revokeAccessToLockOperation);
 ```
 
@@ -1646,9 +1751,13 @@ await com.doordeck.multiplatform.sdk.api.lockOperations().revokeAccessToLock(rev
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var baseOperation = new BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, "BASE64_PRIVATE_KEY", "LOCK_ID");
-var data = new RevokeAccessToLockOperation(baseOperation, ["USER_ID"]);
-await sdk.GetLockOperations().RevokeAccessToLock(data);
+// Returns Task<object>
+await sdk.GetLockOperations().RevokeAccessToLock(
+  new RevokeAccessToLockOperation(
+    baseOperation: new BaseOperation(LOCK_ID), 
+    users: [USER_ID]
+  )
+);
 ```
 
 </TabItem>
@@ -1656,9 +1765,12 @@ await sdk.GetLockOperations().RevokeAccessToLock(data);
 
 ```python showLineNumbers
 # Returns a Future[SimpleNamespace]
-baseOperation = doordeck_headless_sdk.BaseOperation("LOCK_ID", "USER_ID", USER_CERTIFICATE_CHAIN_LIST, "BASE64_PRIVATE_KEY")
-data = doordeck_headless_sdk.RevokeAccessToLockOperation(baseOperation, ["USER_ID"])
-await sdk.lockOperations.revoke_access_to_lock(data)
+await sdk.lockOperations.revoke_access_to_lock(
+  doordeck_headless_sdk.RevokeAccessToLockOperation(
+    doordeck_headless_sdk.BaseOperation("LOCK_ID"),
+    ["USER_ID"]
+  )
+)
 ```
 
 </TabItem>
@@ -1667,17 +1779,21 @@ await sdk.lockOperations.revoke_access_to_lock(data)
 ## Update secure setting unlock duration
 
 :::info
-This function can be used with the [user ID, certificate chain, and private key](context-manager.md#set-operation-context) 
-values from the context. To use these values from the context, 
-you should set those parameters to **null** in the **BaseOperation** object.
+This function can also be used by passing all the necessary parameters to it, such as the **user ID**,
+**certificate chain**, and **private key**. In the next example, we are using these values from
+the [context](context-manager.md#set-operation-context) and hence we do not need to pass them.
 :::
 
 <Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
-val updateSecureSettingUnlockDuration = LockOperations.UpdateSecureSettingUnlockDuration(baseOperation, UNLOCK_DURATION)
+val updateSecureSettingUnlockDuration = LockOperations.UpdateSecureSettingUnlockDuration.Builder()
+  .setBaseOperation(LockOperations.BaseOperation.Builder()
+    .setLockId(LOCK_ID)
+    .build())
+  .setUnlockDuration(UNLOCK_DURATION)
+  .build()
 // Returns Unit
 sdk.lockOperations().updateSecureSettingUnlockDuration(updateSecureSettingUnlockDuration)
 ```
@@ -1686,9 +1802,13 @@ sdk.lockOperations().updateSecureSettingUnlockDuration(updateSecureSettingUnlock
 <TabItem value="java" label="Java">
 
 ```java showLineNumbers
-val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
-val updateSecureSettingUnlockDuration = LockOperations.UpdateSecureSettingUnlockDuration(baseOperation, UNLOCK_DURATION)
-// Returns a CompletableFuture<Void>
+var updateSecureSettingUnlockDuration = new LockOperations.UpdateSecureSettingUnlockDuration.Builder()
+  .setBaseOperation(new LockOperations.BaseOperation.Builder()
+    .setLockId(LOCK_ID)
+    .build())
+  .setUnlockDuration(UNLOCK_DURATION)
+  .build();
+// Returns Unit
 sdk.lockOperations().updateSecureSettingUnlockDurationAsync(updateSecureSettingUnlockDuration);
 ```
 
@@ -1696,9 +1816,13 @@ sdk.lockOperations().updateSecureSettingUnlockDurationAsync(updateSecureSettingU
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
+let updateSecureSettingUnlockDuration = LockOperations.UpdateSecureSettingUnlockDuration.Builder()
+  .setBaseOperation(LockOperations.BaseOperation.Builder()
+    .setLockId(lockId: LOCK_ID)
+    .build())
+  .setUnlockDuration(unlockDuration: UNLOCK_DURATION)
+  .build();
 // Returns Void asynchronously
-let baseOperation = LockOperations.BaseOperation(userId: "USER_ID", userCertificateChain: USER_CERTIFICATE_CHAIN_LIST, userPrivateKey: PRIVATE_KEY, lockId: "LOCK_ID", notBefore: NOT_BEFORE, issuedAt: ISSUED_AT, expiresAt: EXPIRES_AT, jti: UUID)
-let updateSecureSettingUnlockDuration = LockOperations.UpdateSecureSettingUnlockDuration(baseOperation: baseOperation, unlockDuration: UNLOCK_DURATION)
 await sdk.lockOperations().updateSecureSettingUnlockDuration(updateSecureSettingUnlockDuration: updateSecureSettingUnlockDuration)
 ```
 
@@ -1706,9 +1830,14 @@ await sdk.lockOperations().updateSecureSettingUnlockDuration(updateSecureSetting
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const lockOperations = com.doordeck.multiplatform.sdk.model.data.LockOperations;
-const baseOperation = new lockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID", NOT_BEFORE, ISSUED_AT, EXPIRES_AT, "UUID");
-const updateSecureSettingUnlockDuration = new lockOperations.UpdateSecureSettingUnlockDuration(baseOperation, UNLOCK_DURATION);
+const LockOperations = com.doordeck.multiplatform.sdk.model.data.LockOperations;
+const updateSecureSettingUnlockDuration = new LockOperations.UpdateSecureSettingUnlockDuration.Builder()
+  .setBaseOperation(new LockOperations.BaseOperation.Builder()
+    .setLockId("LOCK_ID")
+    .build())
+  .setUnlockDuration(UNLOCK_DURATION)
+  .build();
+// Returns a Promise<any>
 await com.doordeck.multiplatform.sdk.api.lockOperations().updateSecureSettingUnlockDuration(updateSecureSettingUnlockDuration);
 ```
 
@@ -1716,9 +1845,13 @@ await com.doordeck.multiplatform.sdk.api.lockOperations().updateSecureSettingUnl
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var baseOperation = new BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, "BASE64_PRIVATE_KEY", "LOCK_ID");
-var data = new UpdateSecureSettingUnlockDuration(baseOperation, UNLOCK_DURATION)
-await sdk.GetLockOperations().UpdateSecureSettingUnlockDuration(data);
+// Returns Task<object>
+await sdk.GetLockOperations().UpdateSecureSettingUnlockDuration(
+  new UpdateSecureSettingUnlockDuration(
+    baseOperation: new BaseOperation(LOCK_ID), 
+    unlockDuration: UNLOCK_DURATION
+  )
+);
 ```
 
 </TabItem>
@@ -1726,9 +1859,12 @@ await sdk.GetLockOperations().UpdateSecureSettingUnlockDuration(data);
 
 ```python showLineNumbers
 # Returns a Future[SimpleNamespace]
-baseOperation = doordeck_headless_sdk.BaseOperation("LOCK_ID", "USER_ID", USER_CERTIFICATE_CHAIN_LIST, "BASE64_PRIVATE_KEY")
-data = doordeck_headless_sdk.UpdateSecureSettingUnlockDuration(baseOperation, UNLOCK_DURATION)
-await sdk.lockOperations.update_secure_setting_unlock_duration(data)
+await sdk.lockOperations.update_secure_setting_unlock_duration(
+  doordeck_headless_sdk.UpdateSecureSettingUnlockDuration(
+    doordeck_headless_sdk.BaseOperation("LOCK_ID"),
+    UNLOCK_DURATION
+  )
+)
 ```
 
 </TabItem>
@@ -1737,18 +1873,26 @@ await sdk.lockOperations.update_secure_setting_unlock_duration(data)
 ## Update secure setting unlock between
 
 :::info
-This function can be used with the [user ID, certificate chain, and private key](context-manager.md#set-operation-context) 
-values from the context. To use these values from the context, 
-you should set those parameters to **null** in the **BaseOperation** object.
+This function can also be used by passing all the necessary parameters to it, such as the **user ID**,
+**certificate chain**, and **private key**. In the next example, we are using these values from
+the [context](context-manager.md#set-operation-context) and hence we do not need to pass them.
 :::
 
 <Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
-val unlockBetween = LockOperations.UnlockBetween("START_HH_MM", "END_HH_MM", "TIMEZONE", DAYS_LIST)
-val updateSecureSettingUnlockBetween = LockOperations.UpdateSecureSettingUnlockBetween(baseOperation, unlockBetween)
+val updateSecureSettingUnlockBetween = LockOperations.UpdateSecureSettingUnlockBetween.Builder()
+  .setBaseOperation(LockOperations.BaseOperation.Builder()
+    .setLockId(LOCK_ID)
+    .build())
+  .setUnlockBetween(LockOperations.UnlockBetween.Builder()
+    .setStart(START)
+    .setEnd(END)
+    .setTimezone(TIMEZONE)
+    .setDays(DAYS_LIST)
+    .build())
+  .build()
 // Returns Unit
 sdk.lockOperations().updateSecureSettingUnlockBetween(updateSecureSettingUnlockBetween)
 ```
@@ -1757,10 +1901,18 @@ sdk.lockOperations().updateSecureSettingUnlockBetween(updateSecureSettingUnlockB
 <TabItem value="java" label="Java">
 
 ```java showLineNumbers
-val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
-val unlockBetween = LockOperations.UnlockBetween("START_HH_MM", "END_HH_MM", "TIMEZONE", DAYS_LIST)
-val updateSecureSettingUnlockBetween = LockOperations.UpdateSecureSettingUnlockBetween(baseOperation, unlockBetween);
-// Returns a CompletableFuture<Void>
+val updateSecureSettingUnlockBetween = new LockOperations.UpdateSecureSettingUnlockBetween.Builder()
+  .setBaseOperation(new LockOperations.BaseOperation.Builder()
+    .setLockId(LOCK_ID)
+    .build())
+  .setUnlockBetween(new LockOperations.UnlockBetween.Builder()
+    .setStart(START)
+    .setEnd(END)
+    .setTimezone(TIMEZONE)
+    .setDays(DAYS_LIST)
+    .build())
+  .build();
+// Returns Unit
 sdk.lockOperations().updateSecureSettingUnlockBetweenAsync(updateSecureSettingUnlockBetween);
 ```
 
@@ -1768,21 +1920,38 @@ sdk.lockOperations().updateSecureSettingUnlockBetweenAsync(updateSecureSettingUn
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
+let updateSecureSettingUnlockBetween = LockOperations.UpdateSecureSettingUnlockBetween.Builder()
+  .setBaseOperation(baseOperation: LockOperations.BaseOperation.Builder()
+    .setLockId(LOCK_ID)
+    .build())
+  .setUnlockBetween(unlockBetween: LockOperations.UnlockBetween.Builder()
+    .setStart(start: START)
+    .setEnd(end: END)
+    .setTimezone(timezone: TIMEZONE)
+    .setDays(days: DAYS_LIST)
+    .build())
+  .build()
 // Returns Void asynchronously
-let baseOperation = LockOperations.BaseOperation(userId: "USER_ID", userCertificateChain: USER_CERTIFICATE_CHAIN_LIST, userPrivateKey: PRIVATE_KEY, lockId: "LOCK_ID", notBefore: NOT_BEFORE, issuedAt: ISSUED_AT, expiresAt: EXPIRES_AT, jti: UUID)
-let unlockBetween = LockOperations.UnlockBetween(start: "START_HH_MM", end: "END_HH_MM", timezone: "TIMEZONE", days: ["MONDAY"], exceptions: ["FRIDAY"])
-let updateSecureSettingUnlockBetween = LockOperations.UpdateSecureSettingUnlockBetween(baseOperation: baseOperation, unlockBetween: unlockBetween)
-await sdk.lockOperations().updateSecureSettingUnlockBetween(updateSecureSettingUnlockBetween: updateSecureSettingUnlockBetween)
+sdk.lockOperations().updateSecureSettingUnlockBetween(updateSecureSettingUnlockBetween);
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const lockOperations = com.doordeck.multiplatform.sdk.model.data.LockOperations;
-const baseOperation = new lockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID", NOT_BEFORE, ISSUED_AT, EXPIRES_AT, "UUID");
-const unlockBetween = new lockOperations.UnlockBetween("START_HH_MM", "END_HH_MM", "TIMEZONE", DAYS_LIST, EXCEPTIONS_LIST);
-const updateSecureSettingUnlockBetween = new lockOperations.UpdateSecureSettingUnlockBetween(baseOperation, unlockBetween)
+const LockOperations = com.doordeck.multiplatform.sdk.model.data.LockOperations;
+const updateSecureSettingUnlockBetween = new LockOperations.UpdateSecureSettingUnlockBetween.Builder()
+  .setBaseOperation(new LockOperations.BaseOperation.Builder()
+    .setLockId("LOCK_ID")
+    .build())
+  .setUnlockBetween(new LockOperations.UnlockBetween.Builder()
+    .setStart("START_HH_MM")
+    .setEnd("END_HH_MM")
+    .setTimezone("TIMEZONE")
+    .setDays(DAYS_LIST)
+    .build())
+  .build();
+// Returns a Promise<any>
 await com.doordeck.multiplatform.sdk.api.lockOperations().updateSecureSettingUnlockBetween(updateSecureSettingUnlockBetween);
 ```
 
@@ -1790,10 +1959,17 @@ await com.doordeck.multiplatform.sdk.api.lockOperations().updateSecureSettingUnl
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var baseOperation = new BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, "BASE64_PRIVATE_KEY", "LOCK_ID");
-var unlockBetween = new UnlockBetween("START_HH_MM", "END_HH_MM", "TIMEZONE", DAYS_LIST);
-var data = new UpdateSecureSettingUnlockBetween(baseOperation, unlockBetween);
-await sdk.GetLockOperations().UpdateSecureSettingUnlockBetween(data);
+var unlockBetween = new UpdateSecureSettingUnlockBetween(
+    baseOperation: new BaseOperation(LOCK_ID),
+    unlockBetween: new UnlockBetween(
+        start: START,
+        end: END,
+        timezone: TIMEZONE,
+        days: [DayOfWeek.FRIDAY]
+    )
+);
+// Returns Task<object>
+await sdk.GetLockOperations().UpdateSecureSettingUnlockBetween(unlockBetween);
 ```
 
 </TabItem>
@@ -1801,10 +1977,12 @@ await sdk.GetLockOperations().UpdateSecureSettingUnlockBetween(data);
 
 ```python showLineNumbers
 # Returns a Future[SimpleNamespace]
-baseOperation = doordeck_headless_sdk.BaseOperation("LOCK_ID", "USER_ID", USER_CERTIFICATE_CHAIN_LIST, "BASE64_PRIVATE_KEY")
-unlockBetween = doordeck_headless_sdk.UnlockBetween("START_HH_MM", "END_HH_MM", "TIMEZONE", DAYS_LIST)
-data = doordeck_headless_sdk.UpdateSecureSettingUnlockBetween(baseOperation, unlockBetween)
-await sdk.lockOperations.update_secure_setting_unlock_between(data)
+await sdk.lockOperations.update_secure_setting_unlock_between(
+  doordeck_headless_sdk.UpdateSecureSettingUnlockBetween(
+    doordeck_headless_sdk.BaseOperation("LOCK_ID"),
+    doordeck_headless_sdk.UnlockBetween("START_HH_MM", "END_HH_MM", "TIMEZONE", DAYS_LIST)
+  )
+)
 ```
 
 </TabItem>
