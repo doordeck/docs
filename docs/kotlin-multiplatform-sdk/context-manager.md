@@ -101,7 +101,7 @@ val result = sdk.contextManager().getContextState()
 
 ```java showLineNumbers
 // Returns a CompletableFuture<ContextState>
-var result = sdk.contextManager().getContextState();
+var result = sdk.contextManager().getContextStateAsync();
 ```
 
 </TabItem>

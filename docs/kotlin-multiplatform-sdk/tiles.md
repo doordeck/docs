@@ -75,7 +75,7 @@ sdk.tiles().associateMultipleLocks(
 
 ```java showLineNumbers
 // Returns a CompletableFuture<Void>
-sdk.tiles().associateMultipleLocksAsync(TILE_ID, SITE_ID, listOf(LOCK_ID));
+sdk.tiles().associateMultipleLocksAsync(TILE_ID, SITE_ID, List.of(LOCK_ID));
 ```
 
 </TabItem>
