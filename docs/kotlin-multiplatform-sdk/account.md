@@ -362,7 +362,7 @@ sdk.account().reverifyEmail()
 <TabItem value="java" label="Java">
 
 ```java showLineNumbers
-// Returns a CompletableFuture<Unit>
+// Returns a CompletableFuture<Void>
 sdk.account().reverifyEmailAsync();
 ```
 
@@ -422,7 +422,7 @@ sdk.account().changePassword(
 <TabItem value="java" label="Java">
 
 ```java showLineNumbers
-// Returns a CompletableFuture<Unit>
+// Returns a CompletableFuture<Void>
 sdk.account().changePasswordAsync("OLD_PASSWORD", "NEW_PASSWORD");
 ```
 

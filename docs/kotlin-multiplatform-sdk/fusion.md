@@ -397,7 +397,7 @@ await sdk.fusion().startDoor(deviceId: DEVICE_ID)
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-// Returns Promise<any>
+// Returns a Promise<any>
 await com.doordeck.multiplatform.sdk.api.fusion().startDoor("DEVICE_ID");
 ```
 

@@ -270,7 +270,7 @@ await sdk.accountless.password_reset("EMAIL")
 ```kotlin showLineNumbers
 // Returns Unit
 sdk.accountless().passwordResetVerify(
-  userId = "USERID", 
+  userId = "USER_ID", 
   token = "TOKEN", 
   email = "EMAIL"
 )
@@ -281,7 +281,7 @@ sdk.accountless().passwordResetVerify(
 
 ```java showLineNumbers
 // Returns a CompletableFuture<Void>
-sdk.accountless().passwordResetVerifyAsync("USERID", "TOKEN", "EMAIL");
+sdk.accountless().passwordResetVerifyAsync("USER_ID", "TOKEN", "EMAIL");
 ```
 
 </TabItem>
@@ -290,7 +290,7 @@ sdk.accountless().passwordResetVerifyAsync("USERID", "TOKEN", "EMAIL");
 ```swift showLineNumbers
 // Returns Void asynchronously
 await sdk.accountless().passwordResetVerify(
-  userId: "USERID", 
+  userId: "USER_ID", 
   token: "TOKEN", 
   email: "EMAIL"
 )
@@ -302,7 +302,7 @@ await sdk.accountless().passwordResetVerify(
 ```js showLineNumbers
 // Returns a Promise<any>
 await com.doordeck.multiplatform.sdk.api.accountless().passwordResetVerify(
-  "USERID", 
+  "USER_ID", 
   "TOKEN", 
   "EMAIL"
 );
@@ -314,7 +314,7 @@ await com.doordeck.multiplatform.sdk.api.accountless().passwordResetVerify(
 ```csharp showLineNumbers
 // Returns a Task<object>
 await sdk.GetAccountless().PasswordResetVerify(
-  userId: "USERID", 
+  userId: "USER_ID", 
   token: "TOKEN", 
   password: "EMAIL"
 );
@@ -326,7 +326,7 @@ await sdk.GetAccountless().PasswordResetVerify(
 ```python showLineNumbers
 # Returns a Future[SimpleNamespace]
 await sdk.accountless.password_reset_verify(
-  "USERID", 
+  "USER_ID", 
   "TOKEN", 
   "EMAIL"
 )

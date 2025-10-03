@@ -192,7 +192,7 @@ var response = sdk.lockOperations().getUsersForLockAsync(LOCK_ID);
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-// Returns Array<UserLockResponse> asynchronously
+// Returns a Array<UserLockResponse> asynchronously
 let response = await sdk.lockOperations().getUsersForLock(lockId: LOCK_ID)
 ```
 
@@ -2023,7 +2023,7 @@ var response = sdk.lockOperations().getPinnedLocksAsync();
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-// Returns Array<LockResponse> asynchronously
+// Returns a Array<LockResponse> asynchronously
 let response = await sdk.lockOperations().getPinnedLocks()
 ```
 
