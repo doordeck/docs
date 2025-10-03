@@ -498,7 +498,7 @@ sdk.lockOperations().setLockSettingPermittedAddresses(
 
 ```java showLineNumbers
 // Returns a CompletableFuture<Void>
-sdk.lockOperations().setLockSettingPermittedAddressesAsync(LOCK_ID, listOf(PERMITTED_ADDRESS));
+sdk.lockOperations().setLockSettingPermittedAddressesAsync(LOCK_ID, List.of(PERMITTED_ADDRESS));
 ```
 
 </TabItem>
@@ -623,8 +623,16 @@ await sdk.lockOperations.update_lock_setting_hidden(
 
 ```kotlin showLineNumbers
 // Returns Unit
-val timeRequirements = listOf(LockOperations.TimeRequirement("START_HH_MM", "END_HH_MM", "TIMEZONE", listOf("MONDAY")))
-sdk.lockOperations().setLockSettingTimeRestrictions("LOCK_ID", timeRequirements)
+val timeRequirement = LockOperations.TimeRequirement.Builder()
+  .setStart(START)
+  .setEnd(END)
+  .setTimezone(TIMEZONE_ID)
+  .setDays(EnumSet.of(DayOfWeek.MONDAY))
+  .build()
+sdk.lockOperations().setLockSettingTimeRestrictions(
+  lockId = LOCK_ID, 
+  times = listOf(timeRequirements)
+)
 ```
 
 </TabItem>
@@ -632,8 +640,13 @@ sdk.lockOperations().setLockSettingTimeRestrictions("LOCK_ID", timeRequirements)
 
 ```java showLineNumbers
 // Returns a CompletableFuture<Void>
-var timeRequirements = listOf(LockOperations.TimeRequirement("START_HH_MM", "END_HH_MM", "TIMEZONE", listOf("MONDAY")));
-sdk.lockOperations().setLockSettingTimeRestrictions("LOCK_ID", timeRequirements);
+var timeRequirement = new LockOperations.TimeRequirement.Builder()
+    .setStart(START)
+    .setEnd(END)
+    .setTimezone(TIMEZONE_ID)
+    .setDays(EnumSet.of(DayOfWeek.MONDAY))
+    .build();
+sdk.lockOperations().setLockSettingTimeRestrictionsAsync(LOCK_ID, List.of(timeRequirement));
 ```
 
 </TabItem>
@@ -641,8 +654,16 @@ sdk.lockOperations().setLockSettingTimeRestrictions("LOCK_ID", timeRequirements)
 
 ```swift showLineNumbers
 // Returns Void asynchronously
-let timeRequirements = [LockOperations.TimeRequirement(start: "START_HH_MM", end: "END_HH_MM", timezone: "TIMEZONE", days: ["MONDAY"])]
-await sdk.lockOperations().setLockSettingTimeRestrictions(lockId: "LOCK_ID", times: locationRequirement)
+let timeRequirement = LockOperations.TimeRequirement.Builder()
+    .setStart(START)
+    .setEnd(END)
+    .setTimezone(TIMEZONE_ID)
+    .setDays([DayOfWeek.MONDAY])
+    .build();
+await sdk.lockOperations().setLockSettingTimeRestrictions(
+  lockId: LOCK_ID, 
+  times: [locationRequirement]
+)
 ```
 
 </TabItem>
@@ -680,13 +701,19 @@ await sdk.lockOperations.set_lock_setting_time_restrictions("LOCK_ID", timeRequi
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns Unit
 val locationRequirement = LockOperations.LocationRequirement(LATITUDE, LONGITUDE, true, 100)
 sdk.lockOperations().updateLockSettingLocationRestrictions("LOCK_ID", locationRequirement)
 ```
 
-:::tip[In Java...]
-Use the `updateLockSettingLocationRestrictionsAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+var locationRequirement = LockOperations.LocationRequirement(LATITUDE, LONGITUDE, true, 100);
+sdk.lockOperations().updateLockSettingLocationRestrictionsAsync("LOCK_ID", locationRequirement);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
@@ -736,12 +763,17 @@ This function is only available to users with Doordeck issued auth tokens
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns a UserPublicKeyResponse
 val response = sdk.lockOperations().getUserPublicKey("USER_EMAIL", false)
 ```
 
-:::tip[In Java...]
-Use the `getUserPublicKeyAsync` function, which returns a `CompletableFuture<UserPublicKeyResponse>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<UserPublicKeyResponse>
+var response = sdk.lockOperations().getUserPublicKeyAsync("USER_EMAIL", false);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
@@ -782,12 +814,17 @@ response = await sdk.lockOperations.get_user_public_key("USER_EMAIL", False)
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns a UserPublicKeyResponse
 val response = sdk.lockOperations().getUserPublicKeyByEmail("USER_EMAIL")
 ```
 
-:::tip[In Java...]
-Use the `getUserPublicKeyByEmailAsync` function, which returns a `CompletableFuture<UserPublicKeyResponse>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<UserPublicKeyResponse>
+var response = sdk.lockOperations().getUserPublicKeyByEmailAsync("USER_EMAIL");
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
@@ -828,12 +865,17 @@ response = await sdk.lockOperations.get_user_public_key_by_email("USER_EMAIL")
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns a UserPublicKeyResponse
 val response = sdk.lockOperations().getUserPublicKeyByTelephone("USER_TELEPHONE")
 ```
 
-:::tip[In Java...]
-Use the `getUserPublicKeyByTelephoneAsync` function, which returns a `CompletableFuture<UserPublicKeyResponse>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<UserPublicKeyResponse>
+var response = sdk.lockOperations().getUserPublicKeyByTelephoneAsync("USER_TELEPHONE");
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
@@ -874,12 +916,17 @@ response = await sdk.lockOperations.get_user_public_key_by_telephone("USER_TELEP
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns a UserPublicKeyResponse
 val response = sdk.lockOperations().getUserPublicKeyByLocalKey("USER_LOCAL_KEY")
 ```
 
-:::tip[In Java...]
-Use the `getUserPublicKeyByLocalKeyAsync` function, which returns a `CompletableFuture<UserPublicKeyResponse>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<UserPublicKeyResponse>
+var response = sdk.lockOperations().getUserPublicKeyByLocalKeyAsync("USER_LOCAL_KEY");
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
@@ -920,12 +967,17 @@ response = await sdk.lockOperations.get_user_public_key_by_local_key("USER_LOCAL
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns a UserPublicKeyResponse
 val response = sdk.lockOperations().getUserPublicKeyByForeignKey("USER_FOREIGN_KEY")
 ```
 
-:::tip[In Java...]
-Use the `getUserPublicKeyByForeignKeyAsync` function, which returns a `CompletableFuture<UserPublicKeyResponse>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<UserPublicKeyResponse>
+var response = sdk.lockOperations().getUserPublicKeyByForeignKeyAsync("USER_FOREIGN_KEY");
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
@@ -966,12 +1018,17 @@ response = await sdk.lockOperations.get_user_public_key_by_foreign_key("USER_FOR
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns a UserPublicKeyResponse
 val response = sdk.lockOperations().getUserPublicKeyByIdentity("USER_IDENTITY")
 ```
 
-:::tip[In Java...]
-Use the `getUserPublicKeyByIdentityAsync` function, which returns a `CompletableFuture<UserPublicKeyResponse>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<UserPublicKeyResponse>
+var response = sdk.lockOperations().getUserPublicKeyByIdentityAsync("USER_IDENTITY");
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
@@ -1012,12 +1069,17 @@ response = await sdk.lockOperations.get_user_public_key_by_identity("USER_IDENTI
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns a List<BatchUserPublicKeyResponse>
 val response = sdk.lockOperations().getUserPublicKeyByEmails(listOf("USER_EMAIL", "USER_EMAIL"))
 ```
 
-:::tip[In Java...]
-Use the `getUserPublicKeyByEmailsAsync` function, which returns a `CompletableFuture<List<BatchUserPublicKeyResponse>>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<List<BatchUserPublicKeyResponse>>
+var response = sdk.lockOperations().getUserPublicKeyByEmailsAsync(listOf("USER_EMAIL", "USER_EMAIL"));
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
@@ -1058,12 +1120,17 @@ response = await sdk.lockOperations.get_user_public_key_by_emails(["USER_EMAIL",
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns a List<BatchUserPublicKeyResponse>
 val response = sdk.lockOperations().getUserPublicKeyByTelephones(listOf("USER_TELEPHONE", "USER_TELEPHONE"))
 ```
 
-:::tip[In Java...]
-Use the `getUserPublicKeyByTelephonesAsync` function, which returns a `CompletableFuture<List<BatchUserPublicKeyResponse>>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<List<BatchUserPublicKeyResponse>>
+var response = sdk.lockOperations().getUserPublicKeyByTelephonesAsync(listOf("USER_TELEPHONE", "USER_TELEPHONE"));
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
@@ -1104,12 +1171,17 @@ response = await sdk.lockOperations.get_user_public_key_by_telephones(["USER_TEL
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns a List<BatchUserPublicKeyResponse>
 val response = sdk.lockOperations().getUserPublicKeyByLocalKeys(listOf("USER_LOCAL_KEY"))
 ```
 
-:::tip[In Java...]
-Use the `getUserPublicKeyByLocalKeysAsync` function, which returns a `CompletableFuture<List<BatchUserPublicKeyResponse>>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<List<BatchUserPublicKeyResponse>>
+var response = sdk.lockOperations().getUserPublicKeyByLocalKeysAsync(listOf("USER_LOCAL_KEY"));
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
@@ -1150,12 +1222,17 @@ response = await sdk.lockOperations.get_user_public_key_by_local_keys(["USER_LOC
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns a List<BatchUserPublicKeyResponse>
 val response = sdk.lockOperations().getUserPublicKeyByForeignKeys(listOf("USER_FOREIGN_KEY", "USER_FOREIGN_KEY"))
 ```
 
-:::tip[In Java...]
-Use the `getUserPublicKeyByForeignKeysAsync` function, which returns a `CompletableFuture<List<BatchUserPublicKeyResponse>>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<List<BatchUserPublicKeyResponse>>
+var response = sdk.lockOperations().getUserPublicKeyByForeignKeysAsync(listOf("USER_FOREIGN_KEY", "USER_FOREIGN_KEY"));
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
@@ -1204,12 +1281,19 @@ you should set those parameters to **null** in the **BaseOperation** object.
 ```kotlin showLineNumbers
 val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
 val unlockOperation = LockOperations.UnlockOperation(baseOperation)
+// Returns Unit
 sdk.lockOperations().unlock(unlockOperation)
 ```
 
-:::tip[In Java...]
-Use the `unlockAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
+val unlockOperation = LockOperations.UnlockOperation(baseOperation);
+// Returns a CompletableFuture<Void>
+sdk.lockOperations().unlockAsync(unlockOperation);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
@@ -1268,12 +1352,20 @@ you should set those parameters to **null** in the **BaseOperation** object.
 val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
 val shareLock = LockOperations.ShareLock("TARGET_USER_ID", TARGET_USER_ROLE, TARGET_PUBLIC_KEY)
 val shareLockOperation = LockOperations.ShareLockOperation(baseOperation, shareLock)
+// Returns Unit
 sdk.lockOperations().shareLock(shareLockOperation)
 ```
 
-:::tip[In Java...]
-Use the `shareLockAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
+val shareLock = LockOperations.ShareLock("TARGET_USER_ID", TARGET_USER_ROLE, TARGET_PUBLIC_KEY)
+val shareLockOperation = LockOperations.ShareLockOperation(baseOperation, shareLock);
+// Returns a CompletableFuture<Void>
+sdk.lockOperations().shareLockAsync(shareLockOperation);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
@@ -1340,12 +1432,20 @@ you should set those parameters to **null** in the **BaseOperation** object.
 val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
 val users = listOf(LockOperations.ShareLock("TARGET_USER_ID", TARGET_USER_ROLE, TARGET_PUBLIC_KEY))
 val shareLockOperation = LockOperations.BatchShareLockOperation(baseOperation, users)
+// Returns Unit
 sdk.lockOperations().batchShareLock(shareLockOperation)
 ```
 
-:::tip[In Java...]
-Use the `batchShareLockAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
+val users = listOf(LockOperations.ShareLock("TARGET_USER_ID", TARGET_USER_ROLE, TARGET_PUBLIC_KEY))
+val shareLockOperation = LockOperations.BatchShareLockOperation(baseOperation, users);
+// Returns CompletableFuture<Void>
+sdk.lockOperations().batchShareLockAsync(shareLockOperation);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
@@ -1408,12 +1508,19 @@ you should set those parameters to **null** in the **BaseOperation** object.
 ```kotlin showLineNumbers
 val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
 val revokeAccessToLockOperation = LockOperations.RevokeAccessToLockOperation(baseOperation, listOf("USER_ID"))
+// Returns Unit
 sdk.lockOperations().revokeAccessToLock(revokeAccessToLockOperation)
 ```
 
-:::tip[In Java...]
-Use the `revokeAccessToLockAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
+val revokeAccessToLockOperation = LockOperations.RevokeAccessToLockOperation(baseOperation, listOf("USER_ID"));
+// Returns a CompletableFuture<Void>
+sdk.lockOperations().revokeAccessToLockAsync(revokeAccessToLockOperation);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
@@ -1471,12 +1578,19 @@ you should set those parameters to **null** in the **BaseOperation** object.
 ```kotlin showLineNumbers
 val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
 val updateSecureSettingUnlockDuration = LockOperations.UpdateSecureSettingUnlockDuration(baseOperation, UNLOCK_DURATION)
+// Returns Unit
 sdk.lockOperations().updateSecureSettingUnlockDuration(updateSecureSettingUnlockDuration)
 ```
 
-:::tip[In Java...]
-Use the `updateSecureSettingUnlockDurationAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
+val updateSecureSettingUnlockDuration = LockOperations.UpdateSecureSettingUnlockDuration(baseOperation, UNLOCK_DURATION)
+// Returns a CompletableFuture<Void>
+sdk.lockOperations().updateSecureSettingUnlockDurationAsync(updateSecureSettingUnlockDuration);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
@@ -1535,12 +1649,20 @@ you should set those parameters to **null** in the **BaseOperation** object.
 val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
 val unlockBetween = LockOperations.UnlockBetween("START_HH_MM", "END_HH_MM", "TIMEZONE", DAYS_LIST)
 val updateSecureSettingUnlockBetween = LockOperations.UpdateSecureSettingUnlockBetween(baseOperation, unlockBetween)
+// Returns Unit
 sdk.lockOperations().updateSecureSettingUnlockBetween(updateSecureSettingUnlockBetween)
 ```
 
-:::tip[In Java...]
-Use the `updateSecureSettingUnlockBetweenAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+val baseOperation = LockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID")
+val unlockBetween = LockOperations.UnlockBetween("START_HH_MM", "END_HH_MM", "TIMEZONE", DAYS_LIST)
+val updateSecureSettingUnlockBetween = LockOperations.UpdateSecureSettingUnlockBetween(baseOperation, unlockBetween);
+// Returns a CompletableFuture<Void>
+sdk.lockOperations().updateSecureSettingUnlockBetweenAsync(updateSecureSettingUnlockBetween);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
