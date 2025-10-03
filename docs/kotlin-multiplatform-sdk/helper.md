@@ -44,7 +44,7 @@ await sdk.helper().uploadPlatformLogo(
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.helper().uploadPlatformLogo(
+await com.doordeck.multiplatform.sdk.api.helper().uploadPlatformLogo(
   "APPLICATION_ID", 
   "CONTENT_TYPE", 
   IMAGE_BYTES

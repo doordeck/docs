@@ -52,14 +52,13 @@ let response = await sdk.platform().createApplication(application: application)
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const CreateApplication = doordeck.com.doordeck.multiplatform.sdk.model.data.PlatformOperations.CreateApplication;
-const application = new CreateApplication.Builder()
+const application = new com.doordeck.multiplatform.sdk.model.data.PlatformOperations.CreateApplication.Builder()
   .setName("APPLICATION_NAME")
   .setCompanyName("COMPANY_NAME")
   .setMailingAddress("COMPANY@MAIL.COM")
   .build();
 // Returns a Promise<string>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.platform().createApplication(application);
+const response = await com.doordeck.multiplatform.sdk.api.platform().createApplication(application);
 ```
 
 </TabItem>
@@ -122,7 +121,7 @@ let response = await sdk.platform().listApplications()
 
 ```js showLineNumbers
 // Returns a Promise<Array<ApplicationResponse>>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.platform().listApplications();
+const response = await com.doordeck.multiplatform.sdk.api.platform().listApplications();
 ```
 
 </TabItem>
@@ -175,7 +174,7 @@ let response = await sdk.platform().getApplication(applicationId: APPLICATION_ID
 
 ```js showLineNumbers
 // Returns a Promise<ApplicationResponse>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.platform().getApplication("APPLICATION_ID");
+const response = await com.doordeck.multiplatform.sdk.api.platform().getApplication("APPLICATION_ID");
 ```
 
 </TabItem>
@@ -234,7 +233,7 @@ await sdk.platform().updateApplicationName(
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationName(
+await com.doordeck.multiplatform.sdk.api.platform().updateApplicationName(
   "APPLICATION_ID", 
   "APPLICATION_NAME"
 );
@@ -302,7 +301,7 @@ await sdk.platform().updateApplicationCompanyName(
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationCompanyName(
+await com.doordeck.multiplatform.sdk.api.platform().updateApplicationCompanyName(
   "APPLICATION_ID", 
   "APPLICATION_COMPANY_NAME"
 );
@@ -370,7 +369,7 @@ await sdk.platform().updateApplicationMailingAddress(
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationMailingAddress(
+await com.doordeck.multiplatform.sdk.api.platform().updateApplicationMailingAddress(
   "APPLICATION_ID", 
   "COMPANY@MAIL.COM"
 );
@@ -438,7 +437,7 @@ await sdk.platform().updateApplicationPrivacyPolicy(
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationPrivacyPolicy(
+await com.doordeck.multiplatform.sdk.api.platform().updateApplicationPrivacyPolicy(
   "APPLICATION_ID", 
   "PRIVACY_POLICY"
 );
@@ -506,7 +505,7 @@ await sdk.platform().updateApplicationSupportContact(
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationSupportContact(
+await com.doordeck.multiplatform.sdk.api.platform().updateApplicationSupportContact(
   "APPLICATION_ID", 
   "SUPPORT_CONTACT_URL"
 );
@@ -574,7 +573,7 @@ await sdk.platform().updateApplicationAppLink(
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationAppLink(
+await com.doordeck.multiplatform.sdk.api.platform().updateApplicationAppLink(
   "APPLICATION_ID", 
   "APP_LINK"
 );
@@ -662,8 +661,7 @@ await sdk.platform().updateApplicationEmailPreferences(
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const EmailPreferences = doordeck.com.doordeck.multiplatform.sdk.model.data.PlatformOperations.EmailPreferences;
-const emailPreferences = new EmailPreferences.Builder()
+const emailPreferences = new com.doordeck.multiplatform.sdk.model.data.PlatformOperations.EmailPreferences.Builder()
   .setSenderEmail("SENDER_EMAIL")
   .setSenderName("SENDER_NAME")
   .setPrimaryColour("PRIMARY_COLOR")
@@ -671,7 +669,7 @@ const emailPreferences = new EmailPreferences.Builder()
   .setOnlySendEssentialEmails(false)
   .build();
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationEmailPreferences(
+await com.doordeck.multiplatform.sdk.api.platform().updateApplicationEmailPreferences(
   "APPLICATION_ID",
   emailPreferences
 );
@@ -753,7 +751,7 @@ await sdk.platform().updateApplicationLogoUrl(
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().updateApplicationLogoUrl(
+await com.doordeck.multiplatform.sdk.api.platform().updateApplicationLogoUrl(
   "APPLICATION_ID", 
   "LOGO_URL"
 );
@@ -819,7 +817,7 @@ await sdk.platform().deleteApplication(applicationId: APPLICATION_ID)
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().deleteApplication("APPLICATION_ID");
+await com.doordeck.multiplatform.sdk.api.platform().deleteApplication("APPLICATION_ID");
 ```
 
 </TabItem>
@@ -878,7 +876,7 @@ let response = await sdk.platform().getLogoUploadUrl(
 
 ```js showLineNumbers
 // Returns a Promise<GetLogoUploadUrlResponse>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.platform().getLogoUploadUrl(
+const response = await com.doordeck.multiplatform.sdk.api.platform().getLogoUploadUrl(
   "APPLICATION_ID", 
   "CONTENT_TYPE"
 );
@@ -948,10 +946,10 @@ await sdk.platform().addAuthKey(
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const platform = doordeck.com.doordeck.multiplatform.sdk.model.data.Platform;
+const platform = com.doordeck.multiplatform.sdk.model.data.Platform;
 const key = new platform.Ed25519Key("OKP", "sig", "90a983fd-9077-41f9-840c-7220581017f5", "EdDSA", "zVfpB5Nfj4SzYayFpTu4Qm1JaUmk6-FBbFUX3k1qqwc", "Ed25519", "0ufELXg9OUjkAZUs5aGdgVbz664erh8t9cTvFBHicrc");
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().addAuthKey(
+await com.doordeck.multiplatform.sdk.api.platform().addAuthKey(
   "APPLICATION_ID", 
   key
 );
@@ -1021,7 +1019,7 @@ await sdk.platform().addAuthIssuer(
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().addAuthIssuer(
+await com.doordeck.multiplatform.sdk.api.platform().addAuthIssuer(
   "APPLICATION_ID", 
   "URL"
 );
@@ -1089,7 +1087,7 @@ await sdk.platform().deleteAuthIssuer(
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().deleteAuthIssuer(
+await com.doordeck.multiplatform.sdk.api.platform().deleteAuthIssuer(
   "APPLICATION_ID", 
   "URL"
 );
@@ -1157,7 +1155,7 @@ await sdk.platform().addCorsDomain(
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().addCorsDomain(
+await com.doordeck.multiplatform.sdk.api.platform().addCorsDomain(
   "APPLICATION_ID", 
   "URL"
 );
@@ -1225,7 +1223,7 @@ await sdk.platform().removeCorsDomain(
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().removeCorsDomain(
+await com.doordeck.multiplatform.sdk.api.platform().removeCorsDomain(
   "APPLICATION_ID", 
   "URL"
 );
@@ -1293,7 +1291,7 @@ await sdk.platform().addApplicationOwner(
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().addApplicationOwner(
+await com.doordeck.multiplatform.sdk.api.platform().addApplicationOwner(
   "APPLICATION_ID", 
   "OWNER_ID"
 );
@@ -1358,7 +1356,7 @@ await sdk.platform().removeApplicationOwner(
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.platform().removeApplicationOwner(
+await com.doordeck.multiplatform.sdk.api.platform().removeApplicationOwner(
   "APPLICATION_ID", 
   "OWNER_ID"
 );
@@ -1420,7 +1418,7 @@ let response = await sdk.platform().getApplicationOwnersDetails(applicationId: A
 
 ```js showLineNumbers
 // Returns a Promise<Array<ApplicationOwnerDetailsResponse>>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.platform().getApplicationOwnersDetails("APPLICATION_ID");
+const response = await com.doordeck.multiplatform.sdk.api.platform().getApplicationOwnersDetails("APPLICATION_ID");
 ```
 
 </TabItem>

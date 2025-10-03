@@ -34,7 +34,7 @@ let response = await sdk.tiles().getLocksBelongingToTile(tileId: TILE_ID)
 
 ```js showLineNumbers
 // Returns a Promise<TileLocksResponse>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.tiles().getLocksBelongingToTile("TILE_ID");
+const response = await com.doordeck.multiplatform.sdk.api.tiles().getLocksBelongingToTile("TILE_ID");
 ```
 
 </TabItem>
@@ -95,7 +95,7 @@ await sdk.tiles().associateMultipleLocks(
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.tiles().associateMultipleLocks(
+await com.doordeck.multiplatform.sdk.api.tiles().associateMultipleLocks(
   "TILE_ID", 
   "SITE_ID", 
   ["LOCK_ID"]

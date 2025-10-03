@@ -44,7 +44,7 @@ let response = await sdk.fusion().login(
 
 ```js showLineNumbers
 // Returns a Promise<FusionLoginResponse>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.fusion().login(
+const response = await com.doordeck.multiplatform.sdk.api.fusion().login(
   "EMAIL", 
   "PASSWORD"
 );
@@ -106,7 +106,7 @@ let response = await sdk.fusion().getIntegrationType()
 
 ```js showLineNumbers
 // Returns a Promise<IntegrationTypeResponse>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.fusion().getIntegrationType();
+const response = await com.doordeck.multiplatform.sdk.api.fusion().getIntegrationType();
 ```
 
 </TabItem>
@@ -159,7 +159,7 @@ let response = await sdk.fusion().getIntegrationConfiguration(type: "CONTROLLER_
 
 ```js showLineNumbers
 // Returns a Promise<Array<IntegrationConfigurationResponse>>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.fusion().getIntegrationConfiguration("CONTROLLER_TYPE");
+const response = await com.doordeck.multiplatform.sdk.api.fusion().getIntegrationConfiguration("CONTROLLER_TYPE");
 ```
 
 </TabItem>
@@ -222,10 +222,10 @@ await sdk.fusion().enableDoor(
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const fusion = doordeck.com.doordeck.multiplatform.sdk.model.data.Fusion;
+const fusion = com.doordeck.multiplatform.sdk.model.data.Fusion;
 const controller = new fusion.DemoController(8080);
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.fusion().enableDoor(
+await com.doordeck.multiplatform.sdk.api.fusion().enableDoor(
   "NAME", 
   "SITE_ID", 
   controller
@@ -292,7 +292,7 @@ await sdk.fusion().deleteDoor(deviceId: DEVICE_ID)
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.fusion().deleteDoor("DEVICE_ID");
+await com.doordeck.multiplatform.sdk.api.fusion().deleteDoor("DEVICE_ID");
 ```
 
 </TabItem>
@@ -345,7 +345,7 @@ let response = await sdk.fusion().getDoorStatus(deviceId: DEVICE_ID)
 
 ```js showLineNumbers
 // Returns a Promise<DoorStateResponse>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.fusion().getDoorStatus("DEVICE_ID");
+const response = await com.doordeck.multiplatform.sdk.api.fusion().getDoorStatus("DEVICE_ID");
 ```
 
 </TabItem>
@@ -398,7 +398,7 @@ await sdk.fusion().startDoor(deviceId: DEVICE_ID)
 
 ```js showLineNumbers
 // Returns Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.fusion().startDoor("DEVICE_ID");
+await com.doordeck.multiplatform.sdk.api.fusion().startDoor("DEVICE_ID");
 ```
 
 </TabItem>
@@ -451,7 +451,7 @@ await sdk.fusion().stopDoor(deviceId: DEVICE_ID)
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.fusion().stopDoor("DEVICE_ID");
+await com.doordeck.multiplatform.sdk.api.fusion().stopDoor("DEVICE_ID");
 ```
 
 </TabItem>

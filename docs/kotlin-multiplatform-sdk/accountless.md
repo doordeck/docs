@@ -46,7 +46,7 @@ let response = await sdk.accountless().login(
 
 ```js showLineNumbers
 // Returns a Promise<TokenResponse>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.accountless().login(
+const response = await com.doordeck.multiplatform.sdk.api.accountless().login(
   "EMAIL", 
   "PASSWORD"
 );
@@ -125,7 +125,7 @@ let response = await sdk.accountless().registration(
 
 ```js showLineNumbers
 // Returns a Promise<TokenResponse>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.accountless().registration(
+const response = await com.doordeck.multiplatform.sdk.api.accountless().registration(
   "EMAIL", 
   "PASSWORD"
 );
@@ -187,7 +187,7 @@ await sdk.accountless().verifyEmail(code: "CODE")
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.accountless().verifyEmail("CODE");
+await com.doordeck.multiplatform.sdk.api.accountless().verifyEmail("CODE");
 ```
 
 </TabItem>
@@ -240,7 +240,7 @@ await sdk.accountless().passwordReset(email: "EMAIL")
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.accountless().passwordReset("EMAIL");
+await com.doordeck.multiplatform.sdk.api.accountless().passwordReset("EMAIL");
 ```
 
 </TabItem>
@@ -301,7 +301,7 @@ await sdk.accountless().passwordResetVerify(
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.accountless().passwordResetVerify(
+await com.doordeck.multiplatform.sdk.api.accountless().passwordResetVerify(
   "USERID", 
   "TOKEN", 
   "EMAIL"

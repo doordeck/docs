@@ -45,7 +45,7 @@ let response = await sdk.account().refreshToken(refreshToken: "REFRESH_TOKEN")
 
 ```js showLineNumbers
 // Returns a Promise<TokenResponse>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.account().refreshToken("REFRESH_TOKEN");
+const response = await com.doordeck.multiplatform.sdk.api.account().refreshToken("REFRESH_TOKEN");
 ```
 
 </TabItem>
@@ -103,7 +103,7 @@ await sdk.account().logout()
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.account().logout();
+await com.doordeck.multiplatform.sdk.api.account().logout();
 ```
 
 </TabItem>
@@ -169,7 +169,7 @@ let response = await sdk.account().registerEphemeralKey(
 
 ```js showLineNumbers
 // Returns a Promise<RegisterEphemeralKeyResponse>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.account().registerEphemeralKey(
+const response = await com.doordeck.multiplatform.sdk.api.account().registerEphemeralKey(
   PUBLIC_KEY, 
   PRIVATE_KEY
 );
@@ -243,7 +243,7 @@ let response = await sdk.account().registerEphemeralKeyWithSecondaryAuthenticati
 
 ```js showLineNumbers
 // Returns a Promise<RegisterEphemeralKeyWithSecondaryAuthenticationResponse>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.account().registerEphemeralKeyWithSecondaryAuthentication(PUBLIC_KEY);
+const response = await com.doordeck.multiplatform.sdk.api.account().registerEphemeralKeyWithSecondaryAuthentication(PUBLIC_KEY);
 ```
 
 </TabItem>
@@ -310,7 +310,7 @@ let response = await sdk.account().verifyEphemeralKeyRegistration(
 
 ```js showLineNumbers
 // Returns a Promise<RegisterEphemeralKeyResponse>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.account().verifyEphemeralKeyRegistration(
+const response = await com.doordeck.multiplatform.sdk.api.account().verifyEphemeralKeyRegistration(
   "CODE", 
   PUBLIC_KEY, 
   PRIVATE_KEY
@@ -379,7 +379,7 @@ await sdk.account().reverifyEmail()
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.account().reverifyEmail();
+await com.doordeck.multiplatform.sdk.api.account().reverifyEmail();
 ```
 
 </TabItem>
@@ -442,7 +442,7 @@ await sdk.account().changePassword(
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.account().changePassword(
+await com.doordeck.multiplatform.sdk.api.account().changePassword(
   "OLD_PASSWORD", 
   "NEW_PASSWORD"
 );
@@ -504,7 +504,7 @@ let response = await sdk.account().getUserDetails()
 
 ```js showLineNumbers
 // Returns a Promise<UserDetailsResponse>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.account().getUserDetails();
+const response = await com.doordeck.multiplatform.sdk.api.account().getUserDetails();
 ```
 
 </TabItem>
@@ -557,7 +557,7 @@ await sdk.account().updateUserDetails(displayName: "DISPLAY_NAME")
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.account().updateUserDetails("DISPLAY_NAME");
+await com.doordeck.multiplatform.sdk.api.account().updateUserDetails("DISPLAY_NAME");
 ```
 
 </TabItem>
@@ -619,7 +619,7 @@ await sdk.account().deleteAccount()
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.account().deleteAccount();
+await com.doordeck.multiplatform.sdk.api.account().deleteAccount();
 ```
 
 </TabItem>

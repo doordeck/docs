@@ -74,13 +74,10 @@ let sdk = await KDoordeckFactory().initialize(sdkConfig: sdkConfig)
 <TabItem value="js" label="JavaScript">
 
 ```javascript showLineNumbers
-import doordeck from "@doordeck/doordeck-headless-sdk"
+import { com } from "@doordeck/doordeck-headless-sdk";
 
-const KDoordeckFactory = doordeck.com.doordeck.multiplatform.sdk.KDoordeckFactory;
-const SdkConfig = doordeck.com.doordeck.multiplatform.sdk.config.SdkConfig;
-
-const sdk = await KDoordeckFactory.initialize(
-  new SdkConfig.Builder()
+const sdk = await com.doordeck.multiplatform.sdk.KDoordeckFactory.initialize(
+  new com.doordeck.multiplatform.sdk.config.SdkConfig.Builder()
     .setCloudAuthToken("AUTH_TOKEN")
     .build(),
 );

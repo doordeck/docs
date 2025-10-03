@@ -34,7 +34,7 @@ let response = await sdk.sites().listSites()
 
 ```js showLineNumbers
 // Returns a Promise<Array<SiteResponse>>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.sites().listSites();
+const response = await com.doordeck.multiplatform.sdk.api.sites().listSites();
 ```
 
 </TabItem>
@@ -87,7 +87,7 @@ let response = await sdk.sites().getLocksForSite(siteId: SITE_ID)
 
 ```js showLineNumbers
 // Returns a Promise<Array<SiteLocksResponse>>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.sites().getLocksForSite("SITE_ID");
+const response = await com.doordeck.multiplatform.sdk.api.sites().getLocksForSite("SITE_ID");
 ```
 
 </TabItem>
@@ -140,7 +140,7 @@ let response = await sdk.sites().getUsersForSite(siteId: SITE_ID)
 
 ```js showLineNumbers
 // Returns a Promise<Array<UserForSiteResponse>>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.sites().getUsersForSite("SITE_ID");
+const response = await com.doordeck.multiplatform.sdk.api.sites().getUsersForSite("SITE_ID");
 ```
 
 </TabItem>
