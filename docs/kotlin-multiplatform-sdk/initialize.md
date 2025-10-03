@@ -98,7 +98,7 @@ You should also call `sdk.Release();` at the end of your application’s lifecyc
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-sdk = doordeck_headless_sdk.InitializeSdk("AUTH_TOKEN")
+sdk = doordeck_headless_sdk.InitializeSdk(cloud_auth_token="AUTH_TOKEN")
 ```
 
 </TabItem>

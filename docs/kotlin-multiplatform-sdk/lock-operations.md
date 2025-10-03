@@ -1540,7 +1540,11 @@ await com.doordeck.multiplatform.sdk.api.lockOperations().shareLock(shareLockOpe
 await sdk.GetLockOperations().ShareLock(
   new ShareLockOperation(
     baseOperation: new BaseOperation(LOCK_ID), 
-    shareLock: new ShareLock(TARGET_USER_ID, TARGET_USER_ROLE, TARGET_PUBLIC_KEY)
+    shareLock: new ShareLock(
+      targetUserId: TARGET_USER_ID, 
+      targetUserRole: TARGET_USER_ROLE, 
+      targetUserPublicKey: TARGET_PUBLIC_KEY
+    )
   )
 );
 ```
@@ -1555,7 +1559,7 @@ await sdk.lockOperations.share_lock(
     doordeck_headless_sdk.BaseOperation("LOCK_ID"),
     doordeck_headless_sdk.ShareLock(
       "TARGET_USER_ID", 
-      TARGET_USER_ROLE, 
+      "TARGET_USER_ROLE", 
       "BASE64_TARGET_PUBLIC_KEY"
     )
   )
@@ -1657,7 +1661,11 @@ await com.doordeck.multiplatform.sdk.api.lockOperations().batchShareLock(batchSh
 await sdk.GetLockOperations().BatchShareLock(
     new BatchShareLockOperation(
         baseOperation: new BaseOperation(LOCK_ID), 
-        users: [new ShareLock(TARGET_USER_ID, TARGET_USER_ROLE, TARGET_PUBLIC_KEY)]
+        users: [new ShareLock(
+          targetUserId: TARGET_USER_ID, 
+          targetUserRole: TARGET_USER_ROLE, 
+          targetUserPublicKey: TARGET_PUBLIC_KEY
+        )]
     )
 );
 ```
@@ -1672,7 +1680,7 @@ await sdk.lockOperations.batch_share_lock(
     doordeck_headless_sdk.BaseOperation("LOCK_ID"),
     [doordeck_headless_sdk.ShareLock(
       "TARGET_USER_ID",
-      TARGET_USER_ROLE,
+      "TARGET_USER_ROLE",
       "BASE64_TARGET_PUBLIC_KEY"
     )]
   )
@@ -1980,7 +1988,12 @@ await sdk.GetLockOperations().UpdateSecureSettingUnlockBetween(unlockBetween);
 await sdk.lockOperations.update_secure_setting_unlock_between(
   doordeck_headless_sdk.UpdateSecureSettingUnlockBetween(
     doordeck_headless_sdk.BaseOperation("LOCK_ID"),
-    doordeck_headless_sdk.UnlockBetween("START_HH_MM", "END_HH_MM", "TIMEZONE", DAYS_LIST)
+    doordeck_headless_sdk.UnlockBetween(
+      "START_HH_MM", 
+      "END_HH_MM", 
+      "TIMEZONE",
+      ["MONDAY"]
+    )
   )
 )
 ```
