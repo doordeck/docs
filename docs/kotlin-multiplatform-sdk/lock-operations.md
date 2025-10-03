@@ -34,7 +34,7 @@ let response = await sdk.lockOperations().getSingleLock(lockId: LOCK_ID)
 
 ```js showLineNumbers
 // Returns a Promise<LockResponse>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getSingleLock("LOCK_ID");
+const response = await com.doordeck.multiplatform.sdk.api.lockOperations().getSingleLock("LOCK_ID");
 ```
 
 </TabItem>
@@ -91,7 +91,7 @@ let response = await sdk.lockOperations().getLockAuditTrail(
 
 ```js showLineNumbers
 // Returns a Promise<Array<LockAuditTrailResponse>>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getLockAuditTrail("LOCK_ID");
+const response = await com.doordeck.multiplatform.sdk.api.lockOperations().getLockAuditTrail("LOCK_ID");
 ```
 
 </TabItem>
@@ -148,7 +148,7 @@ let response = await sdk.lockOperations().getAuditForUser(
 
 ```js showLineNumbers
 // Returns a Promise<Array<AuditResponse>>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getAuditForUser("USER_ID");
+const response = await com.doordeck.multiplatform.sdk.api.lockOperations().getAuditForUser("USER_ID");
 ```
 
 </TabItem>
@@ -201,7 +201,7 @@ let response = await sdk.lockOperations().getUsersForLock(lockId: LOCK_ID)
 
 ```js showLineNumbers
 // Returns a Promise<Array<UserLockResponse>>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getUsersForLock(LOCK_ID);
+const response = await com.doordeck.multiplatform.sdk.api.lockOperations().getUsersForLock(LOCK_ID);
 ```
 
 </TabItem>
@@ -254,7 +254,7 @@ let response = await sdk.lockOperations().getLocksForUser(lockId: LOCK_ID)
 
 ```js showLineNumbers
 // Returns a Promise<LockUserResponse>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getLocksForUser("LOCK_ID");
+const response = await com.doordeck.multiplatform.sdk.api.lockOperations().getLocksForUser("LOCK_ID");
 ```
 
 </TabItem>
@@ -313,7 +313,7 @@ await sdk.lockOperations().updateLockName(
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().updateLockName(
+await com.doordeck.multiplatform.sdk.api.lockOperations().updateLockName(
   "LOCK_ID", 
   "LOCK_NAME"
 );
@@ -381,7 +381,7 @@ await sdk.lockOperations().updateLockFavourite(
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().updateLockFavourite(
+await com.doordeck.multiplatform.sdk.api.lockOperations().updateLockFavourite(
   "LOCK_ID", 
   true
 );
@@ -449,7 +449,7 @@ await sdk.lockOperations().updateLockSettingDefaultName(
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().updateLockSettingDefaultName(
+await com.doordeck.multiplatform.sdk.api.lockOperations().updateLockSettingDefaultName(
   "LOCK_ID", 
   "LOCK_NAME"
 );
@@ -517,7 +517,7 @@ await sdk.lockOperations().setLockSettingPermittedAddresses(
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().setLockSettingPermittedAddresses(
+await com.doordeck.multiplatform.sdk.api.lockOperations().setLockSettingPermittedAddresses(
   "LOCK_ID", 
   ["PERMITTED_ADDRESS"]
 );
@@ -585,7 +585,7 @@ await sdk.lockOperations().updateLockSettingHidden(
 
 ```js showLineNumbers
 // Returns a Promise<any>
-await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().updateLockSettingHidden(
+await com.doordeck.multiplatform.sdk.api.lockOperations().updateLockSettingHidden(
   "LOCK_ID", 
   true
 );
@@ -622,13 +622,13 @@ await sdk.lockOperations.update_lock_setting_hidden(
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-// Returns Unit
 val timeRequirement = LockOperations.TimeRequirement.Builder()
   .setStart(START)
   .setEnd(END)
   .setTimezone(TIMEZONE_ID)
   .setDays(EnumSet.of(DayOfWeek.MONDAY))
   .build()
+// Returns Unit
 sdk.lockOperations().setLockSettingTimeRestrictions(
   lockId = LOCK_ID, 
   times = listOf(timeRequirements)
@@ -639,13 +639,13 @@ sdk.lockOperations().setLockSettingTimeRestrictions(
 <TabItem value="java" label="Java">
 
 ```java showLineNumbers
-// Returns a CompletableFuture<Void>
 var timeRequirement = new LockOperations.TimeRequirement.Builder()
     .setStart(START)
     .setEnd(END)
     .setTimezone(TIMEZONE_ID)
     .setDays(EnumSet.of(DayOfWeek.MONDAY))
     .build();
+// Returns a CompletableFuture<Void>
 sdk.lockOperations().setLockSettingTimeRestrictionsAsync(LOCK_ID, List.of(timeRequirement));
 ```
 
@@ -653,16 +653,16 @@ sdk.lockOperations().setLockSettingTimeRestrictionsAsync(LOCK_ID, List.of(timeRe
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-// Returns Void asynchronously
 let timeRequirement = LockOperations.TimeRequirement.Builder()
     .setStart(START)
     .setEnd(END)
     .setTimezone(TIMEZONE_ID)
     .setDays([DayOfWeek.MONDAY])
-    .build();
+    .build()
+// Returns Void asynchronously
 await sdk.lockOperations().setLockSettingTimeRestrictions(
   lockId: LOCK_ID, 
-  times: [locationRequirement]
+  times: [timeRequirement]
 )
 ```
 
@@ -670,26 +670,51 @@ await sdk.lockOperations().setLockSettingTimeRestrictions(
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const lockOperations = doordeck.com.doordeck.multiplatform.sdk.model.data.LockOperations;
-await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().setLockSettingTimeRestrictions("LOCK_ID",
-    [new lockOperations.TimeRequirement("START_HH_MM", "END_HH_MM", "TIMEZONE", ["MONDAY"])]);
+const timeRequirement = new com.doordeck.multiplatform.sdk.model.data.LockOperations.TimeRequirement.Builder()
+  .setStart(time.start)
+  .setEnd(time.end)
+  .setTimezone(time.timezone)
+  .setDays(time.days)
+  .build();
+// Returns a Promise<any>
+await com.doordeck.multiplatform.sdk.api.lockOperations().setLockSettingTimeRestrictions(
+  "LOCK_ID",
+  [timeRequirement]
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-List<TimeRequirement> timeRequirements = [new TimeRequirement("START_HH_MM", "END_HH_MM", "TIMEZONE", ["MONDAY"])];
-await sdk.GetLockOperations().SetLockSettingTimeRestrictions("LOCK_ID", timeRequirements);
+var timeRequirement = new TimeRequirement(
+  start: START, 
+  end: END, 
+  timezone: TIMEZONE, 
+  days: [DayOfWeek.MONDAY]
+);
+// Returns Task<object>
+await sdk.GetLockOperations().SetLockSettingTimeRestrictions(
+  lockId: LOCK_ID, 
+  times: [timeRequirements]
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+timeRequirement = doordeck_headless_sdk.TimeRequirement(
+  "START_HH_MM", 
+  "END_HH_MM", 
+  "TIMEZONE", 
+  ["MONDAY"]
+)
 # Returns a Future[SimpleNamespace]
-timeRequirements = [doordeck_headless_sdk.TimeRequirement("START_HH_MM", "END_HH_MM", "TIMEZONE", ["MONDAY"])]
-await sdk.lockOperations.set_lock_setting_time_restrictions("LOCK_ID", timeRequirements)
+await sdk.lockOperations.set_lock_setting_time_restrictions(
+  "LOCK_ID", 
+  [timeRequirement]
+)
 ```
 
 </TabItem>
@@ -701,53 +726,93 @@ await sdk.lockOperations.set_lock_setting_time_restrictions("LOCK_ID", timeRequi
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+val locationRequirement = LockOperations.LocationRequirement.Builder()
+  .setLatitude(LATITUDE)
+  .setLongitude(LONGITUDE)
+  .setEnabled(true)
+  .build()
 // Returns Unit
-val locationRequirement = LockOperations.LocationRequirement(LATITUDE, LONGITUDE, true, 100)
-sdk.lockOperations().updateLockSettingLocationRestrictions("LOCK_ID", locationRequirement)
+sdk.lockOperations().updateLockSettingLocationRestrictions(
+  lockId = LOCK_ID,
+  location = locationRequirement
+)
 ```
 
 </TabItem>
 <TabItem value="java" label="Java">
 
 ```java showLineNumbers
+var locationRequirement = new LockOperations.LocationRequirement.Builder()
+  .setLatitude(LATITUDE)
+  .setLongitude(LONGITUDE)
+  .setEnabled(true)
+  .build();
 // Returns a CompletableFuture<Void>
-var locationRequirement = LockOperations.LocationRequirement(LATITUDE, LONGITUDE, true, 100);
-sdk.lockOperations().updateLockSettingLocationRestrictionsAsync("LOCK_ID", locationRequirement);
+sdk.lockOperations().updateLockSettingLocationRestrictionsAsync(LOCK_ID, locationRequirement);
 ```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
+let locationRequirement = LockOperations.LocationRequirement.Builder()
+  .setLatitude(latitude: LATITUDE)
+  .setLongitude(longitude: LONGITUDE)
+  .setEnabled(enabled: true)
+  .build()
 // Returns Void asynchronously
-let locationRequirement = LockOperations.LocationRequirement(latitude: LATITUDE, longitude: LONGITUDE, enabled: true, radius: 100, accuracy: 100)
-await sdk.lockOperations().updateLockSettingLocationRestrictions(lockId: "LOCK_ID", location: locationRequirement)
+await sdk.lockOperations().updateLockSettingLocationRestrictions(
+  lockId: LOCK_ID,
+  location: locationRequirement
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const lockOperations = doordeck.com.doordeck.multiplatform.sdk.model.data.LockOperations;
-const locationRequirement = new lockOperations.LocationRequirement(LATITUDE, LONGITUDE, ENABLED, RADIUS, ACCURACY);
-await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().updateLockSettingLocationRestrictions("LOCK_ID", locationRequirement);
+const locationRequirement = new com.doordeck.multiplatform.sdk.model.data.LockOperations.LocationRequirement.Builder()
+  .setLatitude(LATITUDE)
+  .setLongitude(LONGITUDE)
+  .setEnabled(ENABLED)
+  .build();
+// Returns a Promise<any>
+await com.doordeck.multiplatform.sdk.api.lockOperations().setLockSettingTimeRestrictions(
+  "LOCK_ID", 
+  locationRequirement
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var locationRequirement = new LocationRequirement(LATITUDE, LONGITUDE, true, 100);
-await sdk.GetLockOperations().UpdateLockSettingLocationRestrictions("LOCK_ID", locationRequirement);
+var locationRequirement = new LocationRequirement(
+  latitude: LATITUDE, 
+  longitude: LONGITUDE, 
+  enabled: true
+);
+// Returns a Task<object>
+await sdk.GetLockOperations().UpdateLockSettingLocationRestrictions(
+  lockId: LOCK_ID, 
+  location: locationRequirement
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+locationRequirement = doordeck_headless_sdk.LocationRequirement(
+  LATITUDE, 
+  LONGITUDE, 
+  True
+)
 # Returns a Future[SimpleNamespace]
-locationRequirement = doordeck_headless_sdk.LocationRequirement(LATITUDE, LONGITUDE, True, 100)
-await sdk.lockOperations.update_lock_setting_location_restrictions("LOCK_ID", locationRequirement)
+await sdk.lockOperations.update_lock_setting_location_restrictions(
+  "LOCK_ID", 
+  locationRequirement
+)
 ```
 
 </TabItem>
@@ -764,7 +829,10 @@ This function is only available to users with Doordeck issued auth tokens
 
 ```kotlin showLineNumbers
 // Returns a UserPublicKeyResponse
-val response = sdk.lockOperations().getUserPublicKey("USER_EMAIL", false)
+val response = sdk.lockOperations().getUserPublicKey(
+  userEmail = "USER_EMAIL", 
+  visitor = false
+)
 ```
 
 </TabItem>
@@ -779,22 +847,33 @@ var response = sdk.lockOperations().getUserPublicKeyAsync("USER_EMAIL", false);
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-// Returns Void asynchronously
-let response = await sdk.lockOperations().getUserPublicKey(userEmail: "USER_EMAIL", visitor: false)
+// Returns a UserPublicKeyResponse asynchronously
+let response = await sdk.lockOperations().getUserPublicKey(
+  userEmail: "USER_EMAIL", 
+  visitor: false
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKey("USER_EMAIL", false);
+// Returns a Promise<UserPublicKeyResponse>
+const response = await com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKey(
+  "USER_EMAIL", 
+  false
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var response = await sdk.GetLockOperations().GetUserPublicKey("USER_EMAIL", false);
+// Returns a Task<UserPublicKeyResponse>
+var response = await sdk.GetLockOperations().GetUserPublicKey(
+  userEmail: "USER_EMAIL", 
+  visitor: false
+);
 ```
 
 </TabItem>
@@ -802,7 +881,10 @@ var response = await sdk.GetLockOperations().GetUserPublicKey("USER_EMAIL", fals
 
 ```python showLineNumbers
 # Returns a Future[SimpleNamespace]
-response = await sdk.lockOperations.get_user_public_key("USER_EMAIL", False)
+response = await sdk.lockOperations.get_user_public_key(
+  "USER_EMAIL", 
+  False
+)
 ```
 
 </TabItem>
@@ -830,7 +912,7 @@ var response = sdk.lockOperations().getUserPublicKeyByEmailAsync("USER_EMAIL");
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-// Returns Void asynchronously
+// Returns a UserPublicKeyResponse asynchronously
 let response = await sdk.lockOperations().getUserPublicKeyByEmail(email: "USER_EMAIL")
 ```
 
@@ -838,13 +920,15 @@ let response = await sdk.lockOperations().getUserPublicKeyByEmail(email: "USER_E
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByEmail("USER_EMAIL");
+// Returns a Promise<UserPublicKeyResponse>
+const response = await com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByEmail("USER_EMAIL");
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
+// Retrurns a Task<UserPublicKeyResponse>
 var response = await sdk.GetLockOperations().GetUserPublicKeyByEmail("USER_EMAIL");
 ```
 
@@ -881,7 +965,7 @@ var response = sdk.lockOperations().getUserPublicKeyByTelephoneAsync("USER_TELEP
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-// Returns Void asynchronously
+// Returns a UserPublicKeyResponse asynchronously
 let response = await sdk.lockOperations().getUserPublicKeyByTelephone(telephone: "USER_TELEPHONE")
 ```
 
@@ -889,13 +973,15 @@ let response = await sdk.lockOperations().getUserPublicKeyByTelephone(telephone:
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByTelephone("USER_TELEPHONE");
+// Returns a Promise<UserPublicKeyResponse>
+const response = await com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByTelephone("USER_TELEPHONE");
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
+// Returns a Task<UserPublicKeyResponse>
 var response = await sdk.GetLockOperations().GetUserPublicKeyByTelephone("USER_TELEPHONE");
 ```
 
@@ -932,7 +1018,7 @@ var response = sdk.lockOperations().getUserPublicKeyByLocalKeyAsync("USER_LOCAL_
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-// Returns Void asynchronously
+// Returns a UserPublicKeyResponse asynchronously
 let response = await sdk.lockOperations().getUserPublicKeyByLocalKey(localKey: "USER_LOCAL_KEY")
 ```
 
@@ -940,13 +1026,15 @@ let response = await sdk.lockOperations().getUserPublicKeyByLocalKey(localKey: "
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByLocalKey("USER_LOCAL_KEY");
+// Returns a Promise<UserPublicKeyResponse>
+const response = await com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByLocalKey("USER_LOCAL_KEY");
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
+// Returns a Task<UserPublicKeyResponse>
 var response = await sdk.GetLockOperations().GetUserPublicKeyByLocalKey("USER_LOCAL_KEY");
 ```
 
@@ -983,7 +1071,7 @@ var response = sdk.lockOperations().getUserPublicKeyByForeignKeyAsync("USER_FORE
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-// Returns Void asynchronously
+// Returns a UserPublicKeyResponse asynchronously
 let response = await sdk.lockOperations().getUserPublicKeyByForeignKey(foreignKey: "USER_FOREIGN_KEY")
 ```
 
@@ -991,13 +1079,15 @@ let response = await sdk.lockOperations().getUserPublicKeyByForeignKey(foreignKe
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByForeignKey("USER_FOREIGN_KEY");
+// Returns a Promise<UserPublicKeyResponse>
+const response = await com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByForeignKey("USER_FOREIGN_KEY");
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
+// Returns a Task<UserPublicKeyResponse>
 var response = await sdk.GetLockOperations().GetUserPublicKeyByForeignKey("USER_FOREIGN_KEY");
 ```
 
@@ -1034,7 +1124,7 @@ var response = sdk.lockOperations().getUserPublicKeyByIdentityAsync("USER_IDENTI
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-// Returns Void asynchronously
+// Returns a UserPublicKeyResponse asynchronously
 let response = await sdk.lockOperations().getUserPublicKeyByIdentity(identity: "USER_IDENTITY")
 ```
 
@@ -1042,13 +1132,15 @@ let response = await sdk.lockOperations().getUserPublicKeyByIdentity(identity: "
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByIdentity("USER_IDENTITY");
+// Returns a Promise<UserPublicKeyResponse>
+const response = await com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByIdentity("USER_IDENTITY");
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
+// Returns a Task<UserPublicKeyResponse>
 var response = await sdk.GetLockOperations().GetUserPublicKeyByIdentity("USER_IDENTITY");
 ```
 
@@ -1078,14 +1170,14 @@ val response = sdk.lockOperations().getUserPublicKeyByEmails(listOf("USER_EMAIL"
 
 ```java showLineNumbers
 // Returns a CompletableFuture<List<BatchUserPublicKeyResponse>>
-var response = sdk.lockOperations().getUserPublicKeyByEmailsAsync(listOf("USER_EMAIL", "USER_EMAIL"));
+var response = sdk.lockOperations().getUserPublicKeyByEmailsAsync(List.of("USER_EMAIL", "USER_EMAIL"));
 ```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-// Returns Void asynchronously
+// Returns a Array<BatchUserPublicKeyResponse> asynchronously
 let response = await sdk.lockOperations().getUserPublicKeyByEmails(emails: ["USER_EMAIL", "USER_EMAIL"])
 ```
 
@@ -1093,13 +1185,15 @@ let response = await sdk.lockOperations().getUserPublicKeyByEmails(emails: ["USE
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByEmails(["USER_EMAIL", "USER_EMAIL"]);
+// Returns a Promise<Array<BatchUserPublicKeyResponse>>
+const response = await com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByEmails(["USER_EMAIL", "USER_EMAIL"]);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
+// Returns a Task<List<BatchUserPublicKeyResponse>>
 var response = await sdk.GetLockOperations().GetUserPublicKeyByEmails(["USER_EMAIL", "USER_EMAIL"]);
 ```
 
@@ -1129,14 +1223,14 @@ val response = sdk.lockOperations().getUserPublicKeyByTelephones(listOf("USER_TE
 
 ```java showLineNumbers
 // Returns a CompletableFuture<List<BatchUserPublicKeyResponse>>
-var response = sdk.lockOperations().getUserPublicKeyByTelephonesAsync(listOf("USER_TELEPHONE", "USER_TELEPHONE"));
+var response = sdk.lockOperations().getUserPublicKeyByTelephonesAsync(List.of("USER_TELEPHONE", "USER_TELEPHONE"));
 ```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-// Returns Void asynchronously
+// Returns a Array<BatchUserPublicKeyResponse> asynchronously
 let response = await sdk.lockOperations().getUserPublicKeyByTelephones(telephones: ["USER_TELEPHONE", "USER_TELEPHONE"])
 ```
 
@@ -1144,13 +1238,15 @@ let response = await sdk.lockOperations().getUserPublicKeyByTelephones(telephone
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByTelephones(["USER_TELEPHONE", "USER_TELEPHONE"]);
+// Returns a Promise<Array<BatchUserPublicKeyResponse>>
+const response = await com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByTelephones(["USER_TELEPHONE", "USER_TELEPHONE"]);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
+// Returns a Tasl<List<BatchUserPublicKeyResponse>>
 var response = await sdk.GetLockOperations().GetUserPublicKeyByTelephones(["USER_TELEPHONE", "USER_TELEPHONE"]);
 ```
 
@@ -1180,14 +1276,14 @@ val response = sdk.lockOperations().getUserPublicKeyByLocalKeys(listOf("USER_LOC
 
 ```java showLineNumbers
 // Returns a CompletableFuture<List<BatchUserPublicKeyResponse>>
-var response = sdk.lockOperations().getUserPublicKeyByLocalKeysAsync(listOf("USER_LOCAL_KEY"));
+var response = sdk.lockOperations().getUserPublicKeyByLocalKeysAsync(List.of("USER_LOCAL_KEY"));
 ```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-// Returns Void asynchronously
+// Returns a Array<BatchUserPublicKeyResponse> asynchronously
 let response = await sdk.lockOperations().getUserPublicKeyByLocalKeys(localKeys: ["USER_LOCAL_KEY", "USER_LOCAL_KEY"])
 ```
 
@@ -1195,13 +1291,15 @@ let response = await sdk.lockOperations().getUserPublicKeyByLocalKeys(localKeys:
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByLocalKeys(["USER_LOCAL_KEY", "USER_LOCAL_KEY"]);
+// Returns a Promise<List<BatchUserPublicKeyResponse>>
+const response = await com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByLocalKeys(["USER_LOCAL_KEY", "USER_LOCAL_KEY"]);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
+// Returns a Task<List<BatchUserPublicKeyResponse>>
 var response = await sdk.GetLockOperations().GetUserPublicKeyByLocalKeys(["USER_LOCAL_KEY", "USER_LOCAL_KEY"]);
 ```
 
@@ -1231,14 +1329,14 @@ val response = sdk.lockOperations().getUserPublicKeyByForeignKeys(listOf("USER_F
 
 ```java showLineNumbers
 // Returns a CompletableFuture<List<BatchUserPublicKeyResponse>>
-var response = sdk.lockOperations().getUserPublicKeyByForeignKeysAsync(listOf("USER_FOREIGN_KEY", "USER_FOREIGN_KEY"));
+var response = sdk.lockOperations().getUserPublicKeyByForeignKeysAsync(List.of("USER_FOREIGN_KEY", "USER_FOREIGN_KEY"));
 ```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-// Returns Void asynchronously
+// Returns a Array<BatchUserPublicKeyResponse> asynchronously
 let response = await sdk.lockOperations().getUserPublicKeyByForeignKeys(foreignKeys: ["USER_FOREIGN_KEY", "USER_FOREIGN_KEY"])
 ```
 
@@ -1246,13 +1344,15 @@ let response = await sdk.lockOperations().getUserPublicKeyByForeignKeys(foreignK
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByForeignKey(["USER_FOREIGN_KEY", "USER_FOREIGN_KEY"]);
+// Returns a Promise<Array<BatchUserPublicKeyResponse>>
+const response = await com.doordeck.multiplatform.sdk.api.lockOperations().getUserPublicKeyByForeignKey(["USER_FOREIGN_KEY", "USER_FOREIGN_KEY"]);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
+// Returns a Task<List<BatchUserPublicKeyResponse>>
 var response = await sdk.GetLockOperations().GetUserPublicKeyByForeignKeys(["USER_FOREIGN_KEY", "USER_FOREIGN_KEY"]);
 ```
 
@@ -1309,10 +1409,10 @@ await sdk.lockOperations().unlock(unlockOperation: shareLockOperation)
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const lockOperations = doordeck.com.doordeck.multiplatform.sdk.model.data.LockOperations;
+const lockOperations = com.doordeck.multiplatform.sdk.model.data.LockOperations;
 const baseOperation = new lockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID", NOT_BEFORE, ISSUED_AT, EXPIRES_AT, "UUID");
 const unlockOperation = new lockOperations.UnlockOperation(baseOperation, null);
-await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().unlock(unlockOperation);
+await com.doordeck.multiplatform.sdk.api.lockOperations().unlock(unlockOperation);
 ```
 
 </TabItem>
@@ -1382,12 +1482,12 @@ await sdk.lockOperations().shareLock(shareLockOperation: shareLockOperation)
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const lockOperations = doordeck.com.doordeck.multiplatform.sdk.model.data.LockOperations;
+const lockOperations = com.doordeck.multiplatform.sdk.model.data.LockOperations;
 const baseOperation = new lockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID", NOT_BEFORE, ISSUED_AT, EXPIRES_AT, "UUID");
-const userRole = doordeck.com.doordeck.multiplatform.sdk.model.common.UserRole;
+const userRole = com.doordeck.multiplatform.sdk.model.common.UserRole;
 const shareLock = new lockOperations.ShareLock("TARGET_USER_ID", userRole.USER, TARGET_PUBLIC_KEY, null, null);
 const shareLockOperation = new lockOperations.ShareLockOperation(baseOperation, shareLock);
-await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().shareLock(shareLockOperation);
+await com.doordeck.multiplatform.sdk.api.lockOperations().shareLock(shareLockOperation);
 ```
 
 </TabItem>
@@ -1462,12 +1562,12 @@ await sdk.lockOperations().batchShareLock(shareLockOperation: shareLockOperation
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const lockOperations = doordeck.com.doordeck.multiplatform.sdk.model.data.LockOperations;
+const lockOperations = com.doordeck.multiplatform.sdk.model.data.LockOperations;
 const baseOperation = new lockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID", NOT_BEFORE, ISSUED_AT, EXPIRES_AT, "UUID");
-const userRole = doordeck.com.doordeck.multiplatform.sdk.model.common.UserRole;
+const userRole = com.doordeck.multiplatform.sdk.model.common.UserRole;
 const users = [new lockOperations.ShareLock("TARGET_USER_ID", userRole.USER, TARGET_PUBLIC_KEY, null, null)];
 const shareLockOperation = new lockOperations.BatchShareLockOperation(baseOperation, users);
-await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().batchShareLock(shareLockOperation);
+await com.doordeck.multiplatform.sdk.api.lockOperations().batchShareLock(shareLockOperation);
 ```
 
 </TabItem>
@@ -1536,10 +1636,10 @@ await sdk.lockOperations().revokeAccessToLock(revokeAccessToLockOperation: revok
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const lockOperations = doordeck.com.doordeck.multiplatform.sdk.model.data.LockOperations;
+const lockOperations = com.doordeck.multiplatform.sdk.model.data.LockOperations;
 const baseOperation = new lockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID", NOT_BEFORE, ISSUED_AT, EXPIRES_AT, "UUID");
 const revokeAccessToLockOperation = new lockOperations.RevokeAccessToLockOperation(baseOperation, ["USER_ID"]);
-await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().revokeAccessToLock(revokeAccessToLockOperation);
+await com.doordeck.multiplatform.sdk.api.lockOperations().revokeAccessToLock(revokeAccessToLockOperation);
 ```
 
 </TabItem>
@@ -1606,10 +1706,10 @@ await sdk.lockOperations().updateSecureSettingUnlockDuration(updateSecureSetting
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const lockOperations = doordeck.com.doordeck.multiplatform.sdk.model.data.LockOperations;
+const lockOperations = com.doordeck.multiplatform.sdk.model.data.LockOperations;
 const baseOperation = new lockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID", NOT_BEFORE, ISSUED_AT, EXPIRES_AT, "UUID");
 const updateSecureSettingUnlockDuration = new lockOperations.UpdateSecureSettingUnlockDuration(baseOperation, UNLOCK_DURATION);
-await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().updateSecureSettingUnlockDuration(updateSecureSettingUnlockDuration);
+await com.doordeck.multiplatform.sdk.api.lockOperations().updateSecureSettingUnlockDuration(updateSecureSettingUnlockDuration);
 ```
 
 </TabItem>
@@ -1679,11 +1779,11 @@ await sdk.lockOperations().updateSecureSettingUnlockBetween(updateSecureSettingU
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const lockOperations = doordeck.com.doordeck.multiplatform.sdk.model.data.LockOperations;
+const lockOperations = com.doordeck.multiplatform.sdk.model.data.LockOperations;
 const baseOperation = new lockOperations.BaseOperation("USER_ID", USER_CERTIFICATE_CHAIN_LIST, PRIVATE_KEY, "LOCK_ID", NOT_BEFORE, ISSUED_AT, EXPIRES_AT, "UUID");
 const unlockBetween = new lockOperations.UnlockBetween("START_HH_MM", "END_HH_MM", "TIMEZONE", DAYS_LIST, EXCEPTIONS_LIST);
 const updateSecureSettingUnlockBetween = new lockOperations.UpdateSecureSettingUnlockBetween(baseOperation, unlockBetween)
-await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().updateSecureSettingUnlockBetween(updateSecureSettingUnlockBetween);
+await com.doordeck.multiplatform.sdk.api.lockOperations().updateSecureSettingUnlockBetween(updateSecureSettingUnlockBetween);
 ```
 
 </TabItem>
@@ -1741,7 +1841,7 @@ let response = await sdk.lockOperations().getPinnedLocks()
 
 ```js showLineNumbers
 // Returns a Promise<Array<LockResponse>>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getPinnedLocks();
+const response = await com.doordeck.multiplatform.sdk.api.lockOperations().getPinnedLocks();
 ```
 
 </TabItem>
@@ -1794,7 +1894,7 @@ let response = await sdk.lockOperations().getShareableLocks()
 
 ```js showLineNumbers
 // Returns a Promise<Array<ShareableLockResponse>>
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.lockOperations().getShareableLocks();
+const response = await com.doordeck.multiplatform.sdk.api.lockOperations().getShareableLocks();
 ```
 
 </TabItem>
