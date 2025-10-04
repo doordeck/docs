@@ -39,7 +39,8 @@ sdk.contextManager().setOperationContext(
   userId: USER_ID, 
   certificateChain: USER_CERTIFICATE_CHAIN_LIST, 
   publicKey: PUBLIC_KEY, 
-  privateKey: PRIVATE_KEY
+  privateKey: PRIVATE_KEY,
+  isKeyPairVerified: IS_KEY_PAIR_VERIFIED
 )
 ```
 

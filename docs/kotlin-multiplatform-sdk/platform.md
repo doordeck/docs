@@ -934,7 +934,14 @@ sdk.platform().addAuthKeyAsync(APPLICATION_ID, key);
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let key = Platform.Ed25519Key(kty: "OKP", user: "sig", kid: "90a983fd-9077-41f9-840c-7220581017f5", alg: "EdDSA", d: "zVfpB5Nfj4SzYayFpTu4Qm1JaUmk6-FBbFUX3k1qqwc", crv: "Ed25519", x: "0ufELXg9OUjkAZUs5aGdgVbz664erh8t9cTvFBHicrc")
+let key = PlatformOperations.Ed25519Key(
+  kty: "OKP", 
+  use: "sig", 
+  kid: "90a983fd-9077-41f9-840c-7220581017f5", 
+  alg: "EdDSA", 
+  crv: "Ed25519", 
+  x: "0ufELXg9OUjkAZUs5aGdgVbz664erh8t9cTvFBHicrc"
+)
 // Returns Void asynchronously
 await sdk.platform().addAuthKey(
   applicationId: APPLICATION_ID, 
@@ -946,8 +953,14 @@ await sdk.platform().addAuthKey(
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const platform = com.doordeck.multiplatform.sdk.model.data.Platform;
-const key = new platform.Ed25519Key("OKP", "sig", "90a983fd-9077-41f9-840c-7220581017f5", "EdDSA", "zVfpB5Nfj4SzYayFpTu4Qm1JaUmk6-FBbFUX3k1qqwc", "Ed25519", "0ufELXg9OUjkAZUs5aGdgVbz664erh8t9cTvFBHicrc");
+const key = new com.doordeck.multiplatform.sdk.model.data.PlatformOperations.Ed25519Key(
+  "OKP", 
+  "sig", 
+  "90a983fd-9077-41f9-840c-7220581017f5", 
+  "EdDSA", 
+  "Ed25519", 
+  "0ufELXg9OUjkAZUs5aGdgVbz664erh8t9cTvFBHicrc"
+);
 // Returns a Promise<any>
 await com.doordeck.multiplatform.sdk.api.platform().addAuthKey(
   "APPLICATION_ID", 
@@ -959,7 +972,13 @@ await com.doordeck.multiplatform.sdk.api.platform().addAuthKey(
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var key = new Ed25519Key("sig", "90a983fd-9077-41f9-840c-7220581017f5", "EdDSA", "zVfpB5Nfj4SzYayFpTu4Qm1JaUmk6-FBbFUX3k1qqwc", "Ed25519", "0ufELXg9OUjkAZUs5aGdgVbz664erh8t9cTvFBHicrc");
+var key = new Ed25519Key(
+  use: "sig", 
+  kid: "90a983fd-9077-41f9-840c-7220581017f5", 
+  alg: "EdDSA", 
+  crv: "Ed25519", 
+  x: "0ufELXg9OUjkAZUs5aGdgVbz664erh8t9cTvFBHicrc"
+);
 // Returns a Task<object>
 await sdk.GetPlatform().AddAuthKey(
   applicationId: APPLICATION_ID, 
@@ -972,7 +991,13 @@ await sdk.GetPlatform().AddAuthKey(
 
 ```python showLineNumbers
 # Returns a Future[SimpleNamespace]
-key = doordeck_headless_sdk.Ed25519Key("sig", "90a983fd-9077-41f9-840c-7220581017f5", "EdDSA", "zVfpB5Nfj4SzYayFpTu4Qm1JaUmk6-FBbFUX3k1qqwc", "Ed25519", "0ufELXg9OUjkAZUs5aGdgVbz664erh8t9cTvFBHicrc")
+key = doordeck_headless_sdk.Ed25519Key(
+  "sig", 
+  "90a983fd-9077-41f9-840c-7220581017f5", 
+  "EdDSA",
+  "Ed25519", 
+  "0ufELXg9OUjkAZUs5aGdgVbz664erh8t9cTvFBHicrc"
+)
 await sdk.platform.add_auth_key(
   "APPLICATION_ID", 
   key

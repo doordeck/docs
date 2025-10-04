@@ -81,8 +81,8 @@ var response = sdk.lockOperations().getLockAuditTrailAsync(LOCK_ID);
 // Returns a Array<LockAuditTrailResponse> asynchronously
 let response = await sdk.lockOperations().getLockAuditTrail(
   lockId: LOCK_ID, 
-  start: START_EPOCH, 
-  end: END_EPOCH
+  start: START, 
+  end: END
 )
 ```
 
@@ -138,8 +138,8 @@ var response = sdk.lockOperations().getAuditForUserAsync(USER_ID);
 // Returns a Array<AuditResponse> asynchronously
 let response = await sdk.lockOperations().getAuditForUser(
   userId: USER_ID, 
-  start: START_EPOCH, 
-  end: END_EPOCH
+  start: START, 
+  end: END
 )
 ```
 

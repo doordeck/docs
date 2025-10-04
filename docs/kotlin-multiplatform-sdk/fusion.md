@@ -187,7 +187,7 @@ response = await sdk.fusion.get_integration_configuration("CONTROLLER_TYPE")
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val controller = Fusion.DemoController()
+val controller = FusionOperations.DemoController()
 // Returns Unit
 sdk.fusion().enableDoor(
   name = "NAME",
@@ -200,7 +200,7 @@ sdk.fusion().enableDoor(
 <TabItem value="java" label="Java">
 
 ```java showLineNumbers
-var controller = Fusion.DemoController();
+var controller = new FusionOperations.DemoController();
 // Returns a CompletableFuture<Void>
 sdk.fusion().enableDoorAsync("NAME", SITE_ID, controller);
 ```
@@ -209,7 +209,7 @@ sdk.fusion().enableDoorAsync("NAME", SITE_ID, controller);
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let controller = Fusion.DemoController()
+let controller = FusionOperations.DemoController.init(port: 8080)
 // Returns Void asynchronously
 await sdk.fusion().enableDoor(
   name: "NAME", 
@@ -222,8 +222,7 @@ await sdk.fusion().enableDoor(
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const fusion = com.doordeck.multiplatform.sdk.model.data.Fusion;
-const controller = new fusion.DemoController(8080);
+const controller = new com.doordeck.multiplatform.sdk.model.data.FusionOperations.DemoController(8080);
 // Returns a Promise<any>
 await com.doordeck.multiplatform.sdk.api.fusion().enableDoor(
   "NAME", 

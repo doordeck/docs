@@ -314,7 +314,7 @@ await com.doordeck.multiplatform.sdk.api.accountless().passwordResetVerify(
 ```csharp showLineNumbers
 // Returns a Task<object>
 await sdk.GetAccountless().PasswordResetVerify(
-  userId: "USER_ID", 
+  userId: USER_ID, 
   token: "TOKEN", 
   password: "PASSWORD"
 );
