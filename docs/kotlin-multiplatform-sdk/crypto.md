@@ -50,7 +50,7 @@ var keyPair = sdk.GetCryptoManager().GenerateKeyPair();
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-# Returns a key pair map
+# Returns a SimpleNamespace
 keyPair = sdk.cryptoManager.generate_key_pair()
 ```
 
