@@ -57,7 +57,7 @@ In JavaScript, we provide a sample built with [Angular](https://github.com/doord
 </TabItem>
 <TabItem value="csharp" label="C#">
 
-In C#, we provide a sample build with [WPF](https://github.com/doordeck/doordeck-headless-sdk/tree/main/samples/wpf) demonstrating how the SDK can be integrated into a desktop application.
+In C#, we provide a sample built with [WPF](https://github.com/doordeck/doordeck-headless-sdk/tree/main/samples/wpf) demonstrating how the SDK can be integrated into a desktop application.
 
 #### Functionalities Included:
 * User login
