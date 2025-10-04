@@ -5,10 +5,10 @@ sidebar_position: 1
 
 # Introduction
 
-Welcome to the Doordeck Developer Hub
+Welcome to the Sentry Interactive Developer Hub!
 
 Explore comprehensive documentation for our cloud APIs and software development kits (SDKs), 
-designed to accelerate your integration with Doordeck's services. 
+designed to accelerate your integration with Sentry Interactive's services.
 
 This central resource provides everything you need to build
 applications using our cloud platform—whether you're using RESTful APIs or language-specific SDKs.

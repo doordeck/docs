@@ -5,17 +5,27 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+// Returns a KeyPair
 val keyPair = sdk.crypto().generateKeyPair()
+```
+
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a KeyPair
+var keyPair = sdk.crypto().generateKeyPair();
 ```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
+// Returns a Crypto.KeyPair
 let keyPair = sdk.crypto().generateKeyPair()
 ```
 
@@ -23,7 +33,8 @@ let keyPair = sdk.crypto().generateKeyPair()
 <TabItem value="js" label="JavaScript">
 
 ```javascript showLineNumbers
-const crypto = doordeck.com.doordeck.multiplatform.sdk.crypto.crypto()
+// Returns a Crypto.KeyPair
+const crypto = doordeck.com.doordeck.multiplatform.sdk.crypto.crypto();
 const keyPair = crypto.generateKeyPair();
 ```
 
@@ -31,13 +42,15 @@ const keyPair = crypto.generateKeyPair();
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var keyPair = sdk.GetCryptoManager().GenerateEncodedKeyPair();
+// Returns a KeyPair
+var keyPair = sdk.GetCryptoManager().GenerateKeyPair();
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a SimpleNamespace
 keyPair = sdk.cryptoManager.generate_key_pair()
 ```
 
