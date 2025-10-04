@@ -39,7 +39,7 @@ var response = sdk.platform().createApplicationAsync(application);
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let application = PlatformOperations.CreateApplication.Builder()
+let application = PlatformOperations.CreateApplicationBuilder()
     .setName(name: "APPLICATION_NAME")
     .setCompanyName(companyName: "COMPANY_NAME")
     .setMailingAddress(mailingAddress: "COMPANY@MAIL.COM")
@@ -644,7 +644,7 @@ sdk.platform().updateApplicationEmailPreferencesAsync(APPLICATION_ID, emailPrefe
 
 ```swift showLineNumbers
 // Returns Void asynchronously
-let emailPreferences = PlatformOperations.EmailPreferences.Builder()
+let emailPreferences = PlatformOperations.EmailPreferencesBuilder()
   .setSenderEmail(senderEmail: "SENDER_EMAIL")
   .setSenderName(senderName: "SENDER_NAME")
   .setPrimaryColour(primaryColour: "PRIMARY_COLOR")

@@ -137,7 +137,7 @@ var response = sdk.lockOperations().getAuditForUserAsync(USER_ID);
 ```swift showLineNumbers
 // Returns a Array<AuditResponse> asynchronously
 let response = await sdk.lockOperations().getAuditForUser(
-  userId: "USER_ID", 
+  userId: USER_ID, 
   start: START_EPOCH, 
   end: END_EPOCH
 )
@@ -653,11 +653,11 @@ sdk.lockOperations().setLockSettingTimeRestrictionsAsync(LOCK_ID, List.of(timeRe
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let timeRequirement = LockOperations.TimeRequirement.Builder()
-    .setStart(START)
-    .setEnd(END)
-    .setTimezone(TIMEZONE_ID)
-    .setDays([DayOfWeek.MONDAY])
+let timeRequirement = LockOperations.TimeRequirementBuilder()
+    .setStart(start: START)
+    .setEnd(end: END)
+    .setTimezone(timezone: TIMEZONE_ID)
+    .setDays(days: [DayOfWeek.monday])
     .build()
 // Returns Void asynchronously
 await sdk.lockOperations().setLockSettingTimeRestrictions(
@@ -755,7 +755,7 @@ sdk.lockOperations().updateLockSettingLocationRestrictionsAsync(LOCK_ID, locatio
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let locationRequirement = LockOperations.LocationRequirement.Builder()
+let locationRequirement = LockOperations.LocationRequirementBuilder()
   .setLatitude(latitude: LATITUDE)
   .setLongitude(longitude: LONGITUDE)
   .setEnabled(enabled: true)
@@ -1405,8 +1405,8 @@ sdk.lockOperations().unlockAsync(unlockOperation);
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let unlockOperation = LockOperations.UnlockOperation.Builder()
-  .setBaseOperation(LockOperations.BaseOperation.Builder()
+let unlockOperation = LockOperations.UnlockOperationBuilder()
+  .setBaseOperation(baseOperation: LockOperations.BaseOperationBuilder()
     .setLockId(lockId: LOCK_ID)
     .build())
   .build()
@@ -1499,14 +1499,14 @@ sdk.lockOperations().shareLockAsync(shareLockOperation);
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let shareLockOperation = LockOperations.ShareLockOperation.Builder()
-  .setBaseOperation(baseOperation: LockOperations.BaseOperation.Builder()
-    .setLockId(LOCK_ID)
+let shareLockOperation = LockOperations.ShareLockOperationBuilder()
+  .setBaseOperation(baseOperation: LockOperations.BaseOperationBuilder()
+    .setLockId(lockId: LOCK_ID)
     .build())
-  .setShareLock(shareLock: ShareLock.Builder()
-    .setTargetUserId(TARGET_USER_ID)
-    .setTargetUserRole(TARGET_USER_ROLE)
-    .setTargetUserPublicKey(TARGET_PUBLIC_KEY)
+  .setShareLock(shareLock: LockOperations.ShareLockBuilder()
+    .setTargetUserId(targetUserId: TARGET_USER_ID)
+    .setTargetUserRole(targetUserRole: TARGET_USER_ROLE)
+    .setTargetUserPublicKey(targetUserPublicKey: TARGET_PUBLIC_KEY)
     .build())
   .build()
 // Returns Void asynchronously  
@@ -1620,14 +1620,14 @@ sdk.lockOperations().batchShareLockAsync(batchShareLockOperation);
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let batchShareLockOperation = LockOperations.BatchShareLockOperation.Builder()
-  .setBaseOperation(baseOperation: LockOperations.BaseOperation.Builder()
-    .setLockId(LOCK_ID)
+let batchShareLockOperation = LockOperations.BatchShareLockOperationBuilder()
+  .setBaseOperation(baseOperation: LockOperations.BaseOperationBuilder()
+    .setLockId(lockId: LOCK_ID)
     .build())
-  .setUsers(users: [ShareLock.Builder()
-    .setTargetUserId(TARGET_USER_ID)
-    .setTargetUserRole(TARGET_USER_ROLE)
-    .setTargetUserPublicKey(TARGET_PUBLIC_KEY)
+  .setUsers(users: [LockOperations.ShareLockBuilder()
+    .setTargetUserId(targetUserId: TARGET_USER_ID)
+    .setTargetUserRole(targetUserRole: TARGET_USER_ROLE)
+    .setTargetUserPublicKey(targetUserPublicKey: TARGET_PUBLIC_KEY)
     .build()])
   .build()
 // Returns Void asynchronously  
@@ -1730,11 +1730,11 @@ sdk.lockOperations().revokeAccessToLockAsync(revokeAccessToLockOperation);
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let revokeAccessToLockOperation = LockOperations.RevokeAccessToLockOperation.Builder()
-  .setBaseOperation(LockOperations.BaseOperation.Builder()
-    .setLockId(LOCK_ID)
+let revokeAccessToLockOperation = LockOperations.RevokeAccessToLockOperationBuilder()
+  .setBaseOperation(baseOperation: LockOperations.BaseOperationBuilder()
+    .setLockId(lockId: LOCK_ID)
     .build())
-  .setUsers([USER_ID])
+  .setUsers(users: [USER_ID])
   .build()
 // Returns Void asynchronously
 await sdk.lockOperations().revokeAccessToLock(revokeAccessToLockOperation: revokeAccessToLockOperation)
@@ -1824,8 +1824,8 @@ sdk.lockOperations().updateSecureSettingUnlockDurationAsync(updateSecureSettingU
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let updateSecureSettingUnlockDuration = LockOperations.UpdateSecureSettingUnlockDuration.Builder()
-  .setBaseOperation(LockOperations.BaseOperation.Builder()
+let updateSecureSettingUnlockDuration = LockOperations.UpdateSecureSettingUnlockDurationBuilder()
+  .setBaseOperation(baseOperation: LockOperations.BaseOperationBuilder()
     .setLockId(lockId: LOCK_ID)
     .build())
   .setUnlockDuration(unlockDuration: UNLOCK_DURATION)
@@ -1928,19 +1928,19 @@ updateSecureSettingUnlockBetweenAsync(updateSecureSettingUnlockBetween);
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let updateSecureSettingUnlockBetween = LockOperations.UpdateSecureSettingUnlockBetween.Builder()
-  .setBaseOperation(baseOperation: LockOperations.BaseOperation.Builder()
-    .setLockId(LOCK_ID)
+let updateSecureSettingUnlockBetween = LockOperations.UpdateSecureSettingUnlockBetweenBuilder()
+  .setBaseOperation(baseOperation: LockOperations.BaseOperationBuilder()
+    .setLockId(lockId: LOCK_ID)
     .build())
-  .setUnlockBetween(unlockBetween: LockOperations.UnlockBetween.Builder()
+  .setUnlockBetween(unlockBetween: LockOperations.UnlockBetweenBuilder()
     .setStart(start: START)
     .setEnd(end: END)
-    .setTimezone(timezone: TIMEZONE)
-    .setDays(days: DAYS_LIST)
+    .setTimezone(timezone: TIMEZONE_ID)
+    .setDays(days: [DayOfWeek.monday])
     .build())
   .build()
 // Returns Void asynchronously
-sdk.lockOperations().updateSecureSettingUnlockBetween(updateSecureSettingUnlockBetween);
+await sdk.lockOperations().updateSecureSettingUnlockBetween(updateSecureSettingUnlockBetween: updateSecureSettingUnlockBetween);
 ```
 
 </TabItem>

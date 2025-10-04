@@ -234,7 +234,7 @@ var response = sdk.account().registerEphemeralKeyWithSecondaryAuthenticationAsyn
 // Returns a RegisterEphemeralKeyWithSecondaryAuthenticationResponse asynchronously
 let response = await sdk.account().registerEphemeralKeyWithSecondaryAuthentication(
   publicKey: PUBLIC_KEY, 
-  method: null
+  method: nil
 )
 ```
 
