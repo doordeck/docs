@@ -913,8 +913,12 @@ response = await sdk.platform.get_logo_upload_url(
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
+val key = OctetKeyPair.Builder(Curve.Ed25519, Base64URL("0ufELXg9OUjkAZUs5aGdgVbz664erh8t9cTvFBHicrc"))
+  .keyUse(KeyUse.SIGNATURE)
+  .algorithm(Algorithm.parse("EdDSA"))
+  .keyID("90a983fd-9077-41f9-840c-7220581017f5")
+  .build()
 // Returns Unit
-val key = Platform.Ed25519Key("OKP", "sig", "90a983fd-9077-41f9-840c-7220581017f5", "EdDSA", "zVfpB5Nfj4SzYayFpTu4Qm1JaUmk6-FBbFUX3k1qqwc", "Ed25519", "0ufELXg9OUjkAZUs5aGdgVbz664erh8t9cTvFBHicrc")
 sdk.platform().addAuthKey(
   applicationId = APPLICATION_ID, 
   key = key
@@ -925,8 +929,12 @@ sdk.platform().addAuthKey(
 <TabItem value="java" label="Java">
 
 ```java showLineNumbers
+var key = OctetKeyPair.Builder(Curve.Ed25519, Base64URL("0ufELXg9OUjkAZUs5aGdgVbz664erh8t9cTvFBHicrc"))
+    .keyUse(KeyUse.SIGNATURE)
+    .algorithm(Algorithm.parse("EdDSA"))
+    .keyID("90a983fd-9077-41f9-840c-7220581017f5")
+    .build();
 // Returns a CompletableFuture<Void>
-var key = Platform.Ed25519Key("OKP", "sig", "90a983fd-9077-41f9-840c-7220581017f5", "EdDSA", "zVfpB5Nfj4SzYayFpTu4Qm1JaUmk6-FBbFUX3k1qqwc", "Ed25519", "0ufELXg9OUjkAZUs5aGdgVbz664erh8t9cTvFBHicrc");
 sdk.platform().addAuthKeyAsync(APPLICATION_ID, key);
 ```
 
