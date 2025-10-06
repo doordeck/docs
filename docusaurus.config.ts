@@ -9,6 +9,11 @@ const config: Config = {
   tagline: 'Explore comprehensive documentation for our cloud APIs and SDKs',
   favicon: 'img/favicon.png',
 
+  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
+  future: {
+    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+  },
+
   // Set the production url of your site here
   url: 'https://portal.sentryinteractive.com',
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -77,6 +82,9 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     image: 'img/social-card.jpg',
+    colorMode: {
+      respectPrefersColorScheme: true,
+    },
     navbar: {
       title: '',
       logo: {
