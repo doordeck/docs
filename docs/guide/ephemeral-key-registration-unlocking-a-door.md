@@ -162,5 +162,5 @@ curl 'https://api.doordeck.com/device/ad8fb900-4def-11e8-9370-170748b9fca8/execu
  --data-binary "$JWT"
 ```
 
-Sending this command should trigger the animated virtual door at https://demo.doordeck.com/, don't forget, you may need
+Sending this command should trigger the animated virtual door at https://demo.sentryinteractive.com/, don't forget, you may need
 to update the expiry time of your JWT since generating the initial payload.

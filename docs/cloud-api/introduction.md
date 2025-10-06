@@ -4,7 +4,7 @@ Welcome to the Doordeck API! You can use our API to access Doordeck API endpoint
 which can get information on the state of locks, manage access and perform operations.
 
 This API documentation includes details of both endpoints available to Doordeck users (i.e. users who have registered
-on [Doordeck](https://app.doordeck.com) directly) and to third-party app developers, some endpoints are only available
+on [Doordeck](https://app.sentryinteractive.com) directly) and to third-party app developers, some endpoints are only available
 to one set of users, these are flagged as follows:
 
 :::warning[Important]

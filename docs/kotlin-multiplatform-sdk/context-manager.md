@@ -74,7 +74,7 @@ sdk.GetContextManager().SetOperationContext(
 ```python showLineNumbers
 sdk.contextManager.set_operation_context(
   "USER_ID", 
-  USER_CERTIFICATE_CHAIN_AS_STRING, 
+  "USER_CERTIFICATE_CHAIN_AS_STRING", 
   "BASE64_PUBLIC_KEY", 
   "BASE64_PRIVATE_KEY"
 )
