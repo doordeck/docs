@@ -85,6 +85,14 @@ const config: Config = {
     colorMode: {
       respectPrefersColorScheme: true,
     },
+    announcementBar: {
+      id: 'rebranding',
+      content:
+        'Doordeck is now Sentry Interactive, some references in this document, such as URLs, will continue to reference Doordeck to ensure continuation of service.',
+      backgroundColor: '#009DEA',
+      textColor: '#ffffff',
+      isCloseable: false,
+    },
     navbar: {
       title: '',
       logo: {
