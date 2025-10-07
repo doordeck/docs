@@ -4,7 +4,7 @@ openssl genpkey -algorithm ed25519 -out private.der
 # Format the public key for use with the ephemeral key registration endpoint
 PUBLIC_KEY=`openssl pkey -in private.key -pubout -outform DER -out - | base64`
 
-# Register the keypair with Doordeck (may require verification, see "Register Ephemeral Key With Secondary Authentication")
+# Register the keypair with Sentry Interactive (may require verification, see "Register Ephemeral Key With Secondary Authentication")
 API_RESPONSE=$(curl -s -X POST https://api.doordeck.com/auth/certificate \
   -H 'authorization: Bearer TOKEN' \
   -H 'content-type: application/json' \

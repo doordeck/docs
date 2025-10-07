@@ -3,7 +3,7 @@
 ## Request a new refresh token
 
 :::warning
-This function is only available to users with Doordeck issued auth tokens.
+This function is only available to users with Sentry Interactive issued auth tokens.
 :::
 
 :::info 
@@ -347,7 +347,7 @@ response = await sdk.account.verify_ephemeral_key_registration(
 ## Re-verify email
 
 :::warning
-This function is only available to users with Doordeck issued auth tokens.
+This function is only available to users with Sentry Interactive issued auth tokens.
 :::
 
 <Tabs groupId="programming-language">
@@ -404,7 +404,7 @@ await sdk.account.reverify_email()
 ## Change password
 
 :::warning
-This function is only available to users with Doordeck issued auth tokens.
+This function is only available to users with Sentry Interactive issued auth tokens.
 :::
 
 <Tabs groupId="programming-language">

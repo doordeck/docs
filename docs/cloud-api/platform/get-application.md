@@ -5,7 +5,7 @@ sidebar_position: 3
 # Get Application
 
 :::warning
-This endpoint is only available to users with Doordeck issued auth tokens.
+This endpoint is only available to users with Sentry Interactive issued auth tokens.
 :::
 
 Gets the application specified by application ID.

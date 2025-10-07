@@ -1,6 +1,6 @@
 # Install the SDK into your project
 
-Easily integrate the Doordeck SDK into your project by following the platform-specific instructions below.
+Easily integrate the Sentry Interactive SDK into your project by following the platform-specific instructions below.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

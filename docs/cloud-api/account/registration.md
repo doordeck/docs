@@ -8,7 +8,7 @@ sidebar_position: 2
 To preserve compatibility, this endpoint responds to requests for v1 through v3.
 :::
 
-This endpoint allows users to register for a Doordeck account; the call will fail with a 409 conflict error if there is 
+This endpoint allows users to register for a Sentry Interactive account; the call will fail with a 409 conflict error if there is 
 a pending invite (unless force is set to true).
 
 ### HTTP Request

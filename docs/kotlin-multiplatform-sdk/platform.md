@@ -1,7 +1,7 @@
 # Platform resource
 
 :::warning
-All of the platform functions are only available to users with Doordeck issued auth tokens
+All of the platform functions are only available to users with Sentry Interactive issued auth tokens
 :::
 
 import Tabs from '@theme/Tabs';

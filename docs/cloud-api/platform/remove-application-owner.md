@@ -5,7 +5,7 @@ sidebar_position: 13
 # Remove Application Owner
 
 :::warning
-This endpoint is only available to users with Doordeck issued auth tokens.
+This endpoint is only available to users with Sentry Interactive issued auth tokens.
 :::
 
 Removes an owner from an existing application.

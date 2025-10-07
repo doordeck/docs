@@ -9,13 +9,13 @@ Our [SDK](../kotlin-multiplatform-sdk/install.md) takes care of the complexity d
 The information provided here is for educational purposes and to help you understand the underlying processes.
 :::
 
-Sharing a door is one of the secure operations within Doordeck that must be performed by a door administrator who has a 
+Sharing a door is one of the secure operations within Sentry Interactive that must be performed by a door administrator who has a 
 valid ephemeral key, see our guide on 
 [registering an initial ephemeral key](ephemeral-key-registration-unlocking-a-door.md) and 
 [registering subsequent ephemeral keys](adding-more-ephemeral-keys-secondary-authentication-checks.md) when logging into new devices.
 
 Although the actual operation to share a door is structurally very similar to an unlock request, there is some initial 
-data needed before we can proceed, in particular we need to know the Doordeck identifier for the user you want to share 
+data needed before we can proceed, in particular we need to know the Sentry Interactive identifier for the user you want to share 
 a door with, and we need to know their public key.
 
 :::tip
@@ -24,12 +24,12 @@ Want to know which doors you can share? We have an
 which you are an administrator).
 :::
 
-Doordeck provides a [convenient endpoint](../cloud-api/lock-operations/lookup-user-public-key-v2.md) for locating the 
-Doordeck identifier and public key of your users - you can query by email, telephone, your own user identifier 
+Sentry Interactive provides a [convenient endpoint](../cloud-api/lock-operations/lookup-user-public-key-v2.md) for locating the
+Sentry Interactive identifier and public key of your users - you can query by email, telephone, your own user identifier 
 (foreignKey) or an encrypted OpenID identity which we'll explore a bit later.
 
 As a reminder, whenever you call any of our endpoints with a valid OpenID token, we'll dynamically create that user and 
-update our internal user directory with their details, for this example let's assume that Doordeck knows about the 
+update our internal user directory with their details, for this example let's assume that Sentry Interactive knows about the 
 following user.
 
 > Subject: `123`
@@ -38,7 +38,7 @@ following user.
 > 
 > Telephone: `+442034341020`
 
-I can now query the internal directory for the Doordeck identifier and public key of this user through any one of those 
+I can now query the internal directory for the Sentry Interactive identifier and public key of this user through any one of those 
 identifiers.
 
 ```shell
@@ -89,14 +89,14 @@ creating the body of the JWT request:
 There are a number of important fields in the request body, you can view the full details on the 
 [endpoint details](../cloud-api/lock-operations/share-a-lock-v1.md) but here is a summary:
 
-| Field               | Description                                                                      |
-|---------------------|----------------------------------------------------------------------------------|
-| iss                 | Your Doordeck identifier                                                         |
-| sub                 | Door identifier to be shared                                                     |
-| operation.type      | `ADD_USER` to indicate a sharing operation                                       |
-| operation.user      | Doordeck identifier of the user acquired via the user directory operation        |
-| operation.publicKey | Public key of the user as acquired by the user directory                         |
-| operation.role      | `USER` or `ADMIN` depending on the level of permission you want the user to have |
+| Field               | Description                                                                         |
+|---------------------|-------------------------------------------------------------------------------------|
+| iss                 | Your Sentry Interactive identifier                                                  |
+| sub                 | Door identifier to be shared                                                        |
+| operation.type      | `ADD_USER` to indicate a sharing operation                                          |
+| operation.user      | Sentry Interactive identifier of the user acquired via the user directory operation |
+| operation.publicKey | Public key of the user as acquired by the user directory                            |
+| operation.role      | `USER` or `ADMIN` depending on the level of permission you want the user to have    |
 
 Now we need to create a JWT header, since we're signing the request with your ephemeral key we need to make one exactly 
 the same as when following the [initial unlock guide](./ephemeral-key-registration-unlocking-a-door.md).

@@ -2,10 +2,10 @@
 sidebar_position: 9
 ---
 
-# Get A Doordeck User’s Public Key
+# Get A Sentry Interactive User’s Public Key
 
 :::warning
-This endpoint is only available to users with Doordeck issued auth tokens.
+This endpoint is only available to users with Sentry Interactive issued auth tokens.
 :::
 
 This endpoint allows the retrieval of a user's public key along with their ID.

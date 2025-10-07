@@ -4,7 +4,7 @@ sidebar_position: 8
 
 # Errors
 
-The Doordeck API uses the following error codes:
+The Sentry Interactive API uses the following error codes:
 
 | Error Code | Meaning                                                                                          |
 |------------|--------------------------------------------------------------------------------------------------|
@@ -20,5 +20,5 @@ The Doordeck API uses the following error codes:
 | 425        | Too Early -- The resource is unavailable until a pending slower operation is completed elsewhere |
 | 429        | Too Many Requests -- You're requesting too many resources! Slow down!                            |
 | 500        | Internal Server Error -- We had a problem with our server. Try again later.                      |
-| 503        | Service Unavailable -- The Doordeck device is offline. Please try again later.                   |
-| 504        | Gateway Timeout -- The Doordeck device didn't response in a timely manner                        |
+| 503        | Service Unavailable -- The Sentry Interactive device is offline. Please try again later.         |
+| 504        | Gateway Timeout -- The Sentry Interactive device didn't response in a timely manner              |

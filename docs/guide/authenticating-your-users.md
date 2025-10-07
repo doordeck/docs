@@ -7,7 +7,7 @@ description: OpenID tokens, authenticating users, and more
 # Authenticating your users
 
 In this article we’re going to look at OpenID tokens, how we use them for authenticating your end users and how that 
-forms the Bring-Your-Own-User model - this will let the user’s of your app make direct calls to Doordeck APIs and is 
+forms the Bring-Your-Own-User model - this will let the user’s of your app make direct calls to Sentry Interactive APIs and is 
 the first step to actually unlocking a door.
 
 ---
@@ -15,7 +15,7 @@ the first step to actually unlocking a door.
 ## Setup Your Application
 
 Start by heading over to our [application console](https://portal.sentryinteractive.com) and logging in (or creating a
-Doordeck account if you don't already have one), then click **"Add Application"** to get started.
+Sentry Interactive account if you don't already have one), then click **"Add Application"** to get started.
 
 Our application wizard guides you through a few steps:
 
@@ -48,7 +48,7 @@ shouldn't use that site for production). Select **"Signing"** as the key use and
 
 Once you have the key pair:
 1. Copy the **public key JSON** shown on mkjwk.org.
-2. In the Doordeck Developer Console, navigate to your application and click the **"+"** next to **Auth Keys**, then 
+2. In the Sentry Interactive Developer Console, navigate to your application and click the **"+"** next to **Auth Keys**, then 
    paste the public key JSON.  
    ![Add Auth Key](./assets/add-auth-key-image.png)
 
@@ -56,7 +56,7 @@ Once you have the key pair:
 
 ### Configuring Your Auth Issuer
 
-The last step in setting up authentication is to tell Doordeck **what your authentication issuer is**. This is a URL 
+The last step in setting up authentication is to tell Sentry Interactive **what your authentication issuer is**. This is a URL 
 which you control and is unique to each application (for example, `https://myapp.com/`). It can have a path if you need 
 to differentiate multiple apps on a single domain. You'll need to reference this URL exactly when creating OpenID 
 tokens. Click the **"+"** next to **Auth Domains** and enter your issuer exactly.  
@@ -68,18 +68,18 @@ match the URL you specify here, including the case & trailing slash if you inclu
 :::
 
 At this point, you've:
-- Created an application in the Doordeck Developer Console.
-- Generated an auth signing key and registered its **public key** with Doordeck.
+- Created an application in the Sentry Interactive Developer Console.
+- Generated an auth signing key and registered its **public key** with Sentry Interactive.
 - Specified your **auth issuer URL**.
 
-Next, we'll create some authentication tokens you can pass to your users so they can make direct calls against the 
-Doordeck APIs.
+Next, we'll create some authentication tokens you can pass to your users so they can make direct calls against the
+Sentry Interactive APIs.
 
 ---
 
 ## Generate OpenID Token
 
-Now that we've set up an application and told Doordeck which public key to use for validation, we can start generating 
+Now that we've set up an application and told Sentry Interactive which public key to use for validation, we can start generating 
 **OpenID tokens**. OpenID tokens are just JWTs (JSON Web Tokens) with a specific set of fields. There are hundreds of 
 libraries available to help generate JWTs, so you usually shouldn't do this manually, but we'll outline a minimal 
 example here.
@@ -156,7 +156,7 @@ to generate the signature and the key ID used:
    eyJhbGciOiJSUzI1NiIsImtpZCI6IjIwMTktMDMtMTUifQ.eyJpc3MiOiJodHRwczovL215YXBwLmNvbS8iLCJleHAiOjE1NTM5MDQwMDAsImlhdCI6MTU1MjkyNjkxMiwiYXVkIjoiaHR0cHM6Ly9hcGkuZG9vcmRlY2suY29tIiwic3ViIjoiMSIsImVtYWlsIjoibWljaGFlbEBkb29yZGVjay5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmFtZSI6Ik1pY2hhZWwgQmFybndlbGwiLCJsb2NhbGUiOiJlbi1nYiIsInpvbmVpbmZvIjoiRXVyb3BlL0xvbmRvbiJ9.Y9oHuxTd58tUukdEaR8hHpCt9ZH9NW1NextAd98ELUf2wjHXMzFO6-1Lc3HAqRnYo_hkOFrs4bcxo57NF70DH7Qu0uiZgQZzivHEtaQ7AUetcQzyPRDNnosj-bpB7Ya00lbTmoXuW_vqa-eeRGmy78DehDI5YkGXq0ddl963hex3esozVwLWgbHNnMUC4YZCWMuzWbI39KCOxsEDsNGrCCgh8yemq_gMWCSbJCtlEBqxKJzRD63--4cuXZdF_Y2_BQmVkecvozEe3hM9ooqSPyP8W_miTkL559TvdqrO_TpPkp5BElJJqifnio5drjCFBAWQZOeaT3IdgPFz6DlYlw
    ```
 
-Once the token is signed, it is ready to be used to make authenticated calls against the Doordeck API.
+Once the token is signed, it is ready to be used to make authenticated calls against the Sentry Interactive API.
 
 :::tip
 If you're unfamiliar with JWTs, the [JWT.io Introduction](https://jwt.io/introduction/) is an excellent resource.
@@ -173,7 +173,7 @@ an auth token**, as additional cryptographic steps are required when performing 
 However, the **auth signing key** is a critical security measure and must be treated as such:
 - Store it in a **Key Management Service (KMS)** (e.g., AWS KMS or Google Cloud KMS) or
   **Hardware Security Module (HSM)**.
-- Notify Doordeck immediately if the key becomes compromised. We support **expiry dates** on signing keys so you can 
+- Notify Sentry Interactive immediately if the key becomes compromised. We support **expiry dates** on signing keys so you can 
   **revoke** a compromised key or schedule it for deletion and rotate to a new key.
 
 Many of the token fields are **optional but encouraged**. The more information we have, the better decisions we can make
@@ -183,7 +183,7 @@ about when to request secondary authentication (e.g., when a user logs in from a
 
 ## User Management Notes
 
-Whenever you send Doordeck a **new signed user token**, we update our internal user record to match the latest details. 
+Whenever you send Sentry Interactive a **new signed user token**, we update our internal user record to match the latest details. 
 Users are keyed on **Application ID** + your unique internal identifier (`sub` claim). As long as those two values 
 remain the same, any other fields (such as `email`, `phone_number`, etc.) will update automatically based on the `iat` 
 (issued-at) timestamp.
@@ -219,13 +219,13 @@ If you decide you no longer want your application (or want to start fresh), plea
 ## Summary
 
 We've covered how to:
-- Create an application in the **Doordeck Developer Console**.
+- Create an application in the **Sentry Interactive Developer Console**.
 - Generate and register an **asymmetric signing key** for OpenID.
 - Configure your **auth issuer URL**.
-- Generate **OpenID tokens** (JWTs) that your users can use to call Doordeck's APIs directly.
+- Generate **OpenID tokens** (JWTs) that your users can use to call Sentry Interactive's APIs directly.
 
 The goal is that you maintain **your own user authentication** (e.g., username/password, OAuth, SAML, etc.), then 
-exchange your internal tokens or session cookies for a Doordeck-compatible JWT. This allows end users to make 
+exchange your internal tokens or session cookies for a Sentry Interactive-compatible JWT. This allows end users to make 
 **low-latency** calls directly against our APIs to **unlock doors** or perform other operations securely.
 
 ---

@@ -5,7 +5,7 @@ sidebar_position: 1
 # Login (v2)
 
 :::warning
-This endpoint is only available to Doordeck registered users.
+This endpoint is only available to Sentry Interactive registered users.
 :::
 
 This endpoint lets user's attempt to login.

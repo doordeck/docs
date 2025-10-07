@@ -5,7 +5,7 @@ sidebar_position: 14
 # Get Application Owners Details
 
 :::warning
-This endpoint is only available to users with Doordeck issued auth tokens.
+This endpoint is only available to users with Sentry Interactive issued auth tokens.
 :::
 
 This endpoint will return the details of all owners of an application (see json below), given the requesting user is an owner.
@@ -22,13 +22,13 @@ This endpoint will return the details of all owners of an application (see json 
 
 ### Response Parameters
 
-| Parameter   | Description                                                                                                        |
-|-------------|--------------------------------------------------------------------------------------------------------------------|
-| userId      | is the user's ID                                                                                                   |
-| email       | is the user's email address                                                                                        |
-| displayName | is optional and will be null if not set                                                                            |
-| orphaned    | is false is not orphaned                                                                                           |
-| foreign     | is true if the user belongs to the Doordeck user pool, false if they belong to a third-party application user pool |
+| Parameter   | Description                                                                                                                  |
+|-------------|------------------------------------------------------------------------------------------------------------------------------|
+| userId      | is the user's ID                                                                                                             |
+| email       | is the user's email address                                                                                                  |
+| displayName | is optional and will be null if not set                                                                                      |
+| orphaned    | is false is not orphaned                                                                                                     |
+| foreign     | is true if the user belongs to the Sentry Interactive user pool, false if they belong to a third-party application user pool |
 
 ### Example
 

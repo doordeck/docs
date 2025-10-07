@@ -5,10 +5,10 @@ sidebar_position: 10
 # Add CORS Domain
 
 :::warning
-This endpoint is only available to users with Doordeck issued auth tokens.
+This endpoint is only available to users with Sentry Interactive issued auth tokens.
 :::
 
-Adds a domain to the list of permitted CORS domains to allow webapps to call Doordeck APIs directly.
+Adds a domain to the list of permitted CORS domains to allow webapps to call Sentry Interactive APIs directly.
 
 ### HTTP Request
 

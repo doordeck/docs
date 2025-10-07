@@ -818,10 +818,10 @@ await sdk.lockOperations.update_lock_setting_location_restrictions(
 </TabItem>
 </Tabs>
 
-## Get a Doordeck user's public key
+## Get a Sentry Interactive user's public key
 
 :::warning
-This function is only available to users with Doordeck issued auth tokens
+This function is only available to users with Sentry Interactive issued auth tokens
 :::
 
 <Tabs groupId="programming-language">

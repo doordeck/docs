@@ -11,7 +11,7 @@ for batches of up to 25 users to be queried in a single request.
 |------------|-------------------------------------------------|
 | email      | Email addresses                                 |
 | telephone  | E.164 formatted telephone numbers               |
-| localKey   | Doordeck identifier for a user (UUID)           |
+| localKey   | Sentry Interactive identifier for a user (UUID) |
 | foreignKey | Third-party application's identifier for a user |
 
 ### HTTP Request
@@ -32,7 +32,7 @@ The request body must have one and only one of the following fields.
 |------------|----------|--------------------------------------------------|
 | email      | false    | Email addresses                                  |
 | telephone  | false    | E.164 formatted telephone numbers                |
-| localKey   | false    | Doordeck identifier for users (UUID)             |
+| localKey   | false    | Sentry Interactive identifier for users (UUID)   |
 | foreignKey | false    | Third-party application's identifier for a users |
 
 ### Example

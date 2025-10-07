@@ -5,7 +5,7 @@ sidebar_position: 10
 # Change Password
 
 :::warning
-This endpoint is only available to users with Doordeck issued auth tokens.
+This endpoint is only available to users with Sentry Interactive issued auth tokens.
 :::
 
 This endpoint is used to allow a user to change their password.

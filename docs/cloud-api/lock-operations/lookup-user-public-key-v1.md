@@ -17,17 +17,17 @@ This endpoint accepts a single JSON key (multiple keys cannot be used) which can
 |------------|-------------------------------------------------|
 | email      | Email address                                   |
 | telephone  | E.164 formatted telephone                       |
-| localKey   | Doordeck identifier for a user (UUID)           |
+| localKey   | Sentry Interactive identifier for a user (UUID) |
 | foreignKey | Third-party application's identifier for a user |
 | identity   | Encrypted OpenID token of user                  |
 
 The first four query keys, ```email```, ```telephone```, ```localKey``` and ```foreignKey``` are read only - these will
-return a 404 error if the user is not known to Doordeck.
+return a 404 error if the user is not known to Sentry Interactive.
 
 The remaining query key, ```identity```, is used to specify the full identity of the user who is the subject of the
 query, this will mean the user is created if they don't exist and will always return a response. When using
 ```identity```, the specified OpenID token must be encrypted so it cannot be abused as an authentication token - it
-should be encrypted using JSON Web Encryption (JWE) using the RSA key Doordeck generates for the particular third-party
+should be encrypted using JSON Web Encryption (JWE) using the RSA key Sentry Interactive generates for the particular third-party
 application.
 
 ### Example
