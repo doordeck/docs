@@ -5,7 +5,7 @@ sidebar_position: 7
 # Verify Ephemeral Key Registration
 
 This endpoint is used to check the verification code sent to a use, it requires the ephemeral key sign the verification
-code so that Doordeck is sure the same ephemeral key is used.
+code so that Sentry Interactive is sure the same ephemeral key is used.
 
 ### HTTP Request
 `POST https://api.doordeck.com/auth/certificate/check`

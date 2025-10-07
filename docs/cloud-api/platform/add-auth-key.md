@@ -5,7 +5,7 @@ sidebar_position: 7
 # Add Auth Key
 
 :::warning
-This endpoint is only available to users with Doordeck issued auth tokens.
+This endpoint is only available to users with Sentry Interactive issued auth tokens.
 :::
 
 Adds a new auth key to the permitted auth keys for user's of this application, can be RSA, EC or Ed25519.

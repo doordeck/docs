@@ -5,11 +5,11 @@ sidebar_position: 1
 # Create application
 
 :::warning
-This endpoint is only available to users with Doordeck issued auth tokens.
+This endpoint is only available to users with Sentry Interactive issued auth tokens.
 :::
 
 This endpoint allows the creation of an application; an application is how user's are divided between third-parties
-within Doordeck and define certain branding, UI and authentication elements.
+within Sentry Interactive and define certain branding, UI and authentication elements.
 
 The user creating the application will automatically be assigned as the owner.
 
@@ -22,7 +22,7 @@ The user creating the application will automatically be assigned as the owner.
 | Parameter        | Required | Description                                                                       |
 |------------------|----------|-----------------------------------------------------------------------------------|
 | name             | true     | Application's name                                                                |
-| companyName      | true     | Company's registered name, e.g. Doordeck Limited                                  |
+| companyName      | true     | Company's registered name, e.g. Sentry Interactive                                |
 | mailingAddress   | true     | Company's registered address, e.g. IDEALondon, 69 Wilson Street, LONDON, EC2A 2BB |
 | privacyPolicy    | false    | URI to the application's privacy policy, must start with https://                 |
 | supportContact   | false    | URI to application's support contact, can start with https:// or mailto://        |
@@ -43,11 +43,11 @@ The email preferences object is formed of the following fields
 
 The call to action is formed of the following fields
 
-| Parameter    | Required | Description                                                                          |
-|--------------|----------|--------------------------------------------------------------------------------------|
-| actionTarget | true     | URI to direct user's to when clicking CTA                                            |
-| headline     | true     | Textual description for CTA, e.g. "Use the Doordeck App to make unlocking a breeze!" |
-| actionText   | true     | Text used for the CTA button, e.g. "Download now!"                                   |
+| Parameter    | Required | Description                                                                                    |
+|--------------|----------|------------------------------------------------------------------------------------------------|
+| actionTarget | true     | URI to direct user's to when clicking CTA                                                      |
+| headline     | true     | Textual description for CTA, e.g. "Use the Sentry Interactive App to make unlocking a breeze!" |
+| actionText   | true     | Text used for the CTA button, e.g. "Download now!"                                             |
 
 ### Example
 

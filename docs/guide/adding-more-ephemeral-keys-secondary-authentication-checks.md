@@ -11,16 +11,16 @@ The information provided here is for educational purposes and to help you unders
 
 In this guide we'll explore secondary authentication checks for ephemeral key registration - you may have found when 
 following the steps in the guide on 
-[ephemeral key registration and unlocking](ephemeral-key-registration-unlocking-a-door.md) that Doordeck responded with 
+[ephemeral key registration and unlocking](ephemeral-key-registration-unlocking-a-door.md) that Sentry Interactive responded with 
 a HTTP 423 when trying to add the ephemeral key.
 
 When setting an ephemeral key for a new user, it will almost always be accepted immediately (because it's a new user!), 
 but if the user wants to use a new device, they need a new ephemeral key (unless you have a secure way to get the first 
-ephemeral key from the other device, such as through keychain sync), in this case Doordeck may want to verify the user 
+ephemeral key from the other device, such as through keychain sync), in this case Sentry Interactive may want to verify the user 
 is who they claim - we tell you about this through the use of HTTP 423.
 
 We have a few options for verifying the user, email, SMS or a phone call - all of these are white labelled (or barely 
-labelled at all) so it looks like it's coming from your App rather than from Doordeck - we'll try and select the most 
+labelled at all) so it looks like it's coming from your App rather than from Sentry Interactive - we'll try and select the most 
 appropriate communication method based on the fields you've provided in the OpenID auth token, we'll look for a verified
 communication method with preference for email then SMS as this is what user's have come to expect, but you can override
 this. Let's ask for a secondary authentication code to be SMS' to us:
@@ -39,7 +39,7 @@ at the start of the verification process.
 If your OpenID auth token includes the telephone field and has marked it as verified, you should receive an SMS shortly
 - the code in the SMS is valid for 5 minutes.
 
-You can remove `?method=SMS` and Doordeck will auto-select a method, or you can specify one of the following:
+You can remove `?method=SMS` and Sentry Interactive will auto-select a method, or you can specify one of the following:
 
 - `SMS` - Send an SMS to the user
 - `TELEPHONE` - Call the user and read out the code
@@ -58,7 +58,7 @@ echo -n '12345678' > code
 openssl pkeyutl -sign -inkey private.key  -rawin -in code | base64
 ```
 
-You can now send Doordeck the signature, and we'll know that both the verification code is what we expect and that 
+You can now send Sentry Interactive the signature, and we'll know that both the verification code is what we expect and that 
 you've used the same ephemeral key for verifying - we'll then return a certificate chain that you can use immediately.
 
 ```shell

@@ -5,7 +5,7 @@ sidebar_position: 9
 # Reverify Email
 
 :::warning
-This endpoint is only available to users with Doordeck issued auth tokens.
+This endpoint is only available to users with Sentry Interactive issued auth tokens.
 :::
 
 This endpoint will generate a new email to the logged user with a new verification code to validate their email address.

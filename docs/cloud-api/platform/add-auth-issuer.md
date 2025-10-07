@@ -5,7 +5,7 @@ sidebar_position: 8
 # Add Auth Issuer
 
 :::warning
-This endpoint is only available to users with Doordeck issued auth tokens.
+This endpoint is only available to users with Sentry Interactive issued auth tokens.
 :::
 
 Adds a new auth issuer which must be unique across all applications, it should be a URI controller by the application

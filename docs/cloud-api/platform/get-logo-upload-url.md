@@ -5,7 +5,7 @@ sidebar_position: 6
 # Get Logo Upload URL
 
 :::warning
-This endpoint is only available to users with Doordeck issued auth tokens.
+This endpoint is only available to users with Sentry Interactive issued auth tokens.
 :::
 
 Gets a pre-signed URL ready for uploading the application logo to.

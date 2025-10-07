@@ -20,8 +20,8 @@ The call returns an enum of event types:
 | DOOR_UNLOCK           | The lock has changed to the unlock stated                  |
 | DOOR_LOCK             | The lock has changed to the locked state                   |
 | OWNER_ASSIGNED        | The lock's owner has been updated                          |
-| DEVICE_CONNECTED      | Lock has connected to Doordeck platform                    |
-| DEVICE_DISCONNECTED   | Lock has disconnected from Doordeck platform               |
+| DEVICE_CONNECTED      | Lock has connected to Sentry Interactive platform          |
+| DEVICE_DISCONNECTED   | Lock has disconnected from Sentry Interactive platform     |
 | LOCK_SHARED           | The lock's access has been shared to a new user            |
 | LOCK_REVOKED          | Access to the lock has been revoked for the specified user |
 | USER_PROMOTED         | A user was promoted to an administrator                    |

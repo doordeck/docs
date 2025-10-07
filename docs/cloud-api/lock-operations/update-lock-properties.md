@@ -21,18 +21,18 @@ This endpoint allows the name, favourite flag and colour to be updated for an ex
 
 The settings object is formed of the following fields
 
-| Parameter             | Required | Description                                                                                                    |
-|-----------------------|----------|----------------------------------------------------------------------------------------------------------------|
-| txBeaconRssi          | false    | Update the iBeacon sensitivity (Deprecated)                                                                    |
-| rxBeaconRssi          | false    | Update the iBeacon sensitivity (Deprecated)                                                                    |
-| proximityUnlock       | false    | Control if the lock can be unlocked via a touch action (Deprecated)                                            |
-| defaultName           | false    | Set the default name for all users who have not set a custom alias                                             |
-| permittedAddress      | false    | A complete list of permitted IP addresses for performing actions on the door (public IP addresses)             |
-| delay                 | false    | A time in milliseconds to delay the UI countdown action, for slow locks (Deprecated)                           |
-| hidden                | false    | Hides a device from the favourite list                                                                         |
-| usageRequirements     | false    | An object containing usage requirements of the lock, see below.                                                |
-| directAccessEndpoints | false    | A list of endpoints that can be used to communicate directly with Doordeck Fusion for faster unlock operations |
-| capabilities          | false    | A map of supported and unsupported capabilities                                                                |
+| Parameter             | Required | Description                                                                                                              |
+|-----------------------|----------|--------------------------------------------------------------------------------------------------------------------------|
+| txBeaconRssi          | false    | Update the iBeacon sensitivity (Deprecated)                                                                              |
+| rxBeaconRssi          | false    | Update the iBeacon sensitivity (Deprecated)                                                                              |
+| proximityUnlock       | false    | Control if the lock can be unlocked via a touch action (Deprecated)                                                      |
+| defaultName           | false    | Set the default name for all users who have not set a custom alias                                                       |
+| permittedAddress      | false    | A complete list of permitted IP addresses for performing actions on the door (public IP addresses)                       |
+| delay                 | false    | A time in milliseconds to delay the UI countdown action, for slow locks (Deprecated)                                     |
+| hidden                | false    | Hides a device from the favourite list                                                                                   |
+| usageRequirements     | false    | An object containing usage requirements of the lock, see below.                                                          |
+| directAccessEndpoints | false    | A list of endpoints that can be used to communicate directly with Sentry Interactive Fusion for faster unlock operations |
+| capabilities          | false    | A map of supported and unsupported capabilities                                                                          |
 
 The usage requirements is formed of the following fields
 

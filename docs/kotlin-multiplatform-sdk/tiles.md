@@ -5,42 +5,51 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-val response = sdk.tiles().getLocksBelongingToTile("TILE_ID")
+// Returns a TileLocksResponse
+val response = sdk.tiles().getLocksBelongingToTile(TILE_ID)
 ```
 
-:::tip[In Java...]
-Use the `getLocksBelongingToTileAsync` function, which returns a `CompletableFuture<TileLocksResponse>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<TileLocksResponse>
+var response = sdk.tiles().getLocksBelongingToTileAsync(TILE_ID);
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-let response = sdk.tiles().getLocksBelongingToTile(tileId: "TILE_ID")
+// Returns a TileLocksResponse asynchronously
+let response = await sdk.tiles().getLocksBelongingToTile(tileId: TILE_ID)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const response = await doordeck.com.doordeck.multiplatform.sdk.api.tiles().getLocksBelongingToTile("TILE_ID");
+// Returns a Promise<TileLocksResponse>
+const response = await com.doordeck.multiplatform.sdk.api.tiles().getLocksBelongingToTile("TILE_ID");
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-var response = await sdk.GetTiles().GetLocksBelongingToTile("TILE_ID");
+// Returns a Task<TileLocksResponse>
+var response = await sdk.GetTiles().GetLocksBelongingToTile(TILE_ID);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
+# Returns a Future[SimpleNamespace]
 response = await sdk.tiles.get_locks_belonging_to_tile("TILE_ID")
 ```
 
@@ -49,44 +58,72 @@ response = await sdk.tiles.get_locks_belonging_to_tile("TILE_ID")
 
 ## Associate Multiple Locks
 
-<Tabs>
-<TabItem value="jvm-android" label="JVM & Android">
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
-sdk.tiles().associateMultipleLocks("TILE_ID", "SITE_ID", listOf("LOCK_ID"))
+// Returns Unit
+sdk.tiles().associateMultipleLocks(
+  tileId = TILE_ID, 
+  siteId = SITE_ID, 
+  lockIds = listOf(LOCK_ID)
+)
 ```
 
-:::tip[In Java...]
-Use the `associateMultipleLocksAsync` function, which returns a `CompletableFuture<Void>` instead.
-:::
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<Void>
+sdk.tiles().associateMultipleLocksAsync(TILE_ID, SITE_ID, List.of(LOCK_ID));
+```
 
 </TabItem>
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-sdk.tiles().associateMultipleLocks(tileId: "TILE_ID", siteId: "SITE_ID", lockIds: ["LOCK_ID"]))
+// Returns Void asynchronously
+await sdk.tiles().associateMultipleLocks(
+  tileId: TILE_ID, 
+  siteId: SITE_ID, 
+  lockIds: [LOCK_ID]
+)
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```js showLineNumbers
-const ktList = doordeck.kotlin.collections.KtList;
-await doordeck.com.doordeck.multiplatform.sdk.api.tiles().associateMultipleLocks("TILE_ID", "SITE_ID", ktList.fromJsArray(["LOCK_ID"]));
+// Returns a Promise<any>
+await com.doordeck.multiplatform.sdk.api.tiles().associateMultipleLocks(
+  "TILE_ID", 
+  "SITE_ID", 
+  ["LOCK_ID"]
+);
 ```
 
 </TabItem>
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-await sdk.GetTiles().AssociateMultipleLocks("TILE_ID", "SITE_ID", ["LOCK_ID"]);
+// Returns a Task<object>
+await sdk.GetTiles().AssociateMultipleLocks(
+  tileId: TILE_ID, 
+  siteId: SITE_ID, 
+  lockIds: [LOCK_ID]
+);
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python showLineNumbers
-await sdk.tiles.associate_multiple_locks("TILE_ID", "SITE_ID", ["LOCK_ID"])
+# Returns a Future[SimpleNamespace]
+await sdk.tiles.associate_multiple_locks(
+  "TILE_ID", 
+  "SITE_ID", 
+  ["LOCK_ID"]
+)
 ```
 
 </TabItem>

@@ -31,7 +31,7 @@ Ed25519 is a public‐key signature system. It consists of:
 -	A private key, which you use to sign messages.
 -	A public key, which anyone can use to verify signatures.
 
-Doordeck relies on digital signatures to ensure that only the right user is performing an action. Under the hood:
+Sentry Interactive relies on digital signatures to ensure that only the right user is performing an action. Under the hood:
 -	EdDSA stands for Edwards Digital Signature Algorithm, the algorithm used to generate and verify signatures.
 -	Ed25519 is the elliptic‐curve specification on which EdDSA operates.
 
@@ -39,7 +39,7 @@ If you've used RSA, Ed25519 works similarly but offers smaller key sizes and bet
 
 ## Ephemeral Key Registration
 
-Every time a user logs into a new device, we generate a new Ed25519 keypair and ask Doordeck to sign it in the form of a
+Every time a user logs into a new device, we generate a new Ed25519 keypair and ask Sentry Interactive to sign it in the form of a
 keychain, we can perform these steps manually, let's start by generating a keypair.
 
 ```shell
@@ -52,13 +52,13 @@ Extract the public key
 openssl pkey -inform DER -in private.key -pubout -outform DER -out public.key
 ```
 
-We need to wrap the public key in base 64 encoding to be able to send it to Doordeck:
+We need to wrap the public key in base 64 encoding to be able to send it to Sentry Interactive:
 
 ```shell
 cat public.key | base64 > public.base64.key
 ```
 
-Now we can send it to Doordeck using an auth key generated from the previous article; currently we need to use the 
+Now we can send it to Sentry Interactive using an auth key generated from the previous article; currently we need to use the 
 development endpoint - we'll save the response to a file called `certs.json`
 
 ```shell
@@ -69,7 +69,7 @@ curl "https://api.doordeck.com/auth/certificate" \
   --data-binary "{\"ephemeralKey\":\"`cat public.base64.key`\"}" > certs.json
 ```
 
-This endpoint tells us our newly generated certificate chain and our Doordeck user ID which we need for certain 
+This endpoint tells us our newly generated certificate chain and our Sentry Interactive user ID which we need for certain 
 operations, such as having a door shared with us. We'll be using this information later so hold onto it.
 
 --- 
@@ -89,7 +89,7 @@ Visit https://api.doordeck.com/demo/ and put your user ID in.
 
 ## Unlock It!
 
-Now we need to construct a signed JWT request and send it to Doordeck to forward onto the Demo door - this is 
+Now we need to construct a signed JWT request and send it to Sentry Interactive to forward onto the Demo door - this is 
 surprisingly similar to the OpenID token we created in the previous article since OpenID is built on top of JWT!
 
 The header is easy, we take the certificate chain from the last step and put it in the `x5c` field, we then specify our 
@@ -152,7 +152,7 @@ Phew, almost there! That command should output a signature in Base64Url format, 
 lA-iqBxlWd5JHT15_72dOQmFqglWrmJEVX2_-R0ZCelZrejquDJLMGAJV_8YpRD3cWaWDMCalB2Zc7juD4uXCQ
 ```
 
-Combine it all together, and you get a complete JWT token which we can now send to Doordeck.
+Combine it all together, and you get a complete JWT token which we can now send to Sentry Interactive.
 
 ```shell
 curl 'https://api.doordeck.com/device/ad8fb900-4def-11e8-9370-170748b9fca8/execute' \
@@ -162,5 +162,5 @@ curl 'https://api.doordeck.com/device/ad8fb900-4def-11e8-9370-170748b9fca8/execu
  --data-binary "$JWT"
 ```
 
-Sending this command should trigger the animated virtual door at https://demo.doordeck.com/, don't forget, you may need
+Sending this command should trigger the animated virtual door at https://demo.sentryinteractive.com/, don't forget, you may need
 to update the expiry time of your JWT since generating the initial payload.

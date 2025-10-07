@@ -1,6 +1,6 @@
 # Install the SDK into your project
 
-Easily integrate the Doordeck SDK into your project by following the platform-specific instructions below.
+Easily integrate the Sentry Interactive SDK into your project by following the platform-specific instructions below.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -20,8 +20,9 @@ repositories {
 implementation("com.doordeck.headless.sdk:doordeck-sdk:[SDK_VERSION]")
 ```
 
-:::info[Supported Platforms]
-JVM, Android, jsNode, jsBrowser, iOS (x64, ARM x64, simulator ARM x64), macOS (ARM x64), watchOS (x64, ARM x64, device ARM x64, simulator ARM x64) and mingW (x64).
+:::info[Requirements]
+* Supported Platforms: JVM, Android, jsNode, jsBrowser, iOS (x64, ARM x64, simulator ARM x64), macOS (ARM x64), watchOS (x64, ARM x64, device ARM x64, simulator ARM x64) and mingW (x64).
+* Java SDK 1.8 or higher.
 :::
 
 </TabItem>
@@ -38,8 +39,8 @@ repositories {
 // Import the JVM package
 implementation("com.doordeck.headless.sdk:doordeck-sdk-jvm:[SDK_VERSION]")
 ```
-:::info[Requirement]
-Java SDK 1.8 or higher.
+:::info[Requirements]
+* Java SDK 1.8 or higher.
 :::
 
 </TabItem>
@@ -56,8 +57,8 @@ repositories {
 // Import the Android package
 implementation("com.doordeck.headless.sdk:doordeck-sdk-android:[SDK_VERSION]")
 ```
-:::info[Requirement]
-Android SDK 26 or higher.
+:::info[Requirements]
+* Android SDK 26 or higher.
 :::
 
 </TabItem>
@@ -73,7 +74,7 @@ The iOS, macOS and watchOS packages are available via [CocoaPods](https://cocoap
 2. Enter the URL: [https://github.com/doordeck/doordeck-headless-sdk-spm](https://github.com/doordeck/doordeck-headless-sdk-spm).
 3. Choose **Up to next major version** from the dependency rule dropdown, and click **Add Package**.
 
-:::info[Requirement]
+:::info[Requirements]
 * macOS 14 or higher.
 * iOS 14 or higher.
 * watchOS 11 or higher.
@@ -96,8 +97,8 @@ The Windows artifacts for C# are available on [NuGet](https://www.nuget.org/pack
 ```shell title="Shell"
 dotnet add package Doordeck.Headless.Sdk
 ```
-:::info[Requirement]
-.NET 9 or higher, with unsafe code enabled.
+:::info[Requirements]
+* .NET 9 or higher, with unsafe code enabled.
 :::
 
 </TabItem>
@@ -108,8 +109,8 @@ The Windows artifacts for Python are available on [PyPi](https://pypi.org/projec
 ```shell title="Shell"
 pip install doordeck-headless-sdk
 ```
-:::info[Requirement]
-Python 3.13.2.
+:::info[Requirements]
+* Python 3.13.2.
 :::
 
 </TabItem>

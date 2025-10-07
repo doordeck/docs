@@ -5,7 +5,7 @@ sidebar_position: 12
 # Add Application Owner
 
 :::warning
-This endpoint is only available to users with Doordeck issued auth tokens.
+This endpoint is only available to users with Sentry Interactive issued auth tokens.
 :::
 
 Adds a new owner to an existing application.

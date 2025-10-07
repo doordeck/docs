@@ -5,9 +5,14 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Doordeck Developer Hub',
+  title: 'Sentry Interactive Developer Hub',
   tagline: 'Explore comprehensive documentation for our cloud APIs and SDKs',
   favicon: 'img/favicon.png',
+
+  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
+  future: {
+    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+  },
 
   // Set the production url of your site here
   url: 'https://portal.sentryinteractive.com',
@@ -22,7 +27,13 @@ const config: Config = {
   projectName: 'docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+      onBrokenMarkdownImages: 'throw',
+    },
+  },
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -70,11 +81,22 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/doordeck-social-card.jpg',
+    image: 'img/social-card.jpg',
+    colorMode: {
+      respectPrefersColorScheme: true,
+    },
+    announcementBar: {
+      id: 'rebranding',
+      content:
+        'Doordeck is now Sentry Interactive, some references in this document, such as URLs, will continue to reference Doordeck to ensure continuation of service.',
+      backgroundColor: '#009DEA',
+      textColor: '#ffffff',
+      isCloseable: true,
+    },
     navbar: {
       title: '',
       logo: {
-        alt: 'Doordeck',
+        alt: 'Sentry Interactive',
         src: 'img/logo.svg',
         srcDark: 'img/dark-logo.svg',
       },
@@ -93,12 +115,12 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      copyright: `Copyright © ${new Date().getFullYear()} Doordeck Limited. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Sentry Interactive. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ['bash', 'csharp', 'python', 'kotlin', 'swift', 'javascript'],
+      additionalLanguages: ['bash', 'csharp', 'python', 'kotlin', 'swift', 'javascript', 'java'],
     },
   } satisfies Preset.ThemeConfig,
 };

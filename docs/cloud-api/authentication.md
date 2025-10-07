@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Authentication
 
-Doordeck uses tokens to permit access to the API. Doordeck expects for the token to be included in all API requests to 
+Sentry Interactive uses tokens to permit access to the API. Sentry Interactive expects for the token to be included in all API requests to 
 the server in a header that looks like the following:
 
 `Authorization: Bearer TOKEN`
@@ -17,7 +17,7 @@ Authentication tokens are JSON Web Tokens (JWT) loosely using the OpenID format,
 expiry date, the user's ID. JSON web tokens are split into three sections separated by a `.`, the header, payload and
 signature - each section can be BASE64URL decoded to read further.
 
-Doordeck understands the following OpenID fields in the auth token payload:
+Sentry Interactive understands the following OpenID fields in the auth token payload:
 
 | Field              | Mandatory              | Datatype                                                                                      | Description                                                                |
 |--------------------|------------------------|-----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
@@ -40,5 +40,5 @@ Doordeck understands the following OpenID fields in the auth token payload:
 | given_name         | No                     | String                                                                                        | User's given name                                                          |
 | picture            | No                     | URI                                                                                           | User's profile picture                                                     |
 
-Authentication tokens can be issued directly by Doordeck using the [login](./account/login-v2.md) endpoint or by third-party 
+Authentication tokens can be issued directly by Sentry Interactive using the [login](./account/login-v2.md) endpoint or by third-party 
 application developers using pre-registered asymmetric authentication keys.
