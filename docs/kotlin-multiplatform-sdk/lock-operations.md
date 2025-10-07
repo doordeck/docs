@@ -928,7 +928,7 @@ const response = await com.doordeck.multiplatform.sdk.api.lockOperations().getUs
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-// Retrurns a Task<UserPublicKeyResponse>
+// Returns a Task<UserPublicKeyResponse>
 var response = await sdk.GetLockOperations().GetUserPublicKeyByEmail("USER_EMAIL");
 ```
 
