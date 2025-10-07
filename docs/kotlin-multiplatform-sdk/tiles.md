@@ -109,7 +109,7 @@ await com.doordeck.multiplatform.sdk.api.tiles().associateMultipleLocks(
 // Returns a Task<object>
 await sdk.GetTiles().AssociateMultipleLocks(
   tileId: TILE_ID, 
-  sideId: SITE_ID, 
+  siteId: SITE_ID, 
   lockIds: [LOCK_ID]
 );
 ```
