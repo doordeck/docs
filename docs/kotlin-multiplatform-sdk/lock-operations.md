@@ -1246,7 +1246,7 @@ const response = await com.doordeck.multiplatform.sdk.api.lockOperations().getUs
 <TabItem value="csharp" label="C#">
 
 ```csharp showLineNumbers
-// Returns a Tasl<List<BatchUserPublicKeyResponse>>
+// Returns a Task<List<BatchUserPublicKeyResponse>>
 var response = await sdk.GetLockOperations().GetUserPublicKeyByTelephones(["USER_TELEPHONE", "USER_TELEPHONE"]);
 ```
 
