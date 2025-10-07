@@ -409,7 +409,7 @@ var result = sdk.contextManager().isCloudAuthTokenInvalidOrExpiredAsync();
 <TabItem value="swift" label="Swift">
 
 ```swift showLineNumbers
-// Retruns a Bool asynchronously
+// Returns a Bool asynchronously
 let result = await sdk.contextManager().isCloudAuthTokenInvalidOrExpired()
 ```
 
