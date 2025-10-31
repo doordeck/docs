@@ -2,10 +2,10 @@
 <html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-guide/authenticating-your-users" data-has-hydrated="false">
 <head>
 <meta charset="UTF-8">
-<meta name="generator" content="Docusaurus v3.9.1">
-<title data-rh="true">Authenticating Your Users | Sentry Interactive Developer Hub</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://portal.sentryinteractive.com/docs/img/social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://portal.sentryinteractive.com/docs/img/social-card.jpg"><meta data-rh="true" property="og:url" content="https://portal.sentryinteractive.com/docs/guide/authenticating-your-users/"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Authenticating Your Users | Sentry Interactive Developer Hub"><meta data-rh="true" name="description" content="OpenID tokens, authenticating users, and more"><meta data-rh="true" property="og:description" content="OpenID tokens, authenticating users, and more"><link data-rh="true" rel="icon" href="/docs/img/favicon.png"><link data-rh="true" rel="canonical" href="https://portal.sentryinteractive.com/docs/guide/authenticating-your-users/"><link data-rh="true" rel="alternate" href="https://portal.sentryinteractive.com/docs/guide/authenticating-your-users/" hreflang="en"><link data-rh="true" rel="alternate" href="https://portal.sentryinteractive.com/docs/guide/authenticating-your-users/" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Guides","item":"https://portal.sentryinteractive.com/docs/category/guides"},{"@type":"ListItem","position":2,"name":"Authenticating Your Users","item":"https://portal.sentryinteractive.com/docs/guide/authenticating-your-users"}]}</script><link rel="stylesheet" href="/docs/assets/css/styles.5d5035f6.css">
-<script src="/docs/assets/js/runtime~main.70b448aa.js" defer="defer"></script>
-<script src="/docs/assets/js/main.f309378c.js" defer="defer"></script>
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Authenticating Your Users | Sentry Interactive Developer Hub</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://portal.sentryinteractive.com/docs/img/social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://portal.sentryinteractive.com/docs/img/social-card.jpg"><meta data-rh="true" property="og:url" content="https://portal.sentryinteractive.com/docs/guide/authenticating-your-users/"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Authenticating Your Users | Sentry Interactive Developer Hub"><meta data-rh="true" name="description" content="OpenID tokens, authenticating users, and more"><meta data-rh="true" property="og:description" content="OpenID tokens, authenticating users, and more"><link data-rh="true" rel="icon" href="/docs/img/favicon.png"><link data-rh="true" rel="canonical" href="https://portal.sentryinteractive.com/docs/guide/authenticating-your-users/"><link data-rh="true" rel="alternate" href="https://portal.sentryinteractive.com/docs/guide/authenticating-your-users/" hreflang="en"><link data-rh="true" rel="alternate" href="https://portal.sentryinteractive.com/docs/guide/authenticating-your-users/" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Guides","item":"https://portal.sentryinteractive.com/docs/category/guides"},{"@type":"ListItem","position":2,"name":"Authenticating Your Users","item":"https://portal.sentryinteractive.com/docs/guide/authenticating-your-users"}]}</script><link rel="stylesheet" href="/docs/assets/css/styles.716be964.css">
+<script src="/docs/assets/js/runtime~main.7fd20126.js" defer="defer"></script>
+<script src="/docs/assets/js/main.f4514404.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -16,48 +16,48 @@
 forms the Bring-Your-Own-User model - this will let the user’s of your app make direct calls to Sentry Interactive APIs and is
 the first step to actually unlocking a door.</p>
 <hr>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="setup-your-application">Setup Your Application<a href="#setup-your-application" class="hash-link" aria-label="Direct link to Setup Your Application" title="Direct link to Setup Your Application" translate="no">​</a></h2>
-<p>Start by heading over to our <a href="https://portal.sentryinteractive.com" target="_blank" rel="noopener noreferrer">application console</a> and logging in (or creating a
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="setup-your-application">Setup Your Application<a href="#setup-your-application" class="hash-link" aria-label="Direct link to Setup Your Application" title="Direct link to Setup Your Application" translate="no">​</a></h2>
+<p>Start by heading over to our <a href="https://portal.sentryinteractive.com" target="_blank" rel="noopener noreferrer" class="">application console</a> and logging in (or creating a
 Sentry Interactive account if you don&#x27;t already have one), then click <strong>&quot;Add Application&quot;</strong> to get started.</p>
 <p>Our application wizard guides you through a few steps:</p>
 <ol>
-<li>
+<li class="">
 <p>First, we need to know about <strong>your application</strong> and <strong>company</strong> – this information is used in a few places
 throughout the product.<br>
 <img decoding="async" loading="lazy" alt="Application Details Screen" src="/docs/assets/images/your-application-details-image-90b3482de4f3741624ef46172dd7cd96.png" width="1353" height="934" class="img_ev3q"></p>
 </li>
-<li>
+<li class="">
 <p>The next screen allows you to configure your <strong>privacy policy URL</strong> and any <strong>support contact details</strong> – the
-&quot;application link&quot; field is in case you have something like <a href="https://branch.io" target="_blank" rel="noopener noreferrer">branch.io</a> set up for your
+&quot;application link&quot; field is in case you have something like <a href="https://branch.io" target="_blank" rel="noopener noreferrer" class="">branch.io</a> set up for your
 application so we can launch it directly. We can always come back to this later.<br>
 <img decoding="async" loading="lazy" alt="Privacy Policy &amp;amp; Support Details" src="/docs/assets/images/privacy-policy-details-image-08e9803a872f5c24556e0d2414ffa9c8.png" width="1353" height="934" class="img_ev3q"></p>
 </li>
-<li>
+<li class="">
 <p>We occasionally need to send <strong>emails on behalf of your application</strong> to your users (such as secondary authentication
 checks). This screen lets you customize those emails – we may reach out via a support ticket if additional
 configuration is needed to send email from your address.<br>
 <img decoding="async" loading="lazy" alt="Email Customization Screen" src="/docs/assets/images/email-customization-image-b047c56de62c3cc15c744dce9724b583.png" width="1354" height="975" class="img_ev3q"></p>
 </li>
-<li>
+<li class="">
 <p>Finally, you can further customize the emails by adding some <strong>color</strong> and a <strong>logo</strong>.<br>
 <img decoding="async" loading="lazy" alt="Customize Email Branding" src="/docs/assets/images/email-branding-image-af1c7053dc418d2a136bc5f70f084173.png" width="1354" height="975" class="img_ev3q"></p>
 </li>
 </ol>
 <p>Once the application is created, we should go in and edit a few further details to get authentication going.</p>
 <hr>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="generating-an-auth-signing-key">Generating an Auth Signing Key<a href="#generating-an-auth-signing-key" class="hash-link" aria-label="Direct link to Generating an Auth Signing Key" title="Direct link to Generating an Auth Signing Key" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="generating-an-auth-signing-key">Generating an Auth Signing Key<a href="#generating-an-auth-signing-key" class="hash-link" aria-label="Direct link to Generating an Auth Signing Key" title="Direct link to Generating an Auth Signing Key" translate="no">​</a></h3>
 <p>We&#x27;re going to need an <strong>auth signing key</strong>. This must be an asymmetric key supported by JWT. To save explanation time,
-you can use <a href="https://mkjwk.org/" target="_blank" rel="noopener noreferrer">mkjwk.org</a> to generate either an RSA or Elliptic Curve key pair (but you probably
+you can use <a href="https://mkjwk.org/" target="_blank" rel="noopener noreferrer" class="">mkjwk.org</a> to generate either an RSA or Elliptic Curve key pair (but you probably
 shouldn&#x27;t use that site for production). Select <strong>&quot;Signing&quot;</strong> as the key use and give it a <strong>unique key ID</strong>.</p>
 <p>Once you have the key pair:</p>
 <ol>
-<li>Copy the <strong>public key JSON</strong> shown on mkjwk.org.</li>
-<li>In the Sentry Interactive Developer Console, navigate to your application and click the <strong>&quot;+&quot;</strong> next to <strong>Auth Keys</strong>, then
+<li class="">Copy the <strong>public key JSON</strong> shown on mkjwk.org.</li>
+<li class="">In the Sentry Interactive Developer Console, navigate to your application and click the <strong>&quot;+&quot;</strong> next to <strong>Auth Keys</strong>, then
 paste the public key JSON.<br>
 <img decoding="async" loading="lazy" alt="Add Auth Key" src="/docs/assets/images/add-auth-key-image-10dc3e245ae4a863a41328323556d8d6.png" width="1466" height="1000" class="img_ev3q"></li>
 </ol>
 <hr>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="configuring-your-auth-issuer">Configuring Your Auth Issuer<a href="#configuring-your-auth-issuer" class="hash-link" aria-label="Direct link to Configuring Your Auth Issuer" title="Direct link to Configuring Your Auth Issuer" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="configuring-your-auth-issuer">Configuring Your Auth Issuer<a href="#configuring-your-auth-issuer" class="hash-link" aria-label="Direct link to Configuring Your Auth Issuer" title="Direct link to Configuring Your Auth Issuer" translate="no">​</a></h3>
 <p>The last step in setting up authentication is to tell Sentry Interactive <strong>what your authentication issuer is</strong>. This is a URL
 which you control and is unique to each application (for example, <code>https://myapp.com/</code>). It can have a path if you need
 to differentiate multiple apps on a single domain. You&#x27;ll need to reference this URL exactly when creating OpenID
@@ -67,67 +67,67 @@ tokens. Click the <strong>&quot;+&quot;</strong> next to <strong>Auth Domains</s
 match the URL you specify here, including the case &amp; trailing slash if you include one.</p></div></div>
 <p>At this point, you&#x27;ve:</p>
 <ul>
-<li>Created an application in the Sentry Interactive Developer Console.</li>
-<li>Generated an auth signing key and registered its <strong>public key</strong> with Sentry Interactive.</li>
-<li>Specified your <strong>auth issuer URL</strong>.</li>
+<li class="">Created an application in the Sentry Interactive Developer Console.</li>
+<li class="">Generated an auth signing key and registered its <strong>public key</strong> with Sentry Interactive.</li>
+<li class="">Specified your <strong>auth issuer URL</strong>.</li>
 </ul>
 <p>Next, we&#x27;ll create some authentication tokens you can pass to your users so they can make direct calls against the
 Sentry Interactive APIs.</p>
 <hr>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="generate-openid-token">Generate OpenID Token<a href="#generate-openid-token" class="hash-link" aria-label="Direct link to Generate OpenID Token" title="Direct link to Generate OpenID Token" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="generate-openid-token">Generate OpenID Token<a href="#generate-openid-token" class="hash-link" aria-label="Direct link to Generate OpenID Token" title="Direct link to Generate OpenID Token" translate="no">​</a></h2>
 <p>Now that we&#x27;ve set up an application and told Sentry Interactive which public key to use for validation, we can start generating
 <strong>OpenID tokens</strong>. OpenID tokens are just JWTs (JSON Web Tokens) with a specific set of fields. There are hundreds of
 libraries available to help generate JWTs, so you usually shouldn&#x27;t do this manually, but we&#x27;ll outline a minimal
 example here.</p>
 <p>As a quick aside, we don&#x27;t support all OpenID tokens, but we won&#x27;t reject any tokens that include extra, this is the
 full list we support:</p>
-<table><thead><tr><th>Field</th><th>Mandatory/Optional</th><th>Description</th></tr></thead><tbody><tr><td>email</td><td>Optional<sup>*</sup></td><td></td></tr><tr><td>email_verified</td><td>Optional</td><td>Defaults to false</td></tr><tr><td>telephone</td><td>Optional<sup>*</sup></td><td></td></tr><tr><td>telephone_verified</td><td>Optional</td><td>Defaults to false</td></tr><tr><td>name</td><td>Optional</td><td>Display name</td></tr><tr><td>locale</td><td>Optional</td><td>Used for localization of certain values (e.g. en-gb)</td></tr><tr><td>picture</td><td>Optional</td><td>URI to person&#x27;s picture</td></tr><tr><td>nonce</td><td>Optional</td><td></td></tr><tr><td>iss</td><td>Mandatory</td><td>Must exactly match the issuer you told us about in the last step</td></tr><tr><td>exp</td><td>Mandatory</td><td>Unix timestamp of when this token should be considered invalid, use a sensible date, e.g. now + 1 day</td></tr><tr><td>iat</td><td>Mandatory</td><td>Unix timestamp token was generated</td></tr><tr><td>auth_time</td><td>Optional</td><td>Unix timestamp user last authenticated</td></tr><tr><td>sub</td><td>Mandatory</td><td>Unique user ID as known by your application</td></tr><tr><td>aud</td><td>Mandatory</td><td>Can be one or more intended audiences of this token, should include <a href="https://api.doordeck.com" target="_blank" rel="noopener noreferrer">https://api.doordeck.com</a></td></tr><tr><td>sid</td><td>Optional</td><td>Session ID, useful for being able to destroy a session</td></tr><tr><td>zoneinfo</td><td>Optional</td><td>Timezone information, used for displaying dates in local format (e.g. Europe/London)</td></tr><tr><td>family_name</td><td>Optional</td><td>These will be simplified to &#x27;name&#x27; if name is absent</td></tr><tr><td>middle_name</td><td>Optional</td><td>These will be simplified to &#x27;name&#x27; if name is absent</td></tr><tr><td>given_name</td><td>Optional</td><td>These will be simplified to &#x27;name&#x27; if name is absent</td></tr></tbody></table>
+<table><thead><tr><th>Field</th><th>Mandatory/Optional</th><th>Description</th></tr></thead><tbody><tr><td>email</td><td>Optional<sup>*</sup></td><td></td></tr><tr><td>email_verified</td><td>Optional</td><td>Defaults to false</td></tr><tr><td>telephone</td><td>Optional<sup>*</sup></td><td></td></tr><tr><td>telephone_verified</td><td>Optional</td><td>Defaults to false</td></tr><tr><td>name</td><td>Optional</td><td>Display name</td></tr><tr><td>locale</td><td>Optional</td><td>Used for localization of certain values (e.g. en-gb)</td></tr><tr><td>picture</td><td>Optional</td><td>URI to person&#x27;s picture</td></tr><tr><td>nonce</td><td>Optional</td><td></td></tr><tr><td>iss</td><td>Mandatory</td><td>Must exactly match the issuer you told us about in the last step</td></tr><tr><td>exp</td><td>Mandatory</td><td>Unix timestamp of when this token should be considered invalid, use a sensible date, e.g. now + 1 day</td></tr><tr><td>iat</td><td>Mandatory</td><td>Unix timestamp token was generated</td></tr><tr><td>auth_time</td><td>Optional</td><td>Unix timestamp user last authenticated</td></tr><tr><td>sub</td><td>Mandatory</td><td>Unique user ID as known by your application</td></tr><tr><td>aud</td><td>Mandatory</td><td>Can be one or more intended audiences of this token, should include <a href="https://api.doordeck.com" target="_blank" rel="noopener noreferrer" class="">https://api.doordeck.com</a></td></tr><tr><td>sid</td><td>Optional</td><td>Session ID, useful for being able to destroy a session</td></tr><tr><td>zoneinfo</td><td>Optional</td><td>Timezone information, used for displaying dates in local format (e.g. Europe/London)</td></tr><tr><td>family_name</td><td>Optional</td><td>These will be simplified to &#x27;name&#x27; if name is absent</td></tr><tr><td>middle_name</td><td>Optional</td><td>These will be simplified to &#x27;name&#x27; if name is absent</td></tr><tr><td>given_name</td><td>Optional</td><td>These will be simplified to &#x27;name&#x27; if name is absent</td></tr></tbody></table>
 <p><sup>*</sup> At least one of the email or telephone must be provided.</p>
 <p>Based on the above, a minimal OpenID token may look as follows:</p>
 <div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockTitle_OeMC">JSON Web Token Payload</div><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;iss&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token string" style="color:#e3116c">&quot;https://myapp.com/&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;exp&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token number" style="color:#36acaa">1553904000</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;iat&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token number" style="color:#36acaa">1552926912</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;aud&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token string" style="color:#e3116c">&quot;https://api.doordeck.com&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;sub&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token string" style="color:#e3116c">&quot;1&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;email&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token string" style="color:#e3116c">&quot;michael@doordeck.com&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;email_verified&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token boolean" style="color:#36acaa">true</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;name&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token string" style="color:#e3116c">&quot;Michael Barnwell&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;locale&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token string" style="color:#e3116c">&quot;en-gb&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;zoneinfo&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token string" style="color:#e3116c">&quot;Europe/London&quot;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="jwt-header">JWT Header<a href="#jwt-header" class="hash-link" aria-label="Direct link to JWT Header" title="Direct link to JWT Header" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="jwt-header">JWT Header<a href="#jwt-header" class="hash-link" aria-label="Direct link to JWT Header" title="Direct link to JWT Header" translate="no">​</a></h3>
 <p>OpenID/JWT also needs a header and a signature, the header is easy enough - we have to state what algorithm we&#x27;ve used
 to generate the signature and the key ID used:</p>
 <div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockTitle_OeMC">JSON Web Token Header</div><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;alg&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;RS256&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;kid&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;2019-03-15&quot;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="constructing-the-token">Constructing the Token<a href="#constructing-the-token" class="hash-link" aria-label="Direct link to Constructing the Token" title="Direct link to Constructing the Token" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="constructing-the-token">Constructing the Token<a href="#constructing-the-token" class="hash-link" aria-label="Direct link to Constructing the Token" title="Direct link to Constructing the Token" translate="no">​</a></h3>
 <ol>
-<li>
+<li class="">
 <p><strong>Strip whitespace</strong> from the header and payload, then <strong>Base64Url-encode</strong> each.</p>
 </li>
-<li>
+<li class="">
 <p><strong>Concatenate</strong> the encoded header and payload with a period (<code>.</code>) in between.</p>
 </li>
-<li>
+<li class="">
 <p>The result will look like:</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockTitle_OeMC">JSON Web Token (without signature)</div><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">eyJhbGciOiJSUzI1NiIsImtpZCI6IjIwMTktMDMtMTUifQ.eyJpc3MiOiJodHRwczovL215YXBwLmNvbS8iLCJleHAiOjE1NTM5MDQwMDAsImlhdCI6MTU1MjkyNjkxMiwiYXVkIjoiaHR0cHM6Ly9hcGkuZG9vcmRlY2suY29tIiwic3ViIjoiMSIsImVtYWlsIjoibWljaGFlbEBkb29yZGVjay5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmFtZSI6Ik1pY2hhZWwgQmFybndlbGwiLCJsb2NhbGUiOiJlbi1nYiIsInpvbmVpbmZvIjoiRXVyb3BlL0xvbmRvbiJ9 </span><br></span></code></pre></div></div>
 </li>
-<li>
+<li class="">
 <p><strong>Sign</strong> this concatenated string using your <strong>private key</strong> (the key you generated earlier).</p>
 </li>
-<li>
+<li class="">
 <p><strong>Base64Url-encode</strong> the signature and append it to the string with another period.</p>
 <p>The final token might look like this:</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockTitle_OeMC">Complete JSON Web Token</div><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">eyJhbGciOiJSUzI1NiIsImtpZCI6IjIwMTktMDMtMTUifQ.eyJpc3MiOiJodHRwczovL215YXBwLmNvbS8iLCJleHAiOjE1NTM5MDQwMDAsImlhdCI6MTU1MjkyNjkxMiwiYXVkIjoiaHR0cHM6Ly9hcGkuZG9vcmRlY2suY29tIiwic3ViIjoiMSIsImVtYWlsIjoibWljaGFlbEBkb29yZGVjay5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmFtZSI6Ik1pY2hhZWwgQmFybndlbGwiLCJsb2NhbGUiOiJlbi1nYiIsInpvbmVpbmZvIjoiRXVyb3BlL0xvbmRvbiJ9.Y9oHuxTd58tUukdEaR8hHpCt9ZH9NW1NextAd98ELUf2wjHXMzFO6-1Lc3HAqRnYo_hkOFrs4bcxo57NF70DH7Qu0uiZgQZzivHEtaQ7AUetcQzyPRDNnosj-bpB7Ya00lbTmoXuW_vqa-eeRGmy78DehDI5YkGXq0ddl963hex3esozVwLWgbHNnMUC4YZCWMuzWbI39KCOxsEDsNGrCCgh8yemq_gMWCSbJCtlEBqxKJzRD63--4cuXZdF_Y2_BQmVkecvozEe3hM9ooqSPyP8W_miTkL559TvdqrO_TpPkp5BElJJqifnio5drjCFBAWQZOeaT3IdgPFz6DlYlw</span><br></span></code></pre></div></div>
 </li>
 </ol>
 <p>Once the token is signed, it is ready to be used to make authenticated calls against the Sentry Interactive API.</p>
-<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>If you&#x27;re unfamiliar with JWTs, the <a href="https://jwt.io/introduction/" target="_blank" rel="noopener noreferrer">JWT.io Introduction</a> is an excellent resource.</p></div></div>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>If you&#x27;re unfamiliar with JWTs, the <a href="https://jwt.io/introduction/" target="_blank" rel="noopener noreferrer" class="">JWT.io Introduction</a> is an excellent resource.</p></div></div>
 <hr>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="security-notes">Security Notes<a href="#security-notes" class="hash-link" aria-label="Direct link to Security Notes" title="Direct link to Security Notes" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="security-notes">Security Notes<a href="#security-notes" class="hash-link" aria-label="Direct link to Security Notes" title="Direct link to Security Notes" translate="no">​</a></h2>
 <p>The process described above is only <strong>one of several security measures</strong> we use. <strong>You cannot unlock a door solely using
 an auth token</strong>, as additional cryptographic steps are required when performing unlock operations (see the guide on
-<a href="/docs/guide/ephemeral-key-registration-unlocking-a-door/">ephemeral key registration &amp; unlocking a door</a>).</p>
+<a class="" href="/docs/guide/ephemeral-key-registration-unlocking-a-door/">ephemeral key registration &amp; unlocking a door</a>).</p>
 <p>However, the <strong>auth signing key</strong> is a critical security measure and must be treated as such:</p>
 <ul>
-<li>Store it in a <strong>Key Management Service (KMS)</strong> (e.g., AWS KMS or Google Cloud KMS) or
+<li class="">Store it in a <strong>Key Management Service (KMS)</strong> (e.g., AWS KMS or Google Cloud KMS) or
 <strong>Hardware Security Module (HSM)</strong>.</li>
-<li>Notify Sentry Interactive immediately if the key becomes compromised. We support <strong>expiry dates</strong> on signing keys so you can
+<li class="">Notify Sentry Interactive immediately if the key becomes compromised. We support <strong>expiry dates</strong> on signing keys so you can
 <strong>revoke</strong> a compromised key or schedule it for deletion and rotate to a new key.</li>
 </ul>
 <p>Many of the token fields are <strong>optional but encouraged</strong>. The more information we have, the better decisions we can make
 about when to request secondary authentication (e.g., when a user logs in from a new device).</p>
 <hr>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="user-management-notes">User Management Notes<a href="#user-management-notes" class="hash-link" aria-label="Direct link to User Management Notes" title="Direct link to User Management Notes" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="user-management-notes">User Management Notes<a href="#user-management-notes" class="hash-link" aria-label="Direct link to User Management Notes" title="Direct link to User Management Notes" translate="no">​</a></h2>
 <p>Whenever you send Sentry Interactive a <strong>new signed user token</strong>, we update our internal user record to match the latest details.
 Users are keyed on <strong>Application ID</strong> + your unique internal identifier (<code>sub</code> claim). As long as those two values
 remain the same, any other fields (such as <code>email</code>, <code>phone_number</code>, etc.) will update automatically based on the <code>iat</code>
@@ -135,29 +135,29 @@ remain the same, any other fields (such as <code>email</code>, <code>phone_numbe
 <blockquote>
 <p><strong>Important:</strong></p>
 <ul>
-<li><strong>Email</strong> and <strong>telephone</strong> details must be <strong>unique</strong> across your user base.</li>
-<li>If they aren&#x27;t unique, do <strong>not</strong> use the email or telephone lookup methods described in the
-<a href="/docs/cloud-api/lock-operations/lookup-user-public-key-v2/">Get a third-party user&#x27;s public key</a> endpoint.</li>
+<li class=""><strong>Email</strong> and <strong>telephone</strong> details must be <strong>unique</strong> across your user base.</li>
+<li class="">If they aren&#x27;t unique, do <strong>not</strong> use the email or telephone lookup methods described in the
+<a class="" href="/docs/cloud-api/lock-operations/lookup-user-public-key-v2/">Get a third-party user&#x27;s public key</a> endpoint.</li>
 </ul>
 </blockquote>
 <hr>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="testing-the-auth-token">Testing the Auth Token<a href="#testing-the-auth-token" class="hash-link" aria-label="Direct link to Testing the Auth Token" title="Direct link to Testing the Auth Token" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="testing-the-auth-token">Testing the Auth Token<a href="#testing-the-auth-token" class="hash-link" aria-label="Direct link to Testing the Auth Token" title="Direct link to Testing the Auth Token" translate="no">​</a></h2>
 <p>Typically, the first API call you make is to <strong>register the user&#x27;s ephemeral key</strong>, but we cover that in the next
 article. For now, you can test your token with our <strong>&quot;Echo Auth&quot;</strong> endpoint, which simply returns back the decoded auth
 data. Example:</p>
 <div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token function" style="color:#d73a49">curl</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">\</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  https://api.doordeck.com/platform/auth </span><span class="token punctuation" style="color:#393A34">\</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token parameter variable" style="color:#36acaa">-H</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;Authorization: Bearer </span><span class="token string variable" style="color:#36acaa">${USER_TOKEN}</span><span class="token string" style="color:#e3116c">&quot;</span><span class="token plain"> </span><br></span></code></pre></div></div>
 <hr>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="clean-up">Clean Up<a href="#clean-up" class="hash-link" aria-label="Direct link to Clean Up" title="Direct link to Clean Up" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="clean-up">Clean Up<a href="#clean-up" class="hash-link" aria-label="Direct link to Clean Up" title="Direct link to Clean Up" translate="no">​</a></h2>
 <p>If you decide you no longer want your application (or want to start fresh), please <strong>delete</strong> it. There is a
 <strong>&quot;Remove&quot;</strong> button at the bottom of your application details in the Developer Console.</p>
 <hr>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="summary">Summary<a href="#summary" class="hash-link" aria-label="Direct link to Summary" title="Direct link to Summary" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="summary">Summary<a href="#summary" class="hash-link" aria-label="Direct link to Summary" title="Direct link to Summary" translate="no">​</a></h2>
 <p>We&#x27;ve covered how to:</p>
 <ul>
-<li>Create an application in the <strong>Sentry Interactive Developer Console</strong>.</li>
-<li>Generate and register an <strong>asymmetric signing key</strong> for OpenID.</li>
-<li>Configure your <strong>auth issuer URL</strong>.</li>
-<li>Generate <strong>OpenID tokens</strong> (JWTs) that your users can use to call Sentry Interactive&#x27;s APIs directly.</li>
+<li class="">Create an application in the <strong>Sentry Interactive Developer Console</strong>.</li>
+<li class="">Generate and register an <strong>asymmetric signing key</strong> for OpenID.</li>
+<li class="">Configure your <strong>auth issuer URL</strong>.</li>
+<li class="">Generate <strong>OpenID tokens</strong> (JWTs) that your users can use to call Sentry Interactive&#x27;s APIs directly.</li>
 </ul>
 <p>The goal is that you maintain <strong>your own user authentication</strong> (e.g., username/password, OAuth, SAML, etc.), then
 exchange your internal tokens or session cookies for a Sentry Interactive-compatible JWT. This allows end users to make
