@@ -85,16 +85,19 @@ sdk.contextManager.set_operation_context(
 
 ## Get Context State
 
-Checks the state of the context by verifying if the [auth token](#is-cloud-auth-token-invalid-or-expired) is valid, 
-the key pair [is valid](#is-key-pair-valid) and has been [verified](#is-key-pair-verified), 
-and the [certificate chain is valid](#is-certificate-chain-invalid-or-expired).
+Checks the state of the context by verifying that the [auth token is valid](#is-cloud-auth-token-invalid-or-expired), 
+the [key pair is valid](#is-key-pair-valid) and [verified](#is-key-pair-verified),
+and the [certificate chain is valid](#is-certificate-chain-invalid-or-expired). 
+When **checkServerInvalidation** is set to **true**, it also checks if the auth token has been invalidated on the backend. 
+This requires a network request. When **checkServerInvalidation** is **false**, this server check is skipped, 
+meaning the auth token might be accepted even if it has been invalidated.
 
 <Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
 // Returns a ContextState
-val result = sdk.contextManager().getContextState()
+val result = sdk.contextManager().getContextState(true)
 ```
 
 </TabItem>
@@ -102,7 +105,7 @@ val result = sdk.contextManager().getContextState()
 
 ```java showLineNumbers
 // Returns a CompletableFuture<ContextState>
-var result = sdk.contextManager().getContextStateAsync();
+var result = sdk.contextManager().getContextStateAsync(true);
 ```
 
 </TabItem>
@@ -110,7 +113,7 @@ var result = sdk.contextManager().getContextStateAsync();
 
 ```swift showLineNumbers
 // Returns a ContextState asynchronously
-let result = await sdk.contextManager().getContextState()
+let result = await sdk.contextManager().getContextState(checkServerInvalidation: true)
 ```
 
 </TabItem>
@@ -118,7 +121,7 @@ let result = await sdk.contextManager().getContextState()
 
 ```js showLineNumbers
 // Returns a Promise<string>
-const result = await sdk.contextManager().getContextState();
+const result = await sdk.contextManager().getContextState(true);
 ```
 
 </TabItem>
@@ -126,7 +129,7 @@ const result = await sdk.contextManager().getContextState();
 
 ```csharp showLineNumbers
 // Returns a Task<ContextState>
-var result = await sdk.GetContextManager().GetContextState();
+var result = await sdk.GetContextManager().GetContextState(checkServerInvalidation: true);
 ```
 
 </TabItem>
@@ -134,7 +137,7 @@ var result = await sdk.GetContextManager().GetContextState();
 
 ```python showLineNumbers
 # Returns a Future[SimpleNamespace]
-result = await sdk.contextManager.get_context_state()
+result = await sdk.contextManager.get_context_state(True)
 ```
 
 </TabItem>
@@ -386,15 +389,18 @@ token = sdk.contextManager.get_cloud_auth_token()
 
 ## Is cloud auth token invalid or expired
 
-Checks if the current cloud auth token from the context is invalid, expired or invalidated 
-(we consider it expired if it will expire within the next 24 hours).
+Checks if the current cloud auth token from the context is invalid, expired 
+(we consider it expired if it will expire within the next 24 hours) or invalidated.
+When **checkServerInvalidation** is set to **true**, it also checks if the auth token has been invalidated on the backend. 
+This requires a network request. When **checkServerInvalidation** is **false**, this server check is skipped, 
+meaning the auth token might be accepted even if it has been invalidated on the server.
 
 <Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin showLineNumbers
 // Returns a Boolean
-val result = sdk.contextManager().isCloudAuthTokenInvalidOrExpired()
+val result = sdk.contextManager().isCloudAuthTokenInvalidOrExpired(true)
 ```
 
 </TabItem>
@@ -402,7 +408,7 @@ val result = sdk.contextManager().isCloudAuthTokenInvalidOrExpired()
 
 ```java showLineNumbers
 // Returns a CompletableFuture<Boolean>
-var result = sdk.contextManager().isCloudAuthTokenInvalidOrExpiredAsync();
+var result = sdk.contextManager().isCloudAuthTokenInvalidOrExpiredAsync(true);
 ```
 
 </TabItem>
@@ -410,7 +416,7 @@ var result = sdk.contextManager().isCloudAuthTokenInvalidOrExpiredAsync();
 
 ```swift showLineNumbers
 // Returns a Bool asynchronously
-let result = await sdk.contextManager().isCloudAuthTokenInvalidOrExpired()
+let result = await sdk.contextManager().isCloudAuthTokenInvalidOrExpired(checkServerInvalidation: true)
 ```
 
 </TabItem>
@@ -418,7 +424,7 @@ let result = await sdk.contextManager().isCloudAuthTokenInvalidOrExpired()
 
 ```js showLineNumbers
 // Returns a Promise<boolean>
-const result = await sdk.contextManager().isCloudAuthTokenInvalidOrExpired();
+const result = await sdk.contextManager().isCloudAuthTokenInvalidOrExpired(true);
 ```
 
 </TabItem>
@@ -426,7 +432,7 @@ const result = await sdk.contextManager().isCloudAuthTokenInvalidOrExpired();
 
 ```csharp showLineNumbers
 // Returns a Task<bool>
-var result = await sdk.GetContextManager().IsCloudAuthTokenInvalidOrExpired();
+var result = await sdk.GetContextManager().IsCloudAuthTokenInvalidOrExpired(checkServerInvalidation: true);
 ```
 
 </TabItem>
@@ -434,7 +440,7 @@ var result = await sdk.GetContextManager().IsCloudAuthTokenInvalidOrExpired();
 
 ```python showLineNumbers
 # Returns a Future[SimpleNamespace]
-result = await sdk.contextManager.is_cloud_auth_token_invalid_or_expired()
+result = await sdk.contextManager.is_cloud_auth_token_invalid_or_expired(True)
 ```
 
 </TabItem>
