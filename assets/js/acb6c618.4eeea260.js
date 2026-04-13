@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoordeck_docs=self.webpackChunkdoordeck_docs||[]).push([["112"],{8404(o){o.exports=JSON.parse('{"metadata":{"permalink":"/docs/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":0,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
