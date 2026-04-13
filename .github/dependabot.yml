@@ -8,6 +8,8 @@ updates:
     time: "08:00"
     timezone: "Europe/London"
   open-pull-requests-limit: 10
+  reviewers:
+    - "team:backend-developers"
   groups:
     docusaurus:
       patterns: ["@docusaurus/*"]
@@ -23,6 +25,8 @@ updates:
     day: "monday"
     time: "08:00"
     timezone: "Europe/London"
+  reviewers:
+    - "team:backend-developers"
   groups:
     actions-all:
       patterns: ["*"]
