@@ -1472,3 +1472,60 @@ response = await sdk.platform.get_application_owners_details("APPLICATION_ID")
 
 </TabItem>
 </Tabs>
+
+## Get Application Users
+
+<Tabs groupId="programming-language">
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin showLineNumbers
+// Returns a List<ApplicationUserResponse>
+val response = sdk.platform().getApplicationUsers(APPLICATION_ID)
+```
+
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java showLineNumbers
+// Returns a CompletableFuture<List<ApplicationUserResponse>>
+var response = sdk.platform().getApplicationUsersAsync(APPLICATION_ID);
+```
+
+</TabItem>
+<TabItem value="swift" label="Swift">
+
+```swift showLineNumbers
+// Returns a Array<ApplicationUserResponse> asynchronously
+let response = await sdk.platform().getApplicationUsers(
+  applicationId: APPLICATION_ID,
+  pageSize: 100,
+  lastUserRetrieved: nil
+)
+```
+
+</TabItem>
+<TabItem value="js" label="JavaScript">
+
+```js showLineNumbers
+// Returns a Promise<Array<ApplicationUserResponse>>
+const response = await com.doordeck.multiplatform.sdk.api.platform().getApplicationUsers("APPLICATION_ID");
+```
+
+</TabItem>
+<TabItem value="csharp" label="C#">
+
+```csharp showLineNumbers
+// Returns a Task<List<ApplicationUserResponse>>
+var response = await sdk.GetPlatform().GetApplicationUsers(APPLICATION_ID);
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python showLineNumbers
+# Returns a Future[SimpleNamespace]
+response = await sdk.platform.get_application_users("APPLICATION_ID")
+```
+
+</TabItem>
+</Tabs>
