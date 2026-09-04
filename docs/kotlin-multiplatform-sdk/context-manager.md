@@ -12,10 +12,6 @@ All the values that are provided to the context manager are automatically stored
 Changes the environment the SDK operates against. It can be changed at any time, although it is recommended to
 set it up through the [SdkConfig builder](initialize.md#sdk-config-builder) instead.
 
-:::info
-Not available on **C#** and **Python** — pass the environment to the constructor on those platforms.
-:::
-
 <Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
 
@@ -42,6 +38,20 @@ sdk.contextManager().setApiEnvironment(apiEnvironment: ApiEnvironment.prod)
 
 ```js showLineNumbers
 sdk.contextManager().setApiEnvironment("PROD");
+```
+
+</TabItem>
+<TabItem value="csharp" label="C#">
+
+```csharp showLineNumbers
+// Not implemented yet
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python showLineNumbers
+// Not implemented yet
 ```
 
 </TabItem>
@@ -758,10 +768,8 @@ you by [set operation context](#set-operation-context) or by
 [register ephemeral key](account.md#register-ephemeral-key).
 
 :::info
-* Only the **first** certificate of the chain is inspected by
-  [is certificate chain invalid or expired](#is-certificate-chain-invalid-or-expired).
-* Not available on **C#** and **Python** — use [set operation context](#set-operation-context) instead.
-  :::
+Only the **first** certificate of the chain is inspected by [is certificate chain invalid or expired](#is-certificate-chain-invalid-or-expired).
+:::
 
 <Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
@@ -792,16 +800,25 @@ sdk.contextManager().setCertificateChain(USER_CERTIFICATE_CHAIN_LIST);
 ```
 
 </TabItem>
+<TabItem value="csharp" label="C#">
+
+```csharp showLineNumbers
+// Not implemented yet
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python showLineNumbers
+// Not implemented yet
+```
+
+</TabItem>
 </Tabs>
 
 ## Get certificate chain
 
 Returns the stored certificate chain, or **null** when none has been set.
-
-:::info
-On Kotlin and Java the chain is returned as `X509Certificate` objects; on Swift and JavaScript as base64
-encoded strings. Not available on **C#** and **Python**.
-:::
 
 <Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
@@ -833,6 +850,20 @@ let certificateChain = sdk.contextManager().getCertificateChain()
 ```js showLineNumbers
 // Returns a string[]
 const certificateChain = sdk.contextManager().getCertificateChain();
+```
+
+</TabItem>
+<TabItem value="csharp" label="C#">
+
+```csharp showLineNumbers
+// Not implemented yet
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python showLineNumbers
+// Not implemented yet
 ```
 
 </TabItem>
@@ -898,7 +929,6 @@ Sets the key pair used to sign the secure [lock operations](lock-operations.md).
 * Setting a new key pair does **not** mark it as verified. Use [set key pair verified](#set-key-pair-verified),
   or register it through [register ephemeral key](account.md#register-ephemeral-key).
 * Keys generated on any platform are accepted — see [crypto](crypto.md) for the supported encodings.
-* Not available on **C#** and **Python** — use [set operation context](#set-operation-context) instead.
   :::
 
 <Tabs groupId="programming-language">
@@ -933,15 +963,25 @@ sdk.contextManager().setKeyPair(PUBLIC_KEY, PRIVATE_KEY);
 ```
 
 </TabItem>
+<TabItem value="csharp" label="C#">
+
+```csharp showLineNumbers
+// Not implemented yet
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python showLineNumbers
+// Not implemented yet
+```
+
+</TabItem>
 </Tabs>
 
 ## Get key pair
 
 Returns the stored key pair, or **null** when either the public or the private key is missing.
-
-:::info
-Not available on **C#** and **Python**.
-:::
 
 <Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
@@ -976,6 +1016,20 @@ const keyPair = sdk.contextManager().getKeyPair();
 ```
 
 </TabItem>
+<TabItem value="csharp" label="C#">
+
+```csharp showLineNumbers
+// Not implemented yet
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python showLineNumbers
+// Not implemented yet
+```
+
+</TabItem>
 </Tabs>
 
 ## Set key pair verified
@@ -984,11 +1038,8 @@ Marks a public key as verified, meaning it has successfully completed
 [two-factor verification](account.md#verify-ephemeral-key-registration). Pass **null** to clear the verification.
 
 :::info
-* [Is key pair verified](#is-key-pair-verified) compares the value stored here against the current public key, so
-  setting a key pair that does not match clears the verified state in practice.
-* Not available on **C#** and **Python** — use the `isKeyPairVerified` flag of
-  [set operation context](#set-operation-context) instead.
-  :::
+[Is key pair verified](#is-key-pair-verified) compares the value stored here against the current public key, so setting a key pair that does not match clears the verified state in practice.
+:::
 
 <Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
@@ -1016,6 +1067,20 @@ sdk.contextManager().setKeyPairVerified(publicKey: PUBLIC_KEY)
 
 ```js showLineNumbers
 sdk.contextManager().setKeyPairVerified(PUBLIC_KEY);
+```
+
+</TabItem>
+<TabItem value="csharp" label="C#">
+
+```csharp showLineNumbers
+// Not implemented yet
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python showLineNumbers
+// Not implemented yet
 ```
 
 </TabItem>
