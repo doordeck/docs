@@ -23,13 +23,14 @@ If you initialize the SDK without a cloud auth token, you will need to either pr
 
 By default, the SDK stores the context information on its own, as shown in the following table:
 
-|       Platform        |            Storage             |
-|:---------------------:|:------------------------------:|
-|        Android        |  `EncryptedSharedPreferences`  |
-|          JVM          |            `Memory`            |
-| iOS / macOS / watchOS |           `Keychain`           |
-|       JS / Node       |         `LocalStorage`         |
-|      C# / Python      |            `Memory`            |
+|       Platform        |           Storage            |
+|:---------------------:|:----------------------------:|
+|        Android        | `EncryptedSharedPreferences` |
+|          JVM          |           `Memory`           |
+| iOS / macOS / watchOS |          `Keychain`          |
+|      JS Browser       |        `LocalStorage`        |
+|        JS Node        |           `Memory`           |
+|      C# / Python      |           `Memory`           |
 
 :::info
 To override the default secure storage, you must implement the `SecureStorage` interface and pass the class through the `setSecureStorageOverride` function from `SdkConfig` builder.
