@@ -1,6 +1,22 @@
 # Crypto
 
+The crypto manager exposes the cryptographic primitives the SDK uses for
+[ephemeral key registration](account.md#register-ephemeral-key) and for signing
+[lock operations](lock-operations.md). All key pairs are **Ed25519**.
+
+Each platform uses its own crypto provider and its own native key encoding:
+
+|       Platform        |      Provider       |
+|:---------------------:|:-------------------:|
+|          JVM          |  Java Security API  |
+|        Android        |    Bouncy Castle    |
+| iOS / macOS / watchOS |   Apple CryptoKit   |
+|  JS / Broswer / Node  |      Libsodium      |
+|      C# / Python      |      Libsodium      |
+
 ## Generate a key pair
+
+Generates a brand-new Ed25519 key pair. The key pair is **not** stored automatically.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

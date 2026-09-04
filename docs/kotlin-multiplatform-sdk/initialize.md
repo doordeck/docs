@@ -23,13 +23,14 @@ If you initialize the SDK without a cloud auth token, you will need to either pr
 
 By default, the SDK stores the context information on its own, as shown in the following table:
 
-|       Platform        |            Storage             |
-|:---------------------:|:------------------------------:|
-|        Android        |  `EncryptedSharedPreferences`  |
-|          JVM          |            `Memory`            |
-| iOS / macOS / watchOS |           `Keychain`           |
-|       JS / Node       |         `LocalStorage`         |
-|      C# / Python      |            `Memory`            |
+|       Platform        |           Storage            |
+|:---------------------:|:----------------------------:|
+|        Android        | `EncryptedSharedPreferences` |
+|          JVM          |           `Memory`           |
+| iOS / macOS / watchOS |          `Keychain`          |
+|      JS Browser       |        `LocalStorage`        |
+|        JS Node        |           `Memory`           |
+|      C# / Python      |           `Memory`           |
 
 :::info
 To override the default secure storage, you must implement the `SecureStorage` interface and pass the class through the `setSecureStorageOverride` function from `SdkConfig` builder.
@@ -50,6 +51,10 @@ val sdkConfig = SdkConfig.Builder()
 val sdk = KDoordeckFactory.initialize(sdkConfig)
 ```
 
+:::info
+You should also call `sdk.release()` at the end of your application's lifecycle to release the SDK resources.
+:::
+
 </TabItem>
 <TabItem value="java" label="Java">
 
@@ -60,6 +65,10 @@ var sdkConfig = SdkConfig.Builder()
 var sdk = KDoordeckFactory.INSTANCE.initializeAsync(sdkConfig);
 ```
 
+:::info
+You should also call `sdk.release();` at the end of your application's lifecycle to release the SDK resources.
+:::
+
 </TabItem>
 <TabItem value="swift" label="Swift">
 
@@ -69,6 +78,10 @@ let sdkConfig = SdkConfig.Builder()
   .build()
 let sdk = await KDoordeckFactory().initialize(sdkConfig: sdkConfig)
 ```
+
+:::info
+You should also call `sdk.release()` at the end of your application's lifecycle to release the SDK resources.
+:::
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
@@ -82,6 +95,10 @@ const sdk = await com.doordeck.multiplatform.sdk.KDoordeckFactory.initialize(
     .build(),
 );
 ```
+
+:::info
+You should also call `sdk.release()` at the end of your application's lifecycle to release the SDK resources.
+:::
 
 </TabItem>
 <TabItem value="csharp" label="C#">
@@ -100,6 +117,10 @@ You should also call `sdk.Release();` at the end of your application’s lifecyc
 ```python showLineNumbers
 sdk = doordeck_headless_sdk.InitializeSdk(cloud_auth_token="AUTH_TOKEN")
 ```
+
+:::info
+You should also call `sdk.release()` at the end of your application's lifecycle to release the SDK resources.
+:::
 
 </TabItem>
 </Tabs>
