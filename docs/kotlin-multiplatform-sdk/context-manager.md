@@ -114,7 +114,8 @@ apiEnvironment = sdk.contextManager.get_api_environment()
 
 ## Set cloud auth token
 
-If the SDK was initialized without an authentication token, you can provide or update the token using this function.
+If the SDK was initialized without an authentication token, you can provide or update the token using this function,
+also it is set automatically by [login](accountless.md#login), [register](accountless.md#register-a-new-user), and [refresh-token](account.md#request-a-new-refresh-token).
 
 <Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
@@ -268,6 +269,9 @@ result = await sdk.contextManager.is_cloud_auth_token_invalid_or_expired(True)
 </Tabs>
 
 ## Set cloud refresh token
+
+It is set automatically by [login](accountless.md#login), [register](accountless.md#register-a-new-user), 
+and [refresh-tokens](account.md#request-a-new-refresh-token).
 
 <Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
@@ -469,6 +473,8 @@ fusionHost = sdk.contextManager.get_fusion_host()
 
 ## Set fusion auth token
 
+It is set automatically by [fusion login](fusion.md#login).
+
 <Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
 
@@ -564,7 +570,8 @@ token = sdk.contextManager.get_fusion_auth_token()
 ## Set user ID
 
 Sets the user identifier used by the secure [lock operations](lock-operations.md). It is usually set for you by
-[set operation context](#set-operation-context).
+[set operation context](#set-operation-context), [register ephemeral key](account.md#register-ephemeral-key) 
+and [verify ephemeral key](account.md#verify-ephemeral-key-registration).
 
 <Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
@@ -764,8 +771,8 @@ email = sdk.contextManager.get_user_email()
 ## Set certificate chain
 
 Sets the certificate chain used to sign the secure [lock operations](lock-operations.md). It is usually set for
-you by [set operation context](#set-operation-context) or by
-[register ephemeral key](account.md#register-ephemeral-key).
+you by [set operation context](#set-operation-context), [register ephemeral key](account.md#register-ephemeral-key)
+and [verify ephemeral key](account.md#verify-ephemeral-key-registration).
 
 :::info
 Only the **first** certificate of the chain is inspected by [is certificate chain invalid or expired](#is-certificate-chain-invalid-or-expired).
@@ -922,14 +929,13 @@ result = sdk.contextManager.is_certificate_chain_invalid_or_expired()
 ## Set key pair
 
 Sets the key pair used to sign the secure [lock operations](lock-operations.md). It is usually set for you by
-[set operation context](#set-operation-context), [assisted login](helper.md#assisted-login) or
-[assisted register](helper.md#assisted-register).
+[set operation context](#set-operation-context), [register ephemeral key](account.md#register-ephemeral-key)
+and [verify ephemeral key](account.md#verify-ephemeral-key-registration).
 
 :::info
-* Setting a new key pair does **not** mark it as verified. Use [set key pair verified](#set-key-pair-verified),
-  or register it through [register ephemeral key](account.md#register-ephemeral-key).
-* Keys generated on any platform are accepted — see [crypto](crypto.md) for the supported encodings.
-  :::
+Setting a new key pair does **not** mark it as verified. Use [set key pair verified](#set-key-pair-verified), 
+or register it through [register ephemeral key](account.md#register-ephemeral-key) plus and [verify ephemeral key](account.md#verify-ephemeral-key-registration).
+:::
 
 <Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
@@ -1038,7 +1044,8 @@ Marks a public key as verified, meaning it has successfully completed
 [two-factor verification](account.md#verify-ephemeral-key-registration). Pass **null** to clear the verification.
 
 :::info
-[Is key pair verified](#is-key-pair-verified) compares the value stored here against the current public key, so setting a key pair that does not match clears the verified state in practice.
+[Is key pair verified](#is-key-pair-verified) compares the value stored here against the current public key, 
+so setting a key pair that does not match clears the verified state in practice.
 :::
 
 <Tabs groupId="programming-language">
