@@ -50,6 +50,10 @@ val sdkConfig = SdkConfig.Builder()
 val sdk = KDoordeckFactory.initialize(sdkConfig)
 ```
 
+:::info
+You should also call `sdk.release()` at the end of your application's lifecycle to release the SDK resources.
+:::
+
 </TabItem>
 <TabItem value="java" label="Java">
 
@@ -60,6 +64,10 @@ var sdkConfig = SdkConfig.Builder()
 var sdk = KDoordeckFactory.INSTANCE.initializeAsync(sdkConfig);
 ```
 
+:::info
+You should also call `sdk.release();` at the end of your application's lifecycle to release the SDK resources.
+:::
+
 </TabItem>
 <TabItem value="swift" label="Swift">
 
@@ -69,6 +77,10 @@ let sdkConfig = SdkConfig.Builder()
   .build()
 let sdk = await KDoordeckFactory().initialize(sdkConfig: sdkConfig)
 ```
+
+:::info
+You should also call `sdk.release()` at the end of your application's lifecycle to release the SDK resources.
+:::
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
@@ -82,6 +94,10 @@ const sdk = await com.doordeck.multiplatform.sdk.KDoordeckFactory.initialize(
     .build(),
 );
 ```
+
+:::info
+You should also call `sdk.release()` at the end of your application's lifecycle to release the SDK resources.
+:::
 
 </TabItem>
 <TabItem value="csharp" label="C#">
@@ -100,6 +116,10 @@ You should also call `sdk.Release();` at the end of your application’s lifecyc
 ```python showLineNumbers
 sdk = doordeck_headless_sdk.InitializeSdk(cloud_auth_token="AUTH_TOKEN")
 ```
+
+:::info
+You should also call `sdk.release()` at the end of your application's lifecycle to release the SDK resources.
+:::
 
 </TabItem>
 </Tabs>
