@@ -1,9 +1,9 @@
 # Context manager
 
-The **Context Manager** simplifies the usage of complex SDK functions by reducing the number of parameters 
+The **Context Manager** simplifies the usage of complex SDK functions by reducing the number of parameters
 required when setting the operation context, authentication tokens, and other session data.
 
-:::info 
+:::info
 All the values that are provided to the context manager are automatically stored in [secure storage](initialize.md#secure-storage).
 :::
 
@@ -115,7 +115,9 @@ apiEnvironment = sdk.contextManager.get_api_environment()
 ## Set cloud auth token
 
 If the SDK was initialized without an authentication token, you can provide or update the token using this function,
-also it is set automatically by [login](accountless.md#login), [register](accountless.md#register-a-new-user), and [refresh-token](account.md#request-a-new-refresh-token).
+also it is set automatically by [login](accountless.md#login), [register](accountless.md#register-a-new-user),
+[refresh-token](account.md#request-a-new-refresh-token) and the [automatic refresh](#set-cloud-refresh-token).
+Passing **null** removes the stored token.
 
 <Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
@@ -211,11 +213,14 @@ token = sdk.contextManager.get_cloud_auth_token()
 
 ## Is cloud auth token invalid or expired
 
-Checks if the current cloud auth token from the context is invalid, expired
-(we consider it expired if it will expire within the next 24 hours) or invalidated.
-When **checkServerInvalidation** is set to **true**, it also checks if the auth token has been invalidated on the backend.
-This requires a network request. When **checkServerInvalidation** is **false**, this server check is skipped,
-meaning the auth token might be accepted even if it has been invalidated on the server.
+Checks whether the cloud auth token from the context can still be used:
+
+* A token that is missing, invalid or expires within the next 24 hours is first refreshed with the stored
+  [refresh token](#set-cloud-refresh-token). This is a network request, performed regardless of **checkServerInvalidation**.
+* It returns **true** only when the token could not be refreshed and is missing, invalid or past its expiration.
+  A token that could not be refreshed but has not expired yet is still valid, since the backend accepts it until then.
+* When **checkServerInvalidation** is **true**, a token that passes the checks above is also verified with the backend
+  (an additional network request). When **false**, the token might be accepted even if it has been invalidated on the server.
 
 <Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
@@ -270,8 +275,14 @@ result = await sdk.contextManager.is_cloud_auth_token_invalid_or_expired(True)
 
 ## Set cloud refresh token
 
-It is set automatically by [login](accountless.md#login), [register](accountless.md#register-a-new-user), 
-and [refresh-tokens](account.md#request-a-new-refresh-token).
+It is set automatically by [login](accountless.md#login), [register](accountless.md#register-a-new-user),
+and [refresh-tokens](account.md#request-a-new-refresh-token). Passing **null** removes the stored token.
+
+:::info
+While a refresh token is stored, the SDK refreshes the cloud auth token automatically: before a request, when the
+auth token is missing, invalid or expires within the next 24 hours, and once more after an unauthorized response.
+A refresh token rejected by the backend is removed from the context.
+:::
 
 <Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">
@@ -570,7 +581,7 @@ token = sdk.contextManager.get_fusion_auth_token()
 ## Set user ID
 
 Sets the user identifier used by the secure [lock operations](lock-operations.md). It is usually set for you by
-[set operation context](#set-operation-context), [register ephemeral key](account.md#register-ephemeral-key) 
+[set operation context](#set-operation-context), [register ephemeral key](account.md#register-ephemeral-key)
 and [verify ephemeral key](account.md#verify-ephemeral-key-registration).
 
 <Tabs groupId="programming-language">
@@ -933,7 +944,7 @@ Sets the key pair used to sign the secure [lock operations](lock-operations.md).
 and [verify ephemeral key](account.md#verify-ephemeral-key-registration).
 
 :::info
-Setting a new key pair does **not** mark it as verified. Use [set key pair verified](#set-key-pair-verified), 
+Setting a new key pair does **not** mark it as verified. Use [set key pair verified](#set-key-pair-verified),
 or register it through [register ephemeral key](account.md#register-ephemeral-key) plus and [verify ephemeral key](account.md#verify-ephemeral-key-registration).
 :::
 
@@ -1044,7 +1055,7 @@ Marks a public key as verified, meaning it has successfully completed
 [two-factor verification](account.md#verify-ephemeral-key-registration). Pass **null** to clear the verification.
 
 :::info
-[Is key pair verified](#is-key-pair-verified) compares the value stored here against the current public key, 
+[Is key pair verified](#is-key-pair-verified) compares the value stored here against the current public key,
 so setting a key pair that does not match clears the verified state in practice.
 :::
 
@@ -1271,10 +1282,9 @@ sdk.contextManager.set_operation_context(
 
 Checks the state of the context by verifying that the [auth token is valid](#is-cloud-auth-token-invalid-or-expired),
 the [key pair is valid](#is-key-pair-valid) and [verified](#is-key-pair-verified),
-and the [certificate chain is valid](#is-certificate-chain-invalid-or-expired).
-When **checkServerInvalidation** is set to **true**, it also checks if the auth token has been invalidated on the backend.
-This requires a network request. When **checkServerInvalidation** is **false**, this server check is skipped,
-meaning the auth token might be accepted even if it has been invalidated.
+and the [certificate chain is valid](#is-certificate-chain-invalid-or-expired). The first check to fail determines
+the returned state. **checkServerInvalidation** behaves as described in
+[is cloud auth token invalid or expired](#is-cloud-auth-token-invalid-or-expired).
 
 <Tabs groupId="programming-language">
 <TabItem value="kotlin" label="Kotlin">

@@ -11,7 +11,7 @@ Each platform uses its own crypto provider and its own native key encoding:
 |          JVM          |  Java Security API  |
 |        Android        |    Bouncy Castle    |
 | iOS / macOS / watchOS |   Apple CryptoKit   |
-|  JS / Broswer / Node  |      Libsodium      |
+|  JS / Browser / Node  |      Libsodium      |
 |      C# / Python      |      Libsodium      |
 
 ## Generate a key pair
