@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--get
 sidebar_position: 1
 ---
 
@@ -12,7 +13,7 @@ This endpoint identifies which lock belongs to the specific tile.
 
 ### HTTP Request
 
-`GET https://api.doordeck.com/tile/TILE_ID/`
+<HttpEndpoint method="GET" url="https://api.doordeck.com/tile/TILE_ID/" />
 
 ### Example
 

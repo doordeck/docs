@@ -35,3 +35,49 @@
     --docusaurus-announcement-bar-height: 60px;
   }
 }
+
+/* HTTP method badges, used by the HttpEndpoint component and API sidebar items. */
+:root {
+  --api-method-get: #1d63c9;
+  --api-method-post: #18794e;
+  --api-method-put: #b45309;
+  --api-method-patch: #0f766e;
+  --api-method-delete: #c53030;
+}
+
+.api-method-badge,
+.api-method > .menu__link::before {
+  flex: none;
+  border-radius: 0.25rem;
+  color: #fff;
+  font-family: var(--ifm-font-family-monospace);
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.api-method-badge {
+  padding: 0.1rem 0.5rem;
+  font-size: 0.8rem;
+}
+
+.api-method-badge--get { background-color: var(--api-method-get); }
+.api-method-badge--post { background-color: var(--api-method-post); }
+.api-method-badge--put { background-color: var(--api-method-put); }
+.api-method-badge--patch { background-color: var(--api-method-patch); }
+.api-method-badge--delete { background-color: var(--api-method-delete); }
+
+.api-method > .menu__link {
+  gap: 0.5rem;
+}
+
+.api-method > .menu__link::before {
+  width: 2.6rem;
+  font-size: 0.65rem;
+}
+
+.api-method--get > .menu__link::before { content: 'GET'; background-color: var(--api-method-get); }
+.api-method--post > .menu__link::before { content: 'POST'; background-color: var(--api-method-post); }
+.api-method--put > .menu__link::before { content: 'PUT'; background-color: var(--api-method-put); }
+.api-method--patch > .menu__link::before { content: 'PATCH'; background-color: var(--api-method-patch); }
+.api-method--delete > .menu__link::before { content: 'DEL'; background-color: var(--api-method-delete); }

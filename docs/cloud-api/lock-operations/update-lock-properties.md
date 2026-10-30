@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--put
 sidebar_position: 8
 ---
 
@@ -8,7 +9,7 @@ This endpoint allows the name, favourite flag and colour to be updated for an ex
 
 ### HTTP Request
 
-`PUT https://api.doordeck.com/device/LOCK_ID`
+<HttpEndpoint method="PUT" url="https://api.doordeck.com/device/LOCK_ID" />
 
 ### Request Parameters
 

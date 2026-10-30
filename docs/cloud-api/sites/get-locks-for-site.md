@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--get
 sidebar_position: 2
 ---
 
@@ -8,7 +9,7 @@ This endpoint lists all the locks in a particular site that the user has access 
 
 ### HTTP Request
 
-`GET https://api.doordeck.com/site/SITE_ID/device/`
+<HttpEndpoint method="GET" url="https://api.doordeck.com/site/SITE_ID/device/" />
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

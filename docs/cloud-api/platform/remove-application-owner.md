@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--delete
 sidebar_position: 13
 ---
 
@@ -12,7 +13,7 @@ Removes an owner from an existing application.
 
 ### HTTP Request
 
-`DELETE https://api.doordeck.com/platform/application/APPLICATION_ID/owner`
+<HttpEndpoint method="DELETE" url="https://api.doordeck.com/platform/application/APPLICATION_ID/owner" />
 
 ### Request Parameters
 

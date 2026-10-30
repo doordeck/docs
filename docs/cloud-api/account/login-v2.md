@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--post
 sidebar_position: 1
 ---
 
@@ -12,7 +13,7 @@ This endpoint lets user's attempt to login.
 
 ### HTTP Request
 
-`POST https://api.doordeck.com/auth/token`
+<HttpEndpoint method="POST" url="https://api.doordeck.com/auth/token" />
 
 ### Request Headers
 

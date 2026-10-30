@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--post
 sidebar_position: 9
 ---
 
@@ -11,7 +12,7 @@ This endpoint is only available to users with Sentry Interactive issued auth tok
 This endpoint will generate a new email to the logged user with a new verification code to validate their email address.
 
 ### HTTP Request
-`POST https://api.doordeck.com/account/email/reverify`
+<HttpEndpoint method="POST" url="https://api.doordeck.com/account/email/reverify" />
 
 ### Example
 

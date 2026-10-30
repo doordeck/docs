@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--post
 sidebar_position: 9
 ---
 
@@ -13,7 +14,7 @@ If user is not found, one is created for the specified USER_EMAIL.
 
 ### HTTP Request
 
-`POST https://api.doordeck.com/share/invite/USER_EMAIL`
+<HttpEndpoint method="POST" url="https://api.doordeck.com/share/invite/USER_EMAIL" />
 
 ### Query Parameters
 

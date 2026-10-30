@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--post
 sidebar_position: 11
 ---
 
@@ -16,7 +17,7 @@ for batches of up to 25 users to be queried in a single request.
 
 ### HTTP Request
 
-`POST https://api.doordeck.com/directory/query`
+<HttpEndpoint method="POST" url="https://api.doordeck.com/directory/query" />
 
 ### Request Headers
 

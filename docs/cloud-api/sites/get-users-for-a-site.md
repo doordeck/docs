@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--get
 sidebar_position: 3
 ---
 
@@ -9,7 +10,7 @@ administrator of will return user information.
 
 ### HTTP Request
 
-`GET https://api.doordeck.com/site/SITE_ID/user/`
+<HttpEndpoint method="GET" url="https://api.doordeck.com/site/SITE_ID/user/" />
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

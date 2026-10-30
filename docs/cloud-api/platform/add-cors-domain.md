@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--post
 sidebar_position: 10
 ---
 
@@ -12,7 +13,7 @@ Adds a domain to the list of permitted CORS domains to allow webapps to call Sen
 
 ### HTTP Request
 
-`POST https://api.doordeck.com/platform/application/APPLICATION_ID/cors`
+<HttpEndpoint method="POST" url="https://api.doordeck.com/platform/application/APPLICATION_ID/cors" />
 
 ### Request Parameters
 
