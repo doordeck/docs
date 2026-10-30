@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--post
 sidebar_position: 7
 ---
 
@@ -12,7 +13,7 @@ Adds a new auth key to the permitted auth keys for user's of this application, c
 
 ### HTTP Request
 
-`POST https://api.doordeck.com/platform/application/APPLICATION_ID/auth/key`
+<HttpEndpoint method="POST" url="https://api.doordeck.com/platform/application/APPLICATION_ID/auth/key" />
 
 ### Request Parameters
 

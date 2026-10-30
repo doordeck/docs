@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--get
 sidebar_position: 2
 ---
 
@@ -12,7 +13,7 @@ Lists all application's owned by the current user
 
 ### HTTP Request
 
-`GET https://api.doordeck.com/platform/application`
+<HttpEndpoint method="GET" url="https://api.doordeck.com/platform/application" />
 
 ### Example
 

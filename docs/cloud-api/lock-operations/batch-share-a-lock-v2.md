@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--post
 sidebar_position: 14
 ---
 
@@ -12,7 +13,7 @@ Share a single lock with up to 25 users in a single request.
 
 ### HTTP Request
 
-`POST https://api.doordeck.com/device/LOCK_ID/execute`
+<HttpEndpoint method="POST" url="https://api.doordeck.com/device/LOCK_ID/execute" />
 
 :::tip[Success]
 If a request expires within the next 60 seconds, a 204 is returned upon success, if a request expires in more than 60 seconds, a 202 is returned to indicate the request has been queued for the device.

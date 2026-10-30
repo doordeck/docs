@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--post
 sidebar_position: 6
 ---
 
@@ -9,7 +10,7 @@ SMS, or telephone - the service will pick the most appropriate method based on t
 auth token or it can be specified as a query parameter.
 
 ### HTTP Request
-`POST https://api.doordeck.com/auth/certificate/verify`
+<HttpEndpoint method="POST" url="https://api.doordeck.com/auth/certificate/verify" />
 
 ### Request Parameters
 

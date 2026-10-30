@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--put
 sidebar_position: 8
 ---
 
@@ -7,7 +8,7 @@ sidebar_position: 8
 This endpoint is used to verify a user's email address.
 
 ### HTTP Request
-`PUT https://api.doordeck.com/account/email/verify`
+<HttpEndpoint method="PUT" url="https://api.doordeck.com/account/email/verify" />
 
 ### Query Parameters
 

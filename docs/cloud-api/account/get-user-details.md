@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--get
 sidebar_position: 11
 ---
 
@@ -7,7 +8,7 @@ sidebar_position: 11
 This endpoint returns information about the currently logged in user
 
 ### HTTP Request
-`GET https://api.doordeck.com/account`
+<HttpEndpoint method="GET" url="https://api.doordeck.com/account" />
 
 ### Example
 

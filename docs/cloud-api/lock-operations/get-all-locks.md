@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--get
 sidebar_position: 1
 ---
 
@@ -8,7 +9,7 @@ This endpoint retrieves all locks a user has access to.
 
 ### HTTP Request
 
-`GET https://api.doordeck.com/device`
+<HttpEndpoint method="GET" url="https://api.doordeck.com/device" />
 
 ### Example
 

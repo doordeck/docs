@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--post
 sidebar_position: 3
 ---
 
@@ -12,7 +13,7 @@ This endpoint refreshes a users' authentication token using their refresh token.
 
 ### HTTP Request
 
-`POST https://api.doordeck.com/auth/token/refresh`
+<HttpEndpoint method="POST" url="https://api.doordeck.com/auth/token/refresh" />
 
 :::info
 A refresh token should be used in place of an authentication token for this request.

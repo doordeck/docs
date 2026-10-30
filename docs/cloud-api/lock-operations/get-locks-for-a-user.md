@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--get
 sidebar_position: 7
 ---
 
@@ -9,7 +10,7 @@ enrolled on, the list will only show locks where the current user is an administ
 
 ### HTTP Request
 
-`GET https://api.doordeck.com/user/USER_ID/`
+<HttpEndpoint method="GET" url="https://api.doordeck.com/user/USER_ID/" />
 
 ### Example
 

@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--delete
 sidebar_position: 9
 ---
 
@@ -12,7 +13,7 @@ Deletes an auth issuer.
 
 ### HTTP Request
 
-`DELETE https://api.doordeck.com/platform/application/APPLICATION_ID/auth/issuer`
+<HttpEndpoint method="DELETE" url="https://api.doordeck.com/platform/application/APPLICATION_ID/auth/issuer" />
 
 ### Request Parameters
 

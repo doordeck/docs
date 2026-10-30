@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--get
 sidebar_position: 18
 ---
 
@@ -7,7 +8,7 @@ sidebar_position: 18
 This endpoint returns the names and IDs of locks where the current user is an administrator.
 
 ### HTTP Request
-`GET https://api.doordeck.com/device/shareable`
+<HttpEndpoint method="GET" url="https://api.doordeck.com/device/shareable" />
 
 ### Example
 

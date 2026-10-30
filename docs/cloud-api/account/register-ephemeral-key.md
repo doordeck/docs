@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--post
 sidebar_position: 5
 ---
 
@@ -16,7 +17,7 @@ indicate this by returning a 423 error.
 The certificate chain returned should be used in the ```x5c``` field when performing signed requests such as unlocking.
 
 ### HTTP Request
-`POST https://api.doordeck.com/auth/certificate`
+<HttpEndpoint method="POST" url="https://api.doordeck.com/auth/certificate" />
 
 ### Request Parameters
 
