@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--put
 sidebar_position: 4
 ---
 
@@ -9,7 +10,7 @@ associated to any other locks.
 
 ### HTTP Request
 
-`PUT https://api.doordeck.com/device/DEVICE_ID/tile/TILE_ID/`
+<HttpEndpoint method="PUT" url="https://api.doordeck.com/device/DEVICE_ID/tile/TILE_ID/" />
 
 ### Example
 

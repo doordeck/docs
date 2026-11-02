@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--get
 sidebar_position: 17
 ---
 
@@ -7,7 +8,7 @@ sidebar_position: 17
 The endpoint returns a list of the current user's pinned locks.
 
 ### HTTP Request
-`GET https://api.doordeck.com/device/favourite`
+<HttpEndpoint method="GET" url="https://api.doordeck.com/device/favourite" />
 
 ### Example
 

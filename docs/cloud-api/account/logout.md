@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--post
 sidebar_position: 4
 ---
 
@@ -11,7 +12,7 @@ This endpoint is only available when the authentication token used specifies a s
 This endpoint destroys a session associated with an authentication token and any associated refresh token.
 
 ### HTTP Request
-`POST https://api.doordeck.com/auth/token/destroy`
+<HttpEndpoint method="POST" url="https://api.doordeck.com/auth/token/destroy" />
 
 ### Example
 

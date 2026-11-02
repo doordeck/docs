@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--put
 sidebar_position: 6
 ---
 
@@ -13,7 +14,7 @@ The behavior of this endpoint is as follows:
 
 ### HTTP Request
 
-`PUT https://api.doordeck.com/tile/{tileId}`
+<HttpEndpoint method="PUT" url="https://api.doordeck.com/tile/{tileId}" />
 
 ### Request Headers
 

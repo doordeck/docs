@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--post
 sidebar_position: 1
 ---
 
@@ -15,7 +16,7 @@ The user creating the application will automatically be assigned as the owner.
 
 ### HTTP Request
 
-`POST https://api.doordeck.com/platform/application`
+<HttpEndpoint method="POST" url="https://api.doordeck.com/platform/application" />
 
 ### Request Parameters
 

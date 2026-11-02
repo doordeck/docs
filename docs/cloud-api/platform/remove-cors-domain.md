@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--delete
 sidebar_position: 11
 ---
 
@@ -12,7 +13,7 @@ Remove CORS domain.
 
 ### HTTP Request
 
-`DELETE https://api.doordeck.com/platform/application/APPLICATION_ID/cors`
+<HttpEndpoint method="DELETE" url="https://api.doordeck.com/platform/application/APPLICATION_ID/cors" />
 
 ### Request Parameters
 

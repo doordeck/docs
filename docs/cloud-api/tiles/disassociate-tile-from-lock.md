@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--delete
 sidebar_position: 5
 ---
 
@@ -8,7 +9,7 @@ The endpoint removes the relationship between a tile and a lock, the tile can th
 
 ### HTTP Request
 
-`DELETE https://api.doordeck.com/device/DEVICE_ID/tile/TILE_ID/`
+<HttpEndpoint method="DELETE" url="https://api.doordeck.com/device/DEVICE_ID/tile/TILE_ID/" />
 
 ### Example
 

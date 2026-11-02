@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--post
 sidebar_position: 16
 ---
 
@@ -9,7 +10,7 @@ This section explains how to change on-lock settings, such as unlock time and op
 
 ### HTTP Request
 
-`POST https://api.doordeck.com/device/LOCK_ID/execute`
+<HttpEndpoint method="POST" url="https://api.doordeck.com/device/LOCK_ID/execute" />
 
 :::tip[Success]
 If a request expires within the next 60 seconds, a 200 is returned upon success, if a request expires in more than 60 seconds, a 202 is returned to indicate the request has been queued for the device.

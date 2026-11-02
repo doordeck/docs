@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--post
 sidebar_position: 10
 ---
 
@@ -11,7 +12,7 @@ This endpoint is only available to users with Sentry Interactive issued auth tok
 This endpoint is used to allow a user to change their password.
 
 ### HTTP Request
-`POST https://api.doordeck.com/account/password`
+<HttpEndpoint method="POST" url="https://api.doordeck.com/account/password" />
 
 ### Request Parameters
 

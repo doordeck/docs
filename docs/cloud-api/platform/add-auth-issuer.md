@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--post
 sidebar_position: 8
 ---
 
@@ -14,7 +15,7 @@ application.
 
 ### HTTP Request
 
-`POST https://api.doordeck.com/platform/application/APPLICATION_ID/auth/issuer`
+<HttpEndpoint method="POST" url="https://api.doordeck.com/platform/application/APPLICATION_ID/auth/issuer" />
 
 ### Request Parameters
 

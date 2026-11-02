@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--get
 sidebar_position: 5
 ---
 
@@ -8,7 +9,7 @@ This endpoint retrieves all log events associated with a particular user, it use
 
 ### HTTP Request
 
-`GET https://api.doordeck.com/user/USER_ID/log?start=0000&end=0000`
+<HttpEndpoint method="GET" url="https://api.doordeck.com/user/USER_ID/log?start=0000&end=0000" />
 
 ### Example
 

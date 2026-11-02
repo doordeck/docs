@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--post
 sidebar_position: 7
 ---
 
@@ -8,7 +9,7 @@ This endpoint is used to check the verification code sent to a use, it requires 
 code so that Sentry Interactive is sure the same ephemeral key is used.
 
 ### HTTP Request
-`POST https://api.doordeck.com/auth/certificate/check`
+<HttpEndpoint method="POST" url="https://api.doordeck.com/auth/certificate/check" />
 
 ### Request Parameters
 
