@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--get
 sidebar_position: 14
 ---
 
@@ -12,7 +13,7 @@ This endpoint will return the details of all owners of an application (see json 
 
 ### HTTP Request
 
-`GET https://api.doordeck.com/platform/application/APPLICATION_ID/owner`
+<HttpEndpoint method="GET" url="https://api.doordeck.com/platform/application/APPLICATION_ID/owner" />
 
 ### Request Parameters
 

@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--get
 sidebar_position: 1
 ---
 
@@ -8,7 +9,7 @@ This endpoint lists all the sites a user has access to.
 
 ### HTTP Request
 
-`GET https://api.doordeck.com/site/`
+<HttpEndpoint method="GET" url="https://api.doordeck.com/site/" />
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

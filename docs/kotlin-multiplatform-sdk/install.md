@@ -21,7 +21,7 @@ implementation("com.doordeck.headless.sdk:doordeck-sdk:[SDK_VERSION]")
 ```
 
 :::info[Requirements]
-* Supported Platforms: JVM, Android, jsNode, jsBrowser, iOS (x64, ARM x64, simulator ARM x64), macOS (ARM x64), watchOS (x64, ARM x64, device ARM x64, simulator ARM x64) and mingW (x64).
+* Supported Platforms: JVM, Android, jsNode, jsBrowser, iOS (ARM64, simulator ARM64), macOS (ARM64), watchOS (ARM64, device ARM64, simulator ARM64) and mingW (x64).
 * Java SDK 1.8 or higher.
 :::
 
@@ -64,12 +64,8 @@ implementation("com.doordeck.headless.sdk:doordeck-sdk-android:[SDK_VERSION]")
 </TabItem>
 <TabItem value="swift" label="Swift">
 
-The iOS, macOS and watchOS packages are available via [CocoaPods](https://cocoapods.org/pods/DoordeckSDK) and [Swift Package Manager (SPM)](https://github.com/doordeck/doordeck-headless-sdk-spm).
+The iOS, macOS and watchOS packages are available via [Swift Package Manager (SPM)](https://github.com/doordeck/doordeck-headless-sdk-spm).
 
-#### Cocoapods
-```pod 'DoordeckSDK', '~> [SDK_VERSION]'```
-
-#### Swift Package manager
 1. In Xcode, select **File > Add Package Dependencies...**.
 2. Enter the URL: [https://github.com/doordeck/doordeck-headless-sdk-spm](https://github.com/doordeck/doordeck-headless-sdk-spm).
 3. Choose **Up to next major version** from the dependency rule dropdown, and click **Add Package**.

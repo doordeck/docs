@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--post
 sidebar_position: 12
 ---
 
@@ -12,7 +13,7 @@ Adds a new owner to an existing application.
 
 ### HTTP Request
 
-`POST https://api.doordeck.com/platform/application/APPLICATION_ID/owner`
+<HttpEndpoint method="POST" url="https://api.doordeck.com/platform/application/APPLICATION_ID/owner" />
 
 ### Request Parameters
 

@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--delete
 sidebar_position: 5
 ---
 
@@ -16,7 +17,7 @@ This operation is irreversible!
 
 ### HTTP Request
 
-`DELETE https://api.doordeck.com/platform/application/APPLICATION_ID`
+<HttpEndpoint method="DELETE" url="https://api.doordeck.com/platform/application/APPLICATION_ID" />
 
 ### Example
 

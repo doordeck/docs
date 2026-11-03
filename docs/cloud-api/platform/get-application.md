@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--get
 sidebar_position: 3
 ---
 
@@ -12,7 +13,7 @@ Gets the application specified by application ID.
 
 ### HTTP Request
 
-`GET https://api.doordeck.com/platform/application/APPLICATION_ID`
+<HttpEndpoint method="GET" url="https://api.doordeck.com/platform/application/APPLICATION_ID" />
 
 ### Example
 

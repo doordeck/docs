@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--post
 sidebar_position: 2
 ---
 
@@ -13,7 +14,7 @@ a pending invite (unless force is set to true).
 
 ### HTTP Request
 
-`POST https://api.doordeck.com/auth/register`
+<HttpEndpoint method="POST" url="https://api.doordeck.com/auth/register" />
 
 ### Request Headers
 

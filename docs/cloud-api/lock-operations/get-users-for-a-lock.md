@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--get
 sidebar_position: 6
 ---
 
@@ -8,7 +9,7 @@ This endpoint retrieves all users associated with a particular lock.
 
 ### HTTP Request
 
-`GET https://api.doordeck.com/device/LOCK_ID/users`
+<HttpEndpoint method="GET" url="https://api.doordeck.com/device/LOCK_ID/users" />
 
 ### Example
 

@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--post
 sidebar_position: 12
 ---
 
@@ -7,7 +8,7 @@ sidebar_position: 12
 This endpoint updates a user's details, currently this is limited to display name.
 
 ### HTTP Request
-`POST https://api.doordeck.com/account`
+<HttpEndpoint method="POST" url="https://api.doordeck.com/account" />
 
 ### Request Parameters
 

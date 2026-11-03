@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--get
 sidebar_position: 15
 ---
 
@@ -11,7 +12,7 @@ Requesting user must be an application owner.
 
 ### HTTP Request
 
-`GET https://api.doordeck.com/platform/application/APPLICATION_ID/user`
+<HttpEndpoint method="GET" url="https://api.doordeck.com/platform/application/APPLICATION_ID/user" />
 
 ### Request Parameters
 

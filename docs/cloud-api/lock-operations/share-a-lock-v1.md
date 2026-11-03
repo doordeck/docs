@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--post
 sidebar_position: 13
 ---
 
@@ -8,7 +9,7 @@ This endpoint allows operations to be performed on a lock, such as lock, unlock,
 
 ### HTTP Request
 
-`POST https://api.doordeck.com/device/LOCK_ID/execute`
+<HttpEndpoint method="POST" url="https://api.doordeck.com/device/LOCK_ID/execute" />
 
 :::tip[Success]
 If a request expires within the next 60 seconds, a 204 is returned upon success, if a request expires in more than 60 seconds, a 202 is returned to indicate the request has been queued for the device.

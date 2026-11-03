@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--post
 sidebar_position: 4
 ---
 
@@ -12,7 +13,7 @@ Updates any of the fields defined in the initial [create application](./create-a
 
 ### HTTP Request
 
-`POST https://api.doordeck.com/platform/application/APPLICATION_ID`
+<HttpEndpoint method="POST" url="https://api.doordeck.com/platform/application/APPLICATION_ID" />
 
 ### Example
 

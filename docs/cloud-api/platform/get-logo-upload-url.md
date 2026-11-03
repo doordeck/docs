@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--post
 sidebar_position: 6
 ---
 
@@ -12,7 +13,7 @@ Gets a pre-signed URL ready for uploading the application logo to.
 
 ### HTTP Request
 
-`POST https://api.doordeck.com/platform/application/APPLICATION_ID/logo`
+<HttpEndpoint method="POST" url="https://api.doordeck.com/platform/application/APPLICATION_ID/logo" />
 
 ### Request Parameters
 

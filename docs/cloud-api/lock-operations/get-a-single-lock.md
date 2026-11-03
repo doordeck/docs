@@ -1,4 +1,5 @@
 ---
+sidebar_class_name: api-method api-method--get
 sidebar_position: 2
 ---
 
@@ -8,7 +9,7 @@ This endpoint retrieves information about a specific lock, its usage is preferre
 
 ### HTTP Request
 
-`GET https://api.doordeck.com/device/LOCK_ID`
+<HttpEndpoint method="GET" url="https://api.doordeck.com/device/LOCK_ID" />
 
 ### Example
 

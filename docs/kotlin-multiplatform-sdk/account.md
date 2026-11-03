@@ -6,11 +6,12 @@
 This function is only available to users with Sentry Interactive issued auth tokens.
 :::
 
-:::info 
-* When used successfully, the **cloud auth token** and **cloud refresh token** 
-from the response are added to the [context manager](context-manager.md) and automatically stored in [secure storage](initialize.md#secure-storage).
-* This function can be used with the [refresh token](context-manager.md#set-cloud-refresh-token) value from the context. 
-To use the value from the context, you should pass **null** as the function parameter.
+:::info
+* When used successfully, the **cloud auth token** and **cloud refresh token**
+  from the response are added to the [context manager](context-manager.md) and automatically stored in [secure storage](initialize.md#secure-storage).
+* This function can be used with the [refresh token](context-manager.md#set-cloud-refresh-token) value from the context.
+  To use the value from the context, you should pass **null** as the function parameter.
+* The SDK also refreshes the tokens [automatically](context-manager.md#set-cloud-refresh-token).
 :::
 
 import Tabs from '@theme/Tabs';
@@ -70,7 +71,7 @@ response = await sdk.account.refresh_token("REFRESH_TOKEN")
 ## Logout
 
 :::warning
-When used, the [context manager](context-manager.md) restarts, and the values from the 
+When used, the [context manager](context-manager.md) restarts, and the values from the
 [secure storage](initialize.md#secure-storage) are automatically deleted.
 :::
 
@@ -130,11 +131,11 @@ await sdk.account.logout()
 To register a new ephemeral key, you will need to [generate a new key pair](crypto.md#generate-a-key-pair).
 
 :::info
-* When used successfully, both the supplied **private** and **public keys** are added to the 
-[context manager](context-manager.md) and automatically stored in [secure storage](initialize.md#secure-storage), 
-along with the **user ID** and **user certificate chain** from the response.
-* If your [context manager](context-manager.md) already has public and private keys, you can pass **null** 
-for those parameters, and those values will be retrieved from the [context manager](context-manager.md) instead.
+* When used successfully, both the supplied **private** and **public keys** are added to the
+  [context manager](context-manager.md) and automatically stored in [secure storage](initialize.md#secure-storage),
+  along with the **user ID** and **user certificate chain** from the response.
+* If your [context manager](context-manager.md) already has public and private keys, you can pass **null**
+  for those parameters, and those values will be retrieved from the [context manager](context-manager.md) instead.
 :::
 
 <Tabs groupId="programming-language">
@@ -202,12 +203,12 @@ response = await sdk.account.register_ephemeral_key(
 
 ## Register ephemeral key with secondary authentication
 
-To register a new ephemeral key with secondary authentication, 
-you will need to [generate a new key pair](crypto.md#generate-a-key-pair). 
+To register a new ephemeral key with secondary authentication,
+you will need to [generate a new key pair](crypto.md#generate-a-key-pair).
 After the registration, you will need to [verify the ephemeral key registration](#verify-ephemeral-key-registration).
 
-:::info 
-If your [context manager](context-manager.md) already has public key, you can pass **null** for that parameter, 
+:::info
+If your [context manager](context-manager.md) already has public key, you can pass **null** for that parameter,
 and the value will be retrieved from the [context manager](context-manager.md) instead.
 :::
 
@@ -268,11 +269,11 @@ response = await sdk.account.register_ephemeral_key_with_secondary_authenticatio
 ## Verify ephemeral key registration
 
 :::info
-* When used successfully, both the supplied **private** and **public keys** are added to the [context manager](context-manager.md) 
-and automatically stored in [secure storage](initialize.md#secure-storage), 
-along with the **user ID** and **user certificate chain** from the response.
-* If your [context manager](context-manager.md) already has public and private keys, you can pass **null** 
-for those parameters, and those values will be retrieved from the [context manager](context-manager.md) instead.
+* When used successfully, both the supplied **private** and **public keys** are added to the [context manager](context-manager.md)
+  and automatically stored in [secure storage](initialize.md#secure-storage),
+  along with the **user ID** and **user certificate chain** from the response.
+* If your [context manager](context-manager.md) already has public and private keys, you can pass **null**
+  for those parameters, and those values will be retrieved from the [context manager](context-manager.md) instead.
 :::
 
 <Tabs groupId="programming-language">
@@ -586,8 +587,9 @@ This operation is executed instantly and is irreversible.
 :::
 
 :::info
-When used, the [context manager](context-manager.md) restarts, and the values 
-from the [secure storage](initialize.md#secure-storage) are automatically deleted.
+When used successfully, the [context manager](context-manager.md) restarts, and the values
+from the [secure storage](initialize.md#secure-storage) are automatically deleted. If the request fails, the
+context is kept.
 :::
 
 <Tabs groupId="programming-language">
