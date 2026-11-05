@@ -19,14 +19,13 @@ but if the user wants to use a new device, they need a new ephemeral key (unless
 ephemeral key from the other device, such as through keychain sync), in this case Sentry Interactive may want to verify the user 
 is who they claim - we tell you about this through the use of HTTP 423.
 
-We have a few options for verifying the user, email, SMS or a phone call - all of these are white labelled (or barely 
-labelled at all) so it looks like it's coming from your App rather than from Sentry Interactive - we'll try and select the most 
-appropriate communication method based on the fields you've provided in the OpenID auth token, we'll look for a verified
-communication method with preference for email then SMS as this is what user's have come to expect, but you can override
-this. Let's ask for a secondary authentication code to be SMS' to us:
+We verify the user by emailing them a verification code - the email is white labelled (or barely labelled at all) so
+it looks like it's coming from your App rather than from Sentry Interactive. The code is sent to the email address in the
+OpenID auth token, so the token must include an email address for the user to complete a secondary authentication check.
+Let's ask for a secondary authentication code to be emailed to us:
 
 ```shell
-curl "https://api.doordeck.com/auth/certificate/verify?method=SMS"  \
+curl "https://api.doordeck.com/auth/certificate/verify"  \
   -X POST \
   -H "Authorization: Bearer $TOKEN" \
   -H 'content-type: application/json' \
@@ -36,17 +35,9 @@ curl "https://api.doordeck.com/auth/certificate/verify?method=SMS"  \
 You'll note, that just like when we registered the ephemeral key last time, we need to specify the entire ephemeral key 
 at the start of the verification process.
 
-If your OpenID auth token includes the telephone field and has marked it as verified, you should receive an SMS shortly
-- the code in the SMS is valid for 5 minutes.
+You should receive an email shortly - the code in the email is valid for 5 minutes.
 
-You can remove `?method=SMS` and Sentry Interactive will auto-select a method, or you can specify one of the following:
-
-- `SMS` - Send an SMS to the user
-- `TELEPHONE` - Call the user and read out the code
-- `EMAIL` - Email the user
-
-Bear in mind, if you specify a method but don't have the corresponding field in the OpenID auth token, you'll get an 
-error message.
+If the OpenID auth token doesn't include an email address, you'll get an error message.
 
 After acquiring the verification code from the user, you should sign it with your ephemeral key - almost exactly like 
 you'd sign the JWT used in the unlock request from the previous guide, but this time we need standard Base64 encoding 

@@ -5,9 +5,8 @@ sidebar_position: 6
 
 # Register Ephemeral Key With Secondary Authentication
 
-This endpoint is used to register ephemeral keys for users, it will start a secondary authentication flow using email,
-SMS, or telephone - the service will pick the most appropriate method based on the contents of the provided
-auth token or it can be specified as a query parameter.
+This endpoint is used to register ephemeral keys for users, it will start a secondary authentication flow by emailing
+a verification code to the email address in the provided auth token.
 
 ### HTTP Request
 <HttpEndpoint method="POST" url="https://api.doordeck.com/auth/certificate/verify" />
@@ -17,12 +16,6 @@ auth token or it can be specified as a query parameter.
 | Parameter    | Required | Description                          |
 |--------------|----------|--------------------------------------|
 | ephemeralKey | true     | Base64 encoded ephemeral Ed25519 key |
-
-### Query Parameters
-
-| Parameter | Required | Description                  |
-|-----------|----------|------------------------------|
-| method    | false    | One of EMAIL, TELEPHONE, SMS |
 
 ### Example
 
