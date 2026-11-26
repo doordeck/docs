@@ -59,8 +59,8 @@ curl 'https://api.doordeck.com/platform/application/APPLICATION_ID' \
   "appLink":null,
   "slug":null,
   "emailPreferences":{
-    "senderEmail":"info@doordeck.com",
-    "senderName":"Doordeck",
+    "senderEmail":"no-reply@sentryinteractive.com",
+    "senderName":"Sentry Interactive",
     "primaryColour":"#00283C",
     "secondaryColour":"#45BDD1",
     "onlySendEssentialEmails":false,
