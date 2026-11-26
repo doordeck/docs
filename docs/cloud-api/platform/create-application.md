@@ -35,12 +35,14 @@ The email preferences object is formed of the following fields
 
 | Parameter               | Required                                           | Description                                               |
 |-------------------------|----------------------------------------------------|-----------------------------------------------------------|
-| senderEmail             | false (defaults to no-reply@sentryinteractive.com) | Email address to use when sending emails to users'        |
+| senderEmail             | false (defaults to no-reply@sentryinteractive.com) | Reply-to address for emails sent to users                 |
 | senderName              | false (defaults to Sentry Interactive)             | Email name to use when emailing users'                    |
 | primaryColour           | false (defaults to #00283C)                        | Primary colouring for email                               |
 | secondaryColour         | false (defaults to #45BDD1)                        | Secondary colouring for email                             |
 | onlySendEssentialEmails | false (defaults to false)                          | Restrict the emails to be sent to only the essential ones |
 | callToAction            | false                                              | See call to action definition                             |
+
+Emails are always sent from `no-reply@sentryinteractive.com`, with `senderName` as the display name. A custom `senderEmail` is used as the reply-to address; with the default, emails have no reply-to address.
 
 The call to action is formed of the following fields
 
